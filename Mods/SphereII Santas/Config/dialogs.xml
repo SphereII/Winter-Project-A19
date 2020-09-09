@@ -1,0 +1,195 @@
+<!--Created using the 7 Days To Dialog Application-->
+<configs>
+  <append xpath="/dialogs">
+    <dialog id="Santa Claus" startstatementid="start">
+      <statement id="start" text="Hello Survivor!">
+        <response_entry id="responseID_1889839326" ref_text="Something happened to me the other day." />
+        <response_entry id="responseID_-2039049329" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_2051955206" text="Oh? What happened?">
+        <response_entry id="responseID_-1964469062" ref_text="I saw a very strange video" />
+        <response_entry id="responseID_1995874780" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-1055092549" text="Can you describe the video?">
+        <response_entry id="responseID_-1096595522" ref_text="There was static  on the video, and a glowing ring." />
+        <response_entry id="responseID_-897105808" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_1762800986" text="Oh! That sounds like Samara's video. That doesn't bode well for you, my friend.">
+        <response_entry id="responseID_-536202692" ref_text="How do I get rid of it?" />
+        <response_entry id="responseID_-1457430882" ref_text="Who is Samara?" />
+        <response_entry id="responseID_1830154502" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_292732104" text="Samara Morgan was her name. She was adopted a long time ago by Anna and Richard Morgan from Moeski Island. They were horse breeders, from what I can recall. That is, until tragic events happened.">
+        <response_entry id="responseID_-1041272651" ref_text="What tragic event?" />
+        <response_entry id="responseID_-1489016552" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_1832118435" text="I don't know the stories very well, but strange things started happening on the island as Samara got older. Things came to ahead when they lost all their horses, and Samara and Anna were sent away to the hospital for a stay.">
+        <response_entry id="responseID_-1176222492" ref_text="Did they get better after the hospital stay?" />
+        <response_entry id="responseID_397607024" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_1001136460" text="No, I don't think they did. They came back but things still weren't right. Last I heard was they went on vacation with Samara as a way to relax and find peace. Anna and Richard came back, but Samara didn't.">
+        <response_entry id="responseID_259476758" ref_text="What happened to Anna and Richard?" />
+        <response_entry id="responseID_1188713183" ref_text="What happened to Samara?" />
+        <response_entry id="responseID_-1912412291" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_1653843751" text="No idea. From what I heard, no one asked, no one cared. " nextstatementid="statement_1001136460" />
+      <statement id="statement_2063843941" text="A while after they came back without Samara, Anna was found at the bottom of the cliff; appearantly a suicide. Not sure about Richard. I haven't heard from him in years." nextstatementid="statement_1001136460" />
+      <statement id="statement_1177502279" text="That's the thing about curses, right? How do you get rid of them. I've only heard about little bits and pieces about Samara. But I think if we work together, we can figure her out. If not, well, you'll be dead, and I'll be alright. Nothing to lose, right?">
+        <response_entry id="responseID_492189568" ref_text="I lost the diary." />
+        <response_entry id="responseID_-65611192" ref_text="I have the diary." />
+        <response_entry id="responseID_-2040980889" ref_text="What do I need to do?" />
+        <response_entry id="responseID_-1961060122" ref_text="What do I need to do?" />
+        <response_entry id="responseID_1251227836" ref_text="What do I need to do?" />
+        <response_entry id="responseID_-228028190" ref_text="What do I need to do?" />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_575854634" text="So is your future, bud.">
+        <response_entry id="responseID_1146958152" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-519986495" text="There's a diary that was kept. I don't know who's, but I do know that Richard tried to destroy and hide it. Rumour was, he couldn't do it. Maybe if we found it...">
+        <response_entry id="responseID_1849916696" ref_text="I don't want to look for it. Tell me how else to get rid of it?" />
+        <response_entry id="responseID_-1742798020" ref_text="I'll look for it. " />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-1859044399" text="Good luck." nextstatementid="statement_-519986495" />
+      <statement id="statement_1919753745" text="Impatient eh? How about 500 dukes?">
+        <response_entry id="responseID_2117872758" ref_text="That's a rip off!" />
+        <response_entry id="responseID_1583725901" ref_text="I don't have the money" />
+        <response_entry id="responseID_450909793" ref_text="Here's the 500 dukes." />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-1893866775" text="You idiot. Do you not know how curses work? Find the damn diary.">
+        <response_entry id="responseID_-1126011483" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-1462251903" text="Poor people are always struggling. You best find the diary.">
+        <response_entry id="responseID_1501234670" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-922604090" text="Maybe. Maybe not. You'll be dead, and I'll be fine.">
+        <response_entry id="responseID_-40249684" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-455566351" text="I've been reading the diary over and over. A lot of it his a jumble of thoughts, drawings and scribbles. See this page? Full of horse scribbles marked with huge Xs. She must have hated horses. I wonder if that means something?">
+        <response_entry id="responseID_-1040325213" ref_text="What should I do?" />
+        <response_entry id="responseID_-2004978427" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_1136233323" text="Samara got a rough cut in life, didn't she? No question, she was evil, but she didn't have an easy life. Abandoned by her mother, who tried to kill her. She was adopted, but had to live in a barn?  Rough cut.">
+        <response_entry id="responseID_1008213386" ref_text="She shared that barn with the horses, didn't she?" />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-789875025" text="I found something in the back of the diary. It's not Samara's writing though; it might be Richard's or Anna's. Strangest thing, it sounds like it came from Samara, but no question, the printing is different.">
+        <response_entry id="responseID_1579031834" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_2028693036" text="'She' writes about how they went up to Shelter Mountain and had a wonderful time. 'She' even drew a picture of the cabin she stayed in, number 12. Small little shack, by the looks of it. Had a small little well in behind it for their water.">
+        <response_entry id="responseID_1021423929" ref_text="What should we do?" />
+        <response_entry id="responseID_469305779" ref_text="Why do you think someone else wrote it?" />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_590911003" text="Samara had two different types of writing. One more childish, while the other one was pretty jagged writing. This new writing though, is a lot more mature. It's still unsteady hand writing, but the words sound like its from someone older.">
+        <response_entry id="responseID_-304821270" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_73408659" text="Shelter Mountain isn't too far away. I wonder if you can find the cabin and check it out. I'm not sure if there will be much left to it, to be honest.">
+        <response_entry id="responseID_1950795626" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-458481173" text="There's a lot of emotion in this book. Just holding it, I can feel my temper rising, and a seen of sadness.  If Samara is dead, and is tied to this world, why? Can a spirit stay connected to the world based on pure hate?">
+        <response_entry id="responseID_1380062595" ref_text="What do you think it means?" />
+        <response_entry id="responseID_-1795958644" ref_text="I don't believe in spirits." />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-964967234" text="I don't think it matters. " nextstatementid="statement_-458481173" />
+      <statement id="statement_1077601782" text="Well, I think she hated horses. If you find some horses, I'd try to destroy them. Maybe she'll sense it, and leave you alone." nextstatementid="statement_-458481173" />
+      <statement id="statement_1063432958" text="Yes, she did. It sounds like she had a room above them. She didn't have much belongings, you know, in that barn. They must have meant a lot to her.">
+        <response_entry id="responseID_-1502099098" ref_text="What should we do?" />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_2035626429" text="That's great! Let me see if I can figure this out for you.">
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-1694384393" text="It's not a cook book, for sure. A lot of it is just random doodles, scribbles of half ideas. Just holding the book gives me shivers. There's a lot of emotion trapped in this book.">
+        <response_entry id="responseID_-2113631476" ref_text="How can emotion be trapped in a book?" />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_-770252082" text="I don't know. It's above my pay grade for sure. But take a look at these scribbles. That looks like some kind of church tower, and there's a drawing of a nun. On the margin here, it lists an orphange. Maybe you can find some stuff from her past.">
+        <response_entry id="responseID_-1467113734" ref_text="How would I know what items are about her past?" />
+        <response_entry id="nevermind" ref_text="Never mind" />
+      </statement>
+      <statement id="statement_1036674533" text="If they are anything like this book, I think you'll know it when you find one. Good luck." nextstatementid="statement_-770252082" />
+      <statement id="statement_1257455475" text="Knucle head." nextstatementid="statement_1177502279" />
+      <statement id="statement_-1414489602" text="Samara didn't have much. She wrote about her hairbruch and her dress as her only things she owned. She cherished them. Find them, destroy them." nextstatementid="statement_1063432958" />
+      <response id="responseID_1889839326" text="Something happened to me the other day." nextstatementid="statement_2051955206">
+        <requirement type="HasBuffSDX, Mods" value="buffCursed" requirementtype="Hide" Hash="Requirement_-979058826" />
+      </response>
+      <response id="responseID_397607024" text="Never mind" nextstatementid="statement_1762800986" />
+      <response id="responseID_1995874780" text="Never mind" nextstatementid="start" />
+      <response id="responseID_-1096595522" text="There was static  on the video, and a glowing ring." nextstatementid="statement_1762800986" />
+      <response id="responseID_1188713183" text="What happened to Samara?" nextstatementid="statement_1653843751" />
+      <response id="responseID_259476758" text="What happened to Anna and Richard?" nextstatementid="statement_2063843941" />
+      <response id="responseID_-1912412291" text="Never mind" nextstatementid="statement_1832118435" />
+      <response id="responseID_-1457430882" text="Who is Samara?" nextstatementid="statement_292732104" />
+      <response id="responseID_-1041272651" text="What tragic event?" nextstatementid="statement_1832118435" />
+      <response id="responseID_-1176222492" text="Did they get better after the hospital stay?" nextstatementid="statement_1001136460" />
+      <response id="responseID_-1964469062" text="I saw a very strange video" nextstatementid="statement_-1055092549">
+        <requirement type="HasBuffSDX, Mods" value="buffCursedSamaraMorgan" requirementtype="Hide" Hash="Requirement_-1648598083" />
+      </response>
+      <response id="responseID_-2039049329" text="Never mind" />
+      <response id="responseID_-897105808" text="Never mind" nextstatementid="start" />
+      <response id="responseID_1830154502" text="Never mind" nextstatementid="start" />
+      <response id="responseID_-1489016552" text="Never mind" nextstatementid="start" />
+      <response id="responseID_1884927979" text="That's kind of grim..." nextstatementid="statement_575854634" />
+      <response id="nevermind" text="Never mind" />
+      <response id="responseID_1146958152" text="Never mind" nextstatementid="statement_1177502279" />
+      <response id="responseID_-228028190" text="What do I need to do?" nextstatementid="statement_-519986495">
+        <requirement type="HasCVarSDX, Mods" value="0" requirementtype="Hide" operator="EQ" id="quest_Samara_Diary" Hash="Requirement_-96261973" />
+      </response>
+      <response id="responseID_-1742798020" text="I'll look for it. " nextstatementid="statement_-1859044399">
+        <action type="GiveQuestSDX, Mods" id="quest_Samara_Diary01" />
+      </response>
+      <response id="responseID_1849916696" text="I don't want to look for it. Tell me how else to get rid of it?" nextstatementid="statement_1919753745" />
+      <response id="responseID_450909793" text="Here's the 500 dukes." nextstatementid="statement_-1893866775">
+        <requirement type="HasItemSDX, Mods" value="500" requirementtype="Hide" id="casinoCoin" Hash="Requirement_305762375" />
+        <action type="GiveToNPC, Mods" id="casinoCoin" value="500" />
+      </response>
+      <response id="responseID_1583725901" text="I don't have the money" nextstatementid="statement_-1462251903" />
+      <response id="responseID_2117872758" text="That's a rip off!" nextstatementid="statement_-922604090" />
+      <response id="responseID_-40249684" text="Never mind" nextstatementid="statement_-519986495" />
+      <response id="responseID_1501234670" text="Never mind" nextstatementid="statement_-519986495" />
+      <response id="responseID_-1126011483" text="Never mind" nextstatementid="statement_-519986495" />
+      <response id="responseID_95882368" text="I have the diary." nextstatementid="statement_2035626429">
+        <requirement type="HasItemSDX, Mods" value="1" requirementtype="Hide" id="SamaraMorganDiary01" Hash="Requirement_312342928" />
+        <action type="GiveToNPC, Mods" id="SamaraMorganDiary01" value="1" />
+      </response>
+      <response id="responseID_1251227836" text="What do I need to do?" nextstatementid="statement_-455566351">
+        <requirement type="HasCVarSDX, Mods" value="1" requirementtype="Hide" operator="EQ" id="quest_Samara_Diary" Hash="Requirement_1469821968" />
+      </response>
+      <response id="responseID_-2004978427" text="Never mind" nextstatementid="statement_1177502279" />
+      <response id="responseID_-1961060122" text="What do I need to do?" nextstatementid="statement_1136233323">
+        <requirement type="HasCVarSDX, Mods" value="2" requirementtype="Hide" operator="EQ" id="quest_Samara_Diary" Hash="Requirement_-1259061387" />
+      </response>
+      <response id="responseID_-2040980889" text="What do I need to do?" nextstatementid="statement_-789875025">
+        <requirement type="HasCVarSDX, Mods" value="3" requirementtype="Hide" operator="EQ" id="quest_Samara_Diary" Hash="Requirement_307022554" />
+      </response>
+      <response id="responseID_469305779" text="Why do you think someone else wrote it?" nextstatementid="statement_590911003" />
+      <response id="responseID_1579031834" text="Never mind" nextstatementid="statement_1136233323" />
+      <response id="responseID_-304821270" text="Never mind" nextstatementid="statement_2028693036" />
+      <response id="responseID_1021423929" text="What should we do?" nextstatementid="statement_73408659" />
+      <response id="responseID_-1040325213" text="What should I do?" nextstatementid="statement_-458481173" />
+      <response id="responseID_-1795958644" text="I don't believe in spirits." nextstatementid="statement_1177502279" />
+      <response id="responseID_1380062595" text="What do you think it means?" nextstatementid="statement_1077601782" />
+      <response id="responseID_1008213386" text="She shared that barn with the horses, didn't she?" nextstatementid="statement_1063432958" />
+      <response id="responseID_1950795626" text="Never mind" />
+      <response id="responseID_-2113631476" text="How can emotion be trapped in a book?" nextstatementid="statement_-770252082" />
+      <response id="responseID_-1467113734" text="How would I know what items are about her past?" nextstatementid="statement_1036674533">
+        <action type="AddCVar, Mods" id="curseSamaraMorganPictures" value="0" operator="set" />
+      </response>
+      <response id="responseID_-858108138" text="What do I need to do?" nextstatementid="statement_1177502279" />
+      <response id="responseID_-65611192" text="I have the diary." nextstatementid="statement_2035626429">
+        <requirement type="HasItemSDX, Mods" value="1" requirementtype="Hide" id="SamaraMorganDiary01" Hash="Requirement_312342928" />
+        <action type="GiveToNPC, Mods" id="SamaraMorganDiary01" value="1" />
+      </response>
+      <response id="responseID_492189568" text="I lost the diary." nextstatementid="statement_1257455475">
+        <requirement type="HasFailedQuestSDX, Mods" value="quest_Samara_Diary01" requirementtype="Hide" Hash="Requirement_1701042637" />
+        <action type="GiveQuestSDX, Mods" id="quest_Samara_Diary01" />
+      </response>
+      <response id="responseID_-536202692" text="How do I get rid of it?" nextstatementid="statement_1177502279" />
+      <response id="responseID_-1502099098" text="What should we do?" nextstatementid="statement_-1414489602" />
+    </dialog>
+  </append>
+</configs>

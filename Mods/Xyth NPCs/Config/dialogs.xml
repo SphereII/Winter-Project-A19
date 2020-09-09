@@ -1,0 +1,42 @@
+<!--Created using the 7 Days To Dialog Application-->
+<configs>
+  <append xpath="/dialogs">
+    <dialog id="NPCBaker" startstatementid="start">
+      <statement id="start" text="start">
+        <response_entry id="responseID_931114803" ref_text="Do you have any good baking jokes?" />
+        <response_entry id="responseID_1376919720" ref_text="Good bye" />
+      </statement>
+      <statement id="statement_-966991271" text="statement_-966991271">
+        <response_entry id="response_-1472688090" ref_text="I don't know." />
+      </statement>
+      <statement id="statement_-343182565" text="statement_-343182565">
+        <response_entry id="responseID_-170402495" ref_text="That wasn't very funny." />
+        <response_entry id="responseID_1725004197" ref_text="Very funny! Tell me another one please!" />
+        <response_entry id="response_-590012059" ref_text="Very funny! " />
+      </statement>
+      <statement id="statement_-704499934" text="statement_-704499934">
+        <response_entry id="response_-690088810" ref_text="I don't know" />
+      </statement>
+      <statement id="statement_-668087462" text="statement_-668087462">
+        <response_entry id="responseID_-1809804802" ref_text="Haha Are you as good of a baker as you are a joker?" />
+        <response_entry id="responseID_102188234" ref_text="That wasn't very funny." />
+      </statement>
+      <statement id="statement_1714187" text="statement_1714187">
+        <response_entry id="response_636667857" ref_text="Thanks!" />
+      </statement>
+      <response id="responseID_1376919720" text="responseID_1376919720" />
+      <response id="responseID_931114803" text="responseID_931114803" nextstatementid="statement_-966991271" />
+      <response id="response_-1472688090" text="response_-1472688090" nextstatementid="statement_-343182565" />
+      <response id="response_-590012059" text="response_-590012059" nextstatementid="start" />
+      <response id="responseID_1725004197" text="responseID_1725004197" nextstatementid="statement_-704499934" />
+      <response id="response_-690088810" text="response_-690088810" nextstatementid="statement_-668087462" />
+      <response id="responseID_-170402495" text="responseID_-170402495" />
+      <response id="responseID_-1809804802" text="responseID_-1809804802" nextstatementid="statement_1714187" />
+      <response id="responseID_102188234" text="responseID_102188234" nextstatementid="start" />
+      <response id="response_636667857" text="response_636667857">
+        <action type="AddCVar, Mods" id="foodBaconAndEggs" value="1" operator="set" />
+        <action type="ShowToolTipSDX, Mods" id="The NPC has taught you how to make bacon and eggs!" />
+      </response>
+    </dialog>
+  </append>
+</configs>

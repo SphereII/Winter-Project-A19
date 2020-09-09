@@ -1,0 +1,102 @@
+<configs>
+  <append xpath="/Sounds">
+    
+<!-- Replaces Tradelikegreet -->
+    <SoundDataNode name="santagreeting">
+			<AudioSource name="Sounds/AudioSource_VO" />
+			<Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?01_A_Santa_NewYear_talk" />
+      <LocalCrouchVolumeScale name="1.0" />
+			<CrouchNoiseScale name="0.5" />
+			<NoiseScale name="1" />
+			<MaxVoices name="10" />
+			<maxVoicesPerEntity name="1" />
+			<MaxRepeatRate name="1.111" />
+		</SoundDataNode>
+
+<!-- Replaces tradelikesaccepted-->
+    <SoundDataNode name="santasaleaccepted">
+      <AudioSource name="Sounds/AudioSource_VO" />
+      <Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?02_A_HoHo" />
+      <LocalCrouchVolumeScale name="1.0" />
+      <CrouchNoiseScale name="0.5" />
+      <NoiseScale name="1" />
+      <MaxVoices name="10" />
+      <maxVoicesPerEntity name="1" />
+      <MaxRepeatRate name="1.111" />
+    </SoundDataNode>
+
+    <!-- replaces trader likes declined -->
+    <SoundDataNode name="santasaledeclined">
+      <AudioSource name="Sounds/AudioSource_VO" />
+      <Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?02_B_HaHa" />
+      <LocalCrouchVolumeScale name="1.0" />
+      <CrouchNoiseScale name="0.5" />
+      <NoiseScale name="1" />
+      <MaxVoices name="10" />
+      <maxVoicesPerEntity name="1" />
+      <MaxRepeatRate name="1.111" />
+    </SoundDataNode>
+
+    <!-- Random musings of an ancient man -->
+    <SoundDataNode name="santaidle">
+      <AudioSource name="Sounds/AudioSource_VO" />
+      <Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?01_A_Santa_NewYear_talk" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?01_B_Santa_MynameIsSantaMerryChristmas" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?01_A_Santa_WhatDoYouWant_talk" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?02_A_HoHo" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?03_B_merryxMas" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?04_A_WhatDoYouWant" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?06_HopeWishesComeTrue" />
+      <LocalCrouchVolumeScale name="1.0" />
+      <CrouchNoiseScale name="0.5" />
+      <NoiseScale name="1" />
+      <MaxVoices name="10" />
+      <maxVoicesPerEntity name="1" />
+      <MaxRepeatRate name="1.111" />
+    </SoundDataNode>
+
+    <!-- When you complete a quest -->
+    <SoundDataNode name="santarequestoffer">
+      <AudioSource name="Sounds/AudioSource_VO" />
+      <Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?01_A_Santa_WhatDoYouWant_talk" />
+      <LocalCrouchVolumeScale name="1.0" />
+      <CrouchNoiseScale name="0.5" />
+      <NoiseScale name="1" />
+      <MaxVoices name="10" />
+      <maxVoicesPerEntity name="1" />
+      <MaxRepeatRate name="1.111" />
+    </SoundDataNode>
+
+    <!-- When you complete a quest -->
+    <SoundDataNode name="santaquestcomplete">
+      <AudioSource name="Sounds/AudioSource_VO" />
+      <Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?01_A_Santa_NicePresent_talk" />
+      <LocalCrouchVolumeScale name="1.0" />
+      <CrouchNoiseScale name="0.5" />
+      <NoiseScale name="1" />
+      <MaxVoices name="10" />
+      <maxVoicesPerEntity name="1" />
+      <MaxRepeatRate name="1.111" />
+    </SoundDataNode>
+
+    <!-- When you complete a quest -->
+    <SoundDataNode name="santaquestdeclined">
+      <AudioSource name="Sounds/AudioSource_VO" />
+      <Noise ID="3" range="100" volume="25" time="10" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60" />
+      <AudioClip ClipName="#@modfolder:Resources/SantaGreetings.unity3d?02_B_HaHa" />
+      <LocalCrouchVolumeScale name="1.0" />
+      <CrouchNoiseScale name="0.5" />
+      <NoiseScale name="1" />
+      <MaxVoices name="10" />
+      <maxVoicesPerEntity name="1" />
+      <MaxRepeatRate name="1.111" />
+    </SoundDataNode>
+
+  </append>
+</configs>

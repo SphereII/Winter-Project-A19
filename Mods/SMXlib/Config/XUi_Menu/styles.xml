@@ -1,0 +1,46 @@
+<SMXlib_STYLES>
+
+<!--	// SMX // Global Colors -->
+
+		<append xpath="/styles/global">
+			<style_entry name="SMXlibElementsBG"						value="0,0,0" />
+			<style_entry name="SMXlibElementsHDR"						value="175,30,25" />
+			<style_entry name="SMXlibElementsLine"						value="255,255,255" />
+			<style_entry name="SMXlibElementsLineMenu"					value="128,128,128" />
+
+			<style_entry name="SMXlibElementsButtons"					value="175,30,25" />
+			<style_entry name="SMXlibElementsAccentColor1"				value="175,30,25" />
+
+			<style_entry name="SMXlibElementsIcon"						value="255,255,255" />
+			<style_entry name="SMXlibElementsLBLPri"					value="255,255,255" />
+			<style_entry name="SMXlibElementsLBLSec"					value="128,128,128" />
+
+			<style_entry name="SMXlibElementsCPSInd"					value="114,114,114" />
+
+			<style_entry name="SMXlibElementsTBSlotLBL"					value="96,96,96,255" />
+			<style_entry name="SMXlibElementsTHRWBar"					value="0,180,0,120" />
+
+			<style_entry name="SMXlibElementsHealth"					value="175,30,25" />
+			<style_entry name="SMXlibElementsStamina"					value="17,97,146" />
+			<style_entry name="SMXlibElementsFuel"						value="152,174,0" />
+
+			<style_entry name="SMXlibElementsStealth"					value="255,174,28" />
+			<style_entry name="SMXlibElementsFood"						value="23,81,23" />
+			<style_entry name="SMXlibElementsWater"						value="16,77,96" />
+
+			<style_entry name="SMXlibElementsTipBorder"					value="255,0,0" />
+			<style_entry name="SMXlibElementsTipBackground"				value="0,0,0" />
+		</append>
+
+
+<!--	// SMX // Defined Icon Colors -->
+
+		<append xpath="/styles">
+			<style name="smxlib_icon_colors">
+				<style_entry name="color" 								value="[white]" />				
+				<style_entry name="hovercolor" 							value="[mediumGrey]" />				
+				<style_entry name="selectedcolor" 						value="[lightGrey]" />				
+			</style>
+		</append>
+
+</SMXlib_STYLES>

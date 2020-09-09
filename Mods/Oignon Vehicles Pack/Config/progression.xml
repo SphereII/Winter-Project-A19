@@ -1,0 +1,4 @@
+﻿<configs>
+  <append xpath="//perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags">,Ski,Sledge</append>
+  <append xpath="//perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,5']/@tags">,Snowboard,Big Sled</append>
+</configs>

@@ -1,0 +1,15 @@
+<configs>
+ 	<append xpath="/items">
+		<item name="meleeHandSantaZed">
+			<property name="Extends" value="meleeHandZombieStrongFeral"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="Range" value="2.0"/>
+				<property name="Sphere" value=".4"/>
+				<property name="Sound_start" value="swoosh" />
+				<property name="Buff" value="criticalBlunt,injuryStunned,injurySprainedLeg" />
+				<property name="Buff_chance" value="0.5,0.3,0.3" /> 
+			</property>
+		</item>	
+	</append>	  
+</configs>

@@ -1,0 +1,7 @@
+<configs>
+  <append xpath="/xui/ruleset[@name='default']/window_group">
+    <window name="menuBackground" anchor="RightTop" />
+  </append>
+  <remove xpath="/xui/ruleset[@name='default']/window_group[@name='toolTip']" />
+
+</configs>

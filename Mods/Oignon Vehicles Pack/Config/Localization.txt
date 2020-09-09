@@ -1,0 +1,5 @@
+﻿Key,English
+perkGreaseMonkeyRank1Desc,"Bicycle, Ski, and Sled Mechanic"
+perkGreaseMonkeyRank1LongDesc,"Your passion to tinker and not walk everywhere has led you on the path of the bicycle mechanic. Can craft bicycle parts, Ski and Sleds. Craft wheels and bicycle parts 33% cheaper.""
+perkGreaseMonkeyRank2Desc,"Minibike, Snowboard, and Big Sled Master""
+perkGreaseMonkeyRank2LongDesc,"Why pedal everywhere when there is enough junk lying around to make a minibike? Can craft minibike parts, snowboards, and big sled. Craft minibike parts 33% cheaper."

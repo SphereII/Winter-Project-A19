@@ -1,0 +1,94 @@
+<configs>
+	<append xpath="/blocks">	
+		<block name="anti_lag_blue">
+			<property name="Material" value="Mmetal"/>
+			<property name="DisplayType" value="blockMulti" />
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Path" value="solid"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="OnlySimpleRotations" value="true"/> 
+			<property name="CanPickup" value="true" /> 
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="4,8" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="2,5" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="2,5"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="DescriptionKey" value="decorativeBlockGroupDesc"/> 
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?blue_lag_block" />
+		</block>
+		
+		<block name="anti_lag_blue2">
+			<property name="Material" value="Mmetal"/>
+			<property name="DisplayType" value="blockMulti" />
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Path" value="solid"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="OnlySimpleRotations" value="true"/> 
+			<property name="CanPickup" value="true" /> 
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="4,8" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="2,5" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="2,5"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="DescriptionKey" value="decorativeBlockGroupDesc"/> 
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?blue_lag_block2" />
+		</block>
+		
+		<block name="anti_lag_blue3">
+			<property name="Material" value="Mmetal"/>
+			<property name="DisplayType" value="blockMulti" />
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Path" value="solid"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="OnlySimpleRotations" value="true"/> 
+			<property name="CanPickup" value="true" /> 
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="4,8" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="2,5" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceScrapIron" count="2,5"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="DescriptionKey" value="decorativeBlockGroupDesc"/> 
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?blue_lag_block3" />
+		</block>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</append>
+</configs>

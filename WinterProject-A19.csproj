@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9C3A13E-BBC1-4062-AD60-2592B8B58EEF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WinterProject_2019</RootNamespace>
+    <AssemblyName>WinterProject-2019</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Mods\0-SphereIICore\Prefabs\caveOpening02.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\caveOpening02.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.mesh" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_02.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_02.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_03.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_03.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_03.mesh" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_04.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_04.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_04.mesh" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_05.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_05.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_06.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_06.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_07.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_07.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_08.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_08.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_08.mesh" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_09.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_09.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_10.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_10.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_10.mesh" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.ins" />
+    <None Include="Mods\0-SphereIICore\ReadMe.md" />
+    <None Include="Mods\0-SphereIICore\Resources\PathingCube.unity3d" />
+    <None Include="Mods\0-SphereIICore\Resources\PathSmoke.unity3d" />
+    <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle.unity3d" />
+    <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle_X.prefab" />
+    <None Include="Mods\GoreMod\Resources\gore.unity3d" />
+    <None Include="Mods\Oignon Vehicles Pack\Resources\wip.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\README.md" />
+    <None Include="Mods\SphereII Music Boxes\Resources\CDCases.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\ChristmasMusic.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\ChristmasMusic2.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\MediaCases.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\MediaCases2.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\singing-bell-com.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\VideoPlayers.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\Videos.unity3d" />
+    <None Include="Mods\SphereII Music Boxes\Resources\XmasCarousel.unity3d" />
+    <None Include="Mods\SphereII NPC Dialog Windows\ReadMe.md" />
+    <None Include="Mods\SphereII Santas\Resources\SantaGreetings.unity3d" />
+    <None Include="Mods\SphereII Santas\Resources\Santas.unity3d" />
+    <None Include="Mods\SphereII Santas\Resources\TransformParticle.unity3d" />
+    <None Include="Mods\SphereII Take And Replace\README.md" />
+    <None Include="Mods\SphereII Winter Project Menu\Resources\Flies.unity3d" />
+    <None Include="Mods\SphereII Winter Project Menu\Resources\MenuParticles.unity3d" />
+    <None Include="Mods\SphereII Winter Project\README.md" />
+    <None Include="Mods\SphereII Winter Project\Resources\FrostShieldParticle.unity3d" />
+    <None Include="Mods\SphereII Winter Project\Resources\SnowFog.unity3d" />
+    <None Include="Mods\SphereII Winter Project\Resources\Thermos.unity3d" />
+    <None Include="Mods\SphereII Winter Project\Resources\WinterTrees.unity3d" />
+    <None Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\mercedesactrosslt8x4_fs19.zip" />
+    <None Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\MercedesXclass_Fs19V2.zip" />
+    <None Include="Mods\SphereII_PG13\README.md" />
+    <None Include="Mods\winter zeds blue\Resources\winter_zeds_blue1.unity3d" />
+    <None Include="Mods\winter zeds blue\Resources\winter_zeds_blue2.unity3d" />
+    <None Include="Mods\winter zeds blue\Resources\winter_zeds_blue3.unity3d" />
+    <None Include="Mods\winter zeds white\Resources\winter_zeds_white1.unity3d" />
+    <None Include="Mods\winter zeds white\Resources\winter_zeds_white2.unity3d" />
+    <None Include="Mods\winter zeds white\Resources\winter_zeds_white3.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Config\Resources\FrostShieldParticle.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\Abominable.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\AbominableSounds.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\ArcticFox.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\DeadSnake.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\FrostBreath.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\Maw.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\Polarbear.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\SealCub.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\SnowballParticle.unity3d" />
+    <None Include="Mods\Xyth EntitiesWinter\Resources\Snowmen.unity3d" />
+    <None Include="Mods\Xyth NPCs\Resources\DarkThings.unity3d" />
+    <None Include="Mods\Xyth NPCs\Resources\HarleySounds.unity3d" />
+    <None Include="Mods\Xyth NPCs\Resources\NPCs.unity3d" />
+    <None Include="Mods\Xyth NPCs\Resources\XythNPCAmmo.unity3d" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="DMT">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\DMT.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\DMT\DMT\bin\Debug\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mods\0-SphereIICore\Config\blockplaceholders.xml" />
+    <Content Include="Mods\0-SphereIICore\Config\blocks.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\0-SphereIICore\Config\buffs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\0-SphereIICore\Config\items.xml" />
+    <Content Include="Mods\0-SphereIICore\Config\Localization.txt" />
+    <Content Include="Mods\0-SphereIICore\Config\quests.xml" />
+    <Content Include="Mods\0-SphereIICore\Config\XUi\xui.xml" />
+    <Content Include="Mods\0-SphereIICore\Documentation\Examples\blocks.xml" />
+    <Content Include="Mods\0-SphereIICore\Documentation\Examples\entityclasses.xml" />
+    <Content Include="Mods\0-SphereIICore\Documentation\Examples\items.xml" />
+    <Content Include="Mods\0-SphereIICore\Documentation\Examples\sounds.xml" />
+    <Content Include="Mods\0-SphereIICore\Harmony\Harmony-0-SphereIICore.dll" />
+    <Content Include="Mods\0-SphereIICore\Harmony\Harmony-0-SphereIICore.pdb" />
+    <Content Include="Mods\0-SphereIICore\ModInfo.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\caveOpening02.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\caveOpening02.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_02.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_02.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_02.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_03.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_03.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_03.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_04.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_04.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_04.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_05.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_05.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_05.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_06.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_06.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_06.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_07.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_07.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_07.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_08.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_08.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_08.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_09.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_09.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_10.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_10.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.xml" />
+    <Content Include="Mods\GoreMod\Config\buffs.xml" />
+    <Content Include="Mods\GoreMod\Config\entityclasses.xml" />
+    <Content Include="Mods\GoreMod\Config\items.xml" />
+    <Content Include="Mods\GoreMod\Config\item_modifiers.xml" />
+    <Content Include="Mods\GoreMod\Config\progression.xml" />
+    <Content Include="Mods\GoreMod\ModInfo.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\buffs.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\entityclasses.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\items.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\Localization.txt" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\progression.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\recipes.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\Config\vehicles.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\ModInfo.xml" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3luge.png" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3offchair.png" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3scooter.png" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3skate.png" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3ski.png" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3sled.png" />
+    <Content Include="Mods\Oignon Vehicles Pack\UIAtlases\ItemIconAtlas\3snowboard.png" />
+    <Content Include="Mods\SMXhud\Config\Localization.txt" />
+    <Content Include="Mods\SMXhud\Config\nav_objects.xml" />
+    <Content Include="Mods\SMXhud\Config\XUi\controls.xml" />
+    <Content Include="Mods\SMXhud\Config\XUi\styles.xml" />
+    <Content Include="Mods\SMXhud\Config\XUi\windows.xml" />
+    <Content Include="Mods\SMXhud\ModInfo.xml" />
+    <Content Include="Mods\SphereII Food Spoilage\Config\blocks.xml" />
+    <Content Include="Mods\SphereII Food Spoilage\Config\items.xml" />
+    <Content Include="Mods\SphereII Food Spoilage\ModInfo.xml" />
+    <Content Include="Mods\SphereII Legacy Distant Terrain\Harmony\Harmony-SphereII Legacy Distant Terrain A19.dll" />
+    <Content Include="Mods\SphereII Legacy Distant Terrain\Harmony\Harmony-SphereII Legacy Distant Terrain A19.pdb" />
+    <Content Include="Mods\SphereII Legacy Distant Terrain\Harmony\Harmony-SphereII Legacy Distant Terrain.dll" />
+    <Content Include="Mods\SphereII Legacy Distant Terrain\Harmony\Harmony-SphereII Legacy Distant Terrain.pdb" />
+    <Content Include="Mods\SphereII Legacy Distant Terrain\ModInfo.xml" />
+    <Content Include="Mods\SphereII Music Boxes\Config\blocks.xml" />
+    <Content Include="Mods\SphereII Music Boxes\Config\items.xml" />
+    <Content Include="Mods\SphereII Music Boxes\Config\Localization.txt" />
+    <Content Include="Mods\SphereII Music Boxes\Config\loot.xml" />
+    <Content Include="Mods\SphereII Music Boxes\Config\quests.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\SphereII Music Boxes\Config\sounds.xml" />
+    <Content Include="Mods\SphereII Music Boxes\ModInfo.xml" />
+    <Content Include="Mods\SphereII Music Boxes\UIAtlases\ItemIconAtlas\CD.png" />
+    <Content Include="Mods\SphereII Music Boxes\UIAtlases\ItemIconAtlas\DVD.png" />
+    <Content Include="Mods\SphereII Music Boxes\UIAtlases\ItemIconAtlas\VideoPlayer.png" />
+    <Content Include="Mods\SphereII Music Boxes\UIAtlases\ItemIconAtlas\xmasCarousel.png" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\dialogs.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\npc.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\quests.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\XUi\controls.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\XUi\styles.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\XUi\windows.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Config\XUi\xui.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\ModInfo.xml" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Textures\trader\smx_player_bg.png" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\Textures\trader\smx_trader_bg.png" />
+    <Content Include="Mods\SphereII NPC Dialog Windows\UIAtlases\ItemIconAtlas\smx_bulletpoint_icon.png" />
+    <Content Include="Mods\SphereII Santas\Config\blocks.xml" />
+    <Content Include="Mods\SphereII Santas\Config\dialogs.xml" />
+    <Content Include="Mods\SphereII Santas\Config\entityclasses.xml" />
+    <Content Include="Mods\SphereII Santas\Config\entitygroups.xml" />
+    <Content Include="Mods\SphereII Santas\Config\items.xml" />
+    <Content Include="Mods\SphereII Santas\Config\loot.xml" />
+    <Content Include="Mods\SphereII Santas\Config\sounds.xml" />
+    <Content Include="Mods\SphereII Santas\ModInfo.xml" />
+    <Content Include="Mods\SphereII Take And Replace\Config\blocks.xml" />
+    <Content Include="Mods\SphereII Take And Replace\Config\Localization.txt" />
+    <Content Include="Mods\SphereII Take And Replace\ModInfo.xml" />
+    <Content Include="Mods\SphereII Winter Project Menu\Config\XUi_Menu\controls.xml" />
+    <Content Include="Mods\SphereII Winter Project Menu\Config\XUi_Menu\styles.xml" />
+    <Content Include="Mods\SphereII Winter Project Menu\Config\XUi_Menu\windows.xml" />
+    <Content Include="Mods\SphereII Winter Project Menu\Config\XUi_Menu\xui.xml" />
+    <Content Include="Mods\SphereII Winter Project Menu\Harmony\Harmony-SphereII Winter Project Main Menu.dll" />
+    <Content Include="Mods\SphereII Winter Project Menu\Harmony\Harmony-SphereII Winter Project Main Menu.pdb" />
+    <Content Include="Mods\SphereII Winter Project Menu\Harmony\Harmony-SphereII Winter Project Menu.dll" />
+    <Content Include="Mods\SphereII Winter Project Menu\Harmony\Harmony-SphereII Winter Project Menu.pdb" />
+    <Content Include="Mods\SphereII Winter Project Menu\ModInfo.xml" />
+    <Content Include="Mods\SphereII Winter Project Menu\Textures\menu\smx_menuwp_bg.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\Textures\menu\smx_winterp_bg.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\Textures\menu\smx_winterp_btn1.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\Textures\menu\smx_winterp_btn2.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\Textures\menu\smx_winterp_hdr.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\uiAtlases\uiAtlas\smx_menu_button_1_wp.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\uiAtlases\uiAtlas\smx_menu_button_2_wp.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\uiAtlases\uiAtlas\smx_menu_tabs_button_1_wp.png" />
+    <Content Include="Mods\SphereII Winter Project Menu\uiAtlases\uiAtlas\smx_menu_tabs_button_2_wp.png" />
+    <Content Include="Mods\SphereII Winter Project\Config\biomes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\SphereII Winter Project\Config\blocks.xml" />
+    <Content Include="Mods\SphereII Winter Project\Config\buffs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\SphereII Winter Project\Config\entityclasses.xml" />
+    <Content Include="Mods\SphereII Winter Project\Config\items.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\SphereII Winter Project\Config\Localization.txt" />
+    <Content Include="Mods\SphereII Winter Project\Config\loot.xml" />
+    <Content Include="Mods\SphereII Winter Project\Config\quests.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\SphereII Winter Project\Config\recipes.xml" />
+    <Content Include="Mods\SphereII Winter Project\Config\rwgmixer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\SphereII Winter Project\Harmony\Harmony-SphereII Winter Project.dll" />
+    <Content Include="Mods\SphereII Winter Project\Harmony\Harmony-SphereII Winter Project.pdb" />
+    <Content Include="Mods\SphereII Winter Project\ModInfo.xml" />
+    <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\foodHoneyFrozen.png" />
+    <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\snowShovel.png" />
+    <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\tinfoil.png" />
+    <Content Include="Mods\SphereII_PG13\Config\entityclasses.xml" />
+    <Content Include="Mods\SphereII_PG13\Config\npc.xml" />
+    <Content Include="Mods\SphereII_PG13\ModInfo.xml" />
+    <Content Include="Mods\winter zeds blue\Config\blocks.xml" />
+    <Content Include="Mods\winter zeds blue\Config\entityclasses.xml" />
+    <Content Include="Mods\winter zeds blue\ModInfo.xml" />
+    <Content Include="Mods\winter zeds white\Config\blocks.xml" />
+    <Content Include="Mods\winter zeds white\Config\entityclasses.xml" />
+    <Content Include="Mods\winter zeds white\Config\entitygroups.xml" />
+    <Content Include="Mods\winter zeds white\ModInfo.xml" />
+    <Content Include="Mods\Xyth EntitiesWinter\Config\blocks.xml" />
+    <Content Include="Mods\Xyth EntitiesWinter\Config\buffs.xml" />
+    <Content Include="Mods\Xyth EntitiesWinter\Config\entityclasses.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\Xyth EntitiesWinter\Config\entitygroups.xml" />
+    <Content Include="Mods\Xyth EntitiesWinter\Config\items.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\Xyth EntitiesWinter\Config\sounds.xml" />
+    <Content Include="Mods\Xyth EntitiesWinter\ModInfo.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Mods\Xyth NPCs\Config\blocks.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\buffs.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\dialogs.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\entityclasses.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\entitygroups.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\items.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\Localization.txt" />
+    <Content Include="Mods\Xyth NPCs\Config\npc.xml" />
+    <Content Include="Mods\Xyth NPCs\Config\sounds.xml" />
+    <Content Include="Mods\Xyth NPCs\ModInfo.xml" />
+    <Content Include="Mods\ZMXhudCPTHB\Config\XUi\windows.xml" />
+    <Content Include="Mods\ZMXhudCPTHB\ModInfo.xml" />
+    <Content Include="Mods\ZMXhudCP\Config\XUi\windows.xml" />
+    <Content Include="Mods\ZMXhudCP\Config\XUi\xui.xml" />
+    <Content Include="Mods\ZMXhudCP\ModInfo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mods\0-SphereIICore\Harmony\AIDirectorBloodMoon\AIDirectorBloodMoonParty.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Animation\AvatarController.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Animation\EModelBase.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockOnEntityCollidedWithBlock.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\Particles.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Dialog\DialogFromXML.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\EAI\EAITarget.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\EntityAlive\Faction.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\EntityMoveHelper\EntityMoveHelper.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ErrorHandling\NoExceptionHijack.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Faction\Faction.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\FoodSpoilage\FoodSpoilage.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\HarmonyInit.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ItemFeatures\AdvancedItemRepair.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ItemFeatures\DurabilityAffectsDamage.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\NetPackage\NetPackageQuestGotoPoint.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityAlive.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityAliveStartingEquipment.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityNPCFixSpeed.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityNPCJumpHeight.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityNPCMakeVulnerable.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\AntiNerdPole.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\OneBlockCrouch.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\PlayerMoveController.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\SoftHands.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\PrefabFeatures\DisableTraderProtection.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Progression\ZeroXP.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\SoundFeatures\GiveBuffOrQuestBySound.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\SoundFeatures\SoundDataNodeIndexer.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Standard\EntityFactory.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Standard\ModsLoading.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Standard\XMLDebugger.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\AlwaysActive.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\SphereII_PoweredWorkstations.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\UI\DisableXPIconNotification.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\UI\FilterGameWorld.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\UI\UnlockEnemyHealthBar.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\WorldGen\Caves.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\EntityFlyingEAITasks.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\HeadshotOnly.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\InertEntity.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\RandomDeathSpawn.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\RandomSize.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\RandomWalk.cs" />
+    <Compile Include="Mods\0-SphereIICore\PatchScripts\EAITaskPatches.cs" />
+    <Compile Include="Mods\0-SphereIICore\PatchScripts\EntityMoveHelper.cs" />
+    <Compile Include="Mods\0-SphereIICore\PatchScripts\FoodSpoilagePatch.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Animation\AvatarAnimalControllerSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Animation\MecanimSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockMortSpawner.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockPathFinding.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockPoweredWorkstation.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockSpawnerSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockTriggeredSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockUtilitiesSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\PickUpAndReplace.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementEveryDawn.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementEveryXDaySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementEveryXHourSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementOnSpecificBiomeSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementSameFactionSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Cache\SphereCache.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionAddCVar.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionExecuteCommandSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionGetItemSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionGiveQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionGiveToNPC.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionOpenDialogSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionRemoveBuffSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionRewardSkillPoint.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogActionShowToolTipSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementFaction.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementFactionValue.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasBuffSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasCompletedQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasCVar.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasFailedQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasItemSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasPlayerLevelSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasTaskSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHiredSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementPatrolSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\DMTEAIUtilities.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIApproachAndAttackSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIApproachAndFollowTargetSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIBreakBlockSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIGuardSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAILootLocationSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIMaslowLevel1SDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIPatrolSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIRangedAttackTargetSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIRunawayFromEntitySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAISetAsTargetIfHurtSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAISetAsTargetIfLeaderAttackedSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAISetAsTargetNearestEnemySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAISwimSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIWanderSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityAliveEnemySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityAliveEventSpawnerSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityAliveFarmingAnimalSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityAliveSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntitySwimingSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityUtilities.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityZombieFlockSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\EntityZombieFlyingSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\LegacyEntityClasses.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Entities\ModGeneralUtilities.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Features\AdvLogging.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Features\Configuration.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Features\QuickContinue.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Items\ItemActionEntryResharpenSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Items\ItemsUtilities.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionAddBuffByFactionSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionAnimatorSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionChangeFactionSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionCreateItemSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionExecuteConsoleCommand.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionGiveQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionHideNPCSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionModifyFactionSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionModifySkillSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionNotifyTeam.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionPlayerLevelSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionPumpQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionRandomLootSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionShowToolTipSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionSkillPointSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionSpawnBabySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionToggleCamera.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MusicBoxes\MusicBox.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\MusicBoxes\MusicBoxScript.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\ObjectiveBuffSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\ObjectiveGotoPOISDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\QuestActionGiveBuffSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\QuestActionGiveCVarBuffSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\QuestActionPlaySound.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\QuestActionReplaceEntitySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\QuestActionSpawnEntitySDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\RewardGiveCvarDMT.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\RewardGiveNPCSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\RewardItemSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\RewardQuestSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Quests\RewardReassignNPCSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\SoundData\SoundDataNodeClass.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\TileEntities\TileEntityPoweredWorkstation.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\CaveTunneler.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\FastNoise.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\WinterModPrefab.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_CharacterFrameWindowSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_DialogHireInformationSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_DialogRespondentNameSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_DialogStatementWindowSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_EntityInformationPanelSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_HireInformationPopupSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_JoinInformationPopupSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_PathFindingKeypadWindow.cs" />
+    <Compile Include="Mods\SphereII Legacy Distant Terrain\Harmony\LegacyDistantTerrain.cs" />
+    <Compile Include="Mods\SphereII Santas\Scripts\Santa.cs" />
+    <Compile Include="Mods\SphereII Winter Project Menu\Harmony\Harmony.cs" />
+    <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mods\SphereII Winter Project Menu\Config\XUi\" />
+    <Folder Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\ACLib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

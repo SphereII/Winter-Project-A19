@@ -1,0 +1,2 @@
+D:\Github\WinterProject-2019\obj\Debug\WinterProject-2019.csprojAssemblyReference.cache
+D:\Github\WinterProject-2019\obj\Debug\WinterProject-2019.csproj.CoreCompileInputs.cache

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <ModInfo>
+    <Name value="SMXhud" />
+    <Description value="A HUD conversion modlet with custom assets for 7 Days To Die." />
+    <Author value="Sirillion" />
+    <Version value="19.0.Release4" />
+    <Website value="http://www.nexusmods.com/7daystodie/mods/22/?" />
+  </ModInfo>
+  <DMT Hash="e57765f9632b2dfad6487569e043df9a">
+    <dependencies>
+      <dependancy>SMXlib</dependancy>
+    </dependencies>
+    <conflicts />
+  </DMT>
+</xml>

@@ -1,0 +1,207 @@
+<configs>
+ 	<append xpath="/items">
+		<item name="handZombieSnowman">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="Degradation" value="99999" param1="true"/>
+			<property class="Action0">
+				<property name="Range" value="1.75"/>
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="250"/>
+				<property name="Buff" value="buffSnowballFreezing,buffInjuryStunned01"/>
+			</property>
+			<property class="Action1"> 
+				<property name="Class" value="Vomit"/>
+				<property name="Hitmask_override" value="Arrow"/>
+				<property name="Delay" value="0.0"/> 
+				<property name="Range" value="200"/>
+				<property name="Infinite_ammo" value="true"/>
+				<property name="Magazine_items" value="ammoProjectileSnow"/>
+				<property name="Reload_time" value="0"/>
+				<property name="Sound_warning" value="" />
+				<property name="Sound_start" value="AbominableAttack" /> 
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value=""/>
+				<property name="Sound_reload" value=""/>
+				<property name="Buff" value="buffSnowballFreezing"/>
+			</property>
+			<effect_group name="meleeHandZombieCop" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<!--<passive_effect name="AttacksPerMinute" operation="base_set" value="75"/>  A16 .8 -->
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="150"/>
+				<passive_effect name="MaxRange" operation="base_set" value="300"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="1"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="4"/>
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".5" tags="buffSnowballFreezing"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".25" tags="buffInjuryStunned01"/>
+			</effect_group>
+		</item>	
+		
+
+		<item name="handZombieSnowmanCop">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="Degradation" value="99999" param1="true"/>
+			<property class="Action0">
+				<property name="Range" value="1.75"/>
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="250"/>
+				<property name="Buff" value="buffSnowballFreezing,buffInjuryStunned1"/>
+			</property>
+			<property class="Action1"> 
+				<property name="Class" value="Vomit"/>
+				<property name="Delay" value="0.0"/> 
+				<property name="Infinite_ammo" value="true"/>
+				<property name="Magazine_items" value="ammoProjectileSnowBomb"/>
+				<property name="Reload_time" value="1"/>
+				<property name="Sound_warning" value="" />
+				<property name="Sound_start" value="AbominableAttack" /> 
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value=""/>
+				<property name="Sound_reload" value=""/>
+				<property name="Buff" value="buffSnowballFreezing"/>
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="150"/>
+				<passive_effect name="MaxRange" operation="base_set" value="200"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="1"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="10"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2"/>
+			</effect_group>
+		</item>	
+		<item name="handZombieAbominable">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="Degradation" value="99999" param1="true"/>
+			<property class="Action0">
+				<property name="Range" value="2.0"/>
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="250"/>
+				<property name="Buff" value="buffSnowballFreezing,buffInjuryStunned1"/>
+			</property>
+			<property class="Action1"> 
+				<property name="Class" value="Vomit"/>
+				<property name="Delay" value="0.0"/> 
+				<property name="Infinite_ammo" value="true"/>
+				<property name="Magazine_items" value="ammoFrostBreath"/>
+				<property name="Reload_time" value="1"/>
+				<property name="Sound_warning" value="" />
+				<property name="Sound_start" value="AbominableAttack" /> 
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value=""/>
+				<property name="Sound_reload" value=""/>
+				<property name="Buff" value="buffSnowballFreezing"/>
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="100"/>
+				<passive_effect name="MaxRange" operation="base_set" value="200"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="1"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="3"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="5"/>
+			</effect_group>
+		</item>	
+		<item name="ammoProjectileSnow">
+			<property name="Meshfile" value="#@modfolder:Resources/SnowballParticle.unity3d?p_Snowball_X" />
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="100"/>
+				<property name="Explosion.ParticleIndex" value="0"/>
+				<property name="Velocity" value="35"/>
+				<property name="Gravity" value="-1"/>
+				<property name="FlyTime" value="1"/>
+				<property name="LifeTime" value="15"/>
+				<property name="CollisionRadius" value="0.9"/>
+				<property name="DamageBonus.earth" value=".1"/>	
+				<property name="DamageBonus.snow" value=".2"/>
+				<property name="DamageBonus.water" value="0"/>
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value="0.50" tags="buffSnowballFreezing"/>
+			</effect_group>
+		</item> 
+		<item name="ammoProjectileSnowBomb">
+			<property name="Meshfile" value="#@modfolder:Resources/SnowballParticle.unity3d?p_Snowball_X" />
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="50"/>
+				<property name="DamageBlock" value="300"/>
+				<property name="Explosion.ParticleIndex" value="1"/>
+				<property name="Velocity" value="15"/>
+				<property name="Gravity" value="-5"/>
+				<property name="FlyTime" value="1"/>
+				<property name="LifeTime" value="12"/>
+				<property name="Explosion.RadiusBlocks" value="5"/>
+				<property name="Explosion.BlockDamage" value="150"/>
+				<property name="Explosion.RadiusEntities" value="5"/>
+				<property name="Explosion.EntityDamage" value="1"/>
+				<property name="Explosion.DamageBonus.snow" value="1"/>
+				<property name="Explosion.DamageBonus.earth" value="1"/>
+				<property name="Explosion.DamageBonus.water" value="0"/>
+				<property name="CollisionRadius" value="0.9"/>
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value="0.50" tags="buffSnowballFreezing"/>
+			</effect_group>
+		</item> 
+
+		<item name="ammoFrostBreath">
+			<property name="Meshfile" value="#@modfolder:Resources/FrostBreath.unity3d?p_FrostBreath_X" />
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="150"/>
+				<property name="Explosion.ParticleIndex" value="1"/>
+				<property name="Velocity" value="20"/>
+				<property name="FlyTime" value="2"/>
+				<property name="LifeTime" value="4"/>
+				<property name="CollisionRadius" value=".5"/>
+				<property name="DamageBonus.earth" value="0"/>		
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value="0.50" tags="buffSnowballFreezing"/>
+			</effect_group>
+		</item> 				
+		<item name="handMaw">
+			<property name="Extends" value="meleeHandZombie01"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="DamageEntity" value="50"/>
+				<property name="DamageBlock" value="50"/>
+				<property name="Delay" value="0.0"/> 
+				<property name="Range" value="2.5"/>
+				<property name="Sphere" value=".4"/>
+				<property name="Sound_start" value="swoosh" />
+				<property name="Buff" value="buffInjuryStunned1,buffSnowballFreezing" />
+				<property name="Buff_chance" value="0.5,0.5" /> 
+				<property name="DamageBonus.head" value="5" />
+			</property>
+		</item>	
+	</append>	  
+</configs>

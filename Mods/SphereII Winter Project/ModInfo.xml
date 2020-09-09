@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <ModInfo>
+    <Name value="SphereII Winter Project" />
+    <Description value="A Winter Project " />
+    <Author value="sphereii and xyth" />
+    <Version value="19.0.0.39" />
+    <Website value="http://sdxmods.com" />
+  </ModInfo>
+  <DMT Hash="f2dbf817eb38ac96cd11ee2ba55509f5">
+    <dependencies>
+      <dependancy>0-SphereIICore</dependancy>
+    </dependencies>
+    <conflicts />
+  </DMT>
+</xml>

@@ -1,0 +1,128 @@
+<configs>
+
+	<append xpath="/items">		
+
+		<item name="Ski">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?carski.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3ski"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Ski"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="50"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="1000,3000" tier="1,6"/>
+			</effect_group>
+		</item>	
+
+		<item name="Snowboard">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?snowboard.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3snowboard"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Snowboard"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="50"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="1000,3000" tier="1,6"/>
+			</effect_group>
+		</item>			
+
+		<item name="Sledge">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?luge.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3luge"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Sledge"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="50"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="1000,3000" tier="1,6"/>
+			</effect_group>
+		</item>			
+
+		<item name="Big Sled">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?sled.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3sled"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Big Sled"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="50"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="1000,3000" tier="1,6"/>
+			</effect_group>
+		</item>					
+
+		<item name="Officer Chair">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?Ferris.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3offchair"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Officer Chair"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="50"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="1000,3000" tier="1,6"/>
+			</effect_group>
+		</item>			
+
+		<item name="Skate">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?Skate.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3skate"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Skate"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="400"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="1000,3500" tier="1,6"/>
+			</effect_group>
+		</item>		
+
+		<item name="Scooter">
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?Scooter.prefab"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="CustomIcon" value="3scooter"/>
+			<property class="Action1">
+				<property name="Vehicle" value="Scooter"/>
+				<property name="VehicleSize" value="0.2, 0.2, 0.2"/>
+			</property>
+			<property name="EconomicValue" value="400"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="DegradationMax" operation="base_set" value="3500,7000" tier="1,6"/>
+			</effect_group>
+		</item>		
+
+		<!-- <item name="Parachute"> -->
+		<!-- <property name="Extends" value="vehicleMinibikePlaceable"/> -->
+		<!-- <property name="Meshfile" value="#@modfolder:Resources/wip.unity3d?Roller.prefab"/> -->
+		<!-- <property name="Stacknumber" value="1"/> -->
+		<!-- <property name="CustomIcon" value="3chair"/> -->
+		<!-- <property class="Action1"> -->
+		<!-- <property name="Vehicle" value="Parachute"/> -->
+		<!-- <property name="VehicleSize" value="0.2, 0.2, 0.2"/> -->
+		<!-- </property> -->
+		<!-- <effect_group name="Base Effects" tiered = "false"> -->
+		<!-- <passive_effect name="DegradationMax" operation="base_set" value="1000"/> -->
+		<!-- </effect_group> -->
+		<!-- </item>		 -->
+
+
+	</append>
+</configs>
+
+

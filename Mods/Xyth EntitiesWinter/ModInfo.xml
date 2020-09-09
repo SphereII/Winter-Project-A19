@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <ModInfo>
+    <Name value="Xyth EntitiesWinter" />
+    <Description value="WinterEntities" />
+    <Author value="Xyth" />
+    <Version value="19.0.0.3" />
+    <Website value="http://sdxmods.com" />
+  </ModInfo>
+  <DMT Hash="3a401966974b5065a14f835dd10d4f1e">
+    <dependencies />
+    <conflicts />
+  </DMT>
+</xml>

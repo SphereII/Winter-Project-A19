@@ -1,0 +1,11 @@
+﻿<configs>
+  
+  <!-- Add in an entity group to spawn in Bad santa -->
+  <append xpath="/entitygroups">
+    <entitygroup name="santaspawn">
+      <entity name="SantaZed" />
+    </entitygroup>
+  </append>
+  
+  
+</configs>

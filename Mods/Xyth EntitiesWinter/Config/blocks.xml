@@ -1,0 +1,52 @@
+<configs>
+	<append xpath="/blocks">
+		<block name="SnowmanBlock"> 
+			<property name="Material" value="Msnow" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="#@modfolder:Resources/Snowmen.unity3d?SnowmanBlock_X"/> <!-- Snowman by junaidamin is licensed under CC Attribution -->
+			<property name="DisplayType" value="blockMulti" />
+			<property name="CreativeMode" value="Player"/>
+			<property name="MultiBlockDim" value="1,2,1"/>
+			<property name="IsTerrainDecoration" value="true"/>			
+			<property name="CanPickup" value="false" />
+			<property name="CustomIcon" value="iceblock" />
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="62" /> 
+			<property name="DropScale" value="2" /> 
+			<property class="RepairItems">
+				<property name="resourceSnowBall" value="10" />
+			</property>
+			<drop event="Harvest" name="resourceSnowBall" count="10" tool_category="harvestingTools" />
+			<drop event="Destroy" count="0" />
+			<drop event="Fall" name="terrSnow" count="1" prob="0.25" stick_chance="1" />
+			<drop event="Fall" name="resourceSnowBall" count="10" prob="0.187" stick_chance="0" />
+			<property name="EconomicValue" value="5" />
+			<property name="EconomicBundleSize" value="1" />
+			<property name="SellableToTrader" value="false" />
+		</block>
+		<block name="SnowcopBlock"> 
+			<property name="Material" value="Msnow" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="#@modfolder:Resources/Snowmen.unity3d?SnowcopBlock_X"/> <!-- Snowman by junaidamin is licensed under CC Attribution -->
+			<property name="DisplayType" value="blockMulti" />
+			<property name="CreativeMode" value="Player"/>
+			<property name="MultiBlockDim" value="1,2,1"/>
+			<property name="IsTerrainDecoration" value="true"/>	
+			<property name="CanPickup" value="false" />
+			<property name="CustomIcon" value="snowblock" />
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="62" /> 
+			<property name="DropScale" value="2" /> 
+			<property class="RepairItems">
+				<property name="resourceSnowBall" value="10" />
+			</property>
+			<drop event="Harvest" name="resourceSnowBall" count="10" tool_category="harvestingTools" />
+			<drop event="Destroy" count="0" />
+			<drop event="Fall" name="terrSnow" count="1" prob="0.25" stick_chance="1" />
+			<drop event="Fall" name="resourceSnowBall" count="10" prob="0.187" stick_chance="0" />
+			<property name="EconomicValue" value="5" />
+			<property name="EconomicBundleSize" value="1" />
+			<property name="SellableToTrader" value="false" />
+		</block>
+	</append>
+</configs>

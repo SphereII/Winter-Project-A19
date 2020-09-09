@@ -1,0 +1,330 @@
+<configs>
+  <!-- New Things  -->
+
+  <append xpath="/entity_classes">
+    <entity_class name="Polarbear" extends="animalBear">
+      <property name="Mesh" value="#@modfolder:Resources/Polarbear.unity3d?Polarbear_X" />
+      <property name="Tags" value="entity,animal,hostile,bear,perkAT05"/>
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+
+      <property name="DeadBodyHitPoints" value="600"/>
+
+      <drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+      <drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="50"/>
+      <drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="15"/>
+      <drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
+      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="25"/>
+      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
+      <drop event="Harvest" name="resourceTestosteroneExtract" tag="butcherHarvest" count="2"/>
+      <drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+    </entity_class>
+    <entity_class name="ArcticFox" extends="animalTemplateTimid" >
+      <property name="Mesh" value="#@modfolder:Resources/ArcticFox.unity3d?ArcticFox_X" />
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="EntityType" value="Animal"/>
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="Parent" value="Animals"/>
+      <property name="Class" value="EntityAnimalRabbit"/>
+      <property name="MaxViewAngle" value="360"/>
+      <property name="MaxTurnSpeed" value="180" />
+      <drop event="Harvest" name="foodRawMeat" count="4" tool_category="Butcher"/>
+      <drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="20"/>
+      <drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="4"/>
+      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
+      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="4"/>
+      <drop event="Harvest" name="foodRawMeat" count="2" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceLeather" count="2" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceBone" count="2" tag="WasteTreasuresCompleteHarvest"/>
+    </entity_class>
+
+    <entity_class name="SealCub" extends="animalTemplateTimid" >
+      <property name="Mesh" value="#@modfolder:Resources/SealCub.unity3d?SealCub_X" />
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="EntityType" value="Animal"/>
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="Parent" value="Animals"/>
+      <property name="Class" value="EntityAnimalRabbit"/>
+      <property name="MoveSpeedPanic" value=".8"/>
+      <property name="MaxViewAngle" value="360"/>
+      <property name="MaxTurnSpeed" value="180" />
+      <drop event="Harvest" name="foodRawMeat" count="4" tool_category="Butcher"/>
+      <drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="20"/>
+      <drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="4"/>
+      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
+      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="4"/>
+      <drop event="Harvest" name="foodRawMeat" count="2" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceLeather" count="2" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceBone" count="2" tag="WasteTreasuresCompleteHarvest"/>
+
+    </entity_class>
+    <entity_class name="Abominable" extends="zombieTemplateMale">
+      <!-- Snowman by junaidamin is licensed under CC Attribution -->
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="Mesh" value="#@modfolder:Resources/Abominable.unity3d?Abominable_X" />
+      <property name="Tags" value="zombie,walker,feral"/>
+      <property name="Class" value="EntityZombie"/>
+      <property name="HandItem" value="handZombieAbominable"/>
+      <property name="RightHandJointName" value="Muzzle" />
+      <property name="MoveSpeed" value="0.2"/>
+      <!-- just shambling around -->
+      <property name="MoveSpeedAggro" value="0.3, 1.0"/>
+      <!-- chasing a target min/max (like day or night)-->
+      <property name="PainResistPerHit" value=".65"/>
+      <property name="Weight" value="200"/>
+      <property name="AttackTimeoutDay" value="2.0"/>
+      <property name="AttackTimeoutNight" value="1.5"/>
+      <property name="ModelType" value="Standard"/>
+      <property name="CanClimbLadders" value="false"/>
+      <property name="PhysicsBody" value="zombieFat"/>
+      <property name="HasDeathAnim" value="false"/>
+      <property name="SightRange" value="50"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value="Wander"/>
+      <property name="AITask-7" value=""/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityNPC,EntityEnemyAnimal,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,0,0,EntityNPC,0,0"/>
+      <property name="AITarget-5" value=""/>
+      <property name="SightRange" value="80"/>
+      <property name="AttackAnimations" value="Attack1, Attack2, Attack3, GrabAttack, Roar" />
+      <property name="AttackIndexes" value="4" />
+      <property name="PainIndexes" value="2" />
+      <property name="SpecialAttackIndexes" value="0" />
+      <property name="SoundRandomTime" value="60.0"/>
+      <property name="SoundRandom" value="AbominableRandom" />
+      <property name="SoundAlert" value="AbominableAlert" />
+      <property name="SoundAttack" value="AbominableAttack" />
+      <property name="SoundDeath" value="AbominableDie" />
+      <property name="SoundHurt" value="AbominableHurt" />
+      <property name="SoundSense" value="AbominableSense" />
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="1000"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+        <passive_effect name="EntityDamage" operation="perc_add" value="0"/>
+        <!-- Feral damage -->
+        <passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
+        <passive_effect name="HealthChangeOT" operation="base_set" value="1.4"/>
+        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+      </effect_group>
+    </entity_class>
+    <entity_class name="Snowman" extends="zombieTemplateMale">
+      <!-- Snowman by junaidamin is licensed under CC Attribution -->
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="EntityActiveWhen" value="night" />
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="Mesh" value="#@modfolder:Resources/Snowmen.unity3d?Snowman_X" />
+      <property name="Class" value="EntityZombie"/>
+      <property name="HandItem" value="handZombieSnowman"/>
+      <property name="RightHandJointName" value="Muzzle" />
+      <property name="AttackAnimations" value="Attack0, Toss0" />
+      <property name="AttackIndexes" value="0" />
+      <property name="ModelType" value="Standard"/>
+      <property name="CanClimbLadders" value="false"/>
+      <property name="PhysicsBody" value="zombieFat"/>
+      <property name="HasDeathAnim" value="false"/>
+      <property name="SightRange" value="50"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value="Wander"/>
+      <property name="AITask-7" value=""/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityNPC,EntityEnemyAnimal,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,0,0,EntityNPC,0,0"/>
+      <property name="AITarget-5" value=""/>
+      <property name="SoundRandom" value="AbominableRandom" />
+      <property name="SoundAlert" value="AbominableAlert" />
+      <property name="SoundAttack" value="AbominableAttack" />
+      <property name="SoundDeath" value="AbominableDie" />
+      <property name="SoundHurt" value="AbominableHurt" />
+      <property name="SoundSense" value="AbominableSense" />
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="800"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+        <passive_effect name="EntityDamage" operation="perc_add" value="0"/>
+        <!-- Feral damage -->
+        <passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
+        <passive_effect name="HealthChangeOT" operation="base_set" value="1.1"/>
+        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+      </effect_group>
+      <property name="MoveSpeed" value="0.8"/>
+      <property name="MoveSpeedAggro" value="0.8, 1.25"/>
+      <property name="MoveSpeedPanic" value="0.9"/>
+    </entity_class>
+    <entity_class name="Snowcop" extends="zombieTemplateMale">
+      <!-- Snowman by junaidamin is licensed under CC Attribution -->
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="EntityActiveWhen" value="night" />
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="Mesh" value="#@modfolder:Resources/Snowmen.unity3d?Snowcop_X" />
+      <property name="Class" value="EntityZombieCop"/>
+      <property name="HandItem" value="handZombieSnowmanCop"/>
+      <property name="RightHandJointName" value="Muzzle" />
+      <property name="AttackIndexes" value="0" />
+      <property name="ModelType" value="Standard"/>
+      <property name="CanClimbLadders" value="false"/>
+      <property name="PhysicsBody" value="zombieFat"/>
+      <property name="HasDeathAnim" value="false"/>
+      <property name="SightRange" value="50"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value="Wander"/>
+      <property name="AITask-7" value=""/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityNPC,EntityEnemyAnimal,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,0,0,EntityNPC,0,0"/>
+      <property name="AITarget-5" value=""/>
+      <property name="Explosion.ParticleIndex" value="8"/>
+      <property name="Explosion.RadiusBlocks" value="5"/>
+      <property name="Explosion.RadiusEntities" value="6"/>
+      <property name="Explosion.BlockDamage" value="500"/>
+      <property name="Explosion.EntityDamage" value="150"/>
+      <property name="Explosion.DamageBonus.earth" value="0"/>
+      <property name="HeadDismemberBonusChance" value="0.08"/>
+      <property name="HeadDismemberThreshold" value="0"/>
+      <property name="LowerArmDismemberThreshold" value="0"/>
+      <property name="UpperArmDismemberThreshold" value="0"/>
+      <property name="ArmsExplosionDamageMultiplier" value="2"/>
+      <property name="HeadExplosionDamageMultiplier" value="2"/>
+      <property name="ChestExplosionDamageMultiplier" value="2"/>
+      <property name="SoundRandom" value="AbominableRandom" />
+      <property name="SoundAlert" value="AbominableAlert" />
+      <property name="SoundAttack" value="AbominableAttack" />
+      <property name="SoundDeath" value="AbominableDie" />
+      <property name="SoundHurt" value="AbominableHurt" />
+      <property name="SoundSense" value="AbominableSense" />
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="900"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+        <passive_effect name="EntityDamage" operation="perc_add" value="0"/>
+        <!-- Feral damage -->
+        <passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
+        <passive_effect name="HealthChangeOT" operation="base_set" value="1.2"/>
+        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+      </effect_group>
+    </entity_class>
+
+    <entity_class name="MawMec" extends="zombieTemplateMale" >
+      <property name="Mesh" value="#@modfolder:Resources/Maw.unity3d?Maw_X" />
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="HandItem" value="handMaw" />
+      <property name="MoveSpeed" value="0.2"/>
+      <!-- just shambling around -->
+      <property name="MoveSpeedAggro" value="0.3, 1.0"/>
+      <!-- chasing a target min/max (like day or night)-->
+      <property name="MoveSpeedPanic" value="0.85"/>
+      <property name="PainResistPerHit" value=".01"/>
+      <property name="MaxViewAngle" value="250"/>
+      <property name="Weight" value="250"/>
+      <property name="AttackTimeoutDay" value="2.2"/>
+      <!-- should total to 3.0 -->
+      <property name="AttackTimeoutNight" value="1.7"/>
+      <property name="CanClimbLadders" value="true"/>
+      <property name="CanClimbVertical" value="false"/>
+      <property name="SightRange" value="50"/>
+      <property name="AttackIndexes" value="2" />
+      <property name="SoundRandomTime" value="60.0"/>
+      <property name="SoundRandom" value="AbominableRandom" />
+      <property name="SoundAlert" value="AbominableAlert" />
+      <property name="SoundAttack" value="AbominableAttack" />
+      <property name="SoundDeath" value="AbominableDie" />
+      <property name="SoundHurt" value="AbominableHurt" />
+      <property name="SoundSense" value="AbominableSense" />
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="700"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+        <passive_effect name="EntityDamage" operation="perc_add" value="0"/>
+        <!-- Feral damage -->
+        <passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
+        <passive_effect name="HealthChangeOT" operation="base_set" value="1.3"/>
+        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+      </effect_group>
+    </entity_class>
+
+    <entity_class name="DeadSnake" extends="animalTemplateHostile">
+      <property name="EntityType" value="Animal"/>
+      <property name="Mesh" value="#@modfolder:Resources/DeadSnake.unity3d?DeadSnake_X" />
+      <!--Free model by Dusk_Aims  -->
+      <property name="AvatarController" value="MecanimSDX, Mods" />
+      <property name="RootMotion" value="false" />
+      <property name="HasRagdoll" value="true" />
+      <property name="Parent" value="Enemies"/>
+      <property name="PhysicsBody" value="snake"/>
+      <property name="Faction" value="undead"/>
+      <property name="AttackAnimations" value="Attack0" />
+      <property name="Mass" value="30"/>
+      <property name="Weight" value="70"/>
+      <property name="Faction" value="undead"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="Territorial"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value="Wander"/>
+      <property name="AITask-7" value=""/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityNPC,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,15,0,EntityNPC,15,0"/>
+      <property name="AITarget-5" value=""/>
+      <property name="SoundHurt" value="Animals/Snake/snakepain"/>
+      <property name="SoundDeath" value="Animals/Snake/snakedeath"/>
+      <property name="SoundRandom" value="Animals/Snake/snakeroam"/>
+      <property name="SoundSense" value="Animals/Snake/snakesense"/>
+      <property name="SoundAlert" value="Animals/Snake/snakealert"/>
+      <property name="SoundAttack" value="Animals/Snake/snakeattack"/>
+      <property name="HasDeathAnim" value="true"/>
+      <property name="MaxTurnSpeed" value="100"/>
+
+      <property name="MoveSpeed" value="0.2"/>
+      <property name="MoveSpeedAggro" value=".3, .3"/>
+      <property name="MoveSpeedPanic" value="0.3"/>
+
+      <property name="HandItem" value="meleeHandAnimalSnake"/>
+      <property name="AttackTimeoutDay" value="1.5"/>
+      <property name="AttackTimeoutNight" value="1.1"/>
+      <property name="ExperienceGain" value="170"/>
+      <property name="DeadBodyHitPoints" value="150"/>
+      <drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+      <drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="4"/>
+      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="2"/>
+      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+      <drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="30"/>
+        <passive_effect name="HealthMax" operation="perc_add" value="0"/>
+        <!-- Animal HP scale -->
+      </effect_group>
+    </entity_class>
+
+  </append>
+</configs>

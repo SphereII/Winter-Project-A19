@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <ModInfo>
+    <Name value="SphereII Winter Project Menu" />
+    <Description value="A modlet that extends SMX Main Menu for the Winter Project" />
+    <Author value="sphereii" />
+    <Version value="19.0.0.38" />
+  </ModInfo>
+  <DMT Hash="74afe86953bb078e5d953f74909d0c72">
+    <dependencies />
+    <conflicts />
+  </DMT>
+</xml>
