@@ -58,13 +58,16 @@ public static class SphereII_CaveTunneler
 
                     display = "Noise Below ThresholdXZ: " + noise + " Threadhold: " + noise2 + " Target Depth: " + targetDepth;
                     AdvLogging.DisplayLog(AdvFeatureClass, display);
-                    chunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth, chunkZ, caveAir);
+                    //hunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth, chunkZ, caveAir);
+                    chunk.SetBlockRaw(chunkX, targetDepth, chunkZ, caveAir);
+
                     chunk.SetDensity(chunkX, targetDepth, chunkZ, MarchingCubes.DensityAir);
 
                     // Make each cave height 5 blocks.
                     for (int caveHeight = 0; caveHeight < 5; caveHeight++)
                     {
-                        chunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth + caveHeight, chunkZ, caveAir);
+                        //chunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth + caveHeight, chunkZ, caveAir);
+                        chunk.SetBlockRaw(chunkX, targetDepth + caveHeight, chunkZ, caveAir);
                         chunk.SetDensity(chunkX, targetDepth + caveHeight, chunkZ, MarchingCubes.DensityAir);
                     }
                 }
@@ -113,16 +116,19 @@ public static class SphereII_CaveTunneler
 
         FastNoise fastNoise = GetFastNoise(chunk);
 
-        int DepthFromTerrain = 10;
+        int DepthFromTerrain = 6;
         int currentLevel = 0;
         while (DepthFromTerrain < tHeight || MaxLevels > currentLevel)
         {
             AddLevel(chunk, fastNoise, DepthFromTerrain);
-            AddDecorationsToCave(chunk);
             DepthFromTerrain += 10;
             currentLevel++;
             
         }
+
+        // Only scan the chunk once to decorate it, rather than multiple passes.
+        AddDecorationsToCave(chunk);
+
     }
 
     public static FastNoise GetFastNoise(Chunk chunk)
@@ -270,7 +276,6 @@ public static class SphereII_CaveTunneler
                             if (prefab != null)
                             {
                                 destination.y = tHeight;
-                                Debug.Log("Placing Cave Entrance: " + caveEntrance);
                                 AdvLogging.DisplayLog(AdvFeatureClass, "Placing Cave Entrance: " + caveEntrance);
 
                                 for (int x = 0; x < 10; x++)

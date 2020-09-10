@@ -68,7 +68,6 @@
     <None Include="Mods\0-SphereIICore\Resources\PathSmoke.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle_X.prefab" />
-    <None Include="Mods\GoreMod\Resources\gore.unity3d" />
     <None Include="Mods\Oignon Vehicles Pack\Resources\wip.unity3d" />
     <None Include="Mods\SphereII Music Boxes\README.md" />
     <None Include="Mods\SphereII Music Boxes\Resources\CDCases.unity3d" />
@@ -192,12 +191,6 @@
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_10.xml" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.tts" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.xml" />
-    <Content Include="Mods\GoreMod\Config\buffs.xml" />
-    <Content Include="Mods\GoreMod\Config\entityclasses.xml" />
-    <Content Include="Mods\GoreMod\Config\items.xml" />
-    <Content Include="Mods\GoreMod\Config\item_modifiers.xml" />
-    <Content Include="Mods\GoreMod\Config\progression.xml" />
-    <Content Include="Mods\GoreMod\ModInfo.xml" />
     <Content Include="Mods\Oignon Vehicles Pack\Config\buffs.xml" />
     <Content Include="Mods\Oignon Vehicles Pack\Config\entityclasses.xml" />
     <Content Include="Mods\Oignon Vehicles Pack\Config\items.xml" />
