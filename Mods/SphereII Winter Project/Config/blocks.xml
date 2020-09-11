@@ -36,26 +36,25 @@
       <property name="DisplayType" value="blockTerrainFertile"/>
     </block>
   </insertAfter>
-  <!--
+  
   <remove xpath="/blocks/block[@name='water']" />
   <insertAfter xpath="/blocks/block[@name='waterMoving']">
     <block name="water">
-      <property name="CreativeMode" value="None"/>
-      <property name="CustomIcon" value="terrWaterPOI"/>
       <property name="Class" value="Liquidv2"/>
-      <property name="Count" value="3"/>
+      <property name="Material" value="Msnow"/>
       <property name="Shape" value="Water"/>
       <property name="Mesh" value="water"/>
       <property name="Model" value="water_full"/>
       <property name="Texture" value="178"/>
+      <property name="Count" value="8"/>
       <property name="Map.Color" value="20,20,120"/>
       <property name="Map.Color" value="119,136,204"/>
-      <property name="Collide" value="melee,bullet,arrow,rocket"/>
       <property name="FilterTags" value="fterrain"/>
+
     </block>
 
   </insertAfter>
--->
+
   <append xpath="/blocks/block[@name='bed01']">
 		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
 	  </append>
@@ -337,6 +336,29 @@
       <drop event="Destroy" count="0"/>
       <drop event="Fall" name="resourcePaper" count="1" prob="0.187" stick_chance="0"/>
       <property name="DescriptionKey" value="Infoposter" />
+    </block>
+
+
+    <block name="terrSnowTrap">
+      <property name="Extends" value="woodWeakNoUpgradeMaster"/>
+      <property name="Material" value="Msnow"/>
+      <property name="Shape" value="Terrain"/>
+      <property name="Mesh" value="terrain"/>
+      <property name="Texture" value="178"/>
+      <property name="ImposterExclude" value="true"/>
+      <property name="CanMobsSpawnOn" value="true"/>
+      <property name="FilterTags" value="fterrain"/>
+      <property name="SortOrder1" value="d0k0"/>
+      <property name="SortOrder2" value="0050"/>
+      <property name="DisplayType" value="blockTerrainFertile"/>
+      
+     
+      <property name="Class" value="TrapDoor"/>
+      <property name="TriggerDelay" value="0.1"/>
+      <property name="TriggerSound" value="bullethitsnow"/>
+      <property name="Path" value="solid"/>
+      <drop event="Fall" count="0" prob="0"/>
+      <property name="ShowModelOnFall" value="false"/>
     </block>
 	</append>
 </configs>

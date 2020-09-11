@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEngine;
 
 public static class SphereII_CaveTunneler
 {
 
-    private static string AdvFeatureClass = "CaveConfiguration";
+    private static readonly string AdvFeatureClass = "CaveConfiguration";
 
     // Special air that has stability
-    static BlockValue caveAir = new BlockValue((uint)Block.GetBlockByName("caveBlock02", false).blockID);
+    static BlockValue caveAir = new BlockValue((uint)Block.GetBlockByName("air", false).blockID);
 
     static BlockValue bottomCaveDecoration = new BlockValue((uint)Block.GetBlockByName("cntCaveFloorRandomLootHelper", false).blockID);
     static BlockValue bottomDeepCaveDecoration = new BlockValue((uint)Block.GetBlockByName("cntDeepCaveFloorRandomLootHelper", false).blockID);
@@ -29,6 +27,15 @@ public static class SphereII_CaveTunneler
                 var worldZ = chunkPos.z + chunkZ;
 
                 var tHeight = chunk.GetTerrainHeight(chunkX, chunkZ);
+
+
+                // Place the top of this cave system higher up, if its a trap block.
+                BlockValue SurfaceBlock = chunk.GetBlock(chunkX, tHeight, chunkZ);
+                if (SurfaceBlock.Block.GetBlockName() == "terrSnowTrap" && DepthFromTerrain == 8)
+                {
+                    UnityEngine.Debug.Log("SurfaceBlock: " + SurfaceBlock.Block.GetBlockName() + " Depth From Terrain: " + DepthFromTerrain);
+                    DepthFromTerrain = 5;
+                }
                 int targetDepth = tHeight - DepthFromTerrain;
 
                 // If the depth isn't deep enough, don't try
@@ -60,7 +67,6 @@ public static class SphereII_CaveTunneler
                     AdvLogging.DisplayLog(AdvFeatureClass, display);
                     //hunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth, chunkZ, caveAir);
                     chunk.SetBlockRaw(chunkX, targetDepth, chunkZ, caveAir);
-
                     chunk.SetDensity(chunkX, targetDepth, chunkZ, MarchingCubes.DensityAir);
 
                     // Make each cave height 5 blocks.
@@ -70,6 +76,7 @@ public static class SphereII_CaveTunneler
                         chunk.SetBlockRaw(chunkX, targetDepth + caveHeight, chunkZ, caveAir);
                         chunk.SetDensity(chunkX, targetDepth + caveHeight, chunkZ, MarchingCubes.DensityAir);
                     }
+                   // targetDepth -= 4;
                 }
             }
         }
@@ -83,7 +90,7 @@ public static class SphereII_CaveTunneler
         var chunkPos = chunk.GetWorldPos();
 
         // Find middle of chunk for its height
-        int tHeight = chunk.GetTerrainHeight(8,8);
+        int tHeight = chunk.GetTerrainHeight(8, 8);
 
         int MaxLevels = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxCaveLevels"));
 
@@ -116,14 +123,14 @@ public static class SphereII_CaveTunneler
 
         FastNoise fastNoise = GetFastNoise(chunk);
 
-        int DepthFromTerrain = 6;
+        int DepthFromTerrain = 8;
         int currentLevel = 0;
         while (DepthFromTerrain < tHeight || MaxLevels > currentLevel)
         {
             AddLevel(chunk, fastNoise, DepthFromTerrain);
             DepthFromTerrain += 10;
             currentLevel++;
-            
+
         }
 
         // Only scan the chunk once to decorate it, rather than multiple passes.
@@ -198,8 +205,8 @@ public static class SphereII_CaveTunneler
         String caveType = Configuration.GetPropertyValue(AdvFeatureClass, "CaveType");
         if (caveType != "Random" && _random.RandomRange(0, 100) < 2)
         {
-            caveEntrance.x = _random.RandomRange(1,15);
-            caveEntrance.z = _random.RandomRange(1,15);
+            caveEntrance.x = _random.RandomRange(1, 15);
+            caveEntrance.z = _random.RandomRange(1, 15);
         }
         int MaxPrefab = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxPrefabPerChunk"));
         int currentPrefabCount = 0;

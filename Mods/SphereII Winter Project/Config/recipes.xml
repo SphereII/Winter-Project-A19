@@ -347,8 +347,6 @@
     <recipe name="drinkJarFullRespecAdmin" craft_area="campfire" craft_tool="toolCookingPot"  craft_time="20" >
       <ingredient name="drinkJarFullRespecAdminFrozen" count="1"   />
     </recipe>
-    <recipe name="" craft_area="campfire" craft_tool="toolCookingPot"  craft_time="20" >
-      <ingredient name="Frozen" count="1"   />
-    </recipe>
+   
   </append>
 </configs>

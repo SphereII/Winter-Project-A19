@@ -27,7 +27,7 @@
       <block name="stalagmite04" prob=".001"/>
       <block name="mushroom01" prob=".001"/>
       <block name="mushroom02" prob=".001"/>
-      <block name="caveBlock02" />
+      <block name="air" />
     </placeholder>
 
     <placeholder name="cntDeepCaveFloorRandomLootHelper">
@@ -56,7 +56,7 @@
       <block name="stalagmite03" prob=".001"/>
       <block name="stalagmite04" prob=".001"/>
       
-      <block name="caveBlock02" />
+      <block name="air" />
     </placeholder>
     
     
@@ -67,7 +67,7 @@
       <block name="stalactite02" prob=".006"/>
       <block name="stalactite03" prob=".006"/>
       <block name="stalactite04" prob=".006"/>
-      <block name="caveBlock02"/>
+      <block name="air" />
     </placeholder>
     
 

@@ -1,4 +1,0 @@
-﻿<configs>
-  <set xpath="/blocks/block[@name='spawnTrader']/property[@name='SpawnClass']/@value">npcTraderJoel,npcTraderRekt,Santa,npcTraderBob,npcTraderJen</set>
-
-</configs>
