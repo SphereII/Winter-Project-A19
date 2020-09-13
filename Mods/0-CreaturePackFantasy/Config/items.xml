@@ -1,0 +1,64 @@
+<configs>
+	<append xpath="/items">
+	
+		<item name="NightmareEntityLoadingHack">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare01_X"/>
+			<property name="DropMeshfile"  value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare01_X"/>
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>
+
+		<item name="meleeHandNightmareTemplate">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="35"/>
+			<property class="Action0">
+				<property name="Delay" value=".6"/> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="2.5"/>
+				<property name="DamageEntity" value="14"/>
+				<property name="DamageBlock" value="16"/>
+			</property>
+			<effect_group name="meleeHandNightmareTemplate" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<!--<passive_effect name="AttacksPerMinute" operation="base_set" value="85"/>  A16 .7 -->
+				<passive_effect name="DamageModifier" operation="perc_add" value="3" tags="earth"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11"/>
+			</effect_group>
+		</item>	
+
+		<item name="meleeHandNightmare01">
+			<property name="Extends" value="meleeHandNightmareTemplate"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="35"/> <!-- animal hold  -->
+			<property class="Action0">
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="20"/>
+				<property name="Range" value="3"/>
+				<property name="Sphere" value=".5"/>
+				<property name="Block_range" value="3"/>
+			</property>
+		</item>
+		<item name="meleeHandNightmare02">
+			<property name="Extends" value="meleeHandNightmareTemplate"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/> <!-- zombie hold  -->
+			<property class="Action0">
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="20"/>
+				<property name="Range" value="3"/>
+				<property name="Sphere" value=".5"/>
+				<property name="Block_range" value="3"/>
+			</property>
+		</item>		
+ 	</append>	  
+</configs>
