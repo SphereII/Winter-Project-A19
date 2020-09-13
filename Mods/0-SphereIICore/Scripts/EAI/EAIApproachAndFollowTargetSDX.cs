@@ -271,7 +271,7 @@ public class EAIApproachAndFollowTargetSDX : EAIApproachAndAttackTarget
             return;
         }
 
-        theEntity.moveHelper.CalcIfUnreachablePos(entityTargetPos);
+        theEntity.moveHelper.CalcIfUnreachablePos();
 
         // if the entity is not calculating a path, check how many nodes are left, and reset the path counter if its too low.
         if (!PathFinderThread.Instance.IsCalculatingPath(theEntity.entityId))

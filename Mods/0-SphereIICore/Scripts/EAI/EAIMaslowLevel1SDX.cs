@@ -216,7 +216,7 @@ class EAIMaslowLevel1SDX : EAIApproachSpot
         if (path != null)
         {
             hadPath = true;
-            theEntity.moveHelper.CalcIfUnreachablePos(seekPos);
+            theEntity.moveHelper.CalcIfUnreachablePos();
         }
         Vector3 lookPosition = investigatePos;
         lookPosition.y += 0.8f;

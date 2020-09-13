@@ -56,10 +56,16 @@ public class SphereII_WinterProject
                     //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
                     return false;
                 }
-                __instance.yOffset -= 8;
-                __instance.bTraderArea = false;
-                __instance.bExcludeDistantPOIMesh = true;
-                __instance.bCopyAirBlocks = true;
+
+                UnityEngine.Debug.Log("LoadBlocKData(): Prefab Name: " + __instance.PrefabName);
+                
+                if (!__instance.PrefabName.Contains("trader_hugh"))
+                {
+                    __instance.yOffset -= 8;
+                    __instance.bTraderArea = false;
+                    __instance.bExcludeDistantPOIMesh = true;
+                    __instance.bCopyAirBlocks = true;
+                }
             }
             return __result;
         }
@@ -76,10 +82,15 @@ public class SphereII_WinterProject
             if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
                 return true;
 
-            _prefabTargetPos.y -= 8;
-            __instance.bTraderArea = false;
-            __instance.bExcludeDistantPOIMesh = true;
-            __instance.bCopyAirBlocks = true;
+            UnityEngine.Debug.Log(" CopyBlocksInto Chunk() : Prefab Name: " + __instance.PrefabName);
+
+            if (!__instance.PrefabName.Contains("trader_hugh"))
+            {
+                _prefabTargetPos.y -= 8;
+                __instance.bTraderArea = false;
+                __instance.bExcludeDistantPOIMesh = true;
+                __instance.bCopyAirBlocks = true;
+            }
             return true;
 
         }
@@ -96,7 +107,10 @@ public class SphereII_WinterProject
             if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
                 return true;
 
-            _destinationPos.y -= 8;
+            UnityEngine.Debug.Log(" CopyIntoLocal() Prefab Name: " + __instance.PrefabName);
+
+            if (!__instance.PrefabName.Contains("trader_hugh"))
+                _destinationPos.y -= 8;
             return true;
         }
 
@@ -107,7 +121,8 @@ public class SphereII_WinterProject
     {
         public static void Postfix(Prefab __instance, Vector3i _destinationPos, ChunkCluster _cluster, QuestTags _questTags)
         {
-            WinterModPrefab.SetSnowPrefab(__instance, _cluster, _destinationPos, _questTags);
+            if (!__instance.PrefabName.Contains("trader_hugh"))
+                WinterModPrefab.SetSnowPrefab(__instance, _cluster, _destinationPos, _questTags);
         }
 
     }
@@ -120,9 +135,12 @@ public class SphereII_WinterProject
         {
             if (__result)
             {
-                // Distant POI Y Offset: this is what makes the prefabs look like they are on top of the snow, but then drop down.
-                __instance.distantPOIYOffset -= 8;
-                __instance.bExcludeDistantPOIMesh = true;
+                if (!__instance.PrefabName.Contains("trader_hugh"))
+                {
+                    // Distant POI Y Offset: this is what makes the prefabs look like they are on top of the snow, but then drop down.
+                    __instance.distantPOIYOffset -= 8;
+                    __instance.bExcludeDistantPOIMesh = true;
+                }
             }
         }
 
@@ -134,7 +152,8 @@ public class SphereII_WinterProject
     {
         public static void Postfix(PrefabInstance __instance, Chunk _chunk)
         {
-            WinterModPrefab.SetSnowChunk(_chunk, __instance.boundingBoxPosition, __instance.boundingBoxSize);
+            if (!__instance.prefab.PrefabName.Contains("trader_hugh"))
+                WinterModPrefab.SetSnowChunk(_chunk, __instance.boundingBoxPosition, __instance.boundingBoxSize);
         }
     }
 

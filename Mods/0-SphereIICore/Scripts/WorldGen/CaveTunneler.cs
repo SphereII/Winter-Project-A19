@@ -32,10 +32,8 @@ public static class SphereII_CaveTunneler
                 // Place the top of this cave system higher up, if its a trap block.
                 BlockValue SurfaceBlock = chunk.GetBlock(chunkX, tHeight, chunkZ);
                 if (SurfaceBlock.Block.GetBlockName() == "terrSnowTrap" && DepthFromTerrain == 8)
-                {
-                    UnityEngine.Debug.Log("SurfaceBlock: " + SurfaceBlock.Block.GetBlockName() + " Depth From Terrain: " + DepthFromTerrain);
                     DepthFromTerrain = 5;
-                }
+
                 int targetDepth = tHeight - DepthFromTerrain;
 
                 // If the depth isn't deep enough, don't try
