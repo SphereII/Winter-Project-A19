@@ -1,0 +1,15 @@
+﻿<configs>
+  <append xpath="/spawning">
+    <biome name="Cave">
+      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="ZombiesAll" />
+      <spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="ZombiesNight" />
+      <spawn maxcount="1" respawndelay="3.1" time="Any" entitygroup="ZombiesCave" spawnDeadChance="0" />
+    </biome>
+
+    <biome name="DeepCave">
+      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="sleeperSphereII_Nightmares_Stage1" />
+      <spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="sleeperSphereII_Nightmares_Stage1" />
+      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="ZombiesWastelandNight" />
+    </biome>
+  </append>
+</configs>

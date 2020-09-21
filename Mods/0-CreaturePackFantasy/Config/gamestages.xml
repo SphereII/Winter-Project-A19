@@ -1,0 +1,16 @@
+﻿<configs>
+
+  <append xpath="/gamestages">
+    <group name="S_-Group_SphereII_Generic_Nightmares_Stage1" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+      <spawner name="SleeperGSList_SphereII_Nightmares_Stage1" count="1,1"/>
+    </group>
+
+    <spawner name="SleeperGSList_SphereII_Nightmares_Stage1">
+      <gamestage stage="1">
+        <spawn group="sleeperSphereII_Nightmares_Stage1" num="1" maxAlive="1" duration="1"/>
+      </gamestage>
+    </spawner>
+  </append>
+
+
+</configs>

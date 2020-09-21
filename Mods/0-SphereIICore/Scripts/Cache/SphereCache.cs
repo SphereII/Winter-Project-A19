@@ -1,6 +1,9 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 
 public static class SphereCache
 {
@@ -12,6 +15,11 @@ public static class SphereCache
 
     public static List<Vector3i> caveChunks = new List<Vector3i>(); //static list somewhere
     public static List<Vector3i> caveEntrances = new List<Vector3i>();
+
+    public static FastNoise fastNoise = null;
+    public static List<String> POIs = new List<string>();
+    public static List<String> DeepCavePrefabs = new List<string>();
+
     public static Vector3i[] FindRandomPoints(int count)
     {
         Vector3i _minSize;
@@ -31,6 +39,53 @@ public static class SphereCache
         }
 
         return positions;
+    }
+
+    public static FastNoise GetFastNoise(Chunk chunk)
+    {
+        string AdvFeatureClass = "CaveConfiguration";
+
+        if (fastNoise != null)
+        {
+            if (chunk != null)
+                fastNoise.SetSeed(chunk.GetHashCode());
+            else
+                fastNoise.SetSeed(0);
+
+            return fastNoise;
+        }
+
+
+        fastNoise = new FastNoise();
+
+        // Read in the available POIs
+        foreach (String poi in Configuration.GetPropertyValue(AdvFeatureClass, "CavePOIs").Split(','))
+            POIs.Add(poi);
+
+        foreach (String poi in Configuration.GetPropertyValue(AdvFeatureClass, "DeepCavePrefabs").Split(','))
+            DeepCavePrefabs.Add(poi);
+
+        int Octaves = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Octaves"));
+        float Lacunarity = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Lacunarity"));
+        float Gain = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Gain"));
+        float Frequency = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Frequency"));
+
+        FastNoise.FractalType fractalType = EnumUtils.Parse<FastNoise.FractalType>(Configuration.GetPropertyValue(AdvFeatureClass, "FractalType"), false);
+        FastNoise.NoiseType noiseType = EnumUtils.Parse<FastNoise.NoiseType>(Configuration.GetPropertyValue(AdvFeatureClass, "NoiseType"), false);
+
+        fastNoise.SetFractalType(fractalType);
+        fastNoise.SetNoiseType(noiseType);
+        fastNoise.SetFractalOctaves(Octaves);
+        fastNoise.SetFractalLacunarity(Lacunarity);
+        fastNoise.SetFractalGain(Gain);
+        fastNoise.SetFrequency(Frequency);
+
+        if (chunk != null)
+            fastNoise.SetSeed(chunk.GetHashCode());
+        else
+            fastNoise.SetSeed(0);
+
+        return fastNoise;
     }
     public static void GenerateCaveChunks(int CaveEntrances = 2)
     {

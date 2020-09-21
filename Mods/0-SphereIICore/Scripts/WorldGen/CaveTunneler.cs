@@ -5,6 +5,7 @@ public static class SphereII_CaveTunneler
 {
 
     private static readonly string AdvFeatureClass = "CaveConfiguration";
+    private static FastNoise fastNoise = null;
 
     // Special air that has stability
     static BlockValue caveAir = new BlockValue((uint)Block.GetBlockByName("air", false).blockID);
@@ -16,7 +17,6 @@ public static class SphereII_CaveTunneler
     public static void AddLevel(Chunk chunk, FastNoise fastNoise, int DepthFromTerrain = 10)
     {
         var chunkPos = chunk.GetWorldPos();
-
         float caveThresholdXZ = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "CaveThresholdXZ"));
         float caveThresholdY = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "CaveThresholdY"));
         for (int chunkX = 0; chunkX < 16; chunkX++)
@@ -27,7 +27,6 @@ public static class SphereII_CaveTunneler
                 var worldZ = chunkPos.z + chunkZ;
 
                 var tHeight = chunk.GetTerrainHeight(chunkX, chunkZ);
-
 
                 // Place the top of this cave system higher up, if its a trap block.
                 BlockValue SurfaceBlock = chunk.GetBlock(chunkX, tHeight, chunkZ);
@@ -63,22 +62,19 @@ public static class SphereII_CaveTunneler
 
                     display = "Noise Below ThresholdXZ: " + noise + " Threadhold: " + noise2 + " Target Depth: " + targetDepth;
                     AdvLogging.DisplayLog(AdvFeatureClass, display);
-                    //hunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth, chunkZ, caveAir);
+
                     chunk.SetBlockRaw(chunkX, targetDepth, chunkZ, caveAir);
                     chunk.SetDensity(chunkX, targetDepth, chunkZ, MarchingCubes.DensityAir);
 
                     // Make each cave height 5 blocks.
-                    for (int caveHeight = 0; caveHeight < 5; caveHeight++)
+                    for (int caveHeight = 0; caveHeight < 4; caveHeight++)
                     {
-                        //chunk.SetBlock(GameManager.Instance.World, chunkX, targetDepth + caveHeight, chunkZ, caveAir);
                         chunk.SetBlockRaw(chunkX, targetDepth + caveHeight, chunkZ, caveAir);
                         chunk.SetDensity(chunkX, targetDepth + caveHeight, chunkZ, MarchingCubes.DensityAir);
                     }
-                   // targetDepth -= 4;
                 }
             }
         }
-
     }
     public static void AddCaveToChunk(Chunk chunk)
     {
@@ -119,7 +115,7 @@ public static class SphereII_CaveTunneler
 
         GameRandom _random = GameManager.Instance.World.GetGameRandom();
 
-        FastNoise fastNoise = GetFastNoise(chunk);
+        fastNoise = SphereCache.GetFastNoise(chunk);
 
         int DepthFromTerrain = 8;
         int currentLevel = 0;
@@ -128,49 +124,43 @@ public static class SphereII_CaveTunneler
             AddLevel(chunk, fastNoise, DepthFromTerrain);
             DepthFromTerrain += 10;
             currentLevel++;
-
         }
 
         // Only scan the chunk once to decorate it, rather than multiple passes.
+      
         AddDecorationsToCave(chunk);
 
     }
 
-    public static FastNoise GetFastNoise(Chunk chunk)
+
+
+    public static Prefab FindOrCreatePrefab(String strPOIname)
     {
-        int Octaves = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Octaves"));
-        float Lacunarity = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Lacunarity"));
-        float Gain = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Gain"));
-        float Frequency = float.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "Frequency"));
+        // Check if the prefab already exists.
+        Prefab prefab = GameManager.Instance.GetDynamicPrefabDecorator().GetPrefab(strPOIname, true, true, true);
+        if (prefab != null)
+            return prefab;
 
+        // If it's not in the prefab decorator, load it up.
+        prefab = new Prefab();
+        prefab.Load(strPOIname, true, true, true);
+        PathAbstractions.AbstractedLocation location = PathAbstractions.GetLocation(PathAbstractions.PrefabsSearchPaths, strPOIname);
+        prefab.LoadXMLData(location);
 
-        FastNoise.FractalType fractalType = EnumUtils.Parse<FastNoise.FractalType>(Configuration.GetPropertyValue(AdvFeatureClass, "FractalType"), false);
-        FastNoise.NoiseType noiseType = EnumUtils.Parse<FastNoise.NoiseType>(Configuration.GetPropertyValue(AdvFeatureClass, "NoiseType"), false);
+        if (String.IsNullOrEmpty(prefab.PrefabName))
+            prefab.PrefabName = strPOIname;
+        //prefab.yOffset += 8;
+        return prefab;
 
-        FastNoise fastNoise = new FastNoise();
-        fastNoise.SetFractalType(fractalType);
-        fastNoise.SetNoiseType(noiseType);
-        fastNoise.SetFractalOctaves(Octaves);
-        fastNoise.SetFractalLacunarity(Lacunarity);
-        fastNoise.SetFractalGain(Gain);
-        fastNoise.SetFrequency(Frequency);
-        fastNoise.SetSeed(chunk.GetHashCode());
-
-        var chunkPos = chunk.GetWorldPos();
-
-        String display = "Chunk and Seed: " + chunk.GetHashCode() + " Fractal Type: " + fractalType.ToString() + " Noise Type: " + noiseType.ToString() + " Position: " + chunkPos + " Octaves: " + Octaves + " Lacunarity: " + Lacunarity + " Gain: " + Gain + " Frequency: " + Frequency;
-        AdvLogging.DisplayLog(AdvFeatureClass, display);
-
-        return fastNoise;
     }
-
     public static void AddDecorationsToCave(Chunk chunk)
     {
-
         if (chunk == null)
             return;
 
         var chunkPos = chunk.GetWorldPos();
+
+        // Check if a cave entrance exists in this chunk.
         Vector3i caveEntrance = Vector3i.zero;
         for (int x = 0; x < SphereCache.caveEntrances.Count; x++)
         {
@@ -185,16 +175,7 @@ public static class SphereII_CaveTunneler
             }
         }
 
-        //
-        List<String> POIs = new List<string>();
-        foreach (String poi in Configuration.GetPropertyValue(AdvFeatureClass, "CavePOIs").Split(','))
-            POIs.Add(poi);
-
-        List<String> CaveSpawners = new List<string>();
-        foreach (String poi in Configuration.GetPropertyValue(AdvFeatureClass, "CaveSpawners").Split(','))
-            CaveSpawners.Add(poi);
-
-        FastNoise fastNoise = GetFastNoise(chunk);
+        fastNoise = SphereCache.GetFastNoise(chunk);
 
         AdvLogging.DisplayLog(AdvFeatureClass, "Decorating new Cave System...");
         GameRandom _random = GameManager.Instance.World.GetGameRandom();
@@ -212,6 +193,8 @@ public static class SphereII_CaveTunneler
         int RandomRoll = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "POIRandomRoll"));
         if (RandomRoll < 0)
             RandomRoll = 1;
+
+        String strPOI;
 
         // Decorate decorate the cave spots with blocks. Shrink the chunk loop by 1 on its edges so we can safely check surrounding blocks.
         for (int chunkX = 1; chunkX < 15; chunkX++)
@@ -233,41 +216,36 @@ public static class SphereII_CaveTunneler
 
                     var under = chunk.GetBlock(chunkX, y - 1, chunkZ);
                     var above = chunk.GetBlock(chunkX, y + 1, chunkZ);
-                    var side = chunk.GetBlock(chunkX + 1, y, chunkZ);
 
-                    float noise = fastNoise.GetNoise(chunkX, chunkZ);
                     _random.SetSeed(chunkX * chunkZ * y);
 
                     // Placing random Prefabs
-                    if (IsIsolatedBlock(chunk, new Vector3i(chunkX, y, chunkZ)) && _random.RandomRange(0, 10) < RandomRoll)
+                    if (IsIsolatedBlock(chunk, new Vector3i(chunkX, y, chunkZ)) && ( currentPrefabCount <= MaxPrefab ))
                     {
-                        String FindPrefab = POIs[_random.RandomRange(0, POIs.Count)];
-                        Prefab prefab = GameManager.Instance.GetDynamicPrefabDecorator().GetPrefab(FindPrefab);
-                        if (prefab != null)
+
+                        if (_random.RandomRange(0, 10) < RandomRoll)
                         {
-                            Vector3i destination = chunk.ToWorldPos(new Vector3i(chunkX, y + prefab.yOffset, chunkZ));
-                            AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + FindPrefab + " at " + destination);
-                            prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
-                            prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
-                            currentPrefabCount++;
-                            continue;
+                            if (y < 30)
+                                strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
+                            else
+                                strPOI = SphereCache.POIs[_random.RandomRange(0, SphereCache.POIs.Count)];
 
-                        }
-                    }
+                            Prefab prefab = FindOrCreatePrefab(strPOI);
+                            if (prefab != null)
+                            {
+                                Vector3i destination = chunk.ToWorldPos(new Vector3i(chunkX, y + prefab.yOffset, chunkZ));
+                              //  UnityEngine.Debug.Log("Placing Prefab: " + strPOI + " at " + destination);
+                                AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
 
-                    // Placing random sleeper prefab
-                    if (IsIsolatedBlock(chunk, new Vector3i(chunkX, y, chunkZ)) && _random.RandomRange(0, 10) < 1)
-                    {
-                        String FindPrefab = CaveSpawners[_random.RandomRange(0, CaveSpawners.Count)];
-                        Prefab prefab = GameManager.Instance.GetDynamicPrefabDecorator().GetPrefab(FindPrefab);
-                        if (prefab != null)
-                        {
-                            Vector3i destination = chunk.ToWorldPos(new Vector3i(chunkX, y + prefab.yOffset, chunkZ));
-                            AdvLogging.DisplayLog(AdvFeatureClass, "Placing Spawner " + FindPrefab + " at " + destination);
-                            prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
-                            prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
-                            continue;
+                                POITags temp = prefab.Tags;
+                                prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
+                                prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+                                prefab.Tags = temp;
+                                prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+                                currentPrefabCount++;
+                                continue;
 
+                            }
                         }
                     }
 
@@ -277,7 +255,7 @@ public static class SphereII_CaveTunneler
                         if (caveEntrance.x == worldX && caveEntrance.z == worldZ)
                         {
                             Vector3i destination = caveEntrance;
-                            Prefab prefab = GameManager.Instance.GetDynamicPrefabDecorator().GetPrefab("caveOpening02");
+                            Prefab prefab = FindOrCreatePrefab("caveOpening02");
                             if (prefab != null)
                             {
                                 destination.y = tHeight;
@@ -286,8 +264,8 @@ public static class SphereII_CaveTunneler
                                 for (int x = 0; x < 10; x++)
                                 {
                                     prefab = prefab.Clone();
-                                    prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, false, false);
-                                    prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+                                //    prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, false, false);
+                                //    prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
                                     destination.y--;
 
                                     // Use noise to give the tunnel a bit of a natural look
@@ -320,7 +298,6 @@ public static class SphereII_CaveTunneler
                         continue;
                     }
 
-
                     // Check the ceiling to see if its a ceiling decoration
                     if (above.Block.shape.IsTerrain())
                     {
@@ -352,3 +329,4 @@ public static class SphereII_CaveTunneler
 
     }
 }
+ 

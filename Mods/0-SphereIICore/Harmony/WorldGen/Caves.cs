@@ -1,6 +1,7 @@
 ﻿using DMT;
 using HarmonyLib;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -19,13 +20,215 @@ public class SphereII_CaveProject
             Application.SetStackTraceLogType(UnityEngine.LogType.Warning, StackTraceLogType.None);
 
             var harmony = new Harmony(GetType().ToString());
+
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 
 
+    [HarmonyPatch(typeof(SpawnManagerBiomes))]
+    [HarmonyPatch("Update")]
+    public class SphereII_CaveProject_Spawnmanager_Biomes
+    {
+        public static void Postfix(SpawnManagerBiomes __instance, string _spawnerName, bool _bSpawnEnemyEntities, object _userData, ref List<Entity> ___spawnNearList, ref int ___lastClassId)
+        {
+            if (!GameUtils.IsPlaytesting())
+            {
+                SpawnUpdate(_spawnerName, _bSpawnEnemyEntities, _userData as ChunkAreaBiomeSpawnData, ref ___spawnNearList, ref ___lastClassId);
+            }
+        }
+        private static bool isPositionMinDistanceAwayFromAllPlayers(Vector3 _position, int _minDistance)
+        {
+            int num = _minDistance * _minDistance;
+            for (int i = 0; i < GameManager.Instance.World.Players.list.Count; i++)
+            {
+                if (GameManager.Instance.World.Players.list[i].GetDistanceSq(_position) < (float)num)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool FindRandomSpawnPointNearPositionUnderground(Rect _area, int _minDistance, int _maxDistance, bool _bConsiderBedrolls, out Vector3 _position, Vector3i PlayerPosition)
+        {
+            _position = Vector3.zero;
+            if (GameManager.Instance.World.Players.list.Count == 0)
+            {
+                return false;
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                Vector2 rangeY = new Vector2(PlayerPosition.y - 10, PlayerPosition.y + 10);
+
+                _position = new Vector3(_area.x + GameManager.Instance.World.RandomRange(0f, _area.width - 1f), GameManager.Instance.World.RandomRange(rangeY.x, rangeY.y), _area.y + GameManager.Instance.World.RandomRange(0f, _area.height - 1f));
+                Vector3i vector3i = World.worldToBlockPos(_position);
+                Chunk chunk = (Chunk)GameManager.Instance.World.GetChunkFromWorldPos(vector3i);
+                if (chunk != null)
+                {
+                    int x = World.toBlockXZ(vector3i.x);
+                    int z = World.toBlockXZ(vector3i.z);
+
+                    // Grab the terrian height. If it's above the terrain level, ignore it.
+                    float terrainLevel = (float)(chunk.GetHeight(x, z) + 1);
+                    vector3i.y = (int)GameManager.Instance.World.RandomRange((float)PlayerPosition.y - 10, terrainLevel - 10);
+                    if (chunk.CanMobsSpawnAtPos(x, vector3i.y, z, false))
+                    {
+                        bool flag = isPositionMinDistanceAwayFromAllPlayers(_position, _minDistance);
+                        int num = 0;
+                        while (flag && num < GameManager.Instance.World.Players.list.Count)
+                        {
+                            if ((_position - GameManager.Instance.World.Players.list[num].GetPosition()).sqrMagnitude < 2500f && GameManager.Instance.World.Players.list[num].IsInViewCone(_position))
+                            {
+                                flag = false;
+                            }
+                            num++;
+                        }
+                        if (flag)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            _position = Vector3.zero;
+            return false;
+        }
 
 
+        public static void SpawnUpdate(string _spawnerName, bool _bSpawnEnemyEntities, ChunkAreaBiomeSpawnData _chunkBiomeSpawnData, ref List<Entity> spawnNearList, ref int lastClassId)
+        {
+            if (_chunkBiomeSpawnData == null)
+            {
+                return;
+            }
+            if (_bSpawnEnemyEntities)
+            {
+                if (GameStats.GetInt(EnumGameStats.EnemyCount) >= GamePrefs.GetInt(EnumGamePrefs.MaxSpawnedZombies))
+                {
+                    _bSpawnEnemyEntities = false;
+                }
+                else if (GameManager.Instance.World.aiDirector.BloodMoonComponent.BloodMoonActive)
+                {
+                    _bSpawnEnemyEntities = false;
+                }
+            }
+            if (!_bSpawnEnemyEntities && GameStats.GetInt(EnumGameStats.AnimalCount) >= GamePrefs.GetInt(EnumGamePrefs.MaxSpawnedAnimals))
+            {
+                return;
+            }
+            bool flag = false;
+            List<EntityPlayer> players = GameManager.Instance.World.GetPlayers();
+
+            // Player Position.
+            Vector3 position = Vector3.zero;
+            Rect rect = new Rect(1, 1, 1, 1);
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i].Spawned)
+                {
+                    position = players[i].GetPosition();
+                    rect = new Rect(position.x - 40f, position.z - 40f, 80f, 80f);
+                    if (rect.Overlaps(_chunkBiomeSpawnData.area))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+
+            // No valid player position.
+            if (position == Vector3.zero)
+                return;
+
+            // Don't allow above ground spawning.
+            Vector3i playerPosition = new Vector3i(position);
+            float offSet = GameManager.Instance.World.GetTerrainHeight(playerPosition.x, playerPosition.z);
+            if (offSet <= playerPosition.y)
+                return;
+
+            int minDistance = _bSpawnEnemyEntities ? 28 : 48;
+            int maxDistance = _bSpawnEnemyEntities ? 54 : 70;
+            Vector3 vector;
+            if (!flag || !FindRandomSpawnPointNearPositionUnderground(rect, minDistance, maxDistance, false, out vector, playerPosition))
+                return;
+
+            // Mob is above terrain; ignore.
+            if (vector.y > offSet)
+                return;
+
+            BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"]; ;
+            if (vector.y > 30)
+                biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
+
+            if (biomeSpawnEntityGroupList == null)
+                return;
+
+            EDaytime edaytime = GameManager.Instance.World.IsDaytime() ? EDaytime.Day : EDaytime.Night;
+            GameRandom gameRandom = GameManager.Instance.World.GetGameRandom();
+            string entityGroupName = null;
+            int num = -1;
+            int num2 = gameRandom.RandomRange(biomeSpawnEntityGroupList.list.Count);
+            int j = 0;
+            while (j < 5)
+            {
+                BiomeSpawnEntityGroupData biomeSpawnEntityGroupData = biomeSpawnEntityGroupList.list[num2];
+                if (biomeSpawnEntityGroupData.daytime == EDaytime.Any || biomeSpawnEntityGroupData.daytime == edaytime)
+                {
+                    bool flag2 = EntityGroups.IsEnemyGroup(biomeSpawnEntityGroupData.entityGroupRefName);
+                    if (!flag2 || _bSpawnEnemyEntities)
+                    {
+                        int num3 = biomeSpawnEntityGroupData.maxCount;
+                        if (flag2)
+                        {
+                            num3 = EntitySpawner.ModifySpawnCountByGameDifficulty(num3);
+                        }
+                        entityGroupName = biomeSpawnEntityGroupData.entityGroupRefName + "_" + biomeSpawnEntityGroupData.daytime.ToStringCached<EDaytime>();
+
+                        ulong respawnLockedUntilWorldTime = _chunkBiomeSpawnData.GetRespawnLockedUntilWorldTime(entityGroupName);
+                        if (respawnLockedUntilWorldTime <= 0UL || GameManager.Instance.World.worldTime >= respawnLockedUntilWorldTime)
+                        {
+                            if (respawnLockedUntilWorldTime > 0UL)
+                            {
+                                _chunkBiomeSpawnData.ClearRespawnLocked(entityGroupName);
+                            }
+                            if (_chunkBiomeSpawnData.GetEntitiesSpawned(entityGroupName) < num3)
+                            {
+                                num = num2;
+                                break;
+                            }
+                        }
+                    }
+                }
+                j++;
+                num2 = (num2 + 1) % biomeSpawnEntityGroupList.list.Count;
+            }
+            if (num < 0)
+                return;
+
+            Bounds bb = new Bounds(vector, new Vector3(4f, 2.5f, 4f));
+            GameManager.Instance.World.GetEntitiesInBounds(typeof(Entity), bb, spawnNearList);
+            int count = spawnNearList.Count;
+            spawnNearList.Clear();
+            if (count > 0)
+                return;
+
+            BiomeSpawnEntityGroupData biomeSpawnEntityGroupData2 = biomeSpawnEntityGroupList.list[num];
+            int randomFromGroup = EntityGroups.GetRandomFromGroup(biomeSpawnEntityGroupData2.entityGroupRefName, ref lastClassId, null);
+            float spawnDeadChance = biomeSpawnEntityGroupData2.spawnDeadChance;
+            _chunkBiomeSpawnData.IncEntitiesSpawned(entityGroupName);
+            Entity entity = EntityFactory.CreateEntity(randomFromGroup, vector);
+            entity.SetSpawnerSource(EnumSpawnerSource.Biome, _chunkBiomeSpawnData.chunk.Key, entityGroupName);
+            GameManager.Instance.World.SpawnEntityInWorld(entity);
+            if (spawnDeadChance > 0f && gameRandom.RandomFloat < spawnDeadChance)
+            {
+                entity.Kill(DamageResponse.New(true));
+            }
+            GameManager.Instance.World.DebugAddSpawnedEntity(entity);
+        }
+    }
+
+
+ 
     //// caveBlock02 is used as air blocks below the terrain, so we need to add a check here, so we can replace it with another block.
     //[HarmonyPatch(typeof(Block))]
     //[HarmonyPatch("overlapsWithOtherBlock")]

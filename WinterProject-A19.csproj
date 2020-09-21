@@ -52,6 +52,10 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.blocks.nim" />
+    <None Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.ins" />
+    <None Include="Mods\0-CreaturePackFantasy\Resources\ACFrOgCEGySE9Pk8D3s_1nWmNzNYJ6Qxpr4stcZr1sM58WOpPpjpgOGTSCeMs3Opsrtb-T6LCnShty1Q6lcA0qR3A7-u-R69-qye_EUICZCJP4aCVc_xcCtPk4McyrBQEsPXv6_ZKBEdqJJh77M-.pdf" />
+    <None Include="Mods\0-CreaturePackFantasy\Resources\fantasyNightmares.unity3d" />
     <None Include="Mods\0-SphereIICore\Prefabs\caveOpening02.blocks.nim" />
     <None Include="Mods\0-SphereIICore\Prefabs\caveOpening02.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.blocks.nim" />
@@ -100,6 +104,8 @@
     <None Include="Mods\SphereII Take And Replace\README.md" />
     <None Include="Mods\SphereII Winter Project Menu\Resources\Flies.unity3d" />
     <None Include="Mods\SphereII Winter Project Menu\Resources\MenuParticles.unity3d" />
+    <None Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.blocks.nim" />
+    <None Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.mesh" />
     <None Include="Mods\SphereII Winter Project\README.md" />
     <None Include="Mods\SphereII Winter Project\Resources\FrostShieldParticle.unity3d" />
     <None Include="Mods\SphereII Winter Project\Resources\SnowFog.unity3d" />
@@ -182,6 +188,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mods\0-CreaturePackFantasy\Config\entityclasses.xml" />
+    <Content Include="Mods\0-CreaturePackFantasy\Config\entitygroups.xml" />
+    <Content Include="Mods\0-CreaturePackFantasy\Config\gamestages.xml" />
+    <Content Include="Mods\0-CreaturePackFantasy\Config\items.xml" />
+    <Content Include="Mods\0-CreaturePackFantasy\ModInfo.xml" />
+    <Content Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.tts" />
+    <Content Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.xml" />
     <Content Include="Mods\0-SphereIICore\Config\blockplaceholders.xml" />
     <Content Include="Mods\0-SphereIICore\Config\blocks.xml">
       <SubType>Designer</SubType>
@@ -192,6 +205,8 @@
     <Content Include="Mods\0-SphereIICore\Config\items.xml" />
     <Content Include="Mods\0-SphereIICore\Config\Localization.txt" />
     <Content Include="Mods\0-SphereIICore\Config\quests.xml" />
+    <Content Include="Mods\0-SphereIICore\Config\rwgmixer.xml" />
+    <Content Include="Mods\0-SphereIICore\Config\spawning.xml" />
     <Content Include="Mods\0-SphereIICore\Config\XUi\xui.xml" />
     <Content Include="Mods\0-SphereIICore\Documentation\Examples\blocks.xml" />
     <Content Include="Mods\0-SphereIICore\Documentation\Examples\entityclasses.xml" />
@@ -567,6 +582,9 @@
     <Content Include="Mods\SphereII Winter Project\Harmony\Harmony-SphereII Winter Project.dll" />
     <Content Include="Mods\SphereII Winter Project\Harmony\Harmony-SphereII Winter Project.pdb" />
     <Content Include="Mods\SphereII Winter Project\ModInfo.xml" />
+    <Content Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.jpg" />
+    <Content Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.tts" />
+    <Content Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.xml" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\foodHoneyFrozen.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\snowShovel.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\tinfoil.png" />
@@ -758,6 +776,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\TileEntities\TileEntityPoweredWorkstation.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\CaveTunneler.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\FastNoise.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\FastNoiseSIMD.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\WinterModPrefab.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_CharacterFrameWindowSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_DialogHireInformationSDX.cs" />
@@ -772,6 +791,7 @@
     <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Mods\0-SphereIICore\Scripts\Spawner\" />
     <Folder Include="Mods\SphereII Winter Project Menu\Config\XUi\" />
     <Folder Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\ACLib\" />
   </ItemGroup>

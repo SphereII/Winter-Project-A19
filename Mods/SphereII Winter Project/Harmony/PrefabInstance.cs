@@ -56,9 +56,6 @@ public class SphereII_WinterProject
                     //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
                     return false;
                 }
-
-                UnityEngine.Debug.Log("LoadBlocKData(): Prefab Name: " + __instance.PrefabName);
-                
                 if (!__instance.PrefabName.Contains("trader_hugh"))
                 {
                     __instance.yOffset -= 8;
@@ -81,8 +78,6 @@ public class SphereII_WinterProject
             // If they are pre-generated Winter Project worlds, don't apply this. They'd have already been applied.
             if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
                 return true;
-
-            UnityEngine.Debug.Log(" CopyBlocksInto Chunk() : Prefab Name: " + __instance.PrefabName);
 
             if (!__instance.PrefabName.Contains("trader_hugh"))
             {
@@ -107,21 +102,20 @@ public class SphereII_WinterProject
             if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
                 return true;
 
-            UnityEngine.Debug.Log(" CopyIntoLocal() Prefab Name: " + __instance.PrefabName);
+            if (__instance.Tags.Test_AllSet(POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL")))
+                return true;
 
             if (!__instance.PrefabName.Contains("trader_hugh"))
                 _destinationPos.y -= 8;
             return true;
         }
 
-    }
-    [HarmonyPatch(typeof(Prefab))]
-    [HarmonyPatch("CopyIntoLocal")]
-    public class SphereII_WinterProject_Prefab
-    {
         public static void Postfix(Prefab __instance, Vector3i _destinationPos, ChunkCluster _cluster, QuestTags _questTags)
         {
-            if (!__instance.PrefabName.Contains("trader_hugh"))
+            if (__instance.Tags.Test_AllSet(POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL")))
+                return;
+
+            if (!__instance.PrefabName.Contains("trader_hugh") )
                 WinterModPrefab.SetSnowPrefab(__instance, _cluster, _destinationPos, _questTags);
         }
 
