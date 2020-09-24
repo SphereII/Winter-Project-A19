@@ -220,17 +220,40 @@
       <property name="Model" value="#@modfolder:Resources/PathingCube.unity3d?PathingCube2"/>
     </block>
 
-    <block name="BlockCaveSpawnerSDX">
-      <property name="Class" value="CaveSpawner, Mods"/>
-      <property name="SpawnGroup" value="sleeperSphereII_Nightmares_Stage1" />
+    
+    <!--
+    <block name="cntLockChest">
+      <property name="CreativeMode" value="Player"/>
+      <property name="Tags" value="door"/>
+      <property name="Class" value="LockedLoot, Mods"/>
+      <property name="CustomIcon" value="cntChest01"/>
+      <property name="Material" value="MwoodReinforced"/>
+      <property name="StabilitySupport" value="false"/>
+      <property name="Shape" value="ModelEntity"/>
+      <property name="Model" value="#@modfolder(SphereII Music Boxes):Resources/XmasCarousel.unity3d?Carousel_X" />
 
-      <property name="Shape" value="ModelEntity" />
-      <property name="Model" value="#@modfolder:Resources/PathingCube.unity3d?PathingCube"/>
-      <property name="Material" value="Mair"/>
-      <property name="CreativeMode" value="Player" />
-      <property name="CanPickup" value="false"/>
+      <property name="Texture" value="293"/>
+      <property name="Mesh" value="models"/>
+      <property name="IsTerrainDecoration" value="true"/>
+      <property name="FuelValue" value="300"/>
+      <property name="HandleFace" value="Bottom"/>
+      <property name="ImposterExchange" value="imposterQuarter" param1="154"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <property name="LootList" value="1"/>
+      <property class="RepairItems">
+        <property name="resourceWood" value="10"/>
+      </property>
+      <drop event="Destroy" name="resourceWood" count="1,3"/>
+      <drop event="Fall" name="terrDestroyedWoodDebris" count="1" prob="0.75" stick_chance="1"/>
+      <property name="LPHardnessScale" value="8"/>
+      <property name="DowngradeBlock" value="cntStorageChest"/>
+      <property name="Group" value="Basics,Building,advBuilding"/>
+      <property name="DescriptionKey" value="cntSecureStorageChestDesc"/>
+      <property name="EconomicValue" value="10"/>
+      <property name="EconomicBundleSize" value="10"/>
+      <property name="FilterTags" value="floot"/>
     </block>
-
+    -->
     <!-- Cave air block -->
     <block name="caveBlock02">
       <property name="Extends" value="air"/>

@@ -14,6 +14,60 @@ public static class SphereII_CaveTunneler
     static BlockValue bottomDeepCaveDecoration = new BlockValue((uint)Block.GetBlockByName("cntDeepCaveFloorRandomLootHelper", false).blockID);
     static BlockValue topCaveDecoration = new BlockValue((uint)Block.GetBlockByName("cntCaveCeilingRandomLootHelper", false).blockID);
 
+  
+    public static void AddCaveToChunk(Chunk chunk)
+    {
+        if (chunk == null)
+            return;
+
+        var chunkPos = chunk.GetWorldPos();
+
+        // Find middle of chunk for its height
+        int tHeight = chunk.GetTerrainHeight(8, 8);
+
+        int MaxLevels = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxCaveLevels"));
+
+        String caveType = Configuration.GetPropertyValue(AdvFeatureClass, "CaveType");
+        switch (caveType)
+        {
+            case "DeepMountains":
+                // If the chunk is lower than 100 at the terrain, don't generate a cave here.
+                if (tHeight < 80)
+                    return;
+                MaxLevels = 100;
+                break;
+            case "Mountains":
+                // If the chunk is lower than 100 at the terrain, don't generate a cave here.
+                if (tHeight < 80)
+                    return;
+                break;
+            case "All":
+                // Generate caves on every single chunk in the world.
+                break;
+            case "Random":
+            default:
+                // If the chunk isn't in the cache, don't generate.
+                if (!SphereCache.caveChunks.Contains(chunkPos))
+                    return;
+                break;
+        }
+
+        fastNoise = SphereCache.GetFastNoise(chunk);
+
+        int DepthFromTerrain = 8;
+        int currentLevel = 0;
+        while (DepthFromTerrain < tHeight || MaxLevels > currentLevel)
+        {
+            AddLevel(chunk, fastNoise, DepthFromTerrain);
+            DepthFromTerrain += 10;
+            currentLevel++;
+        }
+
+        // Decorate is done via another patch in Caves.cs
+    }
+
+
+    // Builds a cave area section
     public static void AddLevel(Chunk chunk, FastNoise fastNoise, int DepthFromTerrain = 10)
     {
         var chunkPos = chunk.GetWorldPos();
@@ -76,64 +130,8 @@ public static class SphereII_CaveTunneler
             }
         }
     }
-    public static void AddCaveToChunk(Chunk chunk)
-    {
-        if (chunk == null)
-            return;
 
-        var chunkPos = chunk.GetWorldPos();
-
-        // Find middle of chunk for its height
-        int tHeight = chunk.GetTerrainHeight(8, 8);
-
-        int MaxLevels = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxCaveLevels"));
-
-        String caveType = Configuration.GetPropertyValue(AdvFeatureClass, "CaveType");
-        switch (caveType)
-        {
-            case "DeepMountains":
-                // If the chunk is lower than 100 at the terrain, don't generate a cave here.
-                if (tHeight < 80)
-                    return;
-                MaxLevels = 100;
-                break;
-            case "Mountains":
-                // If the chunk is lower than 100 at the terrain, don't generate a cave here.
-                if (tHeight < 80)
-                    return;
-                break;
-            case "All":
-                // Generate caves on every single chunk in the world.
-                break;
-            case "Random":
-            default:
-                // If the chunk isn't in the cache, don't generate.
-                if (!SphereCache.caveChunks.Contains(chunkPos))
-                    return;
-                break;
-        }
-
-        GameRandom _random = GameManager.Instance.World.GetGameRandom();
-
-        fastNoise = SphereCache.GetFastNoise(chunk);
-
-        int DepthFromTerrain = 8;
-        int currentLevel = 0;
-        while (DepthFromTerrain < tHeight || MaxLevels > currentLevel)
-        {
-            AddLevel(chunk, fastNoise, DepthFromTerrain);
-            DepthFromTerrain += 10;
-            currentLevel++;
-        }
-
-        // Only scan the chunk once to decorate it, rather than multiple passes.
-      
-        AddDecorationsToCave(chunk);
-
-    }
-
-
-
+    // Helper method is check the prefab decorator first to see if its there, then create it if it does not exist.
     public static Prefab FindOrCreatePrefab(String strPOIname)
     {
         // Check if the prefab already exists.
@@ -149,7 +147,7 @@ public static class SphereII_CaveTunneler
 
         if (String.IsNullOrEmpty(prefab.PrefabName))
             prefab.PrefabName = strPOIname;
-        //prefab.yOffset += 8;
+
         return prefab;
 
     }
@@ -237,9 +235,13 @@ public static class SphereII_CaveTunneler
                               //  UnityEngine.Debug.Log("Placing Prefab: " + strPOI + " at " + destination);
                                 AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
 
+                                // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
+                                // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
                                 POITags temp = prefab.Tags;
                                 prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
                                 prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+
+                                // Restore any of the tags that might have existed before.
                                 prefab.Tags = temp;
                                 prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
                                 currentPrefabCount++;
@@ -314,6 +316,8 @@ public static class SphereII_CaveTunneler
 
 
 
+    // We want to place prefabs in isolated blocks, meaning that its just a single air block that is mostly covered with terrain. 
+    // Since its not a usable space to the player, its a decent choice for spawning.
     static public bool IsIsolatedBlock(Chunk chunk, Vector3i center)
     {
         int counter = 0;

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml>
+  <ModInfo>
+    <Name value="WalkerSim" />
+    <Description value="Zombie Horde Simulation Plugin" />
+    <Author value="ZehMatt" />
+    <Version value="19.1.0.1" />
+    <Website value="" />
+  </ModInfo>
+  <DMT Hash="13011d1bd13cbd14b211cb7b5c25640b">
+    <dependencies />
+    <conflicts />
+  </DMT>
+</xml>

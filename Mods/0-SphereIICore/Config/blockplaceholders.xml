@@ -27,8 +27,7 @@
       <block name="stalagmite04" prob=".001"/>
       <block name="mushroom01" prob=".001"/>
       <block name="mushroom02" prob=".001"/>
-      <block name="BlockCaveSpawnerSDX" prob=".01" />
-      
+     
       <block name="air" />
     </placeholder>
 

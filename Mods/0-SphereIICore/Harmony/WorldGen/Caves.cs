@@ -30,8 +30,12 @@ public class SphereII_CaveProject
     [HarmonyPatch("Update")]
     public class SphereII_CaveProject_Spawnmanager_Biomes
     {
+        // We want to run our cave spawning class right under the main biome spawner.
         public static void Postfix(SpawnManagerBiomes __instance, string _spawnerName, bool _bSpawnEnemyEntities, object _userData, ref List<Entity> ___spawnNearList, ref int ___lastClassId)
         {
+            if (!Configuration.CheckFeatureStatus(AdvFeatureClass, Feature))
+                return;
+
             if (!GameUtils.IsPlaytesting())
             {
                 SpawnUpdate(_spawnerName, _bSpawnEnemyEntities, _userData as ChunkAreaBiomeSpawnData, ref ___spawnNearList, ref ___lastClassId);
@@ -49,6 +53,9 @@ public class SphereII_CaveProject
             }
             return true;
         }
+
+        // This is a slightly modified version of the underground code from vanilla. The range of y is a bit throttled, as we want to spawn creatures near the player, and the original
+        // underground code did not check if they were within the view spawn code, so you could see them spawn in front of you.
         public static bool FindRandomSpawnPointNearPositionUnderground(Rect _area, int _minDistance, int _maxDistance, bool _bConsiderBedrolls, out Vector3 _position, Vector3i PlayerPosition)
         {
             _position = Vector3.zero;
@@ -56,6 +63,8 @@ public class SphereII_CaveProject
             {
                 return false;
             }
+
+            // Since the cave system can be eratic in its location, we want to try 20 times to find a random spot where they can spawn at.
             for (int i = 0; i < 20; i++)
             {
                 Vector2 rangeY = new Vector2(PlayerPosition.y - 10, PlayerPosition.y + 10);
@@ -95,6 +104,8 @@ public class SphereII_CaveProject
         }
 
 
+        // This method is a modified version of vanilla, doing the same checks and balances. However, we do use the player position a bit more, and we change which biome spawning group we
+        // will use, when below the terrain. 
         public static void SpawnUpdate(string _spawnerName, bool _bSpawnEnemyEntities, ChunkAreaBiomeSpawnData _chunkBiomeSpawnData, ref List<Entity> spawnNearList, ref int lastClassId)
         {
             if (_chunkBiomeSpawnData == null)
@@ -156,6 +167,7 @@ public class SphereII_CaveProject
             if (vector.y > offSet)
                 return;
 
+            // Customize which spawning.xml entry to we want to use for spawns.
             BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"]; ;
             if (vector.y > 30)
                 biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
@@ -218,6 +230,11 @@ public class SphereII_CaveProject
             _chunkBiomeSpawnData.IncEntitiesSpawned(entityGroupName);
             Entity entity = EntityFactory.CreateEntity(randomFromGroup, vector);
             entity.SetSpawnerSource(EnumSpawnerSource.Biome, _chunkBiomeSpawnData.chunk.Key, entityGroupName);
+            EntityAlive myEntity = entity as EntityAlive;
+            if ( myEntity )
+            {
+                myEntity.SetSleeper();
+            }
             GameManager.Instance.World.SpawnEntityInWorld(entity);
             if (spawnDeadChance > 0f && gameRandom.RandomFloat < spawnDeadChance)
             {
@@ -228,7 +245,7 @@ public class SphereII_CaveProject
     }
 
 
- 
+
     //// caveBlock02 is used as air blocks below the terrain, so we need to add a check here, so we can replace it with another block.
     //[HarmonyPatch(typeof(Block))]
     //[HarmonyPatch("overlapsWithOtherBlock")]
@@ -340,6 +357,23 @@ public class SphereII_CaveProject
         }
     }
 
+
+    [HarmonyPatch(typeof(DynamicPrefabDecorator))]
+    [HarmonyPatch("DecorateChunk")]
+    [HarmonyPatch(new Type[] { typeof(World), typeof(Chunk), typeof(bool) })]
+    public class SphereII_CaveProject_DynamicPrefabDecorator
+    {
+        public static void Postfix(Chunk _chunk)
+        {
+            if (!Configuration.CheckFeatureStatus(AdvFeatureClass, Feature))
+                return;
+
+            //// Allow us to throttle which chunks get caves or not by creating a list of world positions.
+            SphereCache.GenerateCaveChunks();
+            //SphereII_CaveTunneler.AddCaveToChunk(_chunk);
+            SphereII_CaveTunneler.AddDecorationsToCave(_chunk);
+        }
+    }
 
     //    [HarmonyPatch(typeof(WorldDecoratorBlocksFromBiome))]
     //    [HarmonyPatch("decoratePrefabs")]

@@ -4,9 +4,9 @@
     <Name value="SphereII Winter Project Menu" />
     <Description value="A modlet that extends SMX Main Menu for the Winter Project" />
     <Author value="sphereii" />
-    <Version value="19.1.1.137" />
+    <Version value="19.1.1.166" />
   </ModInfo>
-  <DMT Hash="d59cd5daeecdc0647c96c8ad975404af">
+  <DMT Hash="ab7edb1dfebcafafce2dcbab9a56b293">
     <dependencies />
     <conflicts />
   </DMT>

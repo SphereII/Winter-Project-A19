@@ -1,0 +1,9 @@
+D:\Github\Winter-Project-A19\obj\Debug\WinterProject-A19.csprojAssemblyReference.cache
+D:\Github\Winter-Project-A19\obj\Debug\WinterProject-A19.csproj.CoreCompileInputs.cache
+D:\Github\Winter-Project-A19\Mods\0-SphereIICore\Scripts\Mods.dll.config
+D:\Github\Winter-Project-A19\Mods\0-SphereIICore\Scripts\Mods.dll
+D:\Github\Winter-Project-A19\Mods\0-SphereIICore\Scripts\Mods.pdb
+D:\Github\Winter-Project-A19\Mods\0-SphereIICore\Scripts\UnityEngine.InputLegacyModule.dll
+D:\Github\Winter-Project-A19\obj\Debug\WinterProject-A19.csproj.CopyComplete
+D:\Github\Winter-Project-A19\obj\Debug\Mods.dll
+D:\Github\Winter-Project-A19\obj\Debug\Mods.pdb
