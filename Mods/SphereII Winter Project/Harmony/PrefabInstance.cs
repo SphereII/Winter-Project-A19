@@ -52,9 +52,9 @@ public class SphereII_WinterProject
             {
                 if (__instance.size.y < 10)
                 {
-                    Debug.Log("\n**************");
-                    Debug.Log("Winter Project Prefab Filter : " + __instance.PrefabName + " yOffset: " + __instance.yOffset + " Size: " + __instance.size.ToString());
-                    Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
+                    //Debug.Log("\n**************");
+                    //Debug.Log("Winter Project Prefab Filter : " + __instance.PrefabName + " yOffset: " + __instance.yOffset + " Size: " + __instance.size.ToString());
+                    //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
                     return false;
                 }
                 if (!__instance.PrefabName.Contains("trader_hugh"))

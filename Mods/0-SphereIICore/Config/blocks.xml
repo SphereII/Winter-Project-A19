@@ -221,7 +221,7 @@
     </block>
 
     
-    <!--
+    
     <block name="cntLockChest">
       <property name="CreativeMode" value="Player"/>
       <property name="Tags" value="door"/>
@@ -253,7 +253,7 @@
       <property name="EconomicBundleSize" value="10"/>
       <property name="FilterTags" value="floot"/>
     </block>
-    -->
+    
     <!-- Cave air block -->
     <block name="caveBlock02">
       <property name="Extends" value="air"/>
