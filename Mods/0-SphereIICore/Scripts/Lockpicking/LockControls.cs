@@ -4,11 +4,12 @@ using UnityEngine;
 public class LockControls : MonoBehaviour
 {
     public Keyhole lockpick;
-    
+
     void Update()
     {
         if (!lockpick)
             return;
+
         if (lockpick.gameObject.activeSelf)
             InputControls();
     }
@@ -26,9 +27,13 @@ public class LockControls : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
+        {
             lockpick.lockpickPressure = -1f;
+        }
         else if (Input.GetKey(KeyCode.RightArrow))
+        {
             lockpick.lockpickPressure = 1f;
+        }
     }
 
     private void ResetValues()

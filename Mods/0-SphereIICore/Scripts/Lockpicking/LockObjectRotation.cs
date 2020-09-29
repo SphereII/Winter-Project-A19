@@ -10,7 +10,7 @@ public class LockObjectRotation : MonoBehaviour
     [SerializeField] private float speed = 2160f; // speed of rotation
     [SerializeField] private float startX; // Starting rotation
     [SerializeField] private float startY; // Starting rotation
-    
+    public Camera uiCam;
     
 
     void Start()
@@ -22,7 +22,8 @@ public class LockObjectRotation : MonoBehaviour
     void Update()
     {
         MouseMovement();
-        mousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition); // Save mouse position every frame.
+        mousePosition = uiCam.ScreenToViewportPoint(Input.mousePosition); // Save mouse position every frame.
+        //mousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition); // Save mouse position every frame.
     }
 
     private void MouseMovement()
@@ -31,7 +32,8 @@ public class LockObjectRotation : MonoBehaviour
         if (Input.GetMouseButton(0) || mouseMovementOn)
         {
             // Grab the new position of the mouse, 0,0 - 1,1
-            Vector3 newPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            Vector3 newPosition = uiCam.ScreenToViewportPoint(Input.mousePosition);
+            //Vector3 newPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
             // Compute the delta in the x and y positions.  Do inversion for the yDelta. Note X/Y are flipped.
             float horDelta = -(newPosition.x - mousePosition.x) * speed * Time.deltaTime;

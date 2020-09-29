@@ -29,6 +29,14 @@
         <property name="Logging" value="false"/>
       </property>
 
+      <property class="AdvancedLockpicking" >
+        <property name="Logging" value="false"/>
+        <property name="AdvancedLocks" value="true" />
+        <property name="LockPrefab" value="#@modfolder(0-SphereIICore):Resources/LocksetNOSCRIPTS.unity3d?Lockset" />
+      </property>
+      
+      
+
       <property class="AdvancedItemFeatures" >
         <property name="Logging" value="false"/>
         <property name="AdvancedItemRepair" value="false" />

@@ -86,6 +86,8 @@
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.blocks.nim" />
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.ins" />
     <None Include="Mods\0-SphereIICore\ReadMe.md" />
+    <None Include="Mods\0-SphereIICore\Resources\LockPick.unity3d" />
+    <None Include="Mods\0-SphereIICore\Resources\Lockset.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathingCube.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmoke.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle.unity3d" />
@@ -218,6 +220,7 @@
     <Content Include="Mods\0-SphereIICore\Config\quests.xml" />
     <Content Include="Mods\0-SphereIICore\Config\rwgmixer.xml" />
     <Content Include="Mods\0-SphereIICore\Config\spawning.xml" />
+    <Content Include="Mods\0-SphereIICore\Config\XUi\windows.xml" />
     <Content Include="Mods\0-SphereIICore\Config\XUi\xui.xml" />
     <Content Include="Mods\0-SphereIICore\Documentation\Examples\blocks.xml" />
     <Content Include="Mods\0-SphereIICore\Documentation\Examples\entityclasses.xml" />
@@ -389,6 +392,7 @@
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\AvatarController.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\EModelBase.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockOnEntityCollidedWithBlock.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockSecureLoot.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\Particles.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Dialog\DialogFromXML.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\EAI\EAITarget.cs" />
@@ -434,6 +438,7 @@
     <Compile Include="Mods\0-SphereIICore\PatchScripts\FoodSpoilagePatch.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Animation\AvatarAnimalControllerSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Animation\MecanimSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockLockedLoot.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockMortSpawner.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockPathFinding.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockPoweredWorkstation.cs" />
@@ -510,6 +515,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\Lockpicking\LockEmissiveControls.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Lockpicking\LockObjectRotation.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Lockpicking\LocksetAudio.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Lockpicking\SphereII_Locks.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionAddBuffByFactionSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionAnimatorSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionChangeFactionSDX.cs" />
@@ -555,6 +561,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_HireInformationPopupSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_JoinInformationPopupSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_PathFindingKeypadWindow.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\XUiC\XUiC_PickLocking.cs" />
     <Compile Include="Mods\SphereII Legacy Distant Terrain\Harmony\LegacyDistantTerrain.cs" />
     <Compile Include="Mods\SphereII Winter Project Menu\Harmony\Harmony.cs" />
     <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />

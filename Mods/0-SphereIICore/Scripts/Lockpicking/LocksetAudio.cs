@@ -17,6 +17,9 @@ public class LocksetAudio : MonoBehaviour
 
     public void PlayAudioClip(float volume = 0.5f)
     {
+        if (clips == null)
+            return;
+
         if (clips.Length > 0)
         {
             
@@ -29,6 +32,9 @@ public class LocksetAudio : MonoBehaviour
     public void PlayOnce()
     {
         SelectRandomClip();
+        if (audioSource.clip == null)
+            return;
+
         audioSource.PlayOneShot(audioSource.clip);
     }
 
@@ -60,6 +66,9 @@ public class LocksetAudio : MonoBehaviour
 
     public void SelectRandomClip()
     {
+        if (clips == null)
+            return;
+
         if (clips.Length > 0)
         {
             audioSource.clip = clips[Random.Range(0, clips.Length)];

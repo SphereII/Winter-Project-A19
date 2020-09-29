@@ -41,10 +41,9 @@ public class SphereII_WinterProject
         }
     }
 
-
     [HarmonyPatch(typeof(Prefab))]
-    [HarmonyPatch("loadBlockData")]
-    public class SphereII_WinterProject_LoadBlockData
+    [HarmonyPatch("readBlockData")]
+    public class SphereII_WinterProject_readBlockData
     {
         public static bool Postfix(bool __result, ref Prefab __instance)
         {
@@ -69,6 +68,34 @@ public class SphereII_WinterProject
         }
 
     }
+
+    //[HarmonyPatch(typeof(Prefab))]
+    //[HarmonyPatch("loadBlockData")]
+    //public class SphereII_WinterProject_LoadBlockData
+    //{
+    //    public static bool Postfix(bool __result, ref Prefab __instance)
+    //    {
+    //        if (__result)
+    //        {
+    //            if (__instance.size.y < 10)
+    //            {
+    //                //Debug.Log("\n**************");
+    //                //Debug.Log("Winter Project Prefab Filter : " + __instance.PrefabName + " yOffset: " + __instance.yOffset + " Size: " + __instance.size.ToString());
+    //                //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
+    //                return false;
+    //            }
+    //            if (!__instance.PrefabName.Contains("trader_hugh"))
+    //            {
+    //                __instance.yOffset -= 8;
+    //                __instance.bTraderArea = false;
+    //                __instance.bExcludeDistantPOIMesh = true;
+    //                __instance.bCopyAirBlocks = true;
+    //            }
+    //        }
+    //        return __result;
+    //    }
+
+    //}
 
     [HarmonyPatch(typeof(Prefab))]
     [HarmonyPatch("CopyBlocksIntoChunkNoEntities")]

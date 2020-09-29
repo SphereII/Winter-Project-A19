@@ -20,6 +20,10 @@ namespace Lockpicking
         UnityEvent lockpickBroke = new UnityEvent();
         UnityEvent lockOpen = new UnityEvent();
 
+        
+        public int NumLockPicks = 0;
+        public EntityPlayerLocal player;
+
         [Header("Player Input")]
         public float openPressure = 0f;
         public float lockpickPressure = 0f;
@@ -27,10 +31,10 @@ namespace Lockpicking
 
         [Header("Speed Settings")]
         [Tooltip("Speed of the lockpick when input value is full.")]
-        [Range(1f, 720f)] public float turnSpeedLockpick = 25f;
+        [Range(1f, 720f)] public float turnSpeedLockpick = 50f;
 
         [Tooltip("Speed of the entire keyhole when input value is full.")]
-        [Range(1f, 720f)] public float turnSpeedKeyhole = 25f;
+        [Range(1f, 720f)] public float turnSpeedKeyhole = 50f;
 
         [Tooltip("Speed at which the lock will return to normal when the input value is 0.")]
         [Range(1f, 720f)] public float returnSpeedKeyhole = 150f;
@@ -47,10 +51,10 @@ namespace Lockpicking
         [SerializeField] private Vector3 _pickAnglesDefault;
 
         [Tooltip("Minimum angle the lock pick can travel to.")]
-        [SerializeField] private float _pickAngleMin;
+        [SerializeField] private float _pickAngleMin = -90f;
 
         [Tooltip("Maximum angle the lock pick can travel to.")]
-        [SerializeField] private float _pickAngleMax;
+        [SerializeField] private float _pickAngleMax = 90f;
 
 
         [Header("Keyhole Settings")]
@@ -58,7 +62,7 @@ namespace Lockpicking
         [SerializeField] private float _keyholeAngleDefault = 0;
 
         [Tooltip("Maximum angle of the keyhole. At this angle, the lock will open.")]
-        [SerializeField] private float _keyholeAngleMax = 0;
+        [SerializeField] private float _keyholeAngleMax = 90f;
 
 
         [Header("Lock Settings")]
@@ -189,10 +193,32 @@ namespace Lockpicking
         public float LockPickAngle()
         {
             return GetAngle(LockpickAngles().z);
-            }
+        }
         public float KeyholeAngle() { return GetAngle(KeyholeAngles().z); }
 
-        
+
+
+        void OnEnable()
+        {
+            if (player != null)
+            {
+                ItemValue item = ItemClass.GetItem("resourceLockPick", false);
+                ItemStack itemStack = new ItemStack(item, 1);
+                NumLockPicks = player.PlayerUI.xui.PlayerInventory.GetItemCount(item);
+                if ( NumLockPicks > 0)
+                    UpdateLockPicks(true);
+                else
+                    UpdateLockPicks(false);
+
+                // give more time to avoid breaking pick locks.
+               float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
+                breakTime += lockPickBreakChance;
+            }
+        }
+        void OnDisable()
+        {
+            NumLockPicks = 0;
+        }
         void OnValidate()
         {
             LockAngle = LockAngle;
@@ -207,23 +233,24 @@ namespace Lockpicking
             minCloseDistance = Mathf.Clamp(minCloseDistance, 5f, 360f);
             maxCloseDistance = Mathf.Clamp(maxCloseDistance, 5f, 360f);
         }
-        
+
         public void EditorOnValidate()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             EditorUtility.SetDirty(this);
-            #endif
+#endif
             OnValidate();
         }
-        
+
         void Awake()
         {
             squeekTimer = squeekRate;
-            
+
             _pickAnglesDefault = LockpickAngles();
             _lockEmissive = gameObject.AddComponent<LockEmissive>();
 
-            _padlockAnimator = padlock1.gameObject.AddComponent<Animator>();
+            if (padlock1 != null)
+                _padlockAnimator = padlock1.gameObject.AddComponent<Animator>();
             _closeTrigger = Animator.StringToHash(closeTrigger);
             _openTrigger = Animator.StringToHash(openTrigger);
             _lockpickBreakTrigger = Animator.StringToHash(lockPickBreakTrigger);
@@ -232,15 +259,23 @@ namespace Lockpicking
             if (resetOnAwake)
                 ResetLock();
         }
-        
+
+        void UpdateLockPicks( bool enable)
+        {
+            // Hide the lock picks or show them.
+            keyhole.transform.FindInChilds("LockpickB (Turnable)").gameObject.SetActive(enable);
+            keyhole.transform.FindInChilds("LockpickA").gameObject.SetActive(enable);
+        }
         void Update()
         {
-            PassValuesToEmissiveScript();
-            
-            if (BreakingForAnimation())
-                return;
+            if (NumLockPicks > 0)
+            {
+                PassValuesToEmissiveScript();
 
-            HandlePlayerInput();
+                if (BreakingForAnimation())
+                    return;
+                HandlePlayerInput();
+            }
         }
 
         private void HandlePlayerInput()
@@ -256,7 +291,7 @@ namespace Lockpicking
                 TurnLockpick(turnSpeedLockpick * lockpickPressure);
             }
         }
-        
+
         private bool BreakingForAnimation()
         {
             if (breakCounter > 0f)
@@ -268,7 +303,7 @@ namespace Lockpicking
 
             return false;
         }
-        
+
         private void ReturnKeyholeToDefaultPosition()
         {
             TurnKeyhole(-returnSpeedKeyhole);
@@ -279,7 +314,7 @@ namespace Lockpicking
             if (LockCanTurn())
             {
                 TurnKeyhole(turnSpeedKeyhole * openPressure);
-                    
+
                 if (KeyholeTurnValue() <= 0 && LockpickIsInPosition())
                     OpenLock();
             }
@@ -297,7 +332,7 @@ namespace Lockpicking
 
         private bool LockpickIsInPosition()
         {
-          return  LockPickAngle() < _lockAngle + _lockGive && LockPickAngle() > _lockAngle - _lockGive;
+            return LockPickAngle() < _lockAngle + _lockGive && LockPickAngle() > _lockAngle - _lockGive;
         }
 
         private void Shake()
@@ -305,23 +340,23 @@ namespace Lockpicking
             // If we are not already shaking, save the original rotations.
             if (!isShaking)
             {
-                if (audioPadlockJiggle && padlock1.activeSelf)
+                if (audioPadlockJiggle && padlock1 != null && padlock1.activeSelf)
                 {
                     audioPadlockJiggle.PlayLoop();
                 }
-                else if (audioJiggle && !padlock1.activeSelf)
+                else if (audioJiggle)
                 {
                     audioJiggle.PlayLoop();
-                    if ( audioJiggle2 != null)
+                    if (audioJiggle2 != null)
                         audioJiggle2.PlayLoop();
-                    if ( audioJiggle3 != null)
+                    if (audioJiggle3 != null)
                         audioJiggle3.PlayLoop();
                 }
                 preshakeKeyhole = KeyholeAngles();
                 preshakeLockpick = LockpickAngles();
                 isShaking = true;
             }
-            
+
             // Check breakTimeCounter to stop shaking at the right time
             breakTimeCounter += Time.deltaTime;
             if (breakTimeCounter > breakTime)
@@ -341,7 +376,7 @@ namespace Lockpicking
                 // Add some modification
                 newShakeKeyhole.z += Random.Range(-maxShake, maxShake);
                 newShakeLockpick.z += Random.Range(-maxShake, maxShake);
-                
+
                 // Set the value + modification
                 SetKeyholeAngles(newShakeKeyhole);
                 SetLockpickAngles(newShakeLockpick);
@@ -355,11 +390,11 @@ namespace Lockpicking
         {
             if (isShaking)
             {
-                if (audioPadlockJiggle && padlock1.activeSelf)
+                if (audioPadlockJiggle && padlock1 != null && padlock1.activeSelf)
                 {
                     audioPadlockJiggle.StopLoop();
                 }
-                else if (audioJiggle && !padlock1.activeSelf)
+                else if (audioJiggle)
                 {
                     audioJiggle.StopLoop();
                     if (audioJiggle2 != null)
@@ -378,7 +413,7 @@ namespace Lockpicking
         {
             keyhole.transform.localEulerAngles = value;
         }
-        
+
         private void SetLockpickAngles(Vector3 value)
         {
             lockpickObject.transform.localEulerAngles = value;
@@ -395,10 +430,29 @@ namespace Lockpicking
             ResetLockpickPosition(); // Reset the lockpick position
             lockpickAnimator.SetTrigger(_lockpickBreakTrigger); // Play the break animation
             lockpickBroke.Invoke(); // Invoke this event in case other scripts are listening
-            
+
             if (audioLockpickEnter)
             {
                 audioLockpickEnter.DelayPlay(1f);
+            }
+
+            // Remove the broke pick lock.
+            if ( player != null )
+            {
+                ItemValue item = ItemClass.GetItem("resourceLockPick", false);
+                ItemStack itemStack = new ItemStack(item, 1);
+                player.PlayerUI.xui.PlayerInventory.RemoveItem(itemStack);
+                NumLockPicks = player.PlayerUI.xui.PlayerInventory.GetItemCount(item);
+            }
+
+            if ( NumLockPicks > 0)
+            {
+                UpdateLockPicks(true);
+            }
+            else
+            {
+                UpdateLockPicks(false);
+
             }
         }
 
@@ -409,22 +463,25 @@ namespace Lockpicking
         {
             if (!_lockIsOpen)
             {
-                if (audioOpen && !padlock1.activeSelf)
+                if (audioOpen != null)
                 {
-                    audioOpen.PlayOnce();
+                    if (audioOpen)
+                    {
+                        audioOpen.PlayOnce();
+                    }
+                    else if (audioPadlockOpen && padlock1 != null && padlock1.activeSelf)
+                    {
+                        audioPadlockOpen.PlayOnce();
+                    }
                 }
-                else if (audioPadlockOpen && padlock1.activeSelf)
-                {
-                    audioPadlockOpen.PlayOnce();
-                }
-                
                 // Only run this on the padlock 1
-                if (padlock1.activeSelf)
-                    _padlockAnimator.SetTrigger(_openTrigger);
+                if (padlock1 != null)
+                    if (padlock1.activeSelf)
+                        _padlockAnimator.SetTrigger(_openTrigger);
 
                 // Invoke the event for any other scripts that are listening
                 lockOpen.Invoke();
-                
+
                 _lockIsOpen = true;
             }
         }
@@ -463,9 +520,11 @@ namespace Lockpicking
             if (LockPickAngle() >= _pickAngleMax && speed > 0 || LockPickAngle() <= _pickAngleMin && speed < 0)
                 return;
 
+
             // Set the new angle
             Vector3 newAngle = new Vector3(LockpickAngles().x, LockpickAngles().y,
                 LockpickAngles().z + speed * Time.deltaTime);
+
             SetLockpickAngles(newAngle);
 
             DoClickAudio(speed, newAngle);
@@ -478,21 +537,18 @@ namespace Lockpicking
 
             if ((speed > 0 && angleMod < prevMod) || (speed < 0 && angleMod > prevMod))
             {
-                audioTurnClick.PlayAudioClip(Random.Range(clickVolumeMin, clickVolumeMax));
+                if (audioTurnClick != null)
+                    audioTurnClick.PlayAudioClip(Random.Range(clickVolumeMin, clickVolumeMax));
             }
-            
+
             _lockpickAnglePrev = newAngle.z;
         }
 
         private Vector3 LockpickAngles()
         {
-            if (lockpickObject == null )
-            {
-
-            }
             return lockpickObject.transform.localEulerAngles;
         }
-        
+
         private void TurnKeyhole(float speed)
         {
             // If we are at or outside of our max range, return
@@ -533,30 +589,36 @@ namespace Lockpicking
         public void SetLock(float lockAngleMin, float lockAngleMax, float lockGiveMin,
             float lockGiveMax, float closeDistanceMin, float closeDistanceMax)
         {
-            SetLock(Random.Range(lockAngleMin, lockAngleMax), 
-                Random.Range(lockGiveMin, lockGiveMax), 
+            SetLock(Random.Range(lockAngleMin, lockAngleMax),
+                Random.Range(lockGiveMin, lockGiveMax),
                 Random.Range(closeDistanceMin, closeDistanceMax));
         }
 
         public void ResetLock()
         {
             LockIsOpen = false;
-            SetLock(minLockAngle, maxLockAngle, 
-                minGiveAmount, maxGiveAmount, 
+            SetLock(minLockAngle, maxLockAngle,
+                minGiveAmount, maxGiveAmount,
                 minCloseDistance, maxCloseDistance);
+
+            if ( player != null )
+            {
+                ItemValue item = ItemClass.GetItem("resourceLockPick", false);
+                NumLockPicks = player.inventory.GetItemCount(item);
+            }
         }
-        
+
         public void ResetLockpickPosition()
         {
             SetLockpickAngles(_pickAnglesDefault);
-            if (padlock1.activeSelf)
+            if (padlock1 && padlock1.activeSelf)
                 _padlockAnimator.SetTrigger(_closeTrigger);
         }
 
         public bool LockCanTurn()
         {
-           return !(LockPickAngle() < GetAngle(_lockAngle) - _lockGive - (_closeDistance * KeyholeTurnValue())) &&
-            !(LockPickAngle() > GetAngle(_lockAngle) + _lockGive + (_closeDistance * KeyholeTurnValue()));
+            return !(LockPickAngle() < GetAngle(_lockAngle) - _lockGive - (_closeDistance * KeyholeTurnValue())) &&
+             !(LockPickAngle() > GetAngle(_lockAngle) + _lockGive + (_closeDistance * KeyholeTurnValue()));
         }
     }
 }
