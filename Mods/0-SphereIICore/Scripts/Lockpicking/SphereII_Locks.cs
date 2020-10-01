@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,20 +12,37 @@ using UnityEngine;
 // This class sites between the thirdparty Keyhole script + prefabs and support scripts.
 public class SphereII_Locks
 {
-    public static GameObject LockPickAsset;
-    public static GameObject lockPick;
+    public GameObject LockPickAsset;
+    public GameObject lockPick;
     // transforms 
     List<String> transforms = new List<string>();
 
-    public void Init()
+    public void Init(BlockValue _blockValue)
     {
-        if (lockPick == null)
+        String LockPrefab = "";
+        if (_blockValue.type != 0)
         {
-            String LockPrefab = Configuration.GetPropertyValue("AdvancedLockpicking", "LockPrefab");
-            LockPickAsset = DataLoader.LoadAsset<GameObject>(LockPrefab );
-            lockPick = UnityEngine.Object.Instantiate<GameObject>(LockPickAsset);
-            Disable();
+            if (_blockValue.Block.Properties.Contains("LockPickPrefab"))
+                LockPrefab = _blockValue.Block.Properties.GetStringValue("LockPickPrefab");
+
         }
+        // Load up the default.
+        if (String.IsNullOrEmpty(LockPrefab))
+        {
+            var random = new System.Random();
+            LockPrefab = Configuration.GetPropertyValue("AdvancedLockpicking", "LockPrefab");
+            if (LockPrefab.EndsWith("Lockset01"))
+            {
+                List<String> Locks = new List<string>() { "Lockset01", "Lockset02", "Lockset03", "Lockset04", "padlock01" };
+                String randomLock = Locks[random.Next(Locks.Count)];
+                LockPrefab = LockPrefab.Replace("Lockset01", randomLock);
+
+            }
+        }
+
+        LockPickAsset = DataLoader.LoadAsset<GameObject>(LockPrefab);
+        lockPick = UnityEngine.Object.Instantiate<GameObject>(LockPickAsset);
+        Disable();
 
         // Marked transforms
         transforms = new List<string>() { "Baseplate1", "Baseplate2", "ButtonInner", "ButtonInner", "ButtonOuter", "Padlock1_low" };
@@ -40,12 +58,12 @@ public class SphereII_Locks
             if (lockPick.transform.parent != null)
             {
                 lockControl = lockPick.transform.parent.gameObject.AddComponent<LockControls>();
-              //  lockPick.transform.parent.gameObject.AddComponent<LockObjectRotation>();
+                //  lockPick.transform.parent.gameObject.AddComponent<LockObjectRotation>();
             }
             else
             {
                 lockControl = lockPick.transform.gameObject.AddComponent<LockControls>();
-                
+
             }
 
             lockControl.lockpick = keyhole;
@@ -86,25 +104,120 @@ public class SphereII_Locks
 
             List<Renderer> lstRenders = new List<Renderer>();
             Renderer[] tempRender = new Renderer[12];
-            Debug.Log("temp Render");
 
-
-            foreach( String transform in transforms)
+            foreach (String transform in transforms)
             {
                 Transform temp = FindTransform(transform);
                 if (temp)
                     lstRenders.Add(FindTransform(transform).GetComponent<MeshRenderer>());
             }
-            Debug.Log("Setting Renders");
-            lockEmissive.SetRenders( lstRenders.ToArray() );
+            lockEmissive.SetRenders(lstRenders.ToArray());
 
-            foreach (Transform child in lockPick.transform)
-            {
-                Debug.Log("\t Transform: " + child.transform.ToString() + " Active? " + child.gameObject.activeInHierarchy);
-            }
+            //foreach (Transform child in lockPick.transform)
+            //{
+            //    Debug.Log("\t Transform: " + child.transform.ToString() + " Active? " + child.gameObject.activeInHierarchy);
+            //}
+        }
+        Enable();
+
+    }
+
+    public void ConfigureLock(BlockValue blockValue)
+    {
+        String LockPrefab = "";
+        if (blockValue.type != 0)
+        {
+            if (blockValue.Block.Properties.Contains("LockPickPrefab"))
+                LockPrefab = blockValue.Block.Properties.GetStringValue("LockPickPrefab");
 
         }
-    }
+        // Load up the default.
+        if (String.IsNullOrEmpty(LockPrefab))
+        {
+            var random = new System.Random();
+            LockPrefab = Configuration.GetPropertyValue("AdvancedLockpicking", "LockPrefab");
+            if (LockPrefab.EndsWith("Lockset01"))
+            {
+                List<String> Locks = new List<string>() { "Lockset01", "Lockset02", "Lockset03", "Lockset04", "padlock01" };
+                String randomLock = Locks[random.Next(Locks.Count)];
+                Debug.Log("New Lock: " + randomLock);
+                LockPrefab = LockPrefab.Replace("Lockset01", randomLock);
+
+            }
+        }
+        Debug.Log("Loading Prefab..." + LockPrefab);
+        LockPickAsset = DataLoader.LoadAsset<GameObject>(LockPrefab);
+        lockPick = UnityEngine.Object.Instantiate<GameObject>(LockPickAsset);
+       // lockPick.SetActive(false);
+
+        // Marked transforms
+        transforms = new List<string>() { "Baseplate1", "Baseplate2", "ButtonInner", "ButtonInner", "ButtonOuter", "Padlock1_low" };
+        transforms.AddRange(new List<String>() { "Padlock1_Latch_low", "Lock1Outer", "Lock2Outer", "Lock3Outer", "Lock1Inner", "Lock2Inner", "Lock3Inner" });
+
+        // Populate the Keyhole
+        Keyhole keyhole = lockPick.AddComponent<Keyhole>();
+        keyhole.keyhole = FindTransform("Keyhole (Turnable)").gameObject;
+
+        LockControls lockControl;
+        if (lockPick.transform.parent != null)
+        {
+            lockControl = lockPick.transform.parent.gameObject.AddComponent<LockControls>();
+            //  lockPick.transform.parent.gameObject.AddComponent<LockObjectRotation>();
+        }
+        else
+        {
+            lockControl = lockPick.transform.gameObject.AddComponent<LockControls>();
+
+        }
+
+        lockControl.lockpick = keyhole;
+
+        // Lock Pick configuration
+        keyhole.lockpickObject = FindTransform("LockpickB (Turnable)").gameObject;
+        keyhole.lockpickAnimator = FindTransform("LockpickB").GetComponent<Animator>();
+        keyhole.lockpickAnimator.gameObject.SetActive(true);
+
+        Camera cam = FindTransform("Cam2").GetComponentInChildren<Camera>();
+        if (cam != null)
+        {
+            cam.rect = new Rect(0.25f, 0.25f, 0.5f, 0.5f);
+            LockObjectRotation lockObjectRotation = keyhole.lockpickObject.transform.gameObject.AddComponent<LockObjectRotation>();
+            lockObjectRotation.uiCam = cam;
+        }
+
+        Transform padlock = FindTransform("Padlock1");
+        if (padlock != null)
+        {
+            keyhole.padlock1 = padlock.gameObject;
+            keyhole.audioPadlockJiggle = FindTransform("Audio Padlock Jiggle").gameObject.AddComponent<LocksetAudio>();
+            keyhole.audioPadlockOpen = FindTransform("Audio Padlock Open").gameObject.AddComponent<LocksetAudio>();
+        }
+        // audio configuration
+        keyhole.audioTurnClick = FindTransform("Audio Turn Click").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioSqueek = FindTransform("Audio Squeek").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioOpen = FindTransform("Audio Open").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioJiggle = FindTransform("Audio Jiggle A").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioJiggle2 = FindTransform("Audio Jiggle B").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioJiggle3 = FindTransform("Audio Jiggle C").gameObject.AddComponent<LocksetAudio>();
+
+        keyhole.audioLockpickBreak = FindTransform("Audio Lockpick Break").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioLockpickEnter = FindTransform("Audio Lockpick Enter").gameObject.AddComponent<LocksetAudio>();
+        keyhole.audioLockpickClick = FindTransform("Audio Lockpick Click").gameObject.AddComponent<LocksetAudio>();
+
+        LockEmissive lockEmissive = lockPick.AddComponent<LockEmissive>();
+
+        List<Renderer> lstRenders = new List<Renderer>();
+        Renderer[] tempRender = new Renderer[12];
+
+        foreach (String transform in transforms)
+        {
+            Transform temp = FindTransform(transform);
+            if (temp)
+                lstRenders.Add(FindTransform(transform).GetComponent<MeshRenderer>());
+        }
+        lockEmissive.SetRenders(lstRenders.ToArray());
+        Enable();
+     }
 
     public Keyhole GetScript()
     {
@@ -112,11 +225,7 @@ public class SphereII_Locks
             return lockPick.GetComponent<Keyhole>();
         return null;
     }
-    public void ToggleLock(bool padlock)
-    {
-            FindTransform("Padlock1").gameObject.SetActive(padlock);
-            FindTransform("Baseplate1").gameObject.SetActive(!padlock);
-    }
+   
     public bool IsLockOpened()
     {
         if (lockPick != null)
@@ -137,17 +246,13 @@ public class SphereII_Locks
         return lockPick.transform.FindInChilds(target, false);
     }
 
-    public void Enable( bool isPadlock)
+    public void Enable()
     {
         if (lockPick != null)
         {
-
-            ToggleLock(true);
-
-            lockPick.GetComponent<Keyhole>().ResetLock();
             lockPick.SetActive(true);
+            lockPick.GetComponent<Keyhole>().ResetLock();
 
-   
         }
     }
     public void Disable()
@@ -158,4 +263,3 @@ public class SphereII_Locks
         }
     }
 }
-

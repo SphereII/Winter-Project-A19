@@ -4,10 +4,10 @@
     <Name value="WalkerSim" />
     <Description value="Zombie Horde Simulation Plugin" />
     <Author value="ZehMatt" />
-    <Version value="19.1.0.138" />
+    <Version value="19.2.1.25" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="d5fc0bfd9f4132e9dac1f70a4b8292c1">
+  <DMT Hash="f4747c91a954ec2d3e46fb56b1038829">
     <dependencies />
     <conflicts />
   </DMT>

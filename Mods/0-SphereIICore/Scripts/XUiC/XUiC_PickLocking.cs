@@ -19,7 +19,7 @@ public class XUiC_PickLocking : XUiController
         Lock = new SphereII_Locks();
         XUiC_PickLocking.ID = windowGroup.ID;
         base.Init();
-        Lock.Init();
+        //Lock.Init();
     }
 
     public override void Update(float _dt)
@@ -51,13 +51,14 @@ public class XUiC_PickLocking : XUiController
     {
         EntityPlayer player = base.xui.playerUI.entityPlayer;
         base.OnOpen();
+        Lock = new SphereII_Locks();
 
         // Pass the Player reference to the lock before we enable.
+        Lock.Init(base.xui.playerUI.xui.FindWindowGroupByName(XUiC_PickLocking.ID).GetChildByType<XUiC_PickLocking>().currentBlock);
         Lock.SetPlayer(player as EntityPlayerLocal);
-        if (base.xui.playerUI.xui.FindWindowGroupByName(XUiC_PickLocking.ID).GetChildByType<XUiC_PickLocking>().LockedItem is TileEntitySecureDoor)
-            Lock.Enable(true);
-        else
-            Lock.Enable(false);
+        Lock.Enable();
+
+
         base.xui.playerUI.entityPlayer.PlayOneShot("open_sign", false);
     }
 
