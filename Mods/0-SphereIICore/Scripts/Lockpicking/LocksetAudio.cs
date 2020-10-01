@@ -38,6 +38,11 @@ public class LocksetAudio : MonoBehaviour
         audioSource.PlayOneShot(audioSource.clip);
     }
 
+    public bool isAudioPlaying()
+    {
+        return audioSource.isPlaying;
+
+    }
     public void DelayPlay(float delay)
     {
         _delay = delay;

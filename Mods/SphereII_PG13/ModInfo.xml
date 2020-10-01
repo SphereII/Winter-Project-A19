@@ -4,7 +4,7 @@
     <Name value="SphereII_PG13" />
     <Description value="(Alpha 19 ) This modlet tries to make the game a bit more PG, by switching out the stripper model with a nurse." />
     <Author value="sphereii" />
-    <Version value="19.1.1.1" />
+    <Version value="19.2.1.1" />
   </ModInfo>
   <DMT Hash="6077f2fc1d722bc5869a1f78e0ba5621">
     <dependencies />

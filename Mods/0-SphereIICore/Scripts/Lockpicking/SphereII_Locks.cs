@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Lockpicking;
 using UnityEngine;
 
+
+
+// This class sites between the thirdparty Keyhole script + prefabs and support scripts.
 public class SphereII_Locks
 {
     public static GameObject LockPickAsset;
@@ -103,40 +106,21 @@ public class SphereII_Locks
         }
     }
 
+    public Keyhole GetScript()
+    {
+        if (lockPick != null)
+            return lockPick.GetComponent<Keyhole>();
+        return null;
+    }
     public void ToggleLock(bool padlock)
     {
-        foreach (String transform in transforms)
-        {
-            Transform temp = FindTransform(transform);
-            if (temp)
-            {
-                if (temp.name.Contains("Padlock"))
-                    temp.GetComponent<MeshRenderer>().enabled = padlock;
-                else
-                    temp.GetComponent<MeshRenderer>().enabled = !padlock;
-            }
-        }
-
-        //FindTransform("Padlock1_low").GetComponent<MeshRenderer>().enabled = padlock;
-        //FindTransform("Padlock1_Latch_low").GetComponent<MeshRenderer>().enabled = padlock;
-
-        //FindTransform("Baseplate1").GetComponent<MeshRenderer>().enabled = !padlock;
-        //FindTransform("Baseplate2").GetComponent<MeshRenderer>().enabled = !padlock;
-        //FindTransform("ButtonInner").GetComponent<MeshRenderer>().enabled = false;
-        //FindTransform("ButtonOuter").GetComponent<MeshRenderer>().enabled = false;
-
-        //FindTransform("Lock1Outer").GetComponent<MeshRenderer>().enabled = !padlock;
-        //FindTransform("Lock2Outer").GetComponent<MeshRenderer>().enabled = !padlock;
-
-        //FindTransform("Lock3Outer").GetComponent<MeshRenderer>().enabled = !padlock;
-        //FindTransform("Lock1Inner").GetComponent<MeshRenderer>().enabled = !padlock;
-        //FindTransform("Lock2Inner").GetComponent<MeshRenderer>().enabled = !padlock;
-        //FindTransform("Lock3Inner").GetComponent<MeshRenderer>().enabled = !padlock;
+            FindTransform("Padlock1").gameObject.SetActive(padlock);
+            FindTransform("Baseplate1").gameObject.SetActive(!padlock);
     }
     public bool IsLockOpened()
     {
         if (lockPick != null)
-            return lockPick.GetComponent<Keyhole>().LockIsOpen;
+            return lockPick.GetComponent<Keyhole>().LockComplete();
         return false;
     }
 
@@ -153,30 +137,17 @@ public class SphereII_Locks
         return lockPick.transform.FindInChilds(target, false);
     }
 
-    //private void AttachScript(String Script, String Transform)
-    //{
-    //    Type type = Type.GetType(Script + ", Mods");
-    //    if (type == null)
-    //        return;
-
-    //    Transform temp = FindTransform(Transform);
-    //    if (temp != null)
-    //    {
-    //        temp.gameObject.AddComponent(type);
-    //    }
-    //}
-
-    public void Enable()
+    public void Enable( bool isPadlock)
     {
         if (lockPick != null)
         {
+
+            ToggleLock(true);
+
+            lockPick.GetComponent<Keyhole>().ResetLock();
             lockPick.SetActive(true);
 
-            //GameRandom random = new GameRandom();
-            //if (random.RandomRange(0, 2) <= 1f)
-            //    ToggleLock(true);
-            //else
-            //    ToggleLock(false);
+   
         }
     }
     public void Disable()

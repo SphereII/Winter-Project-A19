@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,13 +17,15 @@ namespace Lockpicking
     [RequireComponent(typeof(LockEmissive))]
     public class Keyhole : MonoBehaviour
     {
+        // 7 Days To Die stuff
+        public int NumLockPicks = 0;
+        public EntityPlayerLocal player;
+
+        #region ThirdParty
         // Events
         UnityEvent lockpickBroke = new UnityEvent();
         UnityEvent lockOpen = new UnityEvent();
 
-        
-        public int NumLockPicks = 0;
-        public EntityPlayerLocal player;
 
         [Header("Player Input")]
         public float openPressure = 0f;
@@ -105,6 +108,8 @@ namespace Lockpicking
                 _lockIsOpen = value;
             }
         }
+
+    
         [Tooltip("The exact angle the lock is set to.")]
         float _lockAngle;
         public float LockAngle
@@ -144,12 +149,13 @@ namespace Lockpicking
         private int _closeTrigger;
         private int _lockpickBreakTrigger;
         private int _lockpickInsertTrigger;
+        #endregion
 
         [Header("Plumbing")]
         public GameObject keyhole; // The keyhole with lockpick A that turns the entire keyhole object to open it
         public GameObject lockpickObject; // The lockpick that turns to match the secret lockAngle
         public Animator lockpickAnimator; // Animator on the lockpick in the lockpickObject
-        private Animator _padlockAnimator;
+        public Animator _padlockAnimator;
         public GameObject padlock1; // Link to the padlock 1 game object
         public GameObject button;
         private LockEmissive _lockEmissive; // Link to the lockEmissive script on this object
@@ -200,6 +206,7 @@ namespace Lockpicking
 
         void OnEnable()
         {
+            // On enable, gather the information about the lock picks from the player, and apply the perks.
             if (player != null)
             {
                 ItemValue item = ItemClass.GetItem("resourceLockPick", false);
@@ -247,10 +254,17 @@ namespace Lockpicking
             squeekTimer = squeekRate;
 
             _pickAnglesDefault = LockpickAngles();
-            _lockEmissive = gameObject.AddComponent<LockEmissive>();
+
+            _lockEmissive = gameObject.GetComponent<LockEmissive>();
+            if ( _lockEmissive == null)
+                gameObject.AddComponent<LockEmissive>();
 
             if (padlock1 != null)
-                _padlockAnimator = padlock1.gameObject.AddComponent<Animator>();
+            {
+                _padlockAnimator = padlock1.gameObject.GetComponent<Animator>();
+                if (_padlockAnimator == null)
+                    _padlockAnimator = padlock1.gameObject.AddComponent<Animator>();
+            }
             _closeTrigger = Animator.StringToHash(closeTrigger);
             _openTrigger = Animator.StringToHash(openTrigger);
             _lockpickBreakTrigger = Animator.StringToHash(lockPickBreakTrigger);
@@ -280,6 +294,8 @@ namespace Lockpicking
 
         private void HandlePlayerInput()
         {
+            if (_lockIsOpen)
+                return;
             if (openPressure > 0)
             {
                 TryToTurnKeyhole();
@@ -344,9 +360,10 @@ namespace Lockpicking
                 {
                     audioPadlockJiggle.PlayLoop();
                 }
-                else if (audioJiggle)
+                else 
                 {
-                    audioJiggle.PlayLoop();
+                    if (audioJiggle)
+                        audioJiggle.PlayLoop();
                     if (audioJiggle2 != null)
                         audioJiggle2.PlayLoop();
                     if (audioJiggle3 != null)
@@ -431,7 +448,7 @@ namespace Lockpicking
             lockpickAnimator.SetTrigger(_lockpickBreakTrigger); // Play the break animation
             lockpickBroke.Invoke(); // Invoke this event in case other scripts are listening
 
-            if (audioLockpickEnter)
+            if (audioLockpickEnter && audioLockpickEnter.isActiveAndEnabled)
             {
                 audioLockpickEnter.DelayPlay(1f);
             }
@@ -456,6 +473,7 @@ namespace Lockpicking
             }
         }
 
+      
         /// <summary>
         /// Call this when the lock is open successfully.
         /// </summary>
@@ -463,25 +481,21 @@ namespace Lockpicking
         {
             if (!_lockIsOpen)
             {
-                if (audioOpen != null)
-                {
-                    if (audioOpen)
+                    if (audioPadlockOpen && padlock1 != null && padlock1.activeInHierarchy)
                     {
-                        audioOpen.PlayOnce();
-                    }
-                    else if (audioPadlockOpen && padlock1 != null && padlock1.activeSelf)
-                    {
+
                         audioPadlockOpen.PlayOnce();
+                        if ( _padlockAnimator != null)
+                            _padlockAnimator.SetTrigger(_openTrigger);
                     }
-                }
-                // Only run this on the padlock 1
-                if (padlock1 != null)
-                    if (padlock1.activeSelf)
-                        _padlockAnimator.SetTrigger(_openTrigger);
+                    else if ( audioOpen)
+                    {
+                            audioOpen.PlayOnce();
+
+                    }
 
                 // Invoke the event for any other scripts that are listening
                 lockOpen.Invoke();
-
                 _lockIsOpen = true;
             }
         }
@@ -577,7 +591,7 @@ namespace Lockpicking
             _lockGive = newLockGive;
             _closeDistance = newCloseDistance;
 
-            if (audioLockpickEnter)
+            if (audioLockpickEnter && audioLockpickEnter.isActiveAndEnabled)
             {
                 audioLockpickEnter.DelayPlay(0.7f);
             }
@@ -601,6 +615,7 @@ namespace Lockpicking
                 minGiveAmount, maxGiveAmount,
                 minCloseDistance, maxCloseDistance);
 
+            // Update the number of pick locks left.
             if ( player != null )
             {
                 ItemValue item = ItemClass.GetItem("resourceLockPick", false);
@@ -611,7 +626,7 @@ namespace Lockpicking
         public void ResetLockpickPosition()
         {
             SetLockpickAngles(_pickAnglesDefault);
-            if (padlock1 && padlock1.activeSelf)
+            if (_padlockAnimator != null)
                 _padlockAnimator.SetTrigger(_closeTrigger);
         }
 
@@ -619,6 +634,31 @@ namespace Lockpicking
         {
             return !(LockPickAngle() < GetAngle(_lockAngle) - _lockGive - (_closeDistance * KeyholeTurnValue())) &&
              !(LockPickAngle() > GetAngle(_lockAngle) + _lockGive + (_closeDistance * KeyholeTurnValue()));
+        }
+
+    
+        public bool LockComplete()
+        {
+            if (!LockIsOpen)
+                return false;
+
+
+            if (padlock1 != null && padlock1.activeInHierarchy)
+            {
+                if ( _padlockAnimator != null )
+                {
+                    // If the padlock is fully animated
+                    if (_padlockAnimator.GetCurrentAnimatorStateInfo(0).IsName("Padlock1Opened"))
+                        return true;
+                }
+
+            }
+            else
+            {
+                Debug.Log("main audio");
+                return !audioOpen.isAudioPlaying();
+            }
+            return false;
         }
     }
 }
