@@ -655,7 +655,6 @@ namespace Lockpicking
             }
             else
             {
-                Debug.Log("main audio");
                 return !audioOpen.isAudioPlaying();
             }
             return false;

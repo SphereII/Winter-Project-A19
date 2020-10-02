@@ -19,6 +19,7 @@ public class SphereII_Locks
 
     public void Init(BlockValue _blockValue, Vector3i _blockPos)
     {
+        // Check if the current block has a pre-defined lockpick prefab
         String LockPrefab = "";
         if (_blockValue.type != 0)
         {
@@ -34,23 +35,19 @@ public class SphereII_Locks
             LockPrefab = Configuration.GetPropertyValue("AdvancedLockpicking", "LockPrefab");
             if (LockPrefab.EndsWith("Lockset01"))
             {
-                var random = new System.Random();
                 List<String> Locks = new List<string>() { "Lockset01", "Lockset02", "Lockset03", "Lockset04", "padlock01" };
                 String randomLock;
                 int RandomKey = Math.Abs( _blockPos.x % 9 );
-                Debug.Log("Random Key: " + RandomKey);
-                if (RandomKey < 2)
+                if (RandomKey < 1)
                     randomLock = "Lockset01";
-                else if (RandomKey < 4)
+                else if (RandomKey < 3)
                     randomLock = "Lockset02";
-                else if (RandomKey < 8)
+                else if (RandomKey < 5)
                     randomLock = "Lockset03";
-
-                else if (RandomKey < 10)
+                else if (RandomKey < 7)
                     randomLock = "Lockset04";
                 else 
                     randomLock = "padlock01";
-
 
                 LockPrefab = LockPrefab.Replace("Lockset01", randomLock);
 
