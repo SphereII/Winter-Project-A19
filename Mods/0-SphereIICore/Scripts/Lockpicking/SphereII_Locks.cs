@@ -117,7 +117,7 @@ public class SphereII_Locks
             keyhole.audioLockpickClick = FindTransform("Audio Lockpick Click").gameObject.AddComponent<LocksetAudio>();
 
             LockEmissive lockEmissive = lockPick.AddComponent<LockEmissive>();
-
+            lockEmissive.off = true;
             List<Renderer> lstRenders = new List<Renderer>();
             Renderer[] tempRender = new Renderer[12];
 
