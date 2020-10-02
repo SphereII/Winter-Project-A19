@@ -17,29 +17,48 @@ public class SphereII_Locks
     // transforms 
     List<String> transforms = new List<string>();
 
-    public void Init(BlockValue _blockValue)
+    public void Init(BlockValue _blockValue, Vector3i _blockPos)
     {
         String LockPrefab = "";
         if (_blockValue.type != 0)
         {
             if (_blockValue.Block.Properties.Contains("LockPickPrefab"))
                 LockPrefab = _blockValue.Block.Properties.GetStringValue("LockPickPrefab");
-
         }
+
+        
         // Load up the default.
         if (String.IsNullOrEmpty(LockPrefab))
         {
-            var random = new System.Random();
+            // If the globally configured lock pick cotnains Lockset01, assume its the default.
             LockPrefab = Configuration.GetPropertyValue("AdvancedLockpicking", "LockPrefab");
             if (LockPrefab.EndsWith("Lockset01"))
             {
+                var random = new System.Random();
                 List<String> Locks = new List<string>() { "Lockset01", "Lockset02", "Lockset03", "Lockset04", "padlock01" };
-                String randomLock = Locks[random.Next(Locks.Count)];
+                String randomLock;
+                int RandomKey = Math.Abs( _blockPos.x % 9 );
+                Debug.Log("Random Key: " + RandomKey);
+                if (RandomKey < 2)
+                    randomLock = "Lockset01";
+                else if (RandomKey < 4)
+                    randomLock = "Lockset02";
+                else if (RandomKey < 8)
+                    randomLock = "Lockset03";
+
+                else if (RandomKey < 10)
+                    randomLock = "Lockset04";
+                else 
+                    randomLock = "padlock01";
+
+
                 LockPrefab = LockPrefab.Replace("Lockset01", randomLock);
 
             }
         }
 
+        if (String.IsNullOrEmpty(LockPrefab))
+            return;
         LockPickAsset = DataLoader.LoadAsset<GameObject>(LockPrefab);
         lockPick = UnityEngine.Object.Instantiate<GameObject>(LockPickAsset);
         Disable();
@@ -54,11 +73,11 @@ public class SphereII_Locks
             Keyhole keyhole = lockPick.AddComponent<Keyhole>();
             keyhole.keyhole = FindTransform("Keyhole (Turnable)").gameObject;
 
+            // attach the lock control the to top level
             LockControls lockControl;
             if (lockPick.transform.parent != null)
             {
                 lockControl = lockPick.transform.parent.gameObject.AddComponent<LockControls>();
-                //  lockPick.transform.parent.gameObject.AddComponent<LockObjectRotation>();
             }
             else
             {

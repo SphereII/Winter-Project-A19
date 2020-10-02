@@ -54,7 +54,7 @@ public class XUiC_PickLocking : XUiController
         Lock = new SphereII_Locks();
 
         // Pass the Player reference to the lock before we enable.
-        Lock.Init(base.xui.playerUI.xui.FindWindowGroupByName(XUiC_PickLocking.ID).GetChildByType<XUiC_PickLocking>().currentBlock);
+        Lock.Init(currentBlock, blockPos);
         Lock.SetPlayer(player as EntityPlayerLocal);
         Lock.Enable();
 
