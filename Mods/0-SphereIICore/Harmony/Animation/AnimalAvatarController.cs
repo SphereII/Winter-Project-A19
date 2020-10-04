@@ -13,6 +13,8 @@ public class SphereII_AnimalAvatarController
         public static bool Prefix(EntityAlive ___entityAlive, Transform ___bipedTransform, ref Transform ___head, ref Transform ___leftUpperLeg, ref Transform ___rightUpperLeg, ref Transform ___leftUpperArm, ref Transform ___rightUpperArm, ref float ___limbScale)
         {
             Transform transform = ___bipedTransform.FindInChilds("Hips", false);
+            if (transform == null)
+                return false;
 
             // Head is sometimes there, sometimes called something else. It's only really used to calculate the limbScale, which we've zeroed out, since
             // we don't support de-limbing of the animals.
