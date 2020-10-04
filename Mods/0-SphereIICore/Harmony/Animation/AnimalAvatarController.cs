@@ -24,7 +24,11 @@ public class SphereII_AnimalAvatarController
             ___rightUpperLeg = ___bipedTransform.FindInChilds("RightUpLeg", false);
             ___leftUpperArm = ___bipedTransform.FindInChilds("LeftArm", false);
             ___rightUpperArm = ___bipedTransform.FindInChilds("RightArm", false);
-            ___limbScale = 0f;
+            if (___head == null)
+                ___limbScale = 0f;
+            else
+                ___limbScale = (___head.position - transform.position).magnitude * 1.32f / ___head.lossyScale.x;
+
 
             return false;
         }
