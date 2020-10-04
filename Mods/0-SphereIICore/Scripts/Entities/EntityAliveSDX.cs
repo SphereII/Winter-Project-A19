@@ -258,6 +258,10 @@ public class EntityAliveSDX : EntityNPC
         if (IsDead() || NPCInfo == null)
             return new EntityActivationCommand[0];
 
+        // If not a human, don't talk to them
+        if (!EntityUtilities.IsHuman(entityId))
+            return new EntityActivationCommand[0];
+
         return new EntityActivationCommand[]
         {
             new EntityActivationCommand("Greet " + EntityName, "talk" , true)
@@ -527,10 +531,15 @@ public class EntityAliveSDX : EntityNPC
             emodel.avatarController.SetBool("IsOnGround", onGround || isSwimming);
         }
 
+
+        bool isHuman = false;
+        if (EntityUtilities.IsHuman(entityId))
+            isHuman = true;
+
         if (SingletonMonoBehaviour<ConnectionManager>.Instance.IsServer)
         {
             //If blocked, check to see if its a door.
-            if (moveHelper.IsBlocked)
+            if (moveHelper.IsBlocked && isHuman)
             {
                 Vector3i blockPos = moveHelper.HitInfo.hit.blockPos;
                 BlockValue block = world.GetBlock(blockPos);
@@ -565,7 +574,7 @@ public class EntityAliveSDX : EntityNPC
 
         // Check to see if we've opened a door, and close it behind you.
         Vector3i doorPos = SphereCache.GetDoor(entityId);
-        if (doorPos != Vector3i.zero)
+        if (doorPos != Vector3i.zero && isHuman)
         {
             DisplayLog("I've opened a door recently. I'll see if I can close it.");
             BlockValue block = world.GetBlock(doorPos);
@@ -643,8 +652,9 @@ public class EntityAliveSDX : EntityNPC
         // If there is no attack target, don't bother checking this.
         if (target == null)
         {
-            if (this is EntityAliveFarmingAnimalSDX)
+            if (!EntityUtilities.IsHuman(entityId))
                 return;
+
 
             List<global::Entity> entitiesInBounds = GameManager.Instance.World.GetEntitiesInBounds(this, new Bounds(position, Vector3.one * 5f));
             if (entitiesInBounds.Count > 0)
