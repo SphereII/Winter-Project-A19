@@ -1,0 +1,31 @@
+<configs>
+	<append xpath="/buffs">
+
+		<buff name="Ghost" icon="ui_game_symbol_radiation" icon_color="75,255,125" hidden="true"><stack_type value="replace"/><duration value="0"/>
+			<effect_group name="startghosting">
+				<triggered_effect trigger="onSelfBuffStart" action="AnimatorSetFloat" property="Ghost" value="0.0" duration="1"/>
+				<triggered_effect trigger="onSelfDied" action="AnimatorSetFloat" property="Ghost" value="0.0" duration="1"/>
+			</effect_group>
+			<effect_group name="attackUNghosting">
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="GhostBlink"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" buff="GhostBlink2"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="GhostBlink" icon="ui_game_symbol_radiation" icon_color="75,255,125" hidden="true"><stack_type value="replace"/><duration value=".5"/>
+			<effect_group name="startghosting">
+				<triggered_effect trigger="onSelfBuffStart" action="AnimatorSetFloat" property="Ghost" value="0.5" duration=".1"/>
+				<triggered_effect trigger="onSelfBuffFinish" action="AnimatorSetFloat" property="Ghost" value="0.0" duration=".1"/>
+			</effect_group>
+		</buff>		
+		<buff name="GhostBlink2" icon="ui_game_symbol_radiation" icon_color="75,255,125" hidden="true"><stack_type value="replace"/><duration value="1"/>
+			<effect_group name="startghosting">
+				<triggered_effect trigger="onSelfBuffStart" action="AnimatorSetFloat" property="Ghost" value="0.5" duration=".1"/>
+				<triggered_effect trigger="onSelfBuffFinish" action="AnimatorSetFloat" property="Ghost" value="0.0" duration=".1"/>
+			</effect_group>
+		</buff>	
+
+	
+	</append>
+
+</configs>

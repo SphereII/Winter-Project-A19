@@ -1140,8 +1140,400 @@
 			<property name="Faction" value="whiteriver"/>
 			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
 			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?CowboyBasic_X"/>	
-		</entity_class> 				
+		</entity_class> 
+
+
+		<!--  Harley  -->	
 		
+		<entity_class name="npcHarleyEmptyHand" extends="npcEmptyHandFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,melee"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>	
+
+		<entity_class name="npcHarleyClub" extends="npcClubFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,melee"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>
+		
+		<entity_class name="npcHarleyKnife" extends="npcKnifeFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,melee"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>	
+		
+		<entity_class name="npcHarleySMG" extends="npcSMGFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>	
+		
+		<entity_class name="npcHarleyAK47" extends="npcAK47FemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>
+		<entity_class name="npcHarleyHunter" extends="npcHunterFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+        </entity_class>    		
+		
+		<entity_class name="npcHarleyPistol" extends="npcPistolFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>			
+		
+		<entity_class name="npcHarleyXBow" extends="npcXBowFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class>	
+		
+		<entity_class name="npcHarleyBow" extends="npcBowFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="bandits"/>
+			<property name="Names" value="Harley, Quinn, HarleyQuinn" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?HarleyQuinn2_X"/>
+		</entity_class> 	
+
+		<!--  SoldierGirl01  -->	
+		
+		<entity_class name="npcSoldierGirl01EmptyHand" extends="npcEmptyHandFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>	
+
+		<entity_class name="npcSoldierGirl01Club" extends="npcClubFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierGirl01Knife" extends="npcKnifeFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierGirl01SMG" extends="npcSMGFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierGirl01AK47" extends="npcAK47FemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>
+		<entity_class name="npcSoldierGirl01Hunter" extends="npcHunterFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+        </entity_class>    		
+		
+		<entity_class name="npcSoldierGirl01Pistol" extends="npcPistolFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>			
+		
+		<entity_class name="npcSoldierGirl01XBow" extends="npcXBowFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierGirl01Bow" extends="npcBowFemaleTemplate"> 
+			<property name="Tags" value="entity,female,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="Sally, Sue, Sis" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/XythHumans.unity3d?ArmyDoctor2Dark"/>
+		</entity_class> 	
+
+
+		<!--  Delta Guy  -->
+		
+		<entity_class name="npcSoldierDeltaEmptyHand" extends="npcEmptyHandMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>	
+
+		<entity_class name="npcSoldierDeltaClub" extends="npcClubMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierDeltaKnife" extends="npcKnifeMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierDeltaSMG" extends="npcSMGMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierDeltaAK47" extends="npcAK47MaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierDeltaHunter" extends="npcHunterMaleTemplate"> 
+            <property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+        </entity_class>    		
+		
+		<entity_class name="npcSoldierDeltaPistol" extends="npcPistolMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>			
+		
+		<entity_class name="npcSoldierDeltaXBow" extends="npcXBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierDeltaBow" extends="npcBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Delta2Dark"/>
+		</entity_class> 
+
+
+		<!--  Hunter  -->
+		
+		<entity_class name="npcSoldierHunterEmptyHand" extends="npcEmptyHandMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>	
+
+		<entity_class name="npcSoldierHunterClub" extends="npcClubMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierHunterKnife" extends="npcKnifeMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierHunterSMG" extends="npcSMGMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierHunterAK47" extends="npcAK47MaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierHunterHunter" extends="npcHunterMaleTemplate"> 
+            <property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+        </entity_class>    		
+		
+		<entity_class name="npcSoldierHunterPistol" extends="npcPistolMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>			
+		
+		<entity_class name="npcSoldierHunterXBow" extends="npcXBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierHunterBow" extends="npcBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?HunterDark"/>
+		</entity_class> 
+
+		<!--  NationalGuard  -->
+		
+		<entity_class name="npcSoldierNationalGuardEmptyHand" extends="npcEmptyHandMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>	
+
+		<entity_class name="npcSoldierNationalGuardClub" extends="npcClubMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierNationalGuardKnife" extends="npcKnifeMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierNationalGuardSMG" extends="npcSMGMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierNationalGuardAK47" extends="npcAK47MaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierNationalGuardHunter" extends="npcHunterMaleTemplate"> 
+            <property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+        </entity_class>    		
+		
+		<entity_class name="npcSoldierNationalGuardPistol" extends="npcPistolMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>			
+		
+		<entity_class name="npcSoldierNationalGuardXBow" extends="npcXBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierNationalGuardBow" extends="npcBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?NationalGuard2Dark"/>
+		</entity_class> 
+
+
+		<!--  Ranger  -->
+		
+		<entity_class name="npcSoldierRangerEmptyHand" extends="npcEmptyHandMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>	
+
+		<entity_class name="npcSoldierRangerClub" extends="npcClubMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierRangerKnife" extends="npcKnifeMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,melee"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierRangerSMG" extends="npcSMGMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierRangerAK47" extends="npcAK47MaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>
+		
+		<entity_class name="npcSoldierRangerHunter" extends="npcHunterMaleTemplate"> 
+            <property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+        </entity_class>    		
+		
+		<entity_class name="npcSoldierRangerPistol" extends="npcPistolMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>			
+		
+		<entity_class name="npcSoldierRangerXBow" extends="npcXBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class>	
+		
+		<entity_class name="npcSoldierRangerBow" extends="npcBowMaleTemplate"> 
+			<property name="Tags" value="entity,cp,male,npc,ranged"/>
+			<property name="Faction" value="whiteriver"/>
+			<property name="Names" value="BillyBob,Tex,Gomer,Kemosabe" />
+			<property name="Mesh" value="#@modfolder(0-CreaturePackHumans):Resources/Soldierz.unity3d?Ranger2Dark"/>
+		</entity_class> 
+
 		<!--  Joel  -->
 		
 		<entity_class name="npcJoel" extends="npcMeleeMaleTemplate"> <!--  Joel has a weapon already so lets test this  -->

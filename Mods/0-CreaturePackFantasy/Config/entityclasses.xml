@@ -303,8 +303,78 @@
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>			
 		
-
+		<entity_class name="fantasyAnimalTimidFlyingTemplate" >
+			<property name="HideInSpawnMenu" value="true"/><!-- A19  -->
+			<property name="Class" value="EntityHornet"/>
+			<property name="LookAtAngle" value="0"/> <!-- A19 , add if you dont want animals to head track  -->			
+			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare03_X"/>
+			<property name="Tags" value="entity,cp,animal,timid,template"/>
+			<property name="Faction" value="animals"/>
+			<property name="SurfaceCategory" value="organic"/>
+			<property name="AvatarController" value="AvatarAnimalController"/> 
+			<property name="ModelType" value="Standard"/>
+			<property name="HandItem" value="meleeHandNightmare01"/>
+			<property name="MaxViewAngle" value="1"/> <!-- Reduce sight and angle to blind this actually hostile animal, can see you, wont attack you -->
+			<property name="SightRange" value="1"/>
+			<property name="MoveSpeed" value="1"/>
+			<property name="MoveSpeedAggro" value="2.1, 2.1"/> 
+			<property name="MaxTurnSpeed" value="190"/>
+			<property name="DeadBodyHitPoints" value="100"/>
+			<property name="HasRagdoll" value="true"/> <!-- No actual ragdoll but needed for dedi, but make sure you dont have a E_Bipded_Root tag on the entity though or boom! -->
+			<property name="HasDeathAnim" value="true"/>
+			<property name="RootMotion" value="false"/>
+			<property name="Weight" value="30"/>
+			<property name="Mass" value="50"/>
+			<property name="Parent" value="Animals"/>
+			<property name="Prefab" value="NPC"/>
+			<property name="EntityType" value="Animal"/>
+			<property name="IsEntityAnimal" value="true"/>
+			<property name="IsEnemyEntity" value="false"/> <!-- Set this if you want this entity to be spawned when user chooses 'enemy entities off' -->
+			<property name="Faction" value="animals"/>
+			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandom" value="" />
+			<property name="SoundAlert" value=""/>
+			<property name="SoundHurt" value=""/>
+			<property name="SoundDeath" value=""/>
+			<property name="SoundAttack" value=""/>
+			<property name="SoundSense" value=""/>
+			<property name="SoundGiveUp" value=""/>
+			<property name="AIPathCostScale" value=".8, 1"/>
+			<property name="AITask-1" value="Wander"/>
+			<property name="AITask-2" value=""/>
+			<property name="Immunity" value="sickness;disease;wellness"/> 
+			<property name="DismemberMultiplierLegs" value="0"/>
+			<property name="TimeStayAfterDeath" value="300"/>
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="1"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="1"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="1"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="20"/>
+			</effect_group>
+		</entity_class> 
 		
+		<entity_class name="fantasyAnimalHostileFlyingTemplate" extends="fantasyAnimalTimidFlyingTemplate">
+			<property name="HideInSpawnMenu" value="true"/><!-- A19  -->
+			<property name="Class" value="EntityHornet"/>
+			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare03_X"/>
+			<property name="Tags" value="entity,animal,hostile,template"/>
+			<property name="Faction" value="animals"/>
+			<property name="AvatarController" value="AvatarAnimalController"/> 
+			<property name="HandItem" value="meleeHandNightmare01"/>
+			<property name="IsEnemyEntity" value="true"/>
+			<property name="MaxViewAngle" value="240"/>
+			<property name="SightRange" value="90"/>
+			<property name="MoveSpeed" value="1"/>
+			<property name="MoveSpeedAggro" value="2.1, 2.1"/> 
+			<property name="MaxTurnSpeed" value="190"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="100"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="1"/>
+			</effect_group>
+		</entity_class> 
+
 <!--  Xyth's zombies  -->		
 		
 		<entity_class name="fantasyNightmare01" extends="fantasyAnimalTemplate"> 
@@ -342,6 +412,9 @@
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare03_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
+			<effect_group name="GhostOn"> 
+				<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="Ghost"/>		
+			</effect_group>	
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="10"/> 
 			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="4"/>
@@ -352,6 +425,26 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>
+		<entity_class name="fantasyNightmare03Flying" extends="fantasyAnimalHostileFlyingTemplate"> 
+			<property name="Tags" value="entity,male,zombie"/> 
+			<property name="Faction" value="undead"/>			
+			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare03_X"/>
+			<property name="HandItem" value="meleeHandNightmare02"/>
+			<effect_group name="GhostOn"> 
+				<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="Ghost"/>		
+			</effect_group>	
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="10"/> 
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="4"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="15"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
+			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+		</entity_class>		
+		
+		
 		<entity_class name="fantasyNightmare04" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,female,zombie"/> 
 			<property name="Faction" value="undead"/>			
