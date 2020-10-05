@@ -11,7 +11,7 @@
 		<spawn maxcount="2" respawndelay="2" time="Day" entitygroup="ZombiesAll" />
 		<spawn maxcount="2" respawndelay="2" time="Night" entitygroup="ZombiesNight" />
 		<spawn maxcount="1" respawndelay="14" time="Night" entitygroup="EnemyAnimalsForest" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="FriendlyAnimalsForest" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
 	</append>
 
 
@@ -28,7 +28,7 @@
 		<spawn maxcount="2" respawndelay="2" time="Any" entitygroup="ZombiesAll" />
 		<spawn maxcount="2" respawndelay="2" time="Night" entitygroup="ZombiesNight" />
 		<spawn maxcount="1" respawndelay="14" time="Any" entitygroup="EnemyAnimalsDesert" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="FriendlyAnimalsDesert" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
 
 	</append>
 
@@ -62,7 +62,7 @@
 		<spawn maxcount="2" respawndelay="2" time="Day" entitygroup="ZombiesBurntForest" />
 		<spawn maxcount="2" respawndelay="2" time="Night" entitygroup="ZombiesNight" />
 		<spawn maxcount="1" respawndelay="14" time="Night" entitygroup="EnemyAnimalsBurntForest" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="FriendlyAnimalsForest" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
 
 	</append>
 
@@ -80,7 +80,7 @@
 		<spawn maxcount="2" respawndelay="2" time="Any" entitygroup="SnowZombies" />
 		<spawn maxcount="2" respawndelay="2" time="Night" entitygroup="ZombiesNight" />
 		<spawn maxcount="1" respawndelay="14" time="Any" entitygroup="EnemyAnimalsSnow" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="FriendlyAnimalsSnow" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="21" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
 
 	</append>
 
