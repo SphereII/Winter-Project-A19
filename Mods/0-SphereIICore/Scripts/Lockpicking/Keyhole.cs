@@ -591,8 +591,6 @@ namespace Lockpicking
             if (player != null)
             {
                 ProgressionValue value = player.Progression.GetProgressionValue("perkLockPicking");
-                Debug.Log("SetLock: New Angle: " + newLockAngle + " New Lock Give: " + newLockGive + " New Close Distance: " + newCloseDistance + "Level: " + value.Level);
-
                 float lockPickTime = EffectManager.GetValue(PassiveEffects.LockPickTime, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
                 newLockGive = (newLockGive + (100 * lockPickTime));
             }
