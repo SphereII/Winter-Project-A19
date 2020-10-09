@@ -11,7 +11,10 @@ public class LockControls : MonoBehaviour
             return;
 
         if (lockpick.gameObject.activeSelf)
+        {
             InputControls();
+        }
+     
     }
 
     private void InputControls()

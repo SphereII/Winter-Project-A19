@@ -36,7 +36,7 @@
       <property name="DisplayType" value="blockTerrainFertile"/>
     </block>
   </insertAfter>
-  
+  <!--
   <remove xpath="/blocks/block[@name='water']" />
   <insertAfter xpath="/blocks/block[@name='waterMoving']">
     <block name="water">
@@ -54,7 +54,7 @@
     </block>
 
   </insertAfter>
-
+-->
   <append xpath="/blocks/block[@name='bed01']">
 		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
 	  </append>

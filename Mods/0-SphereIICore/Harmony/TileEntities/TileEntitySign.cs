@@ -51,31 +51,43 @@ public class SphereII_TileEntitySign_Gif
 
 
     [HarmonyPatch(typeof(TileEntitySign))]
-    [HarmonyPatch("UpdateTick")]
+    //[HarmonyPatch("UpdateTick")]
+    [HarmonyPatch("SetText")]
     public class SphereII_TileEntity_SetBlockEntityData
     {
-        public static bool Prefix(SmartTextMesh ___smartTextMesh, string ___signText)
+        public static bool Prefix(TileEntitySign __instance, SmartTextMesh ___smartTextMesh, string _text)
         {
-            if (___smartTextMesh == null)
+            if (GameManager.IsDedicatedServer)
                 return true;
 
-            if (___signText.StartsWith("http"))
+            if (___smartTextMesh == null)
             {
-
+                return true;
+            }
+            if (_text.StartsWith("http"))
+            {
                 ImageWrapper wrapper = ___smartTextMesh.transform.parent.transform.GetComponent<ImageWrapper>();
                 if (wrapper == null)
                     wrapper = ___smartTextMesh.transform.parent.transform.gameObject.AddComponent<ImageWrapper>();
 
-                if (wrapper.IsNewURL(___signText))
+                if (wrapper.IsNewURL(_text))
                 {
                     wrapper.Pause();
-                    wrapper.Init(___signText);
-                    ___smartTextMesh.gameObject.SetActive(false);
+                    wrapper.Init(_text);
+
+                    __instance.SetModified();
                 }
+                ___smartTextMesh.gameObject.SetActive(false);
             }
             else
             {
-                ___smartTextMesh.gameObject.SetActive(true);
+                ImageWrapper wrapper = ___smartTextMesh.transform.parent.transform.GetComponent<ImageWrapper>();
+                if (wrapper != null)
+                {
+                   
+                //    wrapper.Reset();
+                }
+                    ___smartTextMesh.gameObject.SetActive(true);
             }
 
             return true;

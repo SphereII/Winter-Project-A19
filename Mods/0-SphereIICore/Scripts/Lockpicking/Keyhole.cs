@@ -19,7 +19,7 @@ namespace Lockpicking
     {
         // 7 Days To Die stuff
         public int NumLockPicks = 0;
-        public EntityPlayerLocal player;
+        public EntityPlayer player;
 
         #region ThirdParty
         // Events
@@ -109,7 +109,7 @@ namespace Lockpicking
             }
         }
 
-    
+
         [Tooltip("The exact angle the lock is set to.")]
         float _lockAngle;
         public float LockAngle
@@ -206,21 +206,20 @@ namespace Lockpicking
 
         void OnEnable()
         {
-            // On enable, gather the information about the lock picks from the player, and apply the perks.
+            RefreshLockPicks();
+            ResetLock();
+            if (NumLockPicks > 0)
+                UpdateLockPicks(true);
+            else
+                UpdateLockPicks(false);
+
+            // give more time to avoid breaking pick locks.
             if (player != null)
             {
-                ItemValue item = ItemClass.GetItem("resourceLockPick", false);
-                ItemStack itemStack = new ItemStack(item, 1);
-                NumLockPicks = player.PlayerUI.xui.PlayerInventory.GetItemCount(item);
-                if ( NumLockPicks > 0)
-                    UpdateLockPicks(true);
-                else
-                    UpdateLockPicks(false);
-
-                // give more time to avoid breaking pick locks.
-               float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
+                float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
                 breakTime += lockPickBreakChance;
             }
+
         }
         void OnDisable()
         {
@@ -256,7 +255,7 @@ namespace Lockpicking
             _pickAnglesDefault = LockpickAngles();
 
             _lockEmissive = gameObject.GetComponent<LockEmissive>();
-            if ( _lockEmissive == null)
+            if (_lockEmissive == null)
                 gameObject.AddComponent<LockEmissive>();
 
             if (padlock1 != null)
@@ -274,14 +273,32 @@ namespace Lockpicking
                 ResetLock();
         }
 
-        void UpdateLockPicks( bool enable)
+        void UpdateLockPicks(bool enable)
         {
             // Hide the lock picks or show them.
             keyhole.transform.FindInChilds("LockpickB (Turnable)").gameObject.SetActive(enable);
             keyhole.transform.FindInChilds("LockpickA").gameObject.SetActive(enable);
         }
+
+
+        void RefreshLockPicks()
+        {
+            if (player == null)
+                return;
+
+            LocalPlayerUI playerUI = (player as EntityPlayerLocal).PlayerUI;
+            ItemValue item = ItemClass.GetItem("resourceLockPick", false);
+            NumLockPicks = playerUI.xui.PlayerInventory.GetItemCount(item);
+
+            if (NumLockPicks > 0)
+                UpdateLockPicks(true);
+            else
+                UpdateLockPicks(false);
+        }
         void Update()
         {
+
+
             if (NumLockPicks > 0)
             {
                 PassValuesToEmissiveScript();
@@ -290,12 +307,21 @@ namespace Lockpicking
                     return;
                 HandlePlayerInput();
             }
+            else
+            {
+                RefreshLockPicks();
+            }
+
+
+
         }
 
         private void HandlePlayerInput()
         {
             if (_lockIsOpen)
+            {
                 return;
+            }
             if (openPressure > 0)
             {
                 TryToTurnKeyhole();
@@ -360,7 +386,7 @@ namespace Lockpicking
                 {
                     audioPadlockJiggle.PlayLoop();
                 }
-                else 
+                else
                 {
                     if (audioJiggle)
                         audioJiggle.PlayLoop();
@@ -454,15 +480,18 @@ namespace Lockpicking
             }
 
             // Remove the broke pick lock.
-            if ( player != null )
+            if (player != null)
             {
+                LocalPlayerUI playerUI = (player as EntityPlayerLocal).PlayerUI;
                 ItemValue item = ItemClass.GetItem("resourceLockPick", false);
                 ItemStack itemStack = new ItemStack(item, 1);
-                player.PlayerUI.xui.PlayerInventory.RemoveItem(itemStack);
-                NumLockPicks = player.PlayerUI.xui.PlayerInventory.GetItemCount(item);
+                playerUI.xui.PlayerInventory.RemoveItem(itemStack);
+                //player.inventory.RemoveItem(itemStack);
+                //player.inventory.DecItem(item, 1);
+                RefreshLockPicks();
             }
 
-            if ( NumLockPicks > 0)
+            if (NumLockPicks > 0)
             {
                 UpdateLockPicks(true);
             }
@@ -473,7 +502,7 @@ namespace Lockpicking
             }
         }
 
-      
+
         /// <summary>
         /// Call this when the lock is open successfully.
         /// </summary>
@@ -481,18 +510,18 @@ namespace Lockpicking
         {
             if (!_lockIsOpen)
             {
-                    if (audioPadlockOpen && padlock1 != null && padlock1.activeInHierarchy)
-                    {
+                if (audioPadlockOpen && padlock1 != null && padlock1.activeInHierarchy)
+                {
 
-                        audioPadlockOpen.PlayOnce();
-                        if ( _padlockAnimator != null)
-                            _padlockAnimator.SetTrigger(_openTrigger);
-                    }
-                    else if ( audioOpen)
-                    {
-                            audioOpen.PlayOnce();
+                    audioPadlockOpen.PlayOnce();
+                    if (_padlockAnimator != null)
+                        _padlockAnimator.SetTrigger(_openTrigger);
+                }
+                else if (audioOpen)
+                {
+                    audioOpen.PlayOnce();
 
-                    }
+                }
 
                 // Invoke the event for any other scripts that are listening
                 lockOpen.Invoke();
@@ -623,7 +652,7 @@ namespace Lockpicking
                 minCloseDistance, maxCloseDistance);
 
             // Update the number of pick locks left.
-            if ( player != null )
+            if (player != null)
             {
                 ItemValue item = ItemClass.GetItem("resourceLockPick", false);
                 NumLockPicks = player.inventory.GetItemCount(item);
@@ -643,7 +672,7 @@ namespace Lockpicking
              !(LockPickAngle() > GetAngle(_lockAngle) + _lockGive + (_closeDistance * KeyholeTurnValue()));
         }
 
-    
+
         public bool LockComplete()
         {
             if (!LockIsOpen)
@@ -652,7 +681,7 @@ namespace Lockpicking
 
             if (padlock1 != null && padlock1.activeInHierarchy)
             {
-                if ( _padlockAnimator != null )
+                if (_padlockAnimator != null)
                 {
                     // If the padlock is fully animated
                     if (_padlockAnimator.GetCurrentAnimatorStateInfo(0).IsName("Padlock1Opened"))

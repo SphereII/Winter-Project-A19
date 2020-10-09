@@ -68,6 +68,10 @@ namespace OldMoatGames
             }
         }
 
+
+        private Material originalMaterial = null;
+
+    
         /// <summary>
         /// Returns the heigth of the GIF
         /// </summary>
@@ -482,9 +486,10 @@ namespace OldMoatGames
 
 
         // Used to determine the target component if not set
-        private void SetTexture()
+        public void SetTexture()
         {
             if (_targetComponent == null) return;
+
 
             // SpriteRenderer
             if (_targetComponent is SpriteRenderer)
@@ -507,10 +512,12 @@ namespace OldMoatGames
             if (_targetComponent is Renderer)
             {
                 var target = (Renderer)_targetComponent;
-                Material newMat = new Material(target.sharedMaterial.shader);
-                newMat.mainTexture = GifTexture;
-                target.material = newMat;
-                return;
+         
+
+                    Material newMat = new Material(target.sharedMaterial.shader);
+                    newMat.mainTexture = GifTexture;
+                    target.material = newMat;
+                    return;
             }
 
             // RawImage

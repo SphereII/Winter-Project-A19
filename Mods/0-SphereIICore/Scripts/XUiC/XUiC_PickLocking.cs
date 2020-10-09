@@ -55,7 +55,7 @@ public class XUiC_PickLocking : XUiController
 
         // Pass the Player reference to the lock before we enable.
         Lock.Init(currentBlock, blockPos);
-        Lock.SetPlayer(player as EntityPlayerLocal);
+        Lock.SetPlayer(player);
         Lock.Enable();
 
 
