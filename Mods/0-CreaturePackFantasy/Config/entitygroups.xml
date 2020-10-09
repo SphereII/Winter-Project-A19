@@ -8,5 +8,14 @@
       <entity name="fantasyNightmare05" />
       <entity name="fantasyNightmare06" />
     </entitygroup>
+
+    <entitygroup name="Nightmares">
+      <entity name="fantasyNightmare01" />
+      <entity name="fantasyNightmare02" />
+      <entity name="fantasyNightmare03" />
+      <entity name="fantasyNightmare04" />
+      <entity name="fantasyNightmare05" />
+      <entity name="fantasyNightmare06" />
+    </entitygroup>
   </append>
 </configs>

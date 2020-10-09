@@ -7,8 +7,8 @@
     </biome>
 
     <biome name="DeepCave">
-      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="sleeperSphereII_Nightmares_Stage1" />
-      <spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="sleeperSphereII_Nightmares_Stage1" />
+      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="Nightmares" />
+      <spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="Nightmares" />
       <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="ZombiesWastelandNight" />
     </biome>
   </append>
