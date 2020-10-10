@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <ModInfo>
+    <Name value="Samara" />
+    <Description value="Samara" />
+    <Author value="Xyth/Mumpfy" />
+    <Version value="19.2.0.1" />
+    <Website value="" />
+  </ModInfo>
+  <DMT Hash="be782796ffb5608fc0154f0901880368">
+    <dependencies>
+      <dependancy>0-SphereIICore</dependancy>
+    </dependencies>
+    <conflicts />
+  </DMT>
+</xml>

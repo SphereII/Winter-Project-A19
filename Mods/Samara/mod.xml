@@ -1,0 +1,12 @@
+<mod>
+  <info>
+    <author>Xyth/Mumpfy</author>
+    <name>Samara</name>
+    <description>Samara</description>
+    <mod_version>1.0</mod_version>
+    <game_version>18.0</game_version>
+  </info>
+  <dependencies>
+    <dependency>0-SphereIICore</dependency>
+  </dependencies>
+</mod>

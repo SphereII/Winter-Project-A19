@@ -1,0 +1,4 @@
+﻿<configs>
+  <set xpath="/npc/npc_info[@dialog_id='trader']/@dialog_id">CursesDialog</set>
+
+</configs>

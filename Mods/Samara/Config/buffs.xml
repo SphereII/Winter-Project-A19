@@ -1,0 +1,638 @@
+<configs>
+  <append xpath="/buffs">
+
+    <!-- buffs attached to Items  -->
+
+    <buff name="buffCursedCase" icon="#@modfolder:ItemIcons/ui_game_symbol_destruction2" hidden="true">
+      <stack_type value="ignore"/>
+      <duration value="10"/>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?SamaraCase" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?SamaraCase"/>
+      </effect_group>
+    </buff>
+
+    <!-- buffs used to enable sounddatanode that play inside cursed players head   -->
+    <buff name="buffSamaraHum" name_key="buffSamaraHumSound" icon="ui_game_symbol_add" remove_on_death="true" hidden="true">
+      <duration value="4"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraHum" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffSamaraHum" />
+        <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="buffSamaraHum" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraHum" />
+      </effect_group>
+    </buff>
+    <buff name="buffSamaraScream" name_key="buffSamaraScreamSound" icon="ui_game_symbol_add" remove_on_death="true" hidden="true">
+      <duration value="4"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffSamaraScream" />
+        <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="buffSamaraScream" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraScream" />
+      </effect_group>
+    </buff>
+    <buff name="buffScaryScream" name_key="buffScaryScreamSound" icon="ui_game_symbol_add" remove_on_death="true" hidden="true">
+      <duration value="10"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffScaryScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffScaryScream" />
+        <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="buffScaryScream" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffScaryScream" />
+      </effect_group>
+    </buff>
+
+    <!-- buffs used to enable effects that only play if cursed   -->
+    <buff name="buffCurseShockDelay" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" hidden="true">
+      <stack_type value="ignore"/>
+      <duration value="2"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffCurseShock"/>
+      </effect_group>
+    </buff>
+    <buff name="buffCurseShock" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" hidden="true">
+      <damage_type value="electrical"/>
+      <stack_type value="ignore"/>
+      <duration value="3"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <requirement name="NotHasBuff" buff="buffCurseShockDelay2"/>
+        <passive_effect name="HealthChangeOT" operation="base_add" value="-2"/>
+        <passive_effect name="RunSpeed" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+        <passive_effect name="WalkSpeed" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+        <passive_effect name="CrouchSpeed" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+        <passive_effect name="JumpStrength" operation="perc_subtract" value="0.9,0" duration="0,3.2"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+        <triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,0.75,0"/>
+        <triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffCurseShockDelay2"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="ETrapHit" operation="set" value="0"/>
+        <triggered_effect trigger="onSelfLeaveGame" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="electric_fence_impact"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="electric_fence_impact"/>
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="electric_fence_impact"/>
+      </effect_group>
+    </buff>
+    <buff name="buffCurseShockDelay2" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_electric_power" name_key="buffShockedName" hidden="true">
+      <stack_type value="ignore"/>
+      <duration value="55"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffCurseShockDelay2"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffCurseLightsOutDelay" description_key="buffLightsOutDesc" tooltip_key="buffLightsOutTooltip" icon="ui_game_symbol_destruction2" name_key="buffLightsOutName" hidden="true">
+      <stack_type value="ignore"/>
+      <duration value="2"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffCurseLightsOut"/>
+      </effect_group>
+    </buff>
+    <buff name="buffCurseLightsOut" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="4"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <requirement name="NotHasBuff" buff="buffCurseLightsOutDelay2"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCutscene02"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="buffCurseLightsOutDelay2"/>
+      </effect_group>
+    </buff>
+    <buff name="buffCurseLightsOutDelay2" description_key="buffShockedDesc" tooltip_key="buffShockedTooltip" icon="ui_game_symbol_destruction2" name_key="buffShockedName" hidden="true">
+      <stack_type value="ignore"/>
+      <duration value="54"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffCurseLightsOutDelay2"/>
+      </effect_group>
+    </buff>
+
+
+
+    <!-- buffs that show video full screen over the top of the UI and player.  These will loop until the duration ends.  -->
+
+    <!-- Intro cut scene video -->
+    <buff name="buffCutscene00"  name_key="Buff" icon="ui_game_symbol_destruction2" hidden="true">
+      <duration value="40"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffCutscene00" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffCutscene00" />
+        <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="buffCutscene00" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffCutscene00" />
+      </effect_group>
+    </buff>
+
+    <!-- Display a random cut scene. This gets called from the SoundDataNode for sound events that are deemed safe, like closing workstations or talking to a trater.-->
+    <buff name="buffCursedSamaraRandomEffect" hidden="true">
+      <duration value="0.1">
+        <effect_group name="Random Effect">
+          <requirement name="HasBuff" buff="buffCursedSamaraMorgan" />
+          <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".cutSceneRandom" operation="set" value="randomint(1,20)"/>
+          <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCutscene01">
+            <requirement name="CVarCompare" cvar=".cutSceneRandom" operation="Equals" value="1"/>
+          </triggered_effect>
+          <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCutscene02">
+            <requirement name="CVarCompare" cvar=".cutSceneRandom" operation="Equals" value="2"/>
+          </triggered_effect>
+          <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCutscene03">
+            <requirement name="CVarCompare" cvar=".cutSceneRandom" operation="Equals" value="3"/>
+          </triggered_effect>
+          <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCutscene04">
+            <requirement name="CVarCompare" cvar=".cutSceneRandom" operation="Equals" value="4"/>
+          </triggered_effect>
+          <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCutscene05">
+            <requirement name="CVarCompare" cvar=".cutSceneRandom" operation="Equals" value="5"/>
+          </triggered_effect>
+          <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCursedSamaraRandomOverlay01">
+            <requirement name="CVarCompare" cvar=".cutSceneRandom" operation="Equals" value="6"/>
+          </triggered_effect>
+        </effect_group>
+      </duration>
+    </buff>
+    
+    
+    <!-- Short Samara picture, shows her, the well, and an eye  -->
+    <buff name="buffCutscene01" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="4"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene01" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene01"/>
+      </effect_group>
+    </buff>
+
+    <!-- Blue ghost-like yelling -->
+    <buff name="buffCutscene02" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="6"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene02" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene02"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraScream" />
+      </effect_group>
+    </buff>
+
+    <!-- Samara flashes, ends with her reaching for you. -->
+    <buff name="buffCutscene03" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="4"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene03" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene03"/>
+      </effect_group>
+    </buff>
+
+    <!-- Sky with Samara -->
+    <buff name="buffCutscene04" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="5"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene04" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene04"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraScream" />
+      </effect_group>
+    </buff>
+
+    <!-- Samara out of the well walking towards you -->
+    <buff name="buffCutscene05" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="5"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene05" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene05"/>
+      </effect_group>
+    </buff>
+
+    <!-- buffs that show video in the distance/sky with UI and player showing in FPV only.  There is a 10 FPS hit so keep duration short.-->
+    <buff name="buffOverlay01" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="16"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="IsFPV"/>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay01" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay01"/>
+
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffSamaraScream" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffSamaraScream" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraScream" />
+      </effect_group>
+    </buff>
+
+    <!-- eye moving and looking around -->
+    <buff name="buffOverlay02" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="6"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="IsFPV"/>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay02" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay02"/>
+      </effect_group>
+    </buff>
+
+    <!-- red eye looking around -->
+    <buff name="buffOverlay03" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="3"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="IsFPV"/>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay03" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay03"/>
+      </effect_group>
+    </buff>
+
+    <!-- buff for activating the Activeblocks if you want to configure that to trigger when the player has a buff and is near the Pic.  -->
+    <buff name="buffCursed" name_key="Cursed" icon="ui_game_symbol_destruction2" remove_on_death="false" hidden="false">
+      <duration value="0"/>
+      <stack_type value="replace"/>
+    </buff>
+
+    <buff name="buffBadAttitude" hidden="false">
+      <duration value="1200"/>
+      <stack_type value="replace"/>
+    </buff>
+
+    <buff name="buffBadKarma" hidden="false">
+      <duration value="1200"/>
+      <stack_type value="replace"/>
+      <effect_group name="Cursed from Screamers">
+        <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCursed"/>
+      </effect_group>
+
+      <effect_group name="Remove Cursed">
+        <triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffCursed"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffScreamerCursed" name_key="Cursed" icon="ui_game_symbol_destruction2" remove_on_death="false" hidden="false">
+      <duration value="1200"/>
+      <stack_type value="replace"/>
+      <effect_group name="Cursed from Screamers">
+        <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="cvarScreamerCursed" operation="set" value="1" />
+      </effect_group>
+
+      <effect_group name="Remove Cursed">
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="cvarScreamerCursed" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffCursed"/>
+      </effect_group>
+    </buff>
+
+
+    <buff name="buffCursedSamaraMorgan" name_key="Samara Morgan" icon="ui_game_symbol_destruction2" remove_on_death="false" hidden="false">
+      <duration value="25200"/>
+      <stack_type value="replace"/>
+      <effect_group name="Cursed from Screamers">
+        <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="cvarSamaraCurse" operation="set" value="1" />
+      </effect_group>
+
+      <effect_group name="Remove Cursed">
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="cvarSamaraCurse" operation="set" value="0" />
+        <triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="SpawnEntitySDX, Mods" target="self" SpawnGroup="SamaraMorgan" Cvar="Leader" />
+      </effect_group>
+    </buff>
+
+    <!-- This buff is to be used when players activate the horse icons. The intention is that they can activate the horses at any time, and their effect will be different
+    dependeing on the character state: Are thy cursed? What level of a curse do they have?
+    -->
+    <buff name="buffCursedHorses" remove_on_death="false" hidden="true">
+      <duration value="0.1" />
+      <stack_type value="ignore"/>
+
+      <!-- If the player isn't cursed, then display a generic message to them. We want the players to know something is unique about them, without
+      telling them exactly what it's for, in case they stumble upon it before they even found out about curses 
+      -->
+      <effect_group tiered="false" name="No Curses">
+        <requirement name="NotHasBuff" buff="buffCursedSamaraMorgan"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganBinds_NoCurse" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganHorses" operation="set" value="0" />
+      </effect_group>
+
+      <!-- the cvar checks have to be in reverse order here. Highest number is checked first, rather than starting low than working up, 
+      as each effect_group adds to the cvar, updating the cvar number before the next effect_group fires.
+      -->
+      <!-- Fourth Horse -->
+      <effect_group name="Destroy_4">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganHorses" operation="Equals" value="3"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganHorses" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganBinds_04"/>
+      </effect_group>
+
+      <!-- Third Horse -->
+      <effect_group name="Destroy_3">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganHorses" operation="Equals" value="2"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganHorses" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganBinds_03"/>
+      </effect_group>
+
+      <!-- Second Horse -->
+      <effect_group name="Destroy_2">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganHorses" operation="Equals" value="1"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganHorses" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganBinds_02"/>
+      </effect_group>
+
+      <!-- First horse -->
+      <effect_group name="Destroy">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganHorses" operation="Equals" value="0"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganHorses" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganBinds"/>
+      </effect_group>
+
+
+    </buff>
+
+    <buff name="buffCursedWell" remove_on_death="false" hidden="true">
+      <duration value="0.1" />
+      <stack_type value="ignore"/>
+      <effect_group name="Destroy_4">
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganTask" operation="set" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganWell"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffCursedMemories" remove_on_death="false" hidden="true">
+      <duration value="0.1" />
+      <stack_type value="ignore"/>
+
+      <!-- If the player isn't cursed, then display a generic message to them. We want the players to know something is unique about them, without
+      telling them exactly what it's for, in case they stumble upon it before they even found out about curses 
+      -->
+      <effect_group tiered="false" name="No Curses">
+        <requirement name="NotHasBuff" buff="buffCursedSamaraMorgan"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganMemoriesBinds_NoCurse" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganMemories" operation="set" value="0" />
+      </effect_group>
+
+      <!-- the cvar checks have to be in reverse order here. Highest number is checked first, rather than starting low than working up, 
+      as each effect_group adds to the cvar, updating the cvar number before the next effect_group fires.
+      -->
+      <effect_group name="Destroy_2">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganMemories" operation="Equals" value="1"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganMemories" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganMemories02_ToolTip"/>
+      </effect_group>
+
+      <effect_group name="Destroy">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganMemories" operation="Equals" value="0"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganMemories" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganMemories01_ToolTip"/>
+      </effect_group>
+
+
+    </buff>
+    <buff name="buffCursedPictures" remove_on_death="false" hidden="true">
+      <duration value="0.1" />
+      <stack_type value="ignore"/>
+
+      <!-- If the player isn't cursed, then display a generic message to them. We want the players to know something is unique about them, without
+      telling them exactly what it's for, in case they stumble upon it before they even found out about curses 
+      -->
+      <effect_group tiered="false" name="No Curses">
+        <requirement name="NotHasBuff" buff="buffCursedSamaraMorgan"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraMorganPictureBinds_NoCurse" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganPictures" operation="set" value="0" />
+      </effect_group>
+
+      <!-- the cvar checks have to be in reverse order here. Highest number is checked first, rather than starting low than working up, 
+      as each effect_group adds to the cvar, updating the cvar number before the next effect_group fires.
+      -->
+      <!-- Fourth Horse -->
+      <effect_group name="Destroy_4">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganPictures" operation="Equals" value="3"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganPictures" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraPostcard04_ToolTip"/>
+      </effect_group>
+
+      <!-- Third Horse -->
+      <effect_group name="Destroy_3">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganPictures" operation="Equals" value="2"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganPictures" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraPostcard03_ToolTip"/>
+      </effect_group>
+
+      <!-- Second Horse -->
+      <effect_group name="Destroy_2">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganPictures" operation="Equals" value="1"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganPictures" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraPostcard02_ToolTip"/>
+      </effect_group>
+
+      <!-- First horse -->
+      <effect_group name="Destroy">
+        <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+        <requirement name="CVarCompare" target="self" cvar="curseSamaraMorganPictures" operation="Equals" value="0"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="curseSamaraMorganPictures" operation="add" value="1" />
+        <triggered_effect trigger="onSelfBuffRemove" action="ShowToolTipSDX, Mods" message_key="samaraPostcard01_ToolTip"/>
+      </effect_group>
+
+
+    </buff>
+
+    <buff name="buffSamaraAOE" name_key="buffSamaraAOE" description_key="buffSamaraAOEDesc" tooltip_key="buffSamaraAOETooltip" >
+      <damage_type value="cold"/>
+      <stack_type value="replace"/>
+      <update_rate value="3"/>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="10" buff="buffSamaraDamage" target_tags="player"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffSamaraDamage"  icon="ui_game_symbol_cold" icon_color="255,128,0" icon_blink="false">
+      <damage_type value="cold"/>
+      <stack_type value="replace"/>
+      <duration value="10"/>
+      <effect_group>
+        <passive_effect name="HealthChangeOT" operation="base_subtract" duration="0,10" value="1,1"/>
+        <passive_effect name="HealthChangeOT" operation="base_subtract" duration="10,50" value="1,30"/>
+        <passive_effect name="HealthChangeOT" operation="base_subtract" duration="50,1000" value="40,1000"/>
+      </effect_group>
+    </buff>
+
+
+    <buff name="buffSnowSwarm" name_key="buffSnowSwarmName" description_key="buffSnowSwarmDesc" tooltip_key="buffSnowSwarmTooltip" >
+      <damage_type value="cold"/>
+      <stack_type value="replace"/>
+      <update_rate value="3"/>
+      <effect_group>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="50" buff="buffFrostbite" target_tags="player"/>
+        <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="10" buff="buffFrostbite2" target_tags="player"/>
+      </effect_group>
+    </buff>
+
+    <buff name="buffFrostbite"  description_key="buffFrostbiteDesc" tooltip_key="buffFrostbiteTooltip" icon="ui_game_symbol_cold" icon_color="255,128,0" icon_blink="false">
+      <damage_type value="cold"/>
+      <stack_type value="replace"/>
+      <duration value="10"/>
+      <effect_group>
+        <passive_effect name="StaminaLossMaxMult" operation="perc_add" value="4"/>
+        <triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="2" effect_name="Cold"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Cold"/>
+        <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffFrostbite"/>
+      </effect_group>
+    </buff>
+    <buff name="buffFrostbite2" description_key="buffFrostbite2Desc" tooltip_key="buffFrostbite2Tooltip" icon="ui_game_symbol_cold" icon_color="255,0,0" icon_blink="true">
+      <damage_type value="cold"/>
+      <stack_type value="replace"/>
+      <duration value="4"/>
+      <effect_group>
+        <passive_effect name="StaminaLossMaxMult" operation="perc_add" value="10"/>
+        <passive_effect name="HealthMaxModifierOT" operation="base_subtract" value=".5"/>
+        <passive_effect name="HealthChangeOT" operation="base_subtract" value=".5"/>
+        <triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffFrostbite2"/>
+      </effect_group>
+    </buff>
+  </append>
+
+  <!--  appends to the update loop             -->
+
+
+
+  <append xpath="/buffs/buff[@name='buffStatusCheck01']">
+
+    <!-- Intro Video, determined to a cvar. The cvar default value is 0. -->
+    <effect_group name="IntroVideo">
+      <requirement name="CVarCompare" cvar="$WinterProject_IntroVideo" operation="LT" value="1"/>
+      <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffCutscene00" />
+      <!-- Set to 1 so it does not re-trigger-->
+      <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$WinterProject_IntroVideo" operation="set" value="1"/>
+    </effect_group>
+    <effect_group name="SamaraCurse">
+      <requirement name="CVarCompare" cvar="$SamaraCurse" operation="EQ" value="1"/>
+      <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffCursedSamaraMorgan" />
+    </effect_group>
+  </append>
+
+  <append xpath="/buffs/buff[@name='buffStatusCheck01']/effect_group">
+
+    <!-- if you die, Samara will release you from your bind -->
+    <triggered_effect trigger="onSelfRespawn" action="ShowToolbeltMessage" message_key="buffCursedSamaraMorgan_Remove">
+      <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+    </triggered_effect>
+
+    <!-- if you die, Samara will release you from your bind -->
+    <triggered_effect trigger="onSelfRespawn" action="RemoveBuff" buff="buffCursedSamaraMorgan" >
+      <requirement name="HasBuff" buff="buffCursedSamaraMorgan"/>
+    </triggered_effect>
+
+    <!-- Item buffs    -->
+
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="SamaraCase">
+      <requirement name="NotHasBuff" buff="buffCursedCase"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="SamaraCase">
+      <requirement name="HasBuff" buff="buffCursedCase"/>
+    </triggered_effect>
+
+    <!-- Cutscene buffs  -->
+
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene00">
+      <requirement name="NotHasBuff" buff="buffCutscene00"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene00">
+      <requirement name="HasBuff" buff="buffCutscene00"/>
+    </triggered_effect>
+
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene01">
+      <requirement name="NotHasBuff" buff="buffCutscene01"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene01">
+      <requirement name="HasBuff" buff="buffCutscene01"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene02">
+      <requirement name="NotHasBuff" buff="buffCutscene02"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene02">
+      <requirement name="HasBuff" buff="buffCutscene02"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene03">
+      <requirement name="NotHasBuff" buff="buffCutscene03"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene03">
+      <requirement name="HasBuff" buff="buffCutscene03"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene04">
+      <requirement name="NotHasBuff" buff="buffCutscene04"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene04">
+      <requirement name="HasBuff" buff="buffCutscene04"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene05">
+      <requirement name="NotHasBuff" buff="buffCutscene05"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene05">
+      <requirement name="HasBuff" buff="buffCutscene05"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene06">
+      <requirement name="NotHasBuff" buff="buffCutscene06"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene06">
+      <requirement name="HasBuff" buff="buffCutscene06"/>
+    </triggered_effect>
+
+    <!-- Overlay buffs  -->
+
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Overlay01">
+      <requirement name="NotHasBuff" buff="buffOverlay01"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Overlay01">
+      <requirement name="HasBuff" buff="buffOverlay01"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Overlay02">
+      <requirement name="NotHasBuff" buff="buffOverlay02"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Overlay02">
+      <requirement name="HasBuff" buff="buffOverlay02"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Overlay03">
+      <requirement name="NotHasBuff" buff="buffOverlay03"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Overlay03">
+      <requirement name="HasBuff" buff="buffOverlay03"/>
+    </triggered_effect>
+
+
+  </append>
+
+</configs>

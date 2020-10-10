@@ -1,0 +1,31 @@
+﻿<configs>
+  
+  <append xpath="/lootcontainers/lootgroup[@name='junk']">
+    <item name="SamaraMorganHorse01" />
+    <item name="SamaraMorganHorse02" />
+    <item name="SamaraMorganHorse03" />
+    <item name="SamaraMorganHorse04" />
+    <item name="SamaraPostCard01" />
+    <item name="SamaraPostCard02" />
+    <item name="SamaraPostCard03" />
+    <item name="SamaraPostCard04" />
+    <item name="SamaraMemories01" />
+    <item name="SamaraMemories02" />
+  </append>
+
+  <append xpath="/lootcontainers">
+    <lootgroup name="SamaraMorganDiary01">
+      <item name="SamaraMorganDiary01" />
+    </lootgroup>
+    
+    <lootcontainer id="665" count="1" size="1,1" sound_open="UseActions/open_garbage" sound_close="UseActions/close_garbage" loot_quality_template="qualBaseTemplate">
+      <item name="SamaraMorganDiary01" count="1"/>
+    </lootcontainer>
+
+    <lootcontainer id="666" count="1" size="1,1" sound_open="UseActions/open_garbage" sound_close="UseActions/close_garbage" loot_quality_template="qualBaseTemplate">
+      <item name="SamaraMorganBody" count="1"/>
+    </lootcontainer>
+  </append>
+
+
+</configs>

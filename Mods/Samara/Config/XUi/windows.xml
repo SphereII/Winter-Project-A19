@@ -1,0 +1,6 @@
+﻿<configs>
+  <set xpath="/windows/window[@name='windowTip']/@height">463</set>
+  <set xpath="/windows/window[@name='windowTip']/rect[@name='content']/@height">419</set>
+  <set xpath="/windows/window[@name='windowTip']/rect[@name='content']/rect[@name='btnContinue']/@pos">0, -377</set>
+  
+</configs>

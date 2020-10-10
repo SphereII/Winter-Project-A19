@@ -1,0 +1,391 @@
+<configs>
+  <append xpath="/items">
+    <item name="handSamara">
+      <property name="Extends" value="meleeHandMaster"/>
+      <property name="CreativeMode" value="None"/>
+      <property class="Action0">
+        <property name="DamageEntity" value="0"/>
+        <property name="DamageBlock" value="0"/>
+        <property name="Range" value="1.5"/>
+        <property name="Sphere" value="1.0"/>
+        <property name="Sound_start" value="swoosh" />
+        <property name="Buff" value="criticalBlunt,injuryStunned,injurySprainedLeg" />
+        <property name="Buff_chance" value="0.3,0.1,0.1" />
+        <property name="DamageBonus.head" value="0" />
+      </property>
+      <property class="Action1">
+        <property name="Class" value="Vomit"/>
+        <property name="Delay" value="0"/>
+        <property name="Range" value="200"/>
+        <property name="Infinite_ammo" value="true"/>
+        <property name="Magazine_items" value="ammoProjectileSamara"/>
+        <property name="Reload_time" value="0"/>
+        <property name="Sound_start" value="blunderbuss_fire"/>
+        <property name="Sound_repeat" value=""/>
+        <property name="Sound_end" value=""/>
+        <property name="Sound_empty" value=""/>
+        <property name="Sound_reload" value=""/>
+      </property>
+      <effect_group name="Base Effects">
+        <passive_effect name="ModSlots" operation="base_set" value="0"/>
+        <passive_effect name="DamageFalloffRange" operation="base_set" value="1"/>
+        <passive_effect name="MaxRange" operation="base_set" value="200"/>
+        <passive_effect name="MagazineSize" operation="base_set" value="1"/>
+        <passive_effect name="SpreadDegreesVertical" operation="base_set" value="0"/>
+        <passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="0"/>
+      </effect_group>
+    </item>
+    <item name="ammoProjectileSamara">
+      <property name="Meshfile" value="#Other/Items?Weapons/Ranged/Vomit/vomitBulbPrefab.prefab"/>
+      <property name="Material" value="Morganic"/>
+      <property name="CreativeMode" value="None"/>
+      <property class="Action1">
+        <property name="Class" value="Projectile"/>
+        <property name="DamageEntity" value="0"/>
+        <property name="DamageBlock" value="0"/>
+        <property name="Explosion.ParticleIndex" value="0"/>
+        <property name="Velocity" value="30"/>
+        <property name="FlyTime" value="2"/>
+        <property name="LifeTime" value="4"/>
+        <property name="CollisionRadius" value=".5"/>
+        <property name="DamageBonus.earth" value="0"/>
+      </property>
+      <effect_group name="Base Effects">
+        <passive_effect name="ModSlots" operation="base_set" value="0"/>
+        <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+        <passive_effect name="DamageModifier" operation="perc_set" value="0" tags="metal"/>
+      </effect_group>
+    </item>
+ 
+    <item name="CursedCase">
+      <property name="HoldType" value="3"/>
+      <property name="DisplayType" value="waterCoffee"/>
+      <property name="Meshfile" value="#@modfolder:Resources/SamaraCurse.unity3d?SamaraCase" />
+      <property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+      <property name="Material" value="Morganic"/>
+      <property name="Weight" value="10"/>
+      <property name="Stacknumber" value="10"/>
+      <!-- STK drink -->
+      <property name="EconomicValue" value="96"/>
+      <property name="UnlockedBy" value="perkMasterChef,drinkJarCoffeeSchematic"/>
+      <property name="CustomIcon" value="xmascd" />
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="player_drinking"/>
+        <property name="Create_item" value="drinkJarEmpty"/>
+      </property>
+      <property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+      <effect_group tiered="false">
+        <requirement name="NotHasBuff" buff="buffIsOnFire"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="24"/>
+        <display_value name="dStaminaRegen" value=".25"/>
+        <display_value name="dHypothermalResist" value="5"/>
+        <display_value name="dDuration" value="183"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffCoffeeDuration" operation="add" value="183"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffCoffeeDuration" operation="set" value="543">
+          <requirement name="CVarCompare" cvar="$buffCoffeeDuration" operation="GT" value="543"/>
+        </triggered_effect>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables,buffCoffee"/>
+      </effect_group>
+
+      <effect_group tiered="false">
+        <requirement name="HasBuff" buff="buffIsOnFire"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+      </effect_group>
+    </item>
+
+   
+    <item name="makeupSamara">
+      <property name="CreativeMode" value="Dev" />
+      <property name="CustomIcon" value="medicalAloeCream" />
+      <property name="CustomIconTint" value="164,177,137" />
+      <property name="Tags" value="medical"/>
+      <property name="DisplayType" value="medical"/>
+      <property name="HoldType" value="40"/>
+      <property name="Encumbrance" value="0" />
+      <property name="Material" value="Morganic" />
+      <property name="RepairTools" value="foodCropPotato" />
+      <property name="DegradationBreaksAfter" value="false" />
+      <property name="EconomicValue" value="10"/>
+      <property name="Stacknumber" value="15"/>
+      <!-- STK medical -->
+      <property name="Group" value="Science,CFChemicals,Medical"/>
+      <property name="EquipSlot" value="Face" />
+      <!--		<property name="HoldType" value="45" /> -->
+      <property name="Meshfile" value="#Other/Items?Misc/snowballPrefab.prefab"/>
+      <property name="TintColor" value="164,177,137"/>
+      <property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+      <effect_group tiered="false">
+        <display_value name="dDiseaseResist" value="1"/>
+        <display_value name="dDuration" value="723"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugVitaminsDuration" operation="add" value="723"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugVitaminsDuration" operation="set" value="2163">
+          <requirement name="CVarCompare" cvar="$buffDrugVitaminsDuration" operation="GT" value="2163"/>
+        </triggered_effect>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugVitamins"/>
+      </effect_group>
+      <property class="UMA">
+        <property name="Mesh" value="base_face" />
+        <property name="Overlay0" value="head_zombie" />
+        <property name="Overlay0Tint" value="164,177,137" />
+        <property name="Layer" value="1" />
+        <property name="UISlot" value="Face" />
+        <property name="ShowAltHair" value="false" />
+      </property>
+      <property name="DescriptionKey" value="makeupGroupDesc"/>
+    </item>
+
+    <item name="SamaraMorganDiary01">
+      <property name="Extends" value="schematicMaster"/>
+      <property name="CustomIcon" value="diary" />
+      <property name="DescriptionKey" value="SamaraMorganDiary01Desc"/>
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="read_skillbook"/>
+        <property name="Consume" value="false"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ShowToolTipSDX, Mods" cvar="curseSamaraMorgan" operation="add" value="1"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ShowToolTipSDX, Mods" message_key="SamaraMorganDiary01Desc" sound="buffSamaraHum"/>
+      </effect_group>
+    </item>
+
+      <!-- Resets the Player-->
+    <item name="SamaraMorganClear">
+      <property name="Extends" value="schematicMaster" />
+      <property name="CustomIcon" value="samaraHorse01" />
+      <property name="DescriptionKey" value="samaraHorse01Desc" />
+      
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="read_skillbook"/>
+        <property name="Consume" value="false"/>
+        <property name="UseAnimation" value="true"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="curseSamaraMorganHorses" operation="set" value="0"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="curseSamaraMorganPictures" operation="set" value="0"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="CVarLogValue" cvar="curseSamaraMorganHorses"/>
+      </effect_group>
+    </item>
+
+     
+    <item name="SamaraMemories01">
+      <property name="Extends" value="schematicMaster" />
+      <property name="CustomIcon" value="hair-brush" />
+      <property name="DescriptionKey" value="samaraMemories01Desc" />
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="read_skillbook"/>
+        <property name="Consume" value="true"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedMemories"/>
+      </effect_group>
+    </item>
+    <item name="SamaraMemories02">
+      <property name="Extends" value="schematicMaster" />
+      <property name="CustomIcon" value="dress" />
+      <property name="DescriptionKey" value="samaraMorganMemories02Desc" />
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="read_skillbook"/>
+        <property name="Consume" value="true"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedMemories"/>
+      </effect_group>
+    </item>
+    <item name="SamaraPostCard01">
+      <property name="Extends" value="schematicMaster" />
+      <property name="CustomIcon" value="belem-tower" />
+      <property name="DescriptionKey" value="samaraPostcard01Desc" />
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="read_skillbook"/>
+        <property name="Consume" value="true"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedPictures"/>
+      </effect_group>
+    </item>
+    <item name="SamaraPostCard02">
+      <property name="Extends" value="SamaraPostCard01" />
+      <property name="CustomIcon" value="nun" />
+      <property name="DescriptionKey" value="SamaraPostCard02Desc" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedPictures"/>
+      </effect_group>
+    </item>
+    <item name="SamaraPostCard03">
+      <property name="Extends" value="SamaraPostCard01" />
+      <property name="CustomIcon" value="nun" />
+      <property name="DescriptionKey" value="SamaraPostCard03Desc" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedPictures"/>
+      </effect_group>
+    </item>
+    <item name="SamaraPostCard04">
+      <property name="Extends" value="SamaraPostCard01" />
+      <property name="CustomIcon" value="barn" />
+      <property name="DescriptionKey" value="SamaraPostCard04Desc" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedPictures"/>
+      </effect_group>
+    </item>
+    
+    <item name="SamaraMorganHorse01">
+      <property name="Extends" value="schematicMaster" />
+      <property name="CustomIcon" value="horse" />
+      <property name="DescriptionKey" value="samaraHorse01Desc" />
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Use_time" value="..."/>
+        <property name="Sound_start" value="read_skillbook"/>
+        <property name="Consume" value="true"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedHorses"/>
+      </effect_group>
+    </item>
+    <item name="SamaraMorganHorse02">
+      <property name="Extends" value="SamaraMorganHorse01" />
+      <property name="DescriptionKey" value="samaraHorse02Desc" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedHorses"/>
+      </effect_group>
+    </item>
+    <item name="SamaraMorganHorse03">
+      <property name="Extends" value="SamaraMorganHorse01" />
+      <property name="DescriptionKey" value="samaraHorse03Desc" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedHorses"/>
+      </effect_group>
+    </item>
+    <item name="SamaraMorganHorse04">
+      <property name="Extends" value="SamaraMorganHorse01" />
+      <property name="DescriptionKey" value="samaraHorse04Desc" />
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffCursedHorses"/>
+      </effect_group>
+    </item>
+
+		<item name="handSnowShark">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="Delay" value="0"/> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="3.0"/>
+				<property name="Sphere" value=".5"/>
+				<property name="DamageEntity" value="30"/>
+				<property name="DamageBlock" value="40"/>
+				<property name="Sound_start" value="swoosh" />
+				<property name="Buff" value="criticalBlunt,injuryStunned,injurySprainedLeg" />
+				<property name="Buff_chance" value="0.3,0.1,0.1" /> 
+				<property name="DamageBonus.head" value="0" />
+			</property>
+		</item>
+		<item name="meleeHandSnowstorm">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="35"/>
+			<property class="Action0">
+				<property name="Delay" value="0.7"/> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="3.0"/>
+				<property name="DamageEntity" value="0"/>
+				<property name="DamageBlock" value="0"/>
+				<property name="Buff" value="buffFrostbite"/> 
+			</property>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+			</effect_group>
+		</item>
+		<item name="handIceHead">
+			<property name="Extends" value="meleeHandZombie01"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="DamageEntity" value="50"/>
+				<property name="DamageBlock" value="30"/>
+				<property name="Buff" value="criticalBlunt,injuryStunned,injurySprainedLeg" />
+				<property name="Buff_chance" value="0.5,0.3,0.3" /> 
+			</property>
+		</item>	
+
+		<item name="meleeHandBloodFly">
+			<property name="Extends" value="meleeHandMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="35"/>
+			<property class="Action0">
+				<property name="Delay" value="0.7"/> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1.0"/>
+				<property name="DamageEntity" value="5"/>
+				<property name="DamageBlock" value="5"/>
+<!--				<property name="Buff" value="buffInjuryBleeding"/> -->
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Vomit"/>
+				<property name="Delay" value="0.5"/>
+				<property name="Infinite_ammo" value="true"/>
+				<property name="Magazine_items" value="ammoProjectileBloodFlyVomit"/>
+				<property name="Sound_warning" value="hulkvomitwarning"/>
+				<property name="Sound_start" value="hulkvomitattack"/>
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value=""/>
+				<property name="Sound_reload" value=""/>
+			</property>
+			<effect_group name="Base Effects">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<!--<passive_effect name="AttacksPerMinute" operation="base_set" value="55"/>  A16 .7,  50=1.2 -->
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="50"/>
+				<passive_effect name="MaxRange" operation="base_set" value="50"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="1"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="3"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3"/>
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value="0.25" tags="buffFrostbite"/>
+			</effect_group>
+		</item>
+
+		<item name="ammoProjectileBloodFlyVomit">
+			<property name="Meshfile" value="Items/Weapons/Ranged/Vomit/vomitBulbPrefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="15"/>
+				<property name="DamageBlock" value="12"/>
+				<property name="Explosion.ParticleIndex" value="7"/>
+				<property name="Velocity" value="13"/>
+				<property name="FlyTime" value="6"/>
+				<property name="LifeTime" value="8"/>
+				<property name="CollisionRadius" value="0.5"/>
+				<property name="Buff" value="buffFrostbite"/>
+			</property>
+			<effect_group name="Base Effects" tiered="false">
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="1" tags="metal"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value="0.20" tags="buffFrostbite"/>
+			</effect_group>
+		</item>
+
+
+
+  </append>
+</configs>

@@ -1,0 +1,83 @@
+﻿<configs>
+  <append xpath="/quests">
+    <!-- Each part of Samara's Diary involves being sent to find a note. This note will give a hint to what the player needs to do. The hint is in the note, not the quest line. 
+    Having the instructions in the quest line seems to be too In-Your-Face on how to solve the riddle. Instead, item actions will change dependening on cvar values.  Those items will call the next
+    quest.
+    -->
+
+    <!--
+    
+    Level 1: Memories
+    Level 2: Horses
+    Level 3: Her Items
+    Level 4: Free her
+    
+    quest_Samara_Diary01 - Santa gives you a map. Talks about the postcards and pictures. Find and Use/destroy the pictures - The Start ( Samara was born ) (1970 )
+                            -> The Nun Hospital where she was born
+                            -> The fountain where her mother tried to drown her
+                            -> The church tower where her mother was held captive by an evil priest
+                            -> The nun hospital abandoned 
+    quest_Samara_Diary02 - On the back of the post card, a rough map is seen. Find and Use/destroy the horses - Post-Adoption - In the Morgan's care ( 1970-1977 )
+                            -> (4) different horse figurines / pictures ?
+    quest_Samara_Diary03 - The last horse you break gives you a map. Find and use/destroy the  - The Well: Anna pushes Samara in the well at Shelter Mountain Inn. Anna commits suicide. ( October 1978. )
+                           -> Memories are holding a restless spirit. Destroy her strongest memories
+                           -> Hair brush
+                           -> Her dress
+                            -> Do you want to open the well and save Samara?
+                              -> Curse is not broken!
+    quest_samara_Diary04 - Video recording equipment. Take the equipment to Santa  - Samara makes the cursed video ( October 1978 )
+                            -> Electrical Parts
+                            -> TV
+                            -> Broken DVD Recorder
+                            -> Take to Sannta
+                                -> Gives you a DVD back
+                                -> Curse is lifted.
+    -->
+    
+    
+    <!-- Find the Diary -->
+    <quest id="quest_Samara_Diary01">
+      <property name="group_name_key" value="Samara Morgan's Diary" />
+      <property name="name_key" value="quest_Samara_Diary01" />
+      <property name="subtitle_key" value="quest_Samara_Diary01" />
+      <property name="description_key" value="quest_Samara_Diary01Desc" />
+      <property name="icon" value="ui_game_symbol_quest"/>
+      <property name="repeatable" value="true"/>
+      <property name="category_key" value="challenge"/>
+      <property name="difficulty" value="medium"/>
+      <property name="difficulty_tier" value="1"/>
+      
+      <property name="completiontype" value="AutoComplete"/>
+
+      <objective type="TreasureChest">
+        <property name="block" value="SamaraChest"/>
+        <property name="distance" value="500-750"/>
+      </objective>
+      <action type="GiveCVarBuffSDX, Mods" id="quest_Samara_Diary" value="1" />
+      <action type="GiveCVarBuffSDX, Mods" id="buffCursedPictures" value="0" />
+      <reward type="Exp" value="500"/>
+    </quest>
+
+     <quest id="quest_Samara_Well">
+      <property name="group_name_key" value="quest_Samara_Well" />
+      <property name="name_key" value="quest_Samara_Well" />
+      <property name="subtitle_key" value="quest_Samara_Well" />
+      <property name="description_key" value="quest_Samara_WellDesc" />
+      <property name="icon" value="ui_game_symbol_quest"/>
+      <property name="repeatable" value="true"/>
+      <property name="category_key" value="challenge"/>
+      <property name="difficulty" value="medium"/>
+      <property name="difficulty_tier" value="1"/>
+      <property name="completiontype" value="AutoComplete"/>
+      <property name="completion_key" value="Great job. Keep looking for the other parts."/>
+
+      <objective type="TreasureChest" phase="1">
+        <property name="block" value="SamaraWell"/>
+        <property name="distance" value="1000-2000"/>
+      </objective>
+
+      <action type="GiveCVarBuffSDX, Mods" id="SamaraBodyFound" value="1" />
+      <action type="GiveCVarBuffSDX, Mods" id="quest_Samara_Diary" value="4" />
+    </quest>
+  </append>
+</configs>

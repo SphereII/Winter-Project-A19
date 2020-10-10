@@ -1,0 +1,8 @@
+﻿<configs>
+  <append xpath="/item_modifiers">
+    <item_modifier name="questSamaraMorganDiary01">
+      <property name="CreativeMode" value="Test"/>
+      <property name="DescriptionKey" value="Samara Morgan's Diary Piece"/>
+    </item_modifier>
+  </append>
+</configs>
