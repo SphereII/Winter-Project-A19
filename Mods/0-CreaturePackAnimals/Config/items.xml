@@ -163,7 +163,25 @@
 				<passive_effect name="BuffProcChance" operation="base_set" value="0.20" tags="buffInjuryBleedingBarbedWire"/>
 			</effect_group>
 		</item>		
-		
+		<item name="handSnowShark">
+			<property name="Extends" value="meleeHandAnimalTemplate"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="Delay" value=".7"/>
+				<property name="Range" value="3.0"/>
+				<property name="Sphere" value=".5"/>
+				<property name="DamageEntity" value="30"/>
+				<property name="DamageBlock" value="40"/>
+			</property>
+		</item>
+		<item name="handIceHead">
+			<property name="Extends" value="meleeHandAnimalTemplate"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="DamageEntity" value="50"/>
+				<property name="DamageBlock" value="30"/>
+			</property>
+		</item>			
 		
 <!-- DarkStarDragon Quests		-->
 

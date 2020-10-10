@@ -1,11 +1,4 @@
 <configs>
-  <append xpath="/entitygroups/entitygroup[ starts-with(@name, 'EnemyAnimals')]">
-	<entity name="animalSnowShark" prob="5"/>
-  </append> 
-  <append xpath="/entitygroups/entitygroup[@name='ZombiesAll']"> 
-	<entity name="zombieDeadHead" prob="1"/>
-  </append>
-
   
 	<append xpath="/entitygroups">
 	  <entitygroup name="SamaraMorgan">

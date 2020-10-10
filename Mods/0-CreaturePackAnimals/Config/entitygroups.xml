@@ -35,8 +35,9 @@
 		<entity name="animalFox" prob="10" />
 		<entity name="animalWulf" prob="10" />
 		<entity name="animalWolfhound" prob="10" />
-		<entity name="animalSnowSwarm_X" prob="20"/>
+		<entity name="animalSnowSwarm_X" prob="10"/>
 		<entity name="animalSnowTornado_X" prob="20"/>
+		<entity name="animalSnowShark_X" prob="5"/>
 		<entity name="animalPenguin" prob="10" />
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsForest']">	
