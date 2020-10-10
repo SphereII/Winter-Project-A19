@@ -140,8 +140,9 @@
 			<property name="IsEnemyEntity" value="false"/> 			
 			<property name="HandItem" value="meleeHandAnimalCoyote"/>
 			<property name="AIPathCostScale" value="100, 100"/>
+			<property name="MoveSpeedPanic" value="1.55"/>
 			<property name="AITask-1" value="RunawayWhenHurt"/>
-			<property name="AITask-2" value="RunawayFromEntity" data="EntityAlive"/>
+			<property name="AITask-2" value="RunawayFromEntity" data="class=EntityPlayer,EntityZombie,EntityEnemyAnimal,EntityBandit,EntitySurvivor"/>
 			<property name="AITask-3" value="Look"/>
 			<property name="AITask-4" value="Wander"/>
 			<property name="AITask-5" value=""/>
@@ -303,6 +304,37 @@
 			<property name="MoveSpeed" value=".2"/>
 			<property name="MoveSpeedAggro" value="1.1, 1.4"/> 			
 		</entity_class> 
+		<entity_class name="animalSnowTornado_X" extends="animalTemplateTimidWalking">
+			<property name="Tags" value="entity,cp,animal,timid"/>
+			<property name="AvatarController" value="AvatarAnimalController"/>
+			<property name="ModelType" value="Standard" />
+			<property name="HasRagdoll" value="true" /> <!-- not really true, but a useful lie.  Either rootmotion or ragdoll MUST be true, or no attack animations on dedi  -->
+			<property name="RagdollOnDeathChance" value="0"/>
+			<property name="PhysicsBody" value="vulture" />
+			<property name="SurfaceCategory" value="earth"/>
+			<property name="Mass" value="10"/>
+			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?SnowTornado_X" /> 
+			<property name="HandItem" value="meleeHandSnowstorm" />
+			<property name="SoundRandom" value="" />
+			<property name="SoundRandomTime" value="60.0"/>
+			<property name="SoundAlert" value=""/>
+			<property name="SoundHurt" value=""/>
+			<property name="SoundDeath" value=""/>
+			<property name="SoundAttack" value=""/>
+			<property name="SoundSense" value=""/>
+			<property name="SoundGiveUp" value=""/>
+			<property name="ExperienceGain" value="1200" />
+			<property name="DeadBodyHitPoints" value="1" />
+			<property name="LootDropProb" value="0"/> 
+			<property name="TimeStayAfterDeath" value="2.0"/>
+			<property name="Buffs" value="buffSnowSwarm"/>		 
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="100"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="1"/>
+			</effect_group>
+			<property name="MoveSpeed" value=".2"/>
+			<property name="MoveSpeedAggro" value="1.1, 1.4"/> 
+		</entity_class> 		
 
 		<!--  Xyth normal animals  -->	
 		
@@ -759,7 +791,31 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="200"/>
 			</effect_group>
+		</entity_class>	
+		
+		<entity_class name="animalPenguin" extends="animalTemplateTimidWalking">
+			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Penguin_X"/>
+			<property name="Tags" value="entity,animal,timid"/>
+			<property name="Faction" value="animals"/>	
+			<property name="Weight" value="40"/>
+			<property name="HandItem" value="meleeHandAnimalFox"/>					
+			<property name="SoundRandom" value=""/>
+			<property name="SoundAlert" value=""/>
+			<property name="SoundHurt" value=""/>
+			<property name="SoundDeath" value=""/>
+			<property name="SoundAttack" value=""/>
+			<property name="SoundSense" value=""/>
+			<property name="SoundGiveUp" value=""/>
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="3"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="3"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+			<property name="DeadBodyHitPoints" value="100"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="70"/>
+			</effect_group>
 		</entity_class>		
-	
 	</append>
 </configs>
