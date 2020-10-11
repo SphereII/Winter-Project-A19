@@ -7,7 +7,6 @@
 <!-- Templates  -->	
 
 		<entity_class name="animalTemplateHostileWalking" >
-			<property name="IsChunkObserver" value="true"/>
 			<property name="HideInSpawnMenu" value="true"/><!-- A19  -->
 			<property name="Tags" value="entity,animal,hostile,template"/>
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?ArcticFox_X"/>
@@ -194,7 +193,7 @@
 			<property name="IsEntityAnimal" value="true"/>
 			<property name="IsEnemyEntity" value="false"/> <!-- Set this if you want this entity to be spawned when user chooses 'enemy entities off' -->
 			<property name="Faction" value="animals"/>
-			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandomTime" value="5.0"/>
 			<property name="SoundRandom" value="" />
 			<property name="SoundAlert" value=""/>
 			<property name="SoundHurt" value=""/>
@@ -339,16 +338,15 @@
 		<entity_class name="animalSnowShark_X" extends="animalTemplateHostileWalking">
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?SnowShark_X"/>
 			<property name="Tags" value="entity,animal,cp,shark"/>
+			<property name="Faction" value="animals"/>
 			<property name="Weight" value="800"/>
 			<property name="HandItem" value="handSnowShark"/> 
 			<property name="JumpMaxDistance" value="2, 4"/>
-			<property name="PhysicsBody" value="wolf"/>
+			<property name="PhysicsBody" value="bear"/>
 			<property name="RootMotion" value="false"/>
-			<property name="HasRagdoll" value="true"/> <!-- Actually has a working ragdoll.  And rootmotion.  No lie  -->
-			<property name="SizeScale" value="1"/> 
+			<property name="HasRagdoll" value="true"/> 
 			<property name="RagdollOnDeathChance" value="0"/>
 			<property name="Mass" value="800"/>
-			
 			<property name="AITask-1" value="BreakBlock"/>
 			<property name="AITask-2" value="DestroyArea"/>
 			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityZombie,0,EntityPlayer,0,EntitySurvivor,0,EntityBandit,0,EntityAnimalRabbit,8"/>
@@ -360,8 +358,7 @@
 			<property name="AITarget-1" value="SetAsTargetIfHurt"/>
 			<property name="AITarget-2" value="BlockingTargetTask"/>
 			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,29,24,EntitySurvivor,29,15,EntityBandit,29,15,EntityZombie,20,15,EntityAnimalRabbit,0,0"/>
-			<property name="AITarget-4" value=""/>
-		
+			<property name="AITarget-4" value=""/> 
 			<property name="SoundHurt" value=""/>
 			<property name="SoundDeath" value=""/>
 			<property name="SoundRandom" value="SharkIdle"/>
@@ -585,7 +582,7 @@
 			<property name="MaxTurnSpeed" value="190"/>
 			<property name="DeadBodyHitPoints" value="100"/>
 			<property name="SizeScale" value="1.1"/>
-			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandomTime" value="50.0"/>
 			<property name="SoundRandom" value="RobinSounds" />
 			<property name="SoundAlert" value="RobinSounds"/>
 			<property name="SoundHurt" value=""/>
@@ -607,7 +604,7 @@
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Crow_X" />
 			<property name="Tags" value="entity,cp,animal,timid,animalCrow"/>
 			<property name="Faction" value="animals"/>
-			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandomTime" value="5.0"/>
 			<property name="SoundRandom" value="CrowRandom" />
 			<property name="SoundAlert" value="CrowRandom"/>
 			<property name="SoundHurt" value="CrowAttack"/>
@@ -625,7 +622,7 @@
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Bat_X" />
 			<property name="Tags" value="entity,cp,animal,timid,animalBat"/>
 			<property name="Faction" value="animals"/>		
-			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandomTime" value="50.0"/>
 			<property name="SoundRandom" value="BatRandom" />
 			<property name="SoundAlert" value="BatRandom"/>
 			<property name="SoundHurt" value=""/>
@@ -643,7 +640,7 @@
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Bats_X" />	
 			<property name="Tags" value="entity,cp,animal,timid,animalBats"/>
 			<property name="Faction" value="animals"/>		
-			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandomTime" value="5.0"/>
 			<property name="SoundRandom" value="BatRandom" />
 			<property name="SoundAlert" value="BatRandom"/>
 			<property name="SoundHurt" value=""/>
@@ -661,14 +658,14 @@
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Eagle_X" />
 			<property name="Tags" value="entity,cp,animal,timid,animalEagle"/>
 			<property name="Faction" value="animals"/>					
-			<property name="SoundRandomTime" value="10.0"/>
-			<property name="SoundRandom" value="EagleSound" />
-			<property name="SoundAlert" value="EagleSound"/>
+			<property name="SoundRandomTime" value="50.0"/>
+			<property name="SoundRandom" value="EagleSounds" />
+			<property name="SoundAlert" value="EagleSounds"/>
 			<property name="SoundHurt" value=""/>
 			<property name="SoundDeath" value=""/>
-			<property name="SoundAttack" value="EagleSound"/>
-			<property name="SoundSense" value="EagleSound"/>
-			<property name="SoundGiveUp" value="EagleSound"/>
+			<property name="SoundAttack" value="EagleSounds"/>
+			<property name="SoundSense" value="EagleSounds"/>
+			<property name="SoundGiveUp" value="EagleSounds"/>
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="4"/>
 			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
@@ -682,14 +679,14 @@
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Alcatraz_X" />
 			<property name="Tags" value="entity,cp,animal,timid,animalAlcatraz"/>
 			<property name="Faction" value="animals"/>					
-			<property name="SoundRandomTime" value="10.0"/>
-			<property name="SoundRandom" value="AlcatrazSound" />
-			<property name="SoundAlert" value="AlcatrazSound"/>
+			<property name="SoundRandomTime" value="50.0"/>
+			<property name="SoundRandom" value="AlcatrazSounds" />
+			<property name="SoundAlert" value="AlcatrazSounds"/>
 			<property name="SoundHurt" value=""/>
 			<property name="SoundDeath" value=""/>
-			<property name="SoundAttack" value="AlcatrazSound"/>
-			<property name="SoundSense" value="AlcatrazSound"/>
-			<property name="SoundGiveUp" value="AlcatrazSound"/>
+			<property name="SoundAttack" value="AlcatrazSounds"/>
+			<property name="SoundSense" value="AlcatrazSounds"/>
+			<property name="SoundGiveUp" value="AlcatrazSounds"/>
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="2"/>
 			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="1"/>
