@@ -32,98 +32,98 @@
 		</SoundDataNode>
 		<SoundDataNode name="RobinSounds">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/RobinSounds.unity3d?Robin"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Robin" Loop="true" />
 			<Channel name="Mouth"/>
-			<Priority name="5"/>
+			<Priority name="1"/>
 			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="15"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>	
 		<SoundDataNode name="CrowRandom">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow1"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow3"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow4"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow5"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow6"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow7"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow8"/>	
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow9"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow1"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow3"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow4"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow5"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow6"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow7"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow8"/>	
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow9"/>
 			<Channel name="Mouth"/>
-			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<Priority name="1"/>
+			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="3"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>
 		<SoundDataNode name="CrowAttack">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/CrowSounds.unity3d?Crow11"/>				
-			<Channel name="Mouth"/>
-			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
-			<LowestPitch name="0.95"/>
-			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="3"/> 
-		</SoundDataNode>		
-		<SoundDataNode name="BatRandom">
-			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/BatSounds.unity3d?BatIdle"/>
-			<AudioClip ClipName="#@modfolder:Resources/BatSounds.unity3d?BatIdle2"/>			
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?Crow11"/>				
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
 			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="3"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
+		</SoundDataNode>		
+		<SoundDataNode name="BatRandom">
+			<AudioSource name="Sounds/AudioSource_Creatures"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?BatIdle"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?BatIdle2"/>			
+			<Channel name="Mouth"/>
+			<Priority name="5"/>
+			<maxVoicesPerEntity value="3"/>
+			<LowestPitch name="0.95"/>
+			<HighestPitch name="1.05"/>
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>	
 		<SoundDataNode name="BatAttack">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/BatSounds.unity3d?BatAttack"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?BatAttack"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="3"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>			
 		<SoundDataNode name="BatHurt">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/BatSounds.unity3d?BatHurt"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?BatHurt"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="3"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>			
 		<SoundDataNode name="EagleSounds">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?EagleSound"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?EagleSound" />
 			<Channel name="Mouth"/>
-			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<Priority name="1"/>
+			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="8"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>			
 		<SoundDataNode name="AlcatrazSounds">
 			<AudioSource name="Sounds/AudioSource_Creatures"/>
-			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?AlcatrazSound"/>
+			<AudioClip ClipName="#@modfolder:Resources/BirdSounds.unity3d?AlcatrazSound" />
 			<Channel name="Mouth"/>
-			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<Priority name="1"/>
+			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.95"/>
 			<HighestPitch name="1.05"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="8"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="1"/> 
 		</SoundDataNode>		
 		<SoundDataNode name="animalspideralert"> <AudioSource name="Sounds/AudioSource_CreatureSenseAlert"/>
 			<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.5"/>
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspideralert"/>
 			<Channel name="Mouth"/>
 			<Priority name="3"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -133,7 +133,7 @@
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspidersense"/>
 			<Channel name="Mouth"/>
 			<Priority name="4"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -145,7 +145,7 @@
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspiderhurt3"/>		
 			<Channel name="Mouth"/>
 			<Priority name="1"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -157,7 +157,7 @@
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspiderattack3"/>	
 			<Channel name="Mouth"/>
 			<Priority name="2"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -167,7 +167,7 @@
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspiderroam"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -177,7 +177,7 @@
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspiderdeath"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -187,7 +187,7 @@
 			<AudioClip ClipName="#@modfolder:Resources/Animalspidersounds.unity3d?animalspiderrandom"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -203,7 +203,7 @@
 			<AudioClip ClipName="Sounds/Enemies/Hornets/hornetalert3"/>
 			<Channel name="Mouth"/>
 			<Priority name="3"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -213,7 +213,7 @@
 			<AudioClip ClipName="Sounds/Enemies/Hornets/hornetpain1"/>
 			<Channel name="Mouth"/>
 			<Priority name="1"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -225,7 +225,7 @@
 			<AudioClip ClipName="Sounds/Enemies/Hornets/hornetattack3"/>
 			<Channel name="Mouth"/>
 			<Priority name="2"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -235,7 +235,7 @@
 			<AudioClip ClipName="Sounds/Enemies/Hornets/hornetroam1"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -247,7 +247,7 @@
 			<AudioClip ClipName="Sounds/Enemies/Hornets/hornetdeath3"/>
 			<Channel name="Mouth"/>
 			<Priority name="5"/>
-			<maxVoicesPerEntity value="1"/>
+			<maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.9"/>
 		  <HighestPitch name="1.0"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="0.9"/>
@@ -261,7 +261,7 @@
 			<maxVoicesPerEntity value="3"/>
 			<LowestPitch name="0.8"/>
 			<HighestPitch name="1.0"/>
-			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="20"/> 
+			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="2"/> 
 		</SoundDataNode>	
 
 		<SoundDataNode name="SharkIdle">
@@ -270,7 +270,7 @@
 		  <AudioClip ClipName="#@modfolder:Resources/SharkSounds.unity3d?idle" Loop="true" />
 		  <Channel name="Mouth"/>
 		  <Priority name="3"/>
-		  <maxVoicesPerEntity value="1"/>
+		  <maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.95"/>
 		  <HighestPitch name="1.05"/>
 		  <LocalCrouchVolumeScale value="1.0"/>
@@ -286,7 +286,7 @@
 		  <AudioClip ClipName="#@modfolder:Resources/SharkSounds.unity3d?approach" Loop="true" />
 		  <Channel name="Mouth"/>
 		  <Priority name="3"/>
-		  <maxVoicesPerEntity value="1"/>
+		  <maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.95"/>
 		  <HighestPitch name="1.05"/>
 		  <LocalCrouchVolumeScale value="1.0"/>
@@ -302,7 +302,7 @@
 		  <AudioClip ClipName="#@modfolder:Resources/SharkSounds.unity3d?attack" Loop="true" />
 		  <Channel name="Mouth"/>
 		  <Priority name="3"/>
-		  <maxVoicesPerEntity value="1"/>
+		  <maxVoicesPerEntity value="3"/>
 		  <LowestPitch name="0.95"/>
 		  <HighestPitch name="1.05"/>
 		  <LocalCrouchVolumeScale value="1.0"/>
