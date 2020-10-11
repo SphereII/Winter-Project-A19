@@ -1,4 +1,6 @@
-Key,Source,Context,Changes,English,French,German,Klingon,Spanish,Polish
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+loadingTipMainWWHUD,UI,Loading Screen,,,This is a test of the HUD Main screen.  Blah Blah.......,,,,,
+loadingTipMainWWHUD_title,UI,Loading Screen,x,,Test of the Main Screen Bars,,,,,
 buffsmallBed,items,Medical,KgNone,Small bed,,,,,
 buffsmallBedDesc,items,Medical,New,A small bed will help you rest up.,,,,,
 tutorialTipQuest01,,Quest Info,KeyCon KgNone,"Welcome to the Winter Project\nExplore and try to survive in the frozen landscape of the Winter Project.\n\n-sphereii and xyth",,,,
