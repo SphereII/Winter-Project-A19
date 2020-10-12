@@ -6,4 +6,7 @@
     <Author value="Xyth/SphereII" />
     <Version value="19.2.0.1" />
   </ModInfo>
+    <dependencies>
+      <dependancy>0-SphereIICore</dependancy>
+    </dependencies>
 </xml>
