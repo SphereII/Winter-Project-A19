@@ -26,6 +26,38 @@ public class SphereII_CaveProject
     }
 
 
+    [HarmonyPatch(typeof(SkyManager))]
+    [HarmonyPatch("Update")]
+    public class SphereII_CaveProject_SkyManager
+    {
+        public static bool Prefix(float ___sunIntensity, float ___sMaxSunIntensity)
+        {
+            if (GameManager.Instance.World.GetPrimaryPlayer() == null)
+                return true;
+
+            if (GameManager.Instance.World.GetPrimaryPlayer().position.y < 30)
+            {
+                SkyManager.SetSunIntensity(0.1f);
+            }
+            return true;
+            //Debug.Log("Sun Intensity: " + ___sunIntensity + " Max: " + ___sMaxSunIntensity);
+
+        }
+        public static void Postfix(float ___sunIntensity, float ___sMaxSunIntensity)
+        {
+            if (GameManager.Instance.World.GetPrimaryPlayer() == null)
+                return ;
+
+            if (GameManager.Instance.World.GetPrimaryPlayer().position.y < 30)
+            {
+                SkyManager.SetSunIntensity(0.1f);
+            }
+                //Debug.Log("Sun Intensity: " + ___sunIntensity + " Max: " + ___sMaxSunIntensity);
+
+        }
+    }
+
+
     [HarmonyPatch(typeof(SpawnManagerBiomes))]
     [HarmonyPatch("Update")]
     public class SphereII_CaveProject_Spawnmanager_Biomes

@@ -71,7 +71,7 @@ namespace OldMoatGames
 
         private Material originalMaterial = null;
 
-    
+
         /// <summary>
         /// Returns the heigth of the GIF
         /// </summary>
@@ -212,7 +212,7 @@ namespace OldMoatGames
         private void Awake()
         {
             //init the AnimatedGifPlayer
-           // if (State == GifPlayerState.PreProcessing) Init();
+            // if (State == GifPlayerState.PreProcessing) Init();
         }
 
         public void Update()
@@ -233,7 +233,7 @@ namespace OldMoatGames
         /// <summary>
         /// Initializes the component with callbacks that are triggered when loading has finished or has failed.
         /// </summary>
-        public void Init()
+        public void Init(String TargetComponent = "")
         {
 #if UNITY_EDITOR
             if (!Application.isPlaying)
@@ -278,7 +278,7 @@ namespace OldMoatGames
             }
 
             // Store the target component
-            _targetComponent = GetTargetComponent();
+            _targetComponent = GetTargetComponent(TargetComponent);
 
             // Start new decoder
             _gifDecoder = new GifDecoder(CompatibilityMode);
@@ -320,7 +320,7 @@ namespace OldMoatGames
         {
             if (State != GifPlayerState.Stopped)
             {
-              //  Debug.LogWarning("Can't play GIF playback. State is: " + State);
+                //  Debug.LogWarning("Can't play GIF playback. State is: " + State);
                 return;
             }
             State = GifPlayerState.Playing;
@@ -333,7 +333,7 @@ namespace OldMoatGames
         {
             if (State != GifPlayerState.Playing)
             {
-            //    Debug.LogWarning("Can't pause GIF is not playing. State is: " + State);
+                //    Debug.LogWarning("Can't pause GIF is not playing. State is: " + State);
                 return;
             }
             State = GifPlayerState.Stopped;
@@ -361,7 +361,7 @@ namespace OldMoatGames
         {
             if (FileName.Length == 0)
             {
-            //    Debug.LogWarning("File name not set");
+                //    Debug.LogWarning("File name not set");
                 yield break;
             }
 
@@ -512,12 +512,10 @@ namespace OldMoatGames
             if (_targetComponent is Renderer)
             {
                 var target = (Renderer)_targetComponent;
-         
-
-                    Material newMat = new Material(target.sharedMaterial.shader);
-                    newMat.mainTexture = GifTexture;
-                    target.material = newMat;
-                    return;
+                Material newMat = new Material(target.sharedMaterial.shader);
+                newMat.mainTexture = GifTexture;
+                target.material = newMat;
+                return;
             }
 
             // RawImage
@@ -536,13 +534,31 @@ namespace OldMoatGames
         //    return components.FirstOrDefault(component => component is Renderer || component is RawImage);
         //}
 
-        private Component GetTargetComponent()
+        private Component GetTargetComponent(String TargetComponent = "")
         {
+            Debug.Log("Searching for Component called: " + TargetComponent);
             var components = GetComponentsInChildren<Component>();
+            foreach( var componet in components)
+            {
+                Debug.Log(" GetTagetComponent(): " + componet.name.ToString() + " Type: " + componet.ToString() );
+            }
             foreach (var component in components.Where(a => a is Renderer))
             {
+                if (String.IsNullOrEmpty(TargetComponent))
                     return component;
+                else
+                {
+                    Debug.Log("Target Component: " + TargetComponent + " Renderer found: " + component.ToString());
+
+                    if (component.name == TargetComponent)
+                    {
+                        return component;
+                    }
+                }
+
             }
+
+            Debug.Log("Target Component: " + TargetComponent + "  No renders found.");
             return null;
         }
         // Used to set the frame target in the target component
@@ -561,6 +577,12 @@ namespace OldMoatGames
             {
                 var target = (Renderer)TargetComponent;
                 if (target.sharedMaterial == null) return;
+
+                //Material newMat = new Material(target.sharedMaterial.shader);
+                //newMat.mainTexture = GifTexture;
+                //target.material = newMat;
+
+
                 if (target.sharedMaterials.Length > 0 && target.sharedMaterials.Length > _targetMaterial)
                 {
                     target.sharedMaterials[_targetMaterial].mainTexture = GifTexture;
