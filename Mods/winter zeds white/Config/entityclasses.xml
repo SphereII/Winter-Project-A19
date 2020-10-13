@@ -1,28 +1,9 @@
 <?xml version="1.0"?>
 <configs>
   <append xpath="/entity_classes">
-    <entity_class name="zombieArlene_white" extends="zombieArlene">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?arlene_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial3" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-    </entity_class>
-    <entity_class name="zombieBiker_white" extends="zombieBiker">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?biker_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-    </entity_class>
-    <entity_class name="zombieBoe_white" extends="zombieBoe">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?boe_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-    </entity_class>
+
     <entity_class name="zombieBurnt_white" extends="zombieBurnt">
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?burnt_blue"/>
-    </entity_class>
-    <entity_class name="zombieCheerleader_white" extends="zombieCheerleader">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?cheerleader_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
     </entity_class>
     <entity_class name="zombieDemolition_white" extends="zombieDemolition">
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?demolition_blue"/>
@@ -35,11 +16,6 @@
     <entity_class name="zombieFatCop_white" extends="zombieFatCop">
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?fatcop_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-    </entity_class>
-    <entity_class name="zombieFemaleFat_white" extends="zombieFemaleFat">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?fatlady_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
     </entity_class>
     <entity_class name="zombieFatHawaiian_white" extends="zombieFatHawaiian">
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?fattourist_blue"/>
@@ -61,24 +37,8 @@
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?hoodie_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
-    <entity_class name="zombieJoe_white" extends="zombieJoe">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?joe_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zmouth_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-      <property name="ReplaceMaterial3" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-    </entity_class>
-    <entity_class name="zombieLab_white" extends="zombieLab">
+     <entity_class name="zombieLab_white" extends="zombieLab">
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?lab_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-    </entity_class>
-    <entity_class name="zombieMarlene_white" extends="zombieMarlene">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?marlene_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-    </entity_class>
-    <entity_class name="zombieMoe_white" extends="zombieMoe">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?moe_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
       <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
     </entity_class>
@@ -108,30 +68,7 @@
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?spider_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
-    <entity_class name="zombieSteve_white" extends="zombieSteve">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?steve_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-    </entity_class>
-    <entity_class name="zombieStripper_white" extends="zombieStripper">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?nurse_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-    </entity_class>
-    <entity_class name="zombieBusinessMan_white" extends="zombieBusinessMan">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?suit_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-    </entity_class>
-    <entity_class name="zombieUtilityWorker_white" extends="zombieUtilityWorker">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?worker_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-    </entity_class>
-    <entity_class name="zombieYo_white" extends="zombieYo">
-      <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?yo_blue"/>
-      <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
-      <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
-    </entity_class>
+  
     <entity_class name="animalZombieDog_white" extends="animalZombieDog">
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zdog_blue"/>
       <drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher" />

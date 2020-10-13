@@ -1,34 +1,20 @@
 ﻿<configs>
   <append xpath="/entitygroups/entitygroup[ (contains( @name, 'ombies')) or @name='HospitalGroup' or (contains(@name, 'HordeStage')) ]">
-    <entity name="zombieArlene_white"/>
-    <entity name="zombieBiker_white"/>
-    <entity name="zombieBoe_white"/>
     <entity name="zombieBurnt_white"/>
-    <entity name="zombieCheerleader_white"/>
     <entity name="zombieDemolition_white"/>
     <entity name="zombieFarmer_white"/>
     <entity name="zombieFatCop_white"/>
-    <entity name="zombieFemaleFat_white"/>
     <entity name="zombieFatHawaiian_white"/>
     <entity name="zombieFootballPlayer_white"/>
     <entity name="zombieMaleHazmat_white"/>
     <entity name="zombieSkateboarder_white"/>
-    <entity name="zombieJoe_white"/>
     <entity name="zombieLab_white"/>
-    <entity name="zombieMarlene_white"/>
-    <entity name="zombieMoe_white"/>
     <entity name="zombieNurse_white"/>
     <entity name="zombieOldTimer_white"/>
     <entity name="zombieSnow_white"/>
     <entity name="zombieSoldier_white"/>
     <entity name="zombieSpider_white"/>
-    <entity name="zombieSteve_white"/>
-    <entity name="zombieStripper_white"/>
-    <entity name="zombieBusinessMan_white"/>
-    <entity name="zombieUtilityWorker_white"/>
-    <entity name="zombieYo_white"/>
   </append>
-
 
   <insertBefore xpath="//entity[@name='zombieWightFeral']">
     <entity name="zombieWightFeral_white"/>
@@ -41,6 +27,6 @@
     <entity name="animalZombieWolf_white"/>
   </insertBefore>
   <insertBefore xpath="//entity[@name='animalZombieDog']">
-    <entity name="animalZombieDog_white" prob="0.25"/>
+    <entity name="animalZombieDog_white" />
   </insertBefore>
 </configs>

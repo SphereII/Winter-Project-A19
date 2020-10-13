@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <ModInfo>
+    <Name value="WinterSkins" />
+    <Description value="TFP Zombie Redux Base / Skin replacement Modlet" />
+    <Author value="Mumpfy/Xyth/Sphereii" />
+    <Version value="19.2.0.1" />
+    <Website value="" />
+  </ModInfo>
+  <DMT>
+    <dependencies />
+    <conflicts />
+  </DMT>
+</xml>

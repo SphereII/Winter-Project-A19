@@ -1,0 +1,32 @@
+﻿<configs>
+
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieArlene')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieFemaleFat')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieBoe')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieSteve')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieDarlene')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieJoe')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieBiker')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieMoe')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieYo')]" />
+<!--	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieJanitor')]" />
+	<remove xpath="//entitygroup/entity[starts-with(@name, 'zombieUtility')]" /> -->
+
+  <append xpath="/entitygroups/entitygroup[ (contains( @name, 'ombies')) or @name='HospitalGroup' or (contains(@name, 'HordeStage')) ]">
+    <entity name="zombieArlene_Winter_White"/>
+    <entity name="zombieFatMama_Winter_White"/>
+    <entity name="zombieBoe_Winter_White"/>
+    <entity name="zombieSteveCrawler_Winter_White"/>
+    <entity name="zombieDarlene_Winter_White"/>
+    <entity name="zombieJoe_Winter_White"/>
+    <entity name="zombieMarlene_Winter_White"/>
+    <entity name="zombieBiker_Winter_White"/>
+    <entity name="zombieMoe_Winter_White"/>
+    <entity name="zombieSteve_Winter_White"/>
+    <entity name="zombieYo_Winter_White"/>
+    <entity name="zombieJanitor_Winter_White"/>
+    <entity name="zombieUtilityWorker_Winter_White"/>
+   </append>
+
+  
+</configs>

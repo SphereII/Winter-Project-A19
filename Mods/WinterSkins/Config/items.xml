@@ -1,0 +1,85 @@
+<configs>
+	<append xpath="/items">
+	
+		<item name="meleeHandZombie001M">
+			<property name="Extends" value="meleeHandZombie01"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/>
+		</item>	
+		
+		<item name="meleeHandZombie002M"> 
+			<property name="Extends" value="meleeHandZombie02"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/>
+		</item>
+		
+		<item name="meleeHandZombieFeral2M">
+			<property name="Extends" value="meleeHandZombieFeral"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/>
+		</item>	
+		
+		<item name="meleeHandZombieCop2"> 
+			<property name="Extends" value="meleeHandZombieCop"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/>
+		</item>	
+		
+		<item name="meleeHandZombieCop2M"> 
+			<property name="Extends" value="meleeHandZombieCop"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/>
+		</item>	
+		
+		<item name="meleeHandZombieStrong2M">
+			<property name="Extends" value="meleeHandZombieStrong"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="12"/>
+		</item>
+		
+		<item name="ZombieTFPEntityLoadingHackMumpfyW">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardBigMamaHDRagdoll_X"/>
+			<property name="DropMeshfile"  value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardBigMamaHDRagdoll_X"/>
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+     <item name="MumpfyVanillaEntityLoadingHackW">
+		<property name="CreativeMode" value="None"/>
+		<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+		<property name="HoldType" value="45"/>
+		<property name="HoldingItemHidden" value="true"/>
+		<property name="Meshfile" value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab"/>
+		<property name="DropMeshfile" value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab"/>
+		<property name="Material" value="MresourceScrapIron"/>
+		<property name="Weight" value="1"/>
+		<property name="Stacknumber" value="1"/> <!-- STK resource -->
+		<property name="EconomicValue" value="1"/>
+		<property name="EconomicBundleSize" value="1000"/>
+		<property name="Group" value="Resources"/>
+	</item>
+	
+	 <item name="MumpfySkinsLoadingHackW">
+		<property name="CreativeMode" value="None"/>
+		<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+		<property name="HoldType" value="45"/>
+		<property name="HoldingItemHidden" value="true"/>
+		<property name="Meshfile" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?pappo"/>
+		<property name="DropMeshfile" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?pappo"/>
+		<property name="Material" value="MresourceScrapIron"/>
+		<property name="Weight" value="1"/>
+		<property name="Stacknumber" value="1"/> <!-- STK resource -->
+		<property name="EconomicValue" value="1"/>
+		<property name="EconomicBundleSize" value="1000"/>
+		<property name="Group" value="Resources"/>
+	</item>
+ 	</append>	  
+</configs>

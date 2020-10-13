@@ -1,48 +1,11 @@
 <?xml version="1.0"?>
 <configs>
-  <append xpath="//entity_class[@name='zombieArlene']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?arlene_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial3" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalBear']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?bear_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieBiker']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?biker_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalBoar']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?boar_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieBoe']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?boe_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-  </append>
+
   <append xpath="//entity_class[@name='zombieBurnt']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?burnt_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieCheerleader']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?cheerleader_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalChicken']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?chicken_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalCoyote']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?coyote_blue"/>
+	<property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?burnt_blue"/>
   </append>
   <append xpath="//entity_class[@name='zombieDemolition']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?demolition_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalDireWolf']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?direwolf_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalDoe']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?doe_blue"/>
   </append>
   <append xpath="//entity_class[@name='zombieFarmer']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?farmer_blue"/>
@@ -52,11 +15,6 @@
   <append xpath="//entity_class[@name='zombieFatCop']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?fatcop_blue"/>
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieFemaleFat']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?fatlady_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
   </append>
   <append xpath="//entity_class[@name='zombieFatHawaiian']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?fattourist_blue"/>
@@ -78,29 +36,10 @@
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?hoodie_blue"/>
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
   </append>
-  <append xpath="//entity_class[@name='zombieJoe']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?joe_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zmouth_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-    <property name="ReplaceMaterial3" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-  </append>
   <append xpath="//entity_class[@name='zombieLab']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?lab_blue"/>
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
     <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieMarlene']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?marlene_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieMoe']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?moe_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalMountainLion']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?mountainlion_blue"/>
   </append>
   <append xpath="//entity_class[@name='zombieNurse']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?nurse_blue"/>
@@ -111,16 +50,10 @@
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
     <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
   </append>
-  <append xpath="//entity_class[@name='animalRabbit']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?rabbit_blue"/>
-  </append>
   <append xpath="//entity_class[@name='zombieScreamer']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?screamer_blue"/>
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
     <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zlonghair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='animalSnake']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?snake_blue"/>
   </append>
   <append xpath="//entity_class[@name='zombieSnow']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?snowman_blue"/>
@@ -134,38 +67,44 @@
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?spider_blue"/>
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
   </append>
+
+
+ 
+  <append xpath="//entity_class[@name='animalBear']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?bear_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalBoar']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?boar_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalChicken']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?chicken_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalCoyote']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?coyote_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalDireWolf']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?direwolf_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalDoe']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?doe_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalMountainLion']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?mountainlion_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalRabbit']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?rabbit_blue"/>
+  </append>
+  <append xpath="//entity_class[@name='animalSnake']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?snake_blue"/>
+  </append>
   <append xpath="//entity_class[@name='animalStag']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?stag_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieSteve']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?steve_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieStripper']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue2.unity3d?nurse_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieBusinessMan']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?suit_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
   </append>
   <append xpath="//entity_class[@name='animalZombieVulture']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?vulture_blue"/>
   </append>
   <append xpath="//entity_class[@name='animalWolf']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?wolf_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieUtilityWorker']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?worker_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
-  </append>
-  <append xpath="//entity_class[@name='zombieYo']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?yo_blue"/>
-    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
-    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
   </append>
   <append xpath="//entity_class[@name='animalZombieBear']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zbear_blue"/>
