@@ -200,7 +200,7 @@ public class SphereII_CaveProject
                 return;
 
             // Customize which spawning.xml entry to we want to use for spawns.
-            BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"]; ;
+            BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"]; 
             if (vector.y < 30)
                 biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
 
