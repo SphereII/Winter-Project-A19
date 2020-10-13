@@ -170,7 +170,7 @@ public class SphereII_CaveProject
                 if (players[i].Spawned)
                 {
                     position = players[i].GetPosition();
-                    rect = new Rect(position.x - 40f, position.z - 40f, 80f, 80f);
+                    rect = new Rect(position.x - 40f, position.z - 40f, 80f, 40f);
                     if (rect.Overlaps(_chunkBiomeSpawnData.area))
                     {
                         flag = true;
@@ -201,7 +201,7 @@ public class SphereII_CaveProject
 
             // Customize which spawning.xml entry to we want to use for spawns.
             BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"]; ;
-            if (vector.y > 30)
+            if (vector.y < 30)
                 biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
 
             if (biomeSpawnEntityGroupList == null)
