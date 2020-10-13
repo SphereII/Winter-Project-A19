@@ -59,6 +59,21 @@
 				<property name="Sphere" value=".5"/>
 				<property name="Block_range" value="3"/>
 			</property>
-		</item>		
+		</item>
+
+    <item name="nightmareBlood">
+      <property name="Tags" value="medical"/>
+      <property name="HoldType" value="3"/>
+      <property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
+      <property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+      <property name="CustomIconTint" value="597B32"/>
+      <property name="CustomIcon" value="medicalBloodBag" />
+      <property name="Material" value="Morganic"/>
+      <property name="Stacknumber" value="15"/>
+      <property name="EconomicValue" value="200"/>
+      <property name="EconomicBundleSize" value="1"/>
+      <property name="SellableToTrader" value="false"/>
+      <property name="Group" value="Science,Medical"/>
+    </item>
  	</append>	  
 </configs>

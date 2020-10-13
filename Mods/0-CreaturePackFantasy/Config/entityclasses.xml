@@ -391,6 +391,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>
 		<entity_class name="fantasyNightmare02" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,male,zombie"/> 
@@ -406,6 +407,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>		
 		<entity_class name="fantasyNightmare03" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,male,zombie"/> 
@@ -424,6 +426,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>
 		<entity_class name="fantasyNightmare03Flying" extends="fantasyAnimalHostileFlyingTemplate"> 
 			<property name="Tags" value="entity,male,zombie"/> 
@@ -442,6 +445,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>		
 		
 		
@@ -459,6 +463,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>				
 		<entity_class name="fantasyNightmare05" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,male,zombie"/> 
@@ -474,6 +479,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>
 		<entity_class name="fantasyNightmare06" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,female,zombie"/> 
@@ -489,6 +495,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>			
 		
 	</append>

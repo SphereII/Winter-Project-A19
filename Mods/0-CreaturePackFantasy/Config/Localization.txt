@@ -1,0 +1,3 @@
+Key,English
+nightmareBlood,"Nightmare Blood"
+nightmareBloodDesc,"The impure blood of a nightmare gurgles and bubbles."

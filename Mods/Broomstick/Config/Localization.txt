@@ -1,0 +1,3 @@
+﻿Key,English
+VehicleBroom,"A strange broom"
+VehicleBroomDesc,"A strange broom eerily floats. A faint gurgling and popping noise can be heard."

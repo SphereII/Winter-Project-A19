@@ -1,0 +1,22 @@
+<configs>
+<append xpath="/items">
+	<item name="VehicleBroom">
+	<property name="Tags" value="vehicle"/>
+	<property name="CustomIcon" value="" />
+	<property name="HoldType" value="7"/>
+	<property name="HoldingItemHidden" value="true"/>
+	<property name="Meshfile" value="#@modfolder:Resources/WitchBroomStick.unity3d?VehicleBroomstick.prefab"/>
+	<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="EconomicValue" value="3000"/>
+	<property class="Action1">
+		<property name="Class" value="SpawnVehicle"/>
+		<property name="Vehicle" value="VehicleBroom"/>
+	</property>
+	<effect_group name="VehicleBroomPlaceable" tiered="false">
+		<passive_effect name="ModSlots" operation="base_set" value="1"/>
+		<passive_effect name="DegradationMax" operation="base_set" value="400"/>
+	</effect_group>
+</item>
+</append>
+</configs>

@@ -52,10 +52,30 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\Animalspidersounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\BatSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\BirdSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\CrowSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\Flynoise.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\GoatSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\RobinSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\Swarms.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\XythAnimals.unity3d" />
     <None Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.blocks.nim" />
     <None Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.ins" />
     <None Include="Mods\0-CreaturePackFantasy\Resources\ACFrOgCEGySE9Pk8D3s_1nWmNzNYJ6Qxpr4stcZr1sM58WOpPpjpgOGTSCeMs3Opsrtb-T6LCnShty1Q6lcA0qR3A7-u-R69-qye_EUICZCJP4aCVc_xcCtPk4McyrBQEsPXv6_ZKBEdqJJh77M-.pdf" />
     <None Include="Mods\0-CreaturePackFantasy\Resources\fantasyNightmares.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\Dwellerz.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\GuppycurParticles.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\guppyParticlesforGuppy.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\GurlzSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\HarleySounds.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\RaiderGuyz.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\RangerRadio.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\Soldierz.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\Whispererz.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\XythBanditAmmo.unity3d" />
+    <None Include="Mods\0-CreaturePackHumans\Resources\XythHumans.unity3d" />
     <None Include="Mods\0-SphereIICore\Prefabs\caveOpening02.blocks.nim" />
     <None Include="Mods\0-SphereIICore\Prefabs\caveOpening02.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.blocks.nim" />
@@ -92,6 +112,12 @@
     <None Include="Mods\0-SphereIICore\Resources\PathSmoke.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle_X.prefab" />
+    <None Include="Mods\2-CharacterEffectsPack\Resources\Bugs.unity3d" />
+    <None Include="Mods\2-CharacterEffectsPack\Resources\Fly.unity3d" />
+    <None Include="Mods\2-CharacterEffectsPack\Resources\p_onFire2.unity3d" />
+    <None Include="Mods\2-CharacterEffectsPack\Resources\Testsong.unity3d" />
+    <None Include="Mods\CCTV\Resources\Cam4.unity3d" />
+    <None Include="Mods\CCTV\Resources\CCTV.unity3d" />
     <None Include="Mods\SphereII Music Boxes\README.md" />
     <None Include="Mods\SphereII Music Boxes\Resources\CDCases.unity3d" />
     <None Include="Mods\SphereII Music Boxes\Resources\ChristmasMusic.unity3d" />
@@ -194,12 +220,47 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VideoModule">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\7DaysToDie_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mods\0-CreaturePackAnimals\Config\blocks.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\buffs.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\entityclasses.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\entitygroups.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\items.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\Localization.txt" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\loot.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\physicsbodies.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\quests.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\Config\sounds.xml" />
+    <Content Include="Mods\0-CreaturePackAnimals\ModInfo.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Config\entityclasses.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Config\entitygroups.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Config\gamestages.xml" />
@@ -208,6 +269,22 @@
     <Content Include="Mods\0-CreaturePackFantasy\ModInfo.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.tts" />
     <Content Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\blocks.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\buffs.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\dialogs.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\dmscontent.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\entityclasses.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\entitygroups.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\gamestages.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\items.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\Localization.txt" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\loot.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\npc.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\physicsbodies.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\quests.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\sounds.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\Config\traders.xml" />
+    <Content Include="Mods\0-CreaturePackHumans\ModInfo.xml" />
     <Content Include="Mods\0-SphereIICore\Config\blockplaceholders.xml" />
     <Content Include="Mods\0-SphereIICore\Config\blocks.xml">
       <SubType>Designer</SubType>
@@ -262,6 +339,52 @@
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.tts" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.xml" />
     <Content Include="Mods\0-SphereIICore\Scripts\Lockpicking\README.txt.txt" />
+    <Content Include="Mods\1-NoPottyMouth\Config\sounds.xml" />
+    <Content Include="Mods\1-NoPottyMouth\ModInfo.xml" />
+    <Content Include="Mods\1-NPCPackAnimals\Config\dialogs.xml" />
+    <Content Include="Mods\1-NPCPackAnimals\Config\entityclasses.xml" />
+    <Content Include="Mods\1-NPCPackAnimals\Config\entitygroups.xml" />
+    <Content Include="Mods\1-NPCPackAnimals\Config\npc.xml" />
+    <Content Include="Mods\1-NPCPackAnimals\ModInfo.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\blocks.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\buffs.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\entityclasses.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\entitygroups.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\items.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\npc.xml" />
+    <Content Include="Mods\1-NPCPackHumans\ModInfo.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\Config\blocks.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\Config\buffs.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\Config\dmscontent.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\Config\entityclasses.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\Config\items.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\Config\loot.xml" />
+    <Content Include="Mods\2-CharacterEffectsPack\ModInfo.xml" />
+    <Content Include="Mods\2-NPCFactions\Config\entityclasses.xml" />
+    <Content Include="Mods\2-NPCFactions\Config\items.xml" />
+    <Content Include="Mods\2-NPCFactions\Config\Localization.txt" />
+    <Content Include="Mods\2-NPCFactions\ModInfo.xml" />
+    <Content Include="Mods\CCTV\Config\blocks.xml" />
+    <Content Include="Mods\CCTV\Config\items.xml" />
+    <Content Include="Mods\CCTV\Config\Localization.txt" />
+    <Content Include="Mods\CCTV\Config\progression.xml" />
+    <Content Include="Mods\CCTV\Config\recipes.xml" />
+    <Content Include="Mods\CCTV\ModInfo.xml" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam0.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam1.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam2.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam3.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam4.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam5.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam6.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\Cam7.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\CCTV1.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\CCTV2.png" />
+    <Content Include="Mods\CCTV\UIAtlases\ItemIconAtlas\CCTVSchematic.png" />
+    <Content Include="Mods\JaxTeller718_IncreasedBiomeZombiesx4\Config\spawning.xml" />
+    <Content Include="Mods\JaxTeller718_IncreasedBiomeZombiesx4\ModInfo.xml" />
+    <Content Include="Mods\JaxTeller718_WanderingHordes\Config\gamestages.xml" />
+    <Content Include="Mods\JaxTeller718_WanderingHordes\ModInfo.xml" />
     <Content Include="Mods\JaxTeller718_ZombieReach\Config\items.xml" />
     <Content Include="Mods\JaxTeller718_ZombieReach\ModInfo.xml" />
     <Content Include="Mods\Riles-HUDPlus1.06\Config\XUi\windows.xml" />
@@ -352,10 +475,6 @@
     <Content Include="Mods\SphereII_PG13\Config\entityclasses.xml" />
     <Content Include="Mods\SphereII_PG13\Config\npc.xml" />
     <Content Include="Mods\SphereII_PG13\ModInfo.xml" />
-    <Content Include="Mods\WalkerSim\Harmony\Harmony-WalkerSim.dll" />
-    <Content Include="Mods\WalkerSim\mod.xml" />
-    <Content Include="Mods\WalkerSim\ModInfo.xml" />
-    <Content Include="Mods\WalkerSim\WalkerSim.xml" />
     <Content Include="Mods\winter zeds blue\Config\blocks.xml" />
     <Content Include="Mods\winter zeds blue\Config\entityclasses.xml" />
     <Content Include="Mods\winter zeds blue\ModInfo.xml" />
@@ -411,6 +530,7 @@
     <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityNPCFixSpeed.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityNPCJumpHeight.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\NPCFeatures\EntityNPCMakeVulnerable.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Particles\ParticleTest.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\AntiNerdPole.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\OneBlockCrouch.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\PlayerFeatures\PlayerMoveController.cs" />
@@ -422,6 +542,7 @@
     <Compile Include="Mods\0-SphereIICore\Harmony\Standard\EntityFactory.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Standard\ModsLoading.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Standard\XMLDebugger.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\TileEntitySign.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\AlwaysActive.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\SphereII_PoweredWorkstations.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\UI\DisableXPIconNotification.cs" />
@@ -536,6 +657,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\MinEvents\MinEventActionToggleCamera.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\MusicBoxes\MusicBox.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\MusicBoxes\MusicBoxScript.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Particles\ParticleTest.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Quests\ObjectiveBuffSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Quests\ObjectiveGotoPOISDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Quests\QuestActionGiveBuffSDX.cs" />
@@ -550,6 +672,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\Quests\RewardReassignNPCSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Signs\AnimatedGifDecoder.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Signs\AnimatedGifPlayer.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Signs\ImageWrapper.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\SoundData\SoundDataNodeClass.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\TileEntities\TileEntityPoweredWorkstation.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\WorldGen\CaveTunneler.cs" />
@@ -568,27 +691,6 @@
     <Compile Include="Mods\SphereII Legacy Distant Terrain\Harmony\LegacyDistantTerrain.cs" />
     <Compile Include="Mods\SphereII Winter Project Menu\Harmony\Harmony.cs" />
     <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />
-    <Compile Include="Mods\WalkerSim\Harmony\LoaderHook.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\API.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\BiomeData.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Commands.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Config.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Extends.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Hooks.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\NetworkTypes.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\PlayerZone.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\POIZone.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\PRNG.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Simulation.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\TargetZone.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Utils.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Viewer.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\ViewServer.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\WorldState.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\WorldZone.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\ZombieAgent.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\Zone.cs" />
-    <Compile Include="Mods\WalkerSim\Scripts\ZoneManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mods\0-SphereIICore\Scripts\Spawner\" />

@@ -38,7 +38,7 @@ public class ImageWrapper : MonoBehaviour
         return true;
 
     }
-    public void Init ( string url, string TargetComponent = "" )
+    public void Init ( string url )
     {
         if (string.IsNullOrEmpty(url))
             return;
@@ -46,7 +46,7 @@ public class ImageWrapper : MonoBehaviour
         AnimatedGifPlayer.FileName = url;
         // Init the GIF player
         
-        AnimatedGifPlayer.Init(TargetComponent);
+        AnimatedGifPlayer.Init();
     }
 
     private void OnGifLoaded()

@@ -233,7 +233,7 @@ namespace OldMoatGames
         /// <summary>
         /// Initializes the component with callbacks that are triggered when loading has finished or has failed.
         /// </summary>
-        public void Init(String TargetComponent = "")
+        public void Init()
         {
 #if UNITY_EDITOR
             if (!Application.isPlaying)
@@ -278,7 +278,7 @@ namespace OldMoatGames
             }
 
             // Store the target component
-            _targetComponent = GetTargetComponent(TargetComponent);
+            _targetComponent = GetTargetComponent();
 
             // Start new decoder
             _gifDecoder = new GifDecoder(CompatibilityMode);
@@ -534,31 +534,20 @@ namespace OldMoatGames
         //    return components.FirstOrDefault(component => component is Renderer || component is RawImage);
         //}
 
-        private Component GetTargetComponent(String TargetComponent = "")
+        private Component GetTargetComponent()
         {
-            Debug.Log("Searching for Component called: " + TargetComponent);
             var components = GetComponentsInChildren<Component>();
-            foreach( var componet in components)
-            {
-                Debug.Log(" GetTagetComponent(): " + componet.name.ToString() + " Type: " + componet.ToString() );
-            }
+            //foreach( var componet in components)
+            //{
+            //    Debug.Log(" GetTagetComponent(): " + componet.name.ToString() + " Type: " + componet.ToString() );
+            //}
             foreach (var component in components.Where(a => a is Renderer))
             {
-                if (String.IsNullOrEmpty(TargetComponent))
-                    return component;
-                else
-                {
-                    Debug.Log("Target Component: " + TargetComponent + " Renderer found: " + component.ToString());
-
-                    if (component.name == TargetComponent)
-                    {
-                        return component;
-                    }
-                }
+                return component;
 
             }
 
-            Debug.Log("Target Component: " + TargetComponent + "  No renders found.");
+           // Debug.Log("Target Component: " + TargetComponent + "  No renders found.");
             return null;
         }
         // Used to set the frame target in the target component
