@@ -7,7 +7,8 @@
     </biome>
 
     <biome name="DeepCave">
-      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="Nightmares" />
+      <spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyAnimalsCaves" />
+      <spawn maxcount="1" respawndelay="4" time="Any" entitygroup="Nightmares" />
       <spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="Nightmares" />
       <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="ZombiesWastelandNight" />
     </biome>
