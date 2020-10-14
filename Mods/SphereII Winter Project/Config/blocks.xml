@@ -357,8 +357,9 @@
       <property name="TriggerDelay" value="0.1"/>
       <property name="TriggerSound" value="bullethitsnow"/>
       <property name="Path" value="solid"/>
-      <drop event="Fall" count="0" prob="0"/>
+      <drop event="Fall" count="0"/>
       <property name="ShowModelOnFall" value="false"/>
+      <drop event="Destroy" count="0"/>
     </block>
 	</append>
 </configs>
