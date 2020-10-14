@@ -203,6 +203,11 @@ public static class SphereII_CaveTunneler
                 var worldZ = chunkPos.z + chunkZ;
 
                 var tHeight = chunk.GetTerrainHeight(chunkX, chunkZ);
+                tHeight -= 10;
+
+                // One test world, we blew through a threshold.
+                if (tHeight > 250)
+                    tHeight = 240;
 
                 // Move from the bottom up, leaving the last few blocks untouched.
                 for (int y = tHeight; y > 5; y--)

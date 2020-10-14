@@ -1,6 +1,7 @@
 using DMT;
 using HarmonyLib;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /*
@@ -41,21 +42,37 @@ public class SphereII_WinterProject
         }
     }
 
+
+
+    [HarmonyPatch(typeof(DynamicPrefabDecorator))]
+    [HarmonyPatch("AddPrefab")]
+    public class SphereII_DynamicPrefabDecorator
+    {
+        public static bool Prefix( DynamicPrefabDecorator __instance, PrefabInstance _pi)
+        {
+            if (_pi.prefab.size.y < 10)
+                return false;
+            return true;
+        }
+
+    }
     [HarmonyPatch(typeof(Prefab))]
     [HarmonyPatch("readBlockData")]
     public class SphereII_WinterProject_readBlockData
     {
-        public static bool Postfix(bool __result, ref Prefab __instance)
+        public static bool Postfix(bool __result, ref Prefab __instance, ref List<string> ___allowedZones)
         {
             if (__result)
             {
-                if (__instance.size.y < 10)
-                {
-                    //Debug.Log("\n**************");
-                    //Debug.Log("Winter Project Prefab Filter : " + __instance.PrefabName + " yOffset: " + __instance.yOffset + " Size: " + __instance.size.ToString());
-                    //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
-                    return false;
-                }
+                //if (__instance.size.y < 10)
+                //{
+                //    ___allowedZones.Clear();
+                //    ___allowedZones.Add("DevOnly");
+                //    //Debug.Log("\n**************");
+                //    //Debug.Log("Winter Project Prefab Filter : " + __instance.PrefabName + " yOffset: " + __instance.yOffset + " Size: " + __instance.size.ToString());
+                //    //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
+                //    //return false;
+                //}
                 if (!__instance.PrefabName.Contains("trader_hugh"))
                 {
                     __instance.yOffset -= 8;
