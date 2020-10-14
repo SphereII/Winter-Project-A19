@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <configs>
 
+	<!--  zombies  -->
+
   <append xpath="//entity_class[@name='zombieBurnt']">
 	<property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?burnt_blue"/>
   </append>
@@ -67,8 +69,13 @@
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?spider_blue"/>
     <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
   </append>
+  <append xpath="//entity_class[@name='zombieCheerleader']">
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?cheerleader_blue"/>
+    <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zeye_blue"/>
+    <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?zhair_blue"/>
+  </append>
 
-
+	<!--  animals  -->
  
   <append xpath="//entity_class[@name='animalBear']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue1.unity3d?bear_blue"/>
