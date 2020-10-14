@@ -71,7 +71,9 @@ public class LockEmissive : MonoBehaviour
 
     private void SetHighlightMaterial()
     {
-        highlightRenderer.material.SetColor("_EmissionColor", hightlightColor);
+        // sphereii: disable the high light color 
+        //highlightRenderer.material.SetColor("_EmissionColor", hightlightColor);
+        highlightRenderer.material.SetColor("_EmissionColor", Color.clear);
     }
 
     /// <summary>
@@ -104,7 +106,12 @@ public class LockEmissive : MonoBehaviour
     private void SetMaterial(Material material, float value)
     {
         Color finalColor = _activeColor() * Mathf.LinearToGammaSpace(value);
-        material.SetColor("_EmissionColor", finalColor);
+
+        //material.SetColor("_EmissionColor", finalColor);
+
+        // sphereii: give it a nice bronze color
+        material.SetColor("_EmissionColor", new Color(0.666f, 0.588f, 0.275f, 1f));
+        
     }
 
     public void NextColor()
