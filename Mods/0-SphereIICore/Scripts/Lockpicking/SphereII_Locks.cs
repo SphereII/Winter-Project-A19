@@ -23,8 +23,8 @@ public class SphereII_Locks
         String LockPrefab = "";
         if (_blockValue.type != 0)
         {
-            if (_blockValue.Block.Properties.Contains("LockPickPrefab"))
-                LockPrefab = _blockValue.Block.Properties.GetStringValue("LockPickPrefab");
+            if (_blockValue.Block.Properties.Contains("LockPrefab"))
+                LockPrefab = _blockValue.Block.Properties.GetStringValue("LockPrefab");
         }
 
         
