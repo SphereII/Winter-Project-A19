@@ -1,0 +1,5 @@
+﻿<configs>
+  <append xpath="/spawning/biome[@name='Cave']">
+    <spawn maxcount="1" respawndelay="4" time="Any" entitygroup="WhisperersAll" />
+  </append>
+</configs>
