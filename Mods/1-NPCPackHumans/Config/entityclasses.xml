@@ -26,7 +26,7 @@
       <property name="Class" value="EntityAliveSDX, Mods" />
       <!--			<property name="IsChunkObserver" value="true"/> -->
       <property name="SleeperInstantAwake" value="true"/>
-
+      <property name="PathingBlocks" value="PathingCube" />
       <property name="NPCID" value="spheretest"/>
       <property name="EntityType" value="Player"/>
       <property name="Tags" value="entity,cp,male,npc,melee"/>
