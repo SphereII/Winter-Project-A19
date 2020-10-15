@@ -1,6 +1,6 @@
 <configs>
 	<append xpath="/items">
-		<item name="LockLoadingHack">
+		<item name="LockLoadingHack"> <!-- This mod contains paid assets, do not use locks outside this modlet  -->
 			<property name="CreativeMode" value="None"/>
 			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
 			<property name="HoldType" value="45"/>
