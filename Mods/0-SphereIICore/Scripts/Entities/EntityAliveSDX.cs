@@ -421,13 +421,13 @@ public class EntityAliveSDX : EntityNPC
 
     public void SetupAutoPathingBlocks()
     {
-        if (Buffs.HasCustomVar("PathingCode"))
+        if (Buffs.HasCustomVar("PathingCode") && (Buffs.GetCustomVar("PathingCode") < 0 || Buffs.GetCustomVar("PathingCode" ) > 0 ) )
             return;
 
         // Check if pathing blocks are defined.
         List<string> Blocks = EntityUtilities.ConfigureEntityClass(entityId, "PathingBlocks");
         if (Blocks.Count == 0)
-            Blocks = new List<string>() { "PathingCube" };
+            return;
 
         //Scan for the blocks in the area
         List<Vector3> PathingVectors = ModGeneralUtilities.ScanForTileEntityInChunksListHelper(position, Blocks, entityId);
@@ -445,6 +445,7 @@ public class EntityAliveSDX : EntityNPC
         float code = 0f; // Defined here as DMT compiler doesn't like inlining it.
         foreach (String temp in text.Split(','))
         {
+            Debug.Log("Checking Tile Entity: " + temp);
             if (StringParsers.TryParseFloat(temp, out code))
             {
                 Buffs.AddCustomVar("PathingCode", code);
@@ -512,6 +513,7 @@ public class EntityAliveSDX : EntityNPC
     public override void OnUpdateLive()
     {
 
+        SetupAutoPathingBlocks();
         // Wake them up if they are sleeping, since the trigger sleeper makes them go idle again.
         if (!sleepingOrWakingUp && isAlwaysAwake)
         {

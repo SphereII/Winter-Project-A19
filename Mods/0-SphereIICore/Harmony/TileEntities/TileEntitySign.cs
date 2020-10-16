@@ -8,6 +8,23 @@ using UnityEngine;
 public class SphereII_TileEntitySign_Gif
 {
 
+    //[HarmonyPatch(typeof(TileEntitySign))]
+    //[HarmonyPatch("SetBlockEntityData")]
+    //public class SphereII_TileEntitySign_SetBlockEntityData
+    //{
+    //    public static bool Prefix(TileEntitySign __instance, BlockEntityData _blockEntityData)
+    //    {
+    //        //if (_blockEntityData != null && _blockEntityData.bHasTransform && _blockEntityData.transform != null)
+    //        //{
+    //        //    if (!GameManager.IsDedicatedServer)
+    //        //    {
+    //        //     //   if (_blockEntityData.transform.GetComponentInChildren<TextMesh>() == null)
+    //        //       //     _blockEntityData.transform.gameObject.AddComponent<TextMesh>();
+    //        //    }
+    //        //}
+    //        return true;
+    //    }
+    //}
 
     [HarmonyPatch(typeof(TileEntitySign))]
     [HarmonyPatch("SetText")]
@@ -29,7 +46,8 @@ public class SphereII_TileEntitySign_Gif
                 if (wrapper == null)
                     wrapper = ___smartTextMesh.transform.parent.transform.gameObject.AddComponent<ImageWrapper>();
 
-                if ( !wrapper.ValidURL( _text ))
+                // Check for supported url, and do some converting if necessary
+                if ( !wrapper.ValidURL( ref _text ))
                 {
                     Debug.Log("ImageWrapper: Only supported files: .gif, .gifs, .jpg, and .png");
                     return true;
