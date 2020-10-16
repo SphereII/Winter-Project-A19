@@ -434,18 +434,21 @@ public class EntityAliveSDX : EntityNPC
         if (PathingVectors == null || PathingVectors.Count == 0)
             return;
 
+     
         // Find the nearest block, and if its a sign, read its code.
         Vector3 target = ModGeneralUtilities.FindNearestBlock(position, PathingVectors);
         TileEntitySign tileEntitySign = GameManager.Instance.World.GetTileEntity(0, new Vector3i(target)) as TileEntitySign;
         if (tileEntitySign == null)
+        {
+
             return;
+        }
 
         // Since signs can have multiple codes, splite with a ,, parse each one.
         String text = tileEntitySign.GetText();
         float code = 0f; // Defined here as DMT compiler doesn't like inlining it.
         foreach (String temp in text.Split(','))
         {
-            Debug.Log("Checking Tile Entity: " + temp);
             if (StringParsers.TryParseFloat(temp, out code))
             {
                 Buffs.AddCustomVar("PathingCode", code);
@@ -514,6 +517,10 @@ public class EntityAliveSDX : EntityNPC
     {
 
         SetupAutoPathingBlocks();
+
+        if (Buffs.HasCustomVar("PathingCode") && Buffs.GetCustomVar("PathingCode") == -1)
+            EntityUtilities.SetCurrentOrder(this.entityId, EntityUtilities.Orders.Stay);
+
         // Wake them up if they are sleeping, since the trigger sleeper makes them go idle again.
         if (!sleepingOrWakingUp && isAlwaysAwake)
         {
