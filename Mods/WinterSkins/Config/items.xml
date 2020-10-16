@@ -87,7 +87,7 @@
 		<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
 		<property name="HoldType" value="45"/>
 		<property name="HoldingItemHidden" value="true"/>
-		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
+		<property name="Meshfile" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
 		<property name="DropMeshfile" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
 		<property name="Material" value="MresourceScrapIron"/>
 		<property name="Weight" value="1"/>
@@ -102,7 +102,7 @@
 		<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
 		<property name="HoldType" value="45"/>
 		<property name="HoldingItemHidden" value="true"/>
-		<property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
+		<property name="Meshfile" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
 		<property name="DropMeshfile" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
 		<property name="Material" value="MresourceScrapIron"/>
 		<property name="Weight" value="1"/>
