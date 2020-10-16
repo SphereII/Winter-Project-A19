@@ -496,10 +496,28 @@
 	
 <!--IN CASE YOU ADD THEM HERE ARE THE MATERIAL NAMES FOR THE STRIPPER AND BUSINESS GUY-->
 
-<!--HD_stripper_WinterWhite
-	HD_stripper_WinterBlue
-	HD_suit_WinterWhite
-	HD_suit_WinterBlue-->
-		
+	<entity_class name="zombieStripper_Winter_White" extends="zombieStripper">
+		<property name="Tags" value="entity,zombie,walker,female"/>
+		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
+		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterWhite"/>
+	</entity_class>
+
+	<entity_class name="zombieStripperFeral_Winter_Blue" extends="zombieStripperFeral">
+		<property name="Tags" value="entity,zombie,walker,feral,female"/>
+		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
+		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterBlue"/>
+	</entity_class>
+
+	<entity_class name="zombieSuit_Winter_White" extends="zombieBusinessMan">
+		<property name="Tags" value="entity,zombie,walker,male"/>
+		<property name="ReplaceMaterial1" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterWhite"/>
+	</entity_class>
+
+	<entity_class name="zombieSuitFeral_Winter_Blue" extends="zombieBusinessManFeral">
+		<property name="Tags" value="entity,zombie,walker,feral,male"/>
+		<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
+		<property name="ReplaceMaterial2" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterBlue"/>
+	</entity_class>
+	
 	</append>
 </configs>
