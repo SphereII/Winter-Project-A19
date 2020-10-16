@@ -27,6 +27,15 @@ public class ImageWrapper : MonoBehaviour
 
     }
 
+    public bool ValidURL( string url )
+    {
+        if (url.EndsWith("gif") || url.EndsWith("gifs"))
+            return true;
+        if (url.EndsWith("png") || url.EndsWith("jpg"))
+            return true;
+
+        return false;
+    }
    
     public bool IsNewURL( string url )
     {

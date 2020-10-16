@@ -24,10 +24,16 @@ public class SphereII_TileEntitySign_Gif
             }
             if (_text.StartsWith("http"))
             {
+
                 ImageWrapper wrapper = ___smartTextMesh.transform.parent.transform.GetComponent<ImageWrapper>();
                 if (wrapper == null)
                     wrapper = ___smartTextMesh.transform.parent.transform.gameObject.AddComponent<ImageWrapper>();
 
+                if ( !wrapper.ValidURL( _text ))
+                {
+                    Debug.Log("ImageWrapper: Only supported files: .gif, .gifs, .jpg, and .png");
+                    return true;
+                }
                 if (wrapper.IsNewURL(_text))
                 {
                     wrapper.Pause();
