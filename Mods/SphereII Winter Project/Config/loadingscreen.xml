@@ -2,49 +2,52 @@
 <doc>
 
 
-<set xpath="/doc/backgrounds/tex[1]/@file">@modfolder:Textures/loadingscreen01.png</set>
-<set xpath="/doc/backgrounds/tex[2]/@file">@modfolder:Textures/loadingscreen02.png</set>
-<set xpath="/doc/backgrounds/tex[3]/@file">@modfolder:Textures/loadingscreen03.png</set>
-<set xpath="/doc/backgrounds/tex[4]/@file">@modfolder:Textures/loadingscreen04.png</set>
-	
-	
-	
-	
+  <set xpath="/doc/backgrounds/tex[1]/@file">@modfolder:Textures/loadingscreen01.png</set>
+  <set xpath="/doc/backgrounds/tex[2]/@file">@modfolder:Textures/loadingscreen02.png</set>
+  <set xpath="/doc/backgrounds/tex[3]/@file">@modfolder:Textures/loadingscreen03.png</set>
+  <set xpath="/doc/backgrounds/tex[4]/@file">@modfolder:Textures/loadingscreen04.png</set>
 
-	<remove xpath="doc/tips" />
-	<insertAfter xpath="/doc/backgrounds" >
-		<tips>
-			<tip key="loadingTipMainWWHUD" />
-			<tip key="loadingTipStoneAxe" />
-			<tip key="loadingTipHarvestingResources" />
-			<tip key="loadingTipDistraction" />
-			<tip key="loadingTipStealth" />
-			<tip key="loadingTipEncumbrance" /> 
-			<tip key="loadingTipArmor" />
-			<tip key="loadingTipBandages" />
-			<tip key="loadingTipJournalEntries" />
-			<tip key="loadingTipQuestSharing" />
-			<tip key="loadingTipWhatIsItGoodFor" /> 
-			<tip key="loadingTipWorkstations" />
-			<tip key="loadingTipUnlockingRecipes" />
-			<tip key="loadingTipCraftingBetterQL" /> 
-			<tip key="loadingTipBaseUpgrading" />
-			<tip key="loadingTipRadials" />
-			<tip key="loadingTipHarvestingCorpses" />
-			<tip key="loadingTipGlue" />
-			<tip key="loadingTipProperTools" />
-			<tip key="loadingTipItemStats" /> 
-			<tip key="loadingTipExtCharStats" /> 
-			<tip key="loadingTipBladedWeapons" />
-			<tip key="loadingTipPickaxes" />
-			<tip key="loadingTipAxes" />
-			<tip key="loadingTipSteelKnuckles" />
-			<tip key="loadingTipWrenches" />
-			<tip key="loadingTipSledgehammers" />
-			<tip key="loadingTipUsingIronTools" /> 
-			<tip key="loadingTipScrapping" />
-			<tip key="loadingTipBuffs" />
-	  </tips>
-	</insertAfter>
-	
+  <append xpath="/doc/backgrounds">
+    <tex file="@modfolder:Textures/loadingscreen05.png" />
+    <tex file="@modfolder:Textures/loadingscreen06.png" />
+  </append>
+
+
+
+  <remove xpath="doc/tips" />
+  <insertAfter xpath="/doc/backgrounds" >
+    <tips>
+      <tip key="loadingTipMainWWHUD" />
+      <tip key="loadingTipStoneAxe" />
+      <tip key="loadingTipHarvestingResources" />
+      <tip key="loadingTipDistraction" />
+      <tip key="loadingTipStealth" />
+      <tip key="loadingTipEncumbrance" />
+      <tip key="loadingTipArmor" />
+      <tip key="loadingTipBandages" />
+      <tip key="loadingTipJournalEntries" />
+      <tip key="loadingTipQuestSharing" />
+      <tip key="loadingTipWhatIsItGoodFor" />
+      <tip key="loadingTipWorkstations" />
+      <tip key="loadingTipUnlockingRecipes" />
+      <tip key="loadingTipCraftingBetterQL" />
+      <tip key="loadingTipBaseUpgrading" />
+      <tip key="loadingTipRadials" />
+      <tip key="loadingTipHarvestingCorpses" />
+      <tip key="loadingTipGlue" />
+      <tip key="loadingTipProperTools" />
+      <tip key="loadingTipItemStats" />
+      <tip key="loadingTipExtCharStats" />
+      <tip key="loadingTipBladedWeapons" />
+      <tip key="loadingTipPickaxes" />
+      <tip key="loadingTipAxes" />
+      <tip key="loadingTipSteelKnuckles" />
+      <tip key="loadingTipWrenches" />
+      <tip key="loadingTipSledgehammers" />
+      <tip key="loadingTipUsingIronTools" />
+      <tip key="loadingTipScrapping" />
+      <tip key="loadingTipBuffs" />
+    </tips>
+  </insertAfter>
+
 </doc>
