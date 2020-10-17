@@ -17,36 +17,17 @@
   <remove xpath="doc/tips" />
   <insertAfter xpath="/doc/backgrounds" >
     <tips>
-      <tip key="loadingTipMainWWHUD" />
-      <tip key="loadingTipStoneAxe" />
-      <tip key="loadingTipHarvestingResources" />
-      <tip key="loadingTipDistraction" />
-      <tip key="loadingTipStealth" />
-      <tip key="loadingTipEncumbrance" />
-      <tip key="loadingTipArmor" />
-      <tip key="loadingTipBandages" />
-      <tip key="loadingTipJournalEntries" />
-      <tip key="loadingTipQuestSharing" />
-      <tip key="loadingTipWhatIsItGoodFor" />
-      <tip key="loadingTipWorkstations" />
-      <tip key="loadingTipUnlockingRecipes" />
-      <tip key="loadingTipCraftingBetterQL" />
-      <tip key="loadingTipBaseUpgrading" />
-      <tip key="loadingTipRadials" />
-      <tip key="loadingTipHarvestingCorpses" />
-      <tip key="loadingTipGlue" />
-      <tip key="loadingTipProperTools" />
-      <tip key="loadingTipItemStats" />
-      <tip key="loadingTipExtCharStats" />
-      <tip key="loadingTipBladedWeapons" />
-      <tip key="loadingTipPickaxes" />
-      <tip key="loadingTipAxes" />
-      <tip key="loadingTipSteelKnuckles" />
-      <tip key="loadingTipWrenches" />
-      <tip key="loadingTipSledgehammers" />
-      <tip key="loadingTipUsingIronTools" />
-      <tip key="loadingTipScrapping" />
-      <tip key="loadingTipBuffs" />
+      <tip key="loadingTipMainHUD" />
+      <tip key="loadingTipMainHUD_02" />
+      <tip key="loadingTipMainHUD_03" />
+      <tip key="loadingTipMainHUD_04" />
+      <tip key="loadingTipMainHUD_05" />
+      <tip key="loadingTipMainHUD_06" />
+      <tip key="loadingTipMainHUD_07" />
+      <tip key="loadingTipMainHUD_08" />
+      <tip key="loadingTipMainHUD_09" />
+      <tip key="loadingTipMainHUD_10" />
+
     </tips>
   </insertAfter>
 

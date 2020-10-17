@@ -153,5 +153,34 @@ snowShovel,items,Tool,KgNone,An sturdy shovel,,,,,
 snowShovelDesc,items,Tool,KgNone,"A sturdy snow shovel, for all our winter shovelling needs.",,,,,
 drinkThermosEmpty,items,Tool,KgNone,"An empty thermos",,,,,
 drinkThermosEmptyDesc,items,Tool,KgNone,"An empty thermos, which is useful for keeping things warm longer.",,,,,
+loadingTipMainHUD,UI,Loading Screen,x,,"The apocalypse is a desolate and depressing place. We hope you enjoy your forever stay..."
+loadingTipMainHUD_title,UI,Loading Screen,x,,"Winterween"
+loadingTipMainHUD_02,UI,Loading Screen,x,,"Don't eat yellow snow. It isn't safe. It could even be pee. It's probably pee. Yup. It's pee."
+loadingTipMainHUD_02_title,UI,Loading Screen,x,,"Yellow Snow"
 
+loadingTipMainHUD_03,UI,Loading Screen,x,,"Be mindful of your stamina! Your next leap may be your last."
+loadingTipMainHUD_03_title,UI,Loading Screen,x,,"Stamina is important"
 
+loadingTipMainHUD_04,UI,Loading Screen,x,,"Not all occupants in the apocalypse wants your brains! Some also want your warmth."
+loadingTipMainHUD_04_title,UI,Loading Screen,x,,"Find your friends!"
+
+loadingTipMainHUD_05,UI,Loading Screen,x,,"The world is very cold. Many things will freeze, so plan ahead."
+loadingTipMainHUD_05_title,UI,Loading Screen,x,,"It's very cold"
+
+loadingTipMainHUD_06,UI,Loading Screen,x,,"From time to time, you may hear musical voices. Could they belong to your new best friend?"
+loadingTipMainHUD_06_title,UI,Loading Screen,x,,"Follow the Music"
+
+loadingTipMainHUD_08,UI,Loading Screen,x,,"No one knows where the Shaman came from or what it was, only its unrelenting goal of exterminating the human race."
+loadingTipMainHUD_08_title,UI,Loading Screen,x,,"The Shaman..."
+
+loadingTipMainHUD_07,UI,Loading Screen,x,,"Following a terrible battle against the Shaman and its Minions, the survivors launched their final, and complete assault, plunging the world into a nuclear winter."
+loadingTipMainHUD_07_title,UI,Loading Screen,x,,"Winter Apocalypse"
+
+loadingTipMainHUD_08,UI,Loading Screen,x,,"The Shaman and its Minions were driven from the world from the intense cold. They have not been seen since."
+loadingTipMainHUD_08_title,UI,Loading Screen,x,,"The Shaman is gone..."
+
+loadingTipMainHUD_09,UI,Loading Screen,x,,"It took many years, but the survivors have started leaving their caves and hiding spots and exploring them."
+loadingTipMainHUD_09_title,UI,Loading Screen,x,,"World Recovery"
+
+loadingTipMainHUD_10,UI,Loading Screen,x,,"BA-GOSHI A-KHA NA-AS-TSO-SI DZEH TOISH-JEH AH-NAH AH-JAD A-KHA GLOE-IH D-AH TSE-GAH AH-JAH DIBEH SHI-DA AH-LOSZ MA-E BE-LA-SANA MOASI AH-JAH TSE-NILL A-CHIN LHA-CHA-EH AH-JAD AH-NAH D-AH A-WOH TSE-GAH AH-JAH TSAH A-CHI JEHA CHA A-WOH TSIN-TLITI WOL-LA-CHEE AH-LOSZ AH-JAH TSA-E-DONIN-EE AH-JAH WOL-LA-CHEE KLESH THAN-ZIE TLO-CHIN A-CHIN TSAH-AS-ZIH A-KHA SHI-DA"
+loadingTipMainHUD_10_title,UI,Loading Screen,x,,"D-AH TSE-GAH DZEH DIBEH LIN BE-LA-SANA NA-AS-TSO-SI TSE-NILL A-CHIN"
