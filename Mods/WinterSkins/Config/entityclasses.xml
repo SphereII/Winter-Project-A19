@@ -152,6 +152,7 @@
 		
 		<entity_class name="zombieRegularFemaleTFPTemplate" extends="zombieRegularTFPTemplate">
 			<property name="HideInSpawnMenu" value="true"/>
+			<property name="PhysicsBody" value="zombieStandardFemale"/>
 			<property name="Tags" value="entity,cp,female,zombie,walker,template"/> 
 			<property name="SoundRandom" value="Enemies/Base_Zombie_Female2/zombiefemale2roam"/>
 			<property name="SoundAlert" value="Enemies/Base_Zombie_Female2/zombiefemale2alert"/>
@@ -350,7 +351,6 @@
 			<property name="WalkType" value="3"/>
 			<property name="AvatarController" value="AvatarZombie01Controller"/>
 			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardDarleneHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="PhysicsBody" value="zombieStandard"/>
 			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_darlene_WinterWhite"/>
 		</entity_class>
 		
@@ -384,7 +384,6 @@
 			<property name="WalkType" value="5"/>
 			<property name="AvatarController" value="AvatarZombie01Controller"/>
 			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardMarleneHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="PhysicsBody" value="zombieStandard"/>
 			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_marlene_WinterWhite"/>
 		</entity_class>		
 		

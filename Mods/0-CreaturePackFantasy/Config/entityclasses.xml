@@ -278,13 +278,14 @@
 			<property name="CanClimbLadders" value="false"/>
 			<property name="TimeStayAfterDeath" value="300"/>
 			<property name="DeadBodyHitPoints" value="200"/>
-			<property name="SoundRandom" value=""/>
-			<property name="SoundAlert" value=""/>
-			<property name="SoundHurt" value=""/>
-			<property name="SoundDeath" value=""/>
-			<property name="SoundAttack" value=""/>
-			<property name="SoundSense" value=""/>
-			<property name="SoundGiveUp" value=""/>
+			<property name="SoundRandomTime" value="10.0"/>
+			<property name="SoundRandom" value="SpiritSounds"/>
+			<property name="SoundAlert" value="SpiritWhispers"/>
+			<property name="SoundHurt" value="SpiritAngry"/>
+			<property name="SoundDeath" value="SpiritAngry"/>
+			<property name="SoundAttack" value="SpiritAngry"/>
+			<property name="SoundSense" value="SpiritWhispers"/>
+			<property name="SoundGiveUp" value="SpiritWhispers"/>
 			<property name="ExperienceGain" value="200"/>
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="280"/>
@@ -332,13 +333,13 @@
 			<property name="IsEnemyEntity" value="false"/> <!-- Set this if you want this entity to be spawned when user chooses 'enemy entities off' -->
 			<property name="Faction" value="animals"/>
 			<property name="SoundRandomTime" value="10.0"/>
-			<property name="SoundRandom" value="" />
-			<property name="SoundAlert" value=""/>
-			<property name="SoundHurt" value=""/>
-			<property name="SoundDeath" value=""/>
-			<property name="SoundAttack" value=""/>
-			<property name="SoundSense" value=""/>
-			<property name="SoundGiveUp" value=""/>
+			<property name="SoundRandom" value="SpiritSounds"/>
+			<property name="SoundAlert" value="SpiritWhispers"/>
+			<property name="SoundHurt" value="SpiritAngry"/>
+			<property name="SoundDeath" value="SpiritAngry"/>
+			<property name="SoundAttack" value="SpiritAngry"/>
+			<property name="SoundSense" value="SpiritWhispers"/>
+			<property name="SoundGiveUp" value="SpiritWhispers"/>
 			<property name="AIPathCostScale" value=".8, 1"/>
 			<property name="AITask-1" value="Wander"/>
 			<property name="AITask-2" value=""/>
@@ -375,10 +376,10 @@
 			</effect_group>
 		</entity_class> 
 
-<!--  Xyth's zombies  -->		
+<!--  Xyth's Nightmares  -->		
 		
 		<entity_class name="fantasyNightmare01" extends="fantasyAnimalTemplate"> 
-			<property name="Tags" value="entity,male,zombie"/> 
+			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare01_X"/>
 			<property name="HandItem" value="meleeHandNightmare01"/>
@@ -391,10 +392,10 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>
 		<entity_class name="fantasyNightmare02" extends="fantasyAnimalTemplate"> 
-			<property name="Tags" value="entity,male,zombie"/> 
+			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare02_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
@@ -407,10 +408,10 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>		
 		<entity_class name="fantasyNightmare03" extends="fantasyAnimalTemplate"> 
-			<property name="Tags" value="entity,male,zombie"/> 
+			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare03_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
@@ -426,10 +427,10 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>
 		<entity_class name="fantasyNightmare03Flying" extends="fantasyAnimalHostileFlyingTemplate"> 
-			<property name="Tags" value="entity,male,zombie"/> 
+			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare03_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
@@ -445,12 +446,12 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>		
 		
 		
 		<entity_class name="fantasyNightmare04" extends="fantasyAnimalTemplate"> 
-			<property name="Tags" value="entity,female,zombie"/> 
+			<property name="Tags" value="entity,female,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare04_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
@@ -463,10 +464,10 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>				
 		<entity_class name="fantasyNightmare05" extends="fantasyAnimalTemplate"> 
-			<property name="Tags" value="entity,male,zombie"/> 
+			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare05_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
@@ -479,10 +480,10 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>
 		<entity_class name="fantasyNightmare06" extends="fantasyAnimalTemplate"> 
-			<property name="Tags" value="entity,female,zombie"/> 
+			<property name="Tags" value="entity,female,nightmare"/> 
 			<property name="Faction" value="undead"/>			
 			<property name="Mesh" value="#@modfolder:Resources/fantasyNightmares.unity3d?Nightmare06_X"/>
 			<property name="HandItem" value="meleeHandNightmare02"/>
@@ -495,7 +496,7 @@
 			<drop event="Harvest" name="foodRottingFlesh" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
 		</entity_class>			
 		
 	</append>

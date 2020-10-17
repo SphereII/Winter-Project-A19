@@ -4,6 +4,7 @@
 	<set xpath="//entitygroup/entity[starts-with(@name, 'zombieFemaleFat')]/@name">zombieFatMama_Winter_White </set>
 	<set xpath="//entitygroup/entity[starts-with(@name, 'zombieBoe')]/@name">zombieBoe_Winter_White </set>
 	<set xpath="//entitygroup/entity[@name = 'zombieSteve']/@name">zombieSteve_Winter_White</set>
+	<set xpath="//entitygroup/entity[@name = 'zombieSteveFeral']/@name">zombieSteveFeral_Winter_Blue</set>
 	<set xpath="//entitygroup/entity[starts-with(@name, 'zombieSteveCrawler')]/@name">zombieSteveCrawler_Winter_White </set>
 	<set xpath="//entitygroup/entity[starts-with(@name, 'zombieDarlene')]/@name">zombieDarlene_Winter_White </set>
 	<set xpath="//entitygroup/entity[starts-with(@name, 'zombieMarlene')]/@name">zombieMarlene_Winter_White </set>
