@@ -199,13 +199,30 @@ public class SphereII_CaveProject
             if (vector.y > offSet)
                 return;
 
-            // Customize which spawning.xml entry to we want to use for spawns.
-            BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"]; 
-            if (vector.y < 30)
-                biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
+            BiomeDefinition biome = GameManager.Instance.World.Biomes.GetBiome(_chunkBiomeSpawnData.biomeId);
+            if (biome == null)
+            {
+                return;
+            }
 
+            // Customize which spawning.xml entry to we want to use for spawns.
+
+            // Search for the biome_Cave spawn group. If not found, load the generic Cave one.
+            BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list[biome.m_sBiomeName + "_Cave"];
+            if (biomeSpawnEntityGroupList == null)
+                biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"];
+
+            // if we are below 30, look for the biome specific deep cave, then deep cave if its not set.
+            if (vector.y < 30)
+            {
+                biomeSpawnEntityGroupList = BiomeSpawningClass.list[biome.m_sBiomeName + "_DeepCave"];
+                if (biomeSpawnEntityGroupList == null)
+                    biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
+            }
             if (biomeSpawnEntityGroupList == null)
                 return;
+
+         //   Debug.Log("BiomeSpawnEntityGroup List: " + biomeSpawnEntityGroupList.ToString());
 
             EDaytime edaytime = GameManager.Instance.World.IsDaytime() ? EDaytime.Day : EDaytime.Night;
             GameRandom gameRandom = GameManager.Instance.World.GetGameRandom();

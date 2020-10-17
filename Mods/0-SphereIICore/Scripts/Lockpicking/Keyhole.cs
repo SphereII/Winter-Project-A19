@@ -218,6 +218,11 @@ namespace Lockpicking
             {
                 float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
                 breakTime += lockPickBreakChance;
+                ProgressionValue value = player.Progression.GetProgressionValue("perkLockPicking");
+                //value.Level
+                //minCloseDistance = 5f;
+
+                //maxCloseDistance = 20f;
             }
 
         }
