@@ -496,27 +496,32 @@
 	
 <!--IN CASE YOU ADD THEM HERE ARE THE MATERIAL NAMES FOR THE STRIPPER AND BUSINESS GUY-->
 
-	<entity_class name="zombieStripper_Winter_White" extends="zombieStripper">
+	<entity_class name="zombieStripper_Winter_White" extends="zombieRegularFemaleTFPTemplate">
 		<property name="Tags" value="entity,zombie,walker,female"/>
+		<property name="Faction" value="undead"/>
 		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
 		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterWhite"/>
 	</entity_class>
 
-	<entity_class name="zombieStripperFeral_Winter_Blue" extends="zombieStripperFeral">
+	<entity_class name="zombieStripperFeral_Winter_Blue" extends="zombieRegularFemaleTFPTemplate">
 		<property name="Tags" value="entity,zombie,walker,feral,female"/>
+		<property name="Faction" value="undead"/>
 		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
 		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterBlue"/>
 	</entity_class>
 
-	<entity_class name="zombieSuit_Winter_White" extends="zombieBusinessMan">
+	<entity_class name="zombieSuit_Winter_White" extends="zombieRegularTFPTemplate">
 		<property name="Tags" value="entity,zombie,walker,male"/>
-		<property name="ReplaceMaterial1" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterWhite"/>
+		<property name="Faction" value="undead"/>
+		<property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
+		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterWhite"/>
 	</entity_class>
 
-	<entity_class name="zombieSuitFeral_Winter_Blue" extends="zombieBusinessManFeral">
+	<entity_class name="zombieSuitFeral_Winter_Blue" extends="zombieRegularTFPTemplate">
 		<property name="Tags" value="entity,zombie,walker,feral,male"/>
-		<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
-		<property name="ReplaceMaterial2" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterBlue"/>
+		<property name="Faction" value="undead"/>
+		<property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
+		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterBlue"/>
 	</entity_class>
 	
 	</append>
