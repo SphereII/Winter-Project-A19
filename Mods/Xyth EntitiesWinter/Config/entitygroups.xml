@@ -12,10 +12,6 @@
 	<entity name="Abominable" prob="1" />
   </append>
 
-  <append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsForest']">
-	<entity name="MawMec" prob="3" />
-  </append>
-  
   <append xpath="/entitygroups/entitygroup[@name='ZombiesAll']"> 
 	<entity name="Snowman" prob="2" />
 	<entity name="Snowcop" prob="1" />

@@ -142,7 +142,7 @@
 				<property name="Class" value="Projectile"/>
 				<property name="DamageEntity" value="50"/>
 				<property name="DamageBlock" value="300"/>
-				<property name="Explosion.ParticleIndex" value="1"/>
+				<property name="Explosion.ParticleIndex" value="0"/>
 				<property name="Velocity" value="15"/>
 				<property name="Gravity" value="-5"/>
 				<property name="FlyTime" value="1"/>
@@ -173,7 +173,7 @@
 				<property name="Class" value="Projectile"/>
 				<property name="DamageEntity" value="20"/>
 				<property name="DamageBlock" value="150"/>
-				<property name="Explosion.ParticleIndex" value="1"/>
+				<property name="Explosion.ParticleIndex" value="0"/>
 				<property name="Velocity" value="20"/>
 				<property name="FlyTime" value="2"/>
 				<property name="LifeTime" value="4"/>
@@ -188,20 +188,6 @@
 				<passive_effect name="BuffProcChance" operation="base_set" value="0.50" tags="buffSnowballFreezing"/>
 			</effect_group>
 		</item> 				
-		<item name="handMaw">
-			<property name="Extends" value="meleeHandZombie01"/>
-			<property name="CreativeMode" value="None"/>
-			<property class="Action0">
-				<property name="DamageEntity" value="50"/>
-				<property name="DamageBlock" value="50"/>
-				<property name="Delay" value="0.0"/> 
-				<property name="Range" value="2.5"/>
-				<property name="Sphere" value=".4"/>
-				<property name="Sound_start" value="swoosh" />
-				<property name="Buff" value="buffInjuryStunned1,buffSnowballFreezing" />
-				<property name="Buff_chance" value="0.5,0.5" /> 
-				<property name="DamageBonus.head" value="5" />
-			</property>
-		</item>	
+
 	</append>	  
 </configs>

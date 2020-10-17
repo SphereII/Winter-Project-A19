@@ -4,13 +4,24 @@
   <append xpath="/entity_classes">
     <entity_class name="Polarbear" extends="animalBear">
       <property name="Mesh" value="#@modfolder:Resources/Polarbear.unity3d?Polarbear_X" />
-      <property name="Tags" value="entity,animal,hostile,bear,perkAT05"/>
+      <property name="Tags" value="entity,animal,hostile,bear"/>
       <property name="AvatarController" value="MecanimSDX, Mods" />
       <property name="RootMotion" value="false" />
       <property name="HasRagdoll" value="true" />
-
+	  <property name="LookAtAngle" value="0"/>
       <property name="DeadBodyHitPoints" value="600"/>
-
+	  <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="Territorial"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityEnemyAnimal,0,EntityPlayer,0"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value="Wander"/>
+      <property name="AITask-7" value=""/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityNPC,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,15,0,EntityNPC,15,0"/>
+      <property name="AITarget-5" value=""/>
       <drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
       <drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="50"/>
       <drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="15"/>
@@ -21,25 +32,6 @@
       <drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
       <drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
       <drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-    </entity_class>
-    <entity_class name="ArcticFox" extends="animalTemplateTimid" >
-      <property name="Mesh" value="#@modfolder:Resources/ArcticFox.unity3d?ArcticFox_X" />
-      <property name="AvatarController" value="MecanimSDX, Mods" />
-      <property name="EntityType" value="Animal"/>
-      <property name="RootMotion" value="false" />
-      <property name="HasRagdoll" value="true" />
-      <property name="Parent" value="Animals"/>
-      <property name="Class" value="EntityAnimalRabbit"/>
-      <property name="MaxViewAngle" value="360"/>
-      <property name="MaxTurnSpeed" value="180" />
-      <drop event="Harvest" name="foodRawMeat" count="4" tool_category="Butcher"/>
-      <drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="20"/>
-      <drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="4"/>
-      <drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
-      <drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="4"/>
-      <drop event="Harvest" name="foodRawMeat" count="2" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="resourceLeather" count="2" tag="WasteTreasuresCompleteHarvest"/>
-      <drop event="Harvest" name="resourceBone" count="2" tag="WasteTreasuresCompleteHarvest"/>
     </entity_class>
 
     <entity_class name="SealCub" extends="animalTemplateTimid" >
@@ -61,7 +53,7 @@
       <drop event="Harvest" name="foodRawMeat" count="2" tag="WasteTreasuresCompleteHarvest"/>
       <drop event="Harvest" name="resourceLeather" count="2" tag="WasteTreasuresCompleteHarvest"/>
       <drop event="Harvest" name="resourceBone" count="2" tag="WasteTreasuresCompleteHarvest"/>
-
+		<property name="LookAtAngle" value="0"/>
     </entity_class>
     <entity_class name="Abominable" extends="zombieTemplateMale">
       <!-- Snowman by junaidamin is licensed under CC Attribution -->
@@ -74,6 +66,7 @@
       <property name="HandItem" value="handZombieAbominable"/>
       <property name="RightHandJointName" value="Muzzle" />
       <property name="MoveSpeed" value="0.2"/>
+	  <property name="LookAtAngle" value="0"/>
       <!-- just shambling around -->
       <property name="MoveSpeedAggro" value="0.3, 1.0"/>
       <!-- chasing a target min/max (like day or night)-->
@@ -88,7 +81,7 @@
       <property name="SightRange" value="50"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
-      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityEnemyAnimal,0,EntityPlayer,0"/>
       <property name="AITask-4" value="ApproachSpot"/>
       <property name="AITask-5" value="Look"/>
       <property name="AITask-6" value="Wander"/>
@@ -127,6 +120,7 @@
       <property name="EntityActiveWhen" value="night" />
       <property name="RootMotion" value="false" />
       <property name="HasRagdoll" value="true" />
+	  <property name="LookAtAngle" value="0"/>
       <property name="Mesh" value="#@modfolder:Resources/Snowmen.unity3d?Snowman_X" />
       <property name="Class" value="EntityZombie"/>
       <property name="HandItem" value="handZombieSnowman"/>
@@ -140,7 +134,7 @@
       <property name="SightRange" value="50"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
-      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityEnemyAnimal,0,EntityPlayer,0"/>
       <property name="AITask-4" value="ApproachSpot"/>
       <property name="AITask-5" value="Look"/>
       <property name="AITask-6" value="Wander"/>
@@ -175,6 +169,7 @@
       <property name="AvatarController" value="MecanimSDX, Mods" />
       <property name="EntityActiveWhen" value="night" />
       <property name="RootMotion" value="false" />
+	  <property name="LookAtAngle" value="0"/>
       <property name="HasRagdoll" value="true" />
       <property name="Mesh" value="#@modfolder:Resources/Snowmen.unity3d?Snowcop_X" />
       <property name="Class" value="EntityZombieCop"/>
@@ -188,7 +183,7 @@
       <property name="SightRange" value="50"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
-      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityEnemyAnimal,0,EntityPlayer,0"/>
       <property name="AITask-4" value="ApproachSpot"/>
       <property name="AITask-5" value="Look"/>
       <property name="AITask-6" value="Wander"/>
@@ -229,48 +224,9 @@
       </effect_group>
     </entity_class>
 
-    <entity_class name="MawMec" extends="zombieTemplateMale" >
-      <property name="Mesh" value="#@modfolder:Resources/Maw.unity3d?Maw_X" />
-      <property name="AvatarController" value="MecanimSDX, Mods" />
-      <property name="RootMotion" value="false" />
-      <property name="HasRagdoll" value="true" />
-      <property name="HandItem" value="handMaw" />
-      <property name="MoveSpeed" value="0.2"/>
-      <!-- just shambling around -->
-      <property name="MoveSpeedAggro" value="0.3, 1.0"/>
-      <!-- chasing a target min/max (like day or night)-->
-      <property name="MoveSpeedPanic" value="0.85"/>
-      <property name="PainResistPerHit" value=".01"/>
-      <property name="MaxViewAngle" value="250"/>
-      <property name="Weight" value="250"/>
-      <property name="AttackTimeoutDay" value="2.2"/>
-      <!-- should total to 3.0 -->
-      <property name="AttackTimeoutNight" value="1.7"/>
-      <property name="CanClimbLadders" value="true"/>
-      <property name="CanClimbVertical" value="false"/>
-      <property name="SightRange" value="50"/>
-      <property name="AttackIndexes" value="2" />
-      <property name="SoundRandomTime" value="60.0"/>
-      <property name="SoundRandom" value="AbominableRandom" />
-      <property name="SoundAlert" value="AbominableAlert" />
-      <property name="SoundAttack" value="AbominableAttack" />
-      <property name="SoundDeath" value="AbominableDie" />
-      <property name="SoundHurt" value="AbominableHurt" />
-      <property name="SoundSense" value="AbominableSense" />
-      <effect_group name="Base Effects">
-        <passive_effect name="HealthMax" operation="base_set" value="700"/>
-        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
-        <!-- Zombie HP scale -->
-        <passive_effect name="EntityDamage" operation="perc_add" value="0"/>
-        <!-- Feral damage -->
-        <passive_effect name="PhysicalDamageResist" operation="base_set" value="10"/>
-        <passive_effect name="HealthChangeOT" operation="base_set" value="1.3"/>
-        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
-      </effect_group>
-    </entity_class>
-
     <entity_class name="DeadSnake" extends="animalTemplateHostile">
       <property name="EntityType" value="Animal"/>
+	  <property name="LookAtAngle" value="0"/>
       <property name="Mesh" value="#@modfolder:Resources/DeadSnake.unity3d?DeadSnake_X" />
       <!--Free model by Dusk_Aims  -->
       <property name="AvatarController" value="MecanimSDX, Mods" />
@@ -285,7 +241,7 @@
       <property name="Faction" value="undead"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="Territorial"/>
-      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityEnemyAnimal,0,EntityPlayer,0"/>
       <property name="AITask-4" value="ApproachSpot"/>
       <property name="AITask-5" value="Look"/>
       <property name="AITask-6" value="Wander"/>

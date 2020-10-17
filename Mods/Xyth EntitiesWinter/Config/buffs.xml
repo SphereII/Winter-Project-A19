@@ -5,9 +5,9 @@
 				<stack_type value="ignore"/>
 				<duration value="4.5"/>
 				<effect_group>
-					<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="2" effect_name="Cold"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity=".5" fade="2" effect_name="Cold"/>
 					<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Cold"/>
-					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="coldWeatherTip"/>
+					<triggered_effect trigger="onSelfBuffFinish" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Cold"/>
 				</effect_group>
 			</buff>
 		</append>	
