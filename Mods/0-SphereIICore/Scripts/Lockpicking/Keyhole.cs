@@ -222,13 +222,13 @@ namespace Lockpicking
                 switch( value.Level )
                 {
                     case 1:
-                        breakTime = 0.2f;
+                        breakTime = Random.Range(0.15f, 0.30f);
                         break;
                     case 2:
-                        breakTime = 0.5f;
+                        breakTime = Random.Range(0.35f, 0.65f);
                         break;
                     case 3:
-                        breakTime = 1f;
+                        breakTime = Random.Range(0.75f, 1.25f);
                         break;
                     default: // if its not any of the other levels
                         breakTime = 0.2f;
