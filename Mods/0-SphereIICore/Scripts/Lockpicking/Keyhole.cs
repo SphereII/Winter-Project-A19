@@ -216,9 +216,24 @@ namespace Lockpicking
             // give more time to avoid breaking pick locks.
             if (player != null)
             {
-                float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
-                breakTime += lockPickBreakChance;
+               // float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
+               // breakTime += lockPickBreakChance;
                 ProgressionValue value = player.Progression.GetProgressionValue("perkLockPicking");
+                switch( value.Level )
+                {
+                    case 1:
+                        breakTime = 0.2f;
+                        break;
+                    case 2:
+                        breakTime = 0.5f;
+                        break;
+                    case 3:
+                        breakTime = 1f;
+                        break;
+                    default: // if its not any of the other levels
+                        breakTime = 0.2f;
+                        break;
+                }
                 //value.Level
                 //minCloseDistance = 5f;
 
