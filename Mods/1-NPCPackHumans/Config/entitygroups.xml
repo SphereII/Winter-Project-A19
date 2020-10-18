@@ -92,29 +92,30 @@
     </entitygroup>
   </append>
 
-  <append xpath="/entitygroups/entitygroup[ starts-with(@name, 'EnemyAnimals')]">
-    <entity name="npcEveEmptyHand" prob=".03" />
-    <entity name="npcEveClub" prob=".03" />
-    <entity name="npcEveKnife" prob=".03" />
-    <entity name="npcEveSMG" prob=".01" />
-    <entity name="npcEveAK47" prob=".01" />
-    <entity name="npcEveHunter" prob=".01" />
-    <entity name="npcEvePistol" prob=".02" />
-    <entity name="npcEveXBow" prob=".02" />
-    <entity name="npcEveBow" prob=".02" />
-    <entity name="npcHeavyGuyEmptyHand" prob=".03" />
-    <entity name="npcHeavyGuyClub" prob=".03" />
-    <entity name="npcHeavyGuyKnife" prob=".03" />
-    <entity name="npcHeavyGuyPistol" prob=".02" />
-    <entity name="npcHeavyGuyBow" prob=".02" />
-    <entity name="npcHarleyEmptyHand" prob=".03" />
-    <entity name="npcHarleyClub" prob=".03" />
-    <entity name="npcHarleyKnife" prob=".03" />
-    <entity name="npcHarleyPistol" prob=".02" />
-    <entity name="npcHarleyBow" prob=".02" />
-  </append>
-
   <append xpath="/entitygroups">
+    <entitygroup name="Bandits">
+      <entity name="npcEveEmptyHand" prob=".03" />
+      <entity name="npcEveClub" prob=".03" />
+      <entity name="npcEveKnife" prob=".03" />
+      <entity name="npcEveSMG" prob=".01" />
+      <entity name="npcEveAK47" prob=".01" />
+      <entity name="npcEveHunter" prob=".01" />
+      <entity name="npcEvePistol" prob=".02" />
+      <entity name="npcEveXBow" prob=".02" />
+      <entity name="npcEveBow" prob=".02" />
+      <entity name="npcHeavyGuyEmptyHand" prob=".03" />
+      <entity name="npcHeavyGuyClub" prob=".03" />
+      <entity name="npcHeavyGuyKnife" prob=".03" />
+      <entity name="npcHeavyGuyPistol" prob=".02" />
+      <entity name="npcHeavyGuyBow" prob=".02" />
+      <entity name="npcHarleyEmptyHand" prob=".03" />
+      <entity name="npcHarleyClub" prob=".03" />
+      <entity name="npcHarleyKnife" prob=".03" />
+      <entity name="npcHarleyPistol" prob=".02" />
+      <entity name="npcHarleyBow" prob=".02" />
+    </entitygroup>
+
+
     <entitygroup name="npcGeneric" >
 
       <entity name="npcFarmerEmptyHand" prob=".03" />
