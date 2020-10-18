@@ -22,9 +22,9 @@ class SphereII_EAITarget_Tweaks
             if (!EntityUtilities.IsHuman(__instance.theEntity.entityId))
                 return __result;
 
-            //// If its a vehicle.. umm.. no.
-            //if (_e is EntityVehicle)
-            //    return false;
+            // If its a vehicle.. umm.. no.
+            if (_e is EntityVehicle)
+                return false;
 
             //if (__instance.theEntity.IsSleeping)
             //    return __result;

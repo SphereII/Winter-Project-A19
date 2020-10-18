@@ -4,23 +4,37 @@
   </append>
   <append xpath="/spawning">
 
-    <biome name="pine_forest_DeepCave">
+    <biome name="pine_forest_Cave">
       <spawn maxcount="1" respawndelay="1.2" time="Any"	entitygroup="Bandits" />
     </biome>
+    <biome name="pine_forest_DeepCave">
+      <spawn maxcount="1" respawndelay="1.2" time="Any"	entitygroup="Bandits" />
+      <spawn maxcount="1" respawndelay="2.6" time="Night" entitygroup="Nightmares" />
+    </biome>
+
+    <biome name="snow_Cave">
+      <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="npcGeneric" />
+    </biome>
+   
     <biome name="snow_DeepCave">
       <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="npcGeneric" />
+      <spawn maxcount="1" respawndelay="2.6" time="Night" entitygroup="Nightmares" />
+
     </biome>
     
     <biome name="desert_Cave">
       <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="WhisperersAll" />
       <spawn maxcount="3" respawndelay="0.3" time="Night" entitygroup="WhisperersAll" />
       <spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="ZombiesAll" spawnDeadChance="0" />
+
     </biome>
 
     <biome name="desert_DeepCave">
       <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="WhisperersAll" />
       <spawn maxcount="3" respawndelay="0.3" time="Night" entitygroup="WhisperersAll" />
       <spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="ZombiesAll" spawnDeadChance="0" />
+      <spawn maxcount="1" respawndelay="2.6" time="Night" entitygroup="Nightmares" />
+
     </biome>
   </append>
 </configs>
