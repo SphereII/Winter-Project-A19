@@ -1,5 +1,77 @@
 <configs>
  	<append xpath="/items">
+	
+		<item name="SnowmanEntityLoadingHack">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/Snowmen.unity3d?Snowman_X" />
+			<property name="DropMeshfile"  value="#@modfolder:Resources/Snowmen.unity3d?Snowman_X" />
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>	
+		<item name="AbomoEntityLoadingHack">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/Abominable.unity3d?Abominable_X" />
+			<property name="DropMeshfile"  value="#@modfolder:Resources/Abominable.unity3d?Abominable_X" />
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>		
+		<item name="PolarBEntityLoadingHack">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/Polarbear.unity3d?Polarbear_X" />
+			<property name="DropMeshfile"  value="#@modfolder:Resources/Polarbear.unity3d?Polarbear_X" />
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>			
+		<item name="SealCubEntityLoadingHack">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/SealCub.unity3d?SealCub_X" />
+			<property name="DropMeshfile"  value="#@modfolder:Resources/SealCub.unity3d?SealCub_X" />
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>			
+		<item name="DeadsnakeEntityLoadingHack">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/DeadSnake.unity3d?DeadSnake_X" />
+			<property name="DropMeshfile"  value="#@modfolder:Resources/DeadSnake.unity3d?DeadSnake_X" />
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>			
+
 		<item name="handZombieSnowman">
 			<property name="Extends" value="meleeHandMaster"/>
 			<property name="CreativeMode" value="None"/>
@@ -142,7 +214,7 @@
 				<property name="Class" value="Projectile"/>
 				<property name="DamageEntity" value="50"/>
 				<property name="DamageBlock" value="300"/>
-				<property name="Explosion.ParticleIndex" value="0"/>
+				<property name="Explosion.ParticleIndex" value="5"/>
 				<property name="Velocity" value="15"/>
 				<property name="Gravity" value="-5"/>
 				<property name="FlyTime" value="1"/>
