@@ -512,7 +512,11 @@ namespace OldMoatGames
             if (_targetComponent is Renderer)
             {
                 var target = (Renderer)_targetComponent;
-                Material newMat = new Material(target.sharedMaterial.shader);
+                Material newMat;
+                if (target.sharedMaterial == null)
+                    newMat = new Material( Shader.Find("Transparent/Diffuse"));
+                else
+                     newMat = new Material(target.sharedMaterial.shader);
                 newMat.mainTexture = GifTexture;
                 target.material = newMat;
                 return;
@@ -543,6 +547,7 @@ namespace OldMoatGames
             //}
             foreach (var component in components.Where(a => a is Renderer))
             {
+             //   Debug.Log("GetTargetComponent(): " + component.ToString());
                 return component;
 
             }
