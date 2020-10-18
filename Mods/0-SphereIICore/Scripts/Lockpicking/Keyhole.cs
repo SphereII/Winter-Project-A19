@@ -231,7 +231,7 @@ namespace Lockpicking
                         breakTime = Random.Range(0.75f, 1.25f);
                         break;
                     default: // if its not any of the other levels
-                        breakTime = 0.2f;
+                        breakTime = 0.1f;
                         break;
                 }
                 //value.Level
