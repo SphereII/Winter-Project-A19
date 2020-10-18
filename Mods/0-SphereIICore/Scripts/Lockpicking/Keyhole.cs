@@ -221,6 +221,9 @@ namespace Lockpicking
                 ProgressionValue value = player.Progression.GetProgressionValue("perkLockPicking");
                 switch( value.Level )
                 {
+                    case 0:
+                        breakTime = 0.1f;
+                        break;
                     case 1:
                         breakTime = Random.Range(0.15f, 0.30f);
                         break;
