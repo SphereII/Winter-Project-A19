@@ -15,6 +15,24 @@
 			<property name="EconomicBundleSize" value="1000"/>
 			<property name="Group" value="Resources"/>
 		</item>
+		
+		 <item name="SnowSkinsLoadingHackW">
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/><property name="CustomIconTint" value="90ff90"/>
+			<property name="HoldType" value="45"/>
+			<property name="HoldingItemHidden" value="true"/>
+			<property name="Meshfile" value="#@modfolder:Resources/animal_snowmats.unity3d?goat_snow"/>
+			<property name="DropMeshfile" value="#@modfolder:Resources/animal_snowmats.unity3d?goat_snow"/>
+			<property name="Material" value="MresourceScrapIron"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1"/> <!-- STK resource -->
+			<property name="EconomicValue" value="1"/>
+			<property name="EconomicBundleSize" value="1000"/>
+			<property name="Group" value="Resources"/>
+		</item>		
+		
+		
+		
 	
 		<item name="meleeHandAnimalTemplate">
 			<property name="Extends" value="meleeHandMaster"/>

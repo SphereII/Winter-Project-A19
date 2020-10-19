@@ -5,20 +5,20 @@
 	<append xpath="/entitygroups/entitygroup[@name='AnimalsSmall']">	
 		<entity name="NPCAnimalFox" prob=".25"/>
 		<entity name="NPCAnimalGoat" prob=".25"/>
-		<entity name="NPCAnimalGermanShepherd" prob=".25" />
-		<entity name="NPCAnimalWarWolf" prob=".25" />
-		<entity name="NPCAnimalWolfhound" prob=".25" />
-		<entity name="NPCAnimalBeagle" prob=".25" />
-		<entity name="NPCAnimalPug" prob=".25" />
-		<entity name="NPCAnimalWarWolf" prob=".25" />		
+		<entity name="NPCAnimalGermanShepherd" prob=".1" />
+		<entity name="NPCAnimalWarWolf" prob=".1" />
+		<entity name="NPCAnimalWolfhound" prob=".1" />
+		<entity name="NPCAnimalBeagle" prob=".1" />
+		<entity name="NPCAnimalPug" prob=".1" />
+		<entity name="NPCAnimalWarWolf" prob=".1" />		
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='AnimalsFarm']">	
-		<entity name="NPCAnimalFox" />
-		<entity name="NPCAnimalGoat" />
-		<entity name="NPCAnimalGermanShepherd" />
+		<entity name="NPCAnimalFox" prob=".1" />
+		<entity name="NPCAnimalGoat" prob=".1" />
+		<entity name="NPCAnimalGermanShepherd" prob=".1" />
 	</append>
 	<append xpath="/entitygroups/entitygroup[@name='WildGameForest']">		
-		<entity name="NPCAnimalFox" />
-		<entity name="NPCAnimalGoat" />
+		<entity name="NPCAnimalFox" prob=".25"  />
+		<entity name="NPCAnimalGoat" prob=".25" />
 	</append>
 </configs>

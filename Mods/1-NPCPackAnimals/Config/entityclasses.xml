@@ -196,6 +196,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?goat_snow"/>
 		</entity_class>	
 		
 		<entity_class name="NPCAnimalWolfhound" extends="NPCAnimalMeleeTemplate">
@@ -223,6 +224,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?wolfhound_snow"/>
 		</entity_class>	
 
 		<entity_class name="NPCAnimalBeagle" extends="NPCAnimalMeleeTemplate">
@@ -241,6 +243,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="100"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?beagle_snow"/>
 		</entity_class>	
 
 		<entity_class name="NPCAnimalPug" extends="NPCAnimalMeleeTemplate">
@@ -260,6 +263,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="100"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?pug_snow"/>
 		</entity_class>	
 
 <!--  Testing  -->
@@ -301,6 +305,7 @@
             <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/> 
             <property name="AITarget-3" value="SetAsTargetNearestEnemySDX, Mods" data="class=EntityAlive,80"/> 
 			<property name="AITarget-4" value=""/>
+			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?bandit_snow"/>
 		</entity_class>			
 		
 		<entity_class name="NPCAnimalGermanShepherd" extends="NPCAnimalMeleeTemplate">
@@ -341,6 +346,7 @@
             <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/> 
             <property name="AITarget-3" value="SetAsTargetNearestEnemySDX, Mods" data="class=EntityAlive,80"/> 
 			<property name="AITarget-4" value=""/>
+			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?german_snow"/>
 		</entity_class>					
 	</append>
 </configs>

@@ -487,6 +487,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/animal_snowmats.unity3d?goat_snow"/>
 		</entity_class>	
 		<entity_class name="animalSpider01" extends="animalTemplateHostileWalking">
 			<property name="Mesh" value="#@modfolder:Resources/XythAnimals.unity3d?Spider01_X"/>
@@ -570,6 +571,7 @@
 			<property name="SizeScale" value="1"/> 
 			<property name="RagdollOnDeathChance" value="50"/>
 			<property name="Mass" value="80"/>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/animal_snowmats.unity3d?bandit_snow"/>
 		</entity_class>		
 		
 <!-- Flying Things  -->
@@ -796,6 +798,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/animal_snowmats.unity3d?wolfhound_snow"/>
 		</entity_class>	
 
 		<entity_class name="animalBeagle" extends="animalWolfhound">
@@ -820,6 +823,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="100"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/animal_snowmats.unity3d?beagle_snow"/>
 		</entity_class>	
 
 		<entity_class name="animalPug" extends="animalWolfhound">
@@ -845,6 +849,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="100"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/animal_snowmats.unity3d?pug_snow"/>
 		</entity_class>	
 
 		<entity_class name="animalWulf" extends="animalWolfhound">
@@ -869,6 +874,7 @@
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="200"/>
 			</effect_group>
+			<property name="ReplaceMaterial0" value="#@modfolder:Resources/animal_snowmats.unity3d?wolf_snow"/>
 		</entity_class>	
 		
 		<entity_class name="animalPenguin" extends="animalTemplateTimidWalking">
