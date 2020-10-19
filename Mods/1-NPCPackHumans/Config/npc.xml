@@ -45,4 +45,17 @@
 			</faction>	
 	
 		</append>
+
+  <append xpath="/npc">
+    <npc_info
+		id="bakers"
+		name="The Baker"
+		name_key="npc_Baker"
+		faction="whiteriver"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		stance="Like" voice_set="trader"
+		trader_id="100" dialog_id="Bakers" />
+
+  </append>
 </npc>

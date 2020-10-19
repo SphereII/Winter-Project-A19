@@ -2037,4 +2037,8 @@
     <!--  Testing  -->
 
   </append>
+
+  <append xpath="//entity_class[contains(@name, 'Baker')]">
+    <property name="NPCID" value="bakers"/>
+  </append>
 </configs>

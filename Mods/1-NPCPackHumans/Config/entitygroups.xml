@@ -32,7 +32,21 @@
 		</entitygroup>		-->
 
   </append>
+  
+  
   <append xpath="/entitygroups">
+    <entitygroup name="Bakers">
+      <entity name="npcBakerEmptyHand" />
+      <entity name="npcBakerClub" prob=".03" />
+      <entity name="npcBakerKnife" prob=".03" />
+      <entity name="npcBakerSMG" prob=".01" />
+      <entity name="npcBakerAK47" prob=".01" />
+      <entity name="npcBakerHunter" prob=".01" />
+      <entity name="npcBakerPistol" prob=".02" />
+      <entity name="npcBakerXBow" prob=".02" />
+      <entity name="npcBakerBow" prob=".02" />
+    </entitygroup>
+    
     <entitygroup name="WhisperersAll">
       <entity name="npcWhispererAlphaPistol" />
       <entity name="npcWhispererAlphaEmptyHand" prob="0.03" />

@@ -1,0 +1,10 @@
+﻿<configs>
+  <append xpath="/traders">
+    <trader_info id="100" full_reset="true" reset_interval="1" override_buy_markup="1.0" allow_sell="false" min_inventory="6" max_inventory="13" min_items_swapped="6" max_items_swapped="13">
+      <trader_items count="10">
+        <item group="preparedFood"/>
+        <item group="foodSupplies" />
+      </trader_items>
+    </trader_info>
+  </append>
+</configs>

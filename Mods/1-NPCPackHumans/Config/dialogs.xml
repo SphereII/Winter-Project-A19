@@ -1,0 +1,46 @@
+<!--Created using the 7 Days To Dialog Application-->
+<configs>
+  <append xpath="/dialogs">
+    <dialog id="Bakers" startstatementid="start">
+      <statement id="start" text="start">
+        <response_entry id="responseID_2017142476" ref_text="responseID_2017142476" />
+        <response_entry id="responseID_-1388364783" ref_text="responseID_-1388364783" />
+        <response_entry id="responseID_-703227906" ref_text="responseID_-703227906" />
+      </statement>
+      <statement id="statement_2138904604" text="statement_2138904604">
+        <response_entry id="response_526976083" ref_text="response_526976083" />
+      </statement>
+      <statement id="statement_473234505" text="statement_473234505" nextstatementid="start" />
+      <statement id="statement_882093027" text="statement_882093027">
+        <response_entry id="response_859654760" ref_text="response_859654760" />
+        <response_entry id="response_-2095408206" ref_text="response_-2095408206" />
+        <response_entry id="response_-1818352230" ref_text="Never mind." />
+      </statement>
+      <statement id="statement_170084587" text="statement_170084587">
+        <response_entry id="response_-696778576" ref_text="response_-696778576" />
+      </statement>
+      <statement id="statement_-2005690894" text="statement_-2005690894">
+        <response_entry id="responseID_-471247928" ref_text="responseID_-471247928" />
+      </statement>
+      <response id="responseID_-1388364783" text="responseID_-1388364783" nextstatementid="statement_2138904604" />
+      <response id="responseID_2017142476" text="responseID_2017142476" nextstatementid="statement_473234505">
+        <action type="Trader" id="trade" />
+      </response>
+      <response id="response_526976083" text="response_526976083" nextstatementid="statement_882093027" />
+      <response id="response_-2095408206" text="response_-2095408206" nextstatementid="statement_170084587">
+        <requirement type="HasItemSDX, Mods" value="100" requirementtype="Hide" id="casinoCoin" Hash="Requirement_-598121521" />
+        <requirement type="HasCVarSDX, Mods" value="0" requirementtype="Hide" operator="EQ" id="foodBaconAndEggs" Hash="Requirement_37935839" />
+        <action type="AddCVar, Mods" id="foodBaconAndEggs" value="1" operator="set" />
+      </response>
+      <response id="response_859654760" text="response_859654760" nextstatementid="statement_-2005690894">
+        <requirement type="HasItemSDX, Mods" value="50" requirementtype="Hide" id="casinoCoin" Hash="Requirement_534503754" />
+        <requirement type="HasCVarSDX, Mods" value="0" requirementtype="Hide" operator="EQ" id="drinkJarCoffee" Hash="Requirement_1520571887" />
+        <action type="AddCVar, Mods" id="drinkJarCoffee" value="1" operator="set" />
+      </response>
+      <response id="response_-696778576" text="response_-696778576" nextstatementid="start" />
+      <response id="responseID_-471247928" text="responseID_-471247928" nextstatementid="start" />
+      <response id="responseID_-703227906" text="responseID_-703227906" />
+      <response id="response_-1818352230" text="response_-1818352230" nextstatementid="start" />
+    </dialog>
+  </append>
+</configs>
