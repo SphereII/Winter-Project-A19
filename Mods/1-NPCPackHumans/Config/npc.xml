@@ -57,5 +57,15 @@
 		stance="Like" voice_set="trader"
 		trader_id="100" dialog_id="Bakers" />
 
+
+    <npc_info
+  id="soldiers"
+  name="Soldiers"
+  name_key="npc_Soldiers"
+  faction="whiteriver"
+  portrait="npc_joel"
+  greeting_type="nearby"
+  stance="Like" voice_set="trader"
+  trader_id="100" dialog_id="Soldiers" />
   </append>
 </npc>

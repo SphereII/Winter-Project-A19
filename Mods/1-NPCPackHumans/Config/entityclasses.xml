@@ -2041,4 +2041,8 @@
   <append xpath="//entity_class[contains(@name, 'Baker')]">
     <property name="NPCID" value="bakers"/>
   </append>
+
+  <append xpath="//entity_class[contains(@name, 'npcSoldier')]">
+    <property name="NPCID" value="soldiers"/>
+  </append>
 </configs>

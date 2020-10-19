@@ -12,8 +12,8 @@
       </statement>
       <statement id="statement_473234505" text="statement_473234505" nextstatementid="start" />
       <statement id="statement_882093027" text="statement_882093027">
-        <response_entry id="response_859654760" ref_text="response_859654760" />
-        <response_entry id="response_-2095408206" ref_text="response_-2095408206" />
+        <response_entry id="response_859654760" ref_text="Coffee?" />
+        <response_entry id="response_-2095408206" ref_text="Bacon and eggs?" />
         <response_entry id="response_-1818352230" ref_text="Never mind." />
       </statement>
       <statement id="statement_170084587" text="statement_170084587">
@@ -40,7 +40,60 @@
       <response id="response_-696778576" text="response_-696778576" nextstatementid="start" />
       <response id="responseID_-471247928" text="responseID_-471247928" nextstatementid="start" />
       <response id="responseID_-703227906" text="responseID_-703227906" />
-      <response id="response_-1818352230" text="response_-1818352230" nextstatementid="start" />
+      <response id="response_-1818352230" text="Never mind." nextstatementid="start" />
+    </dialog>
+    <dialog id="Soldiers" startstatementid="start">
+      <statement id="start" text="start">
+        <response_entry id="response_-639515589" ref_text="What is this place?" />
+      </statement>
+      <statement id="statement_1131373512" text="statement_1131373512">
+        <response_entry id="response_-673764683" ref_text="Trader Hugh?" />
+        <response_entry id="responseID_-1057725101" ref_text="Other survivors?" />
+      </statement>
+      <statement id="statement_-1588519786" text="statement_-1588519786">
+        <response_entry id="responseID_-1275100287" ref_text="Caves?" />
+        <response_entry id="response_-1841273528" ref_text="What do you know about him?" />
+      </statement>
+      <statement id="statement_-1118445586" text="statement_-1118445586">
+        <response_entry id="response_2024116175" ref_text="Do you need help?" />
+      </statement>
+      <statement id="statement_1114477054" text="statement_1114477054" nextstatementid="statement_-1588519786" />
+      <statement id="statement_-1386313920" text="statement_-1386313920">
+        <response_entry id="responseID_419480622" ref_text="Are there many survivors still in the caves?" />
+        <response_entry id="response_1266192453" ref_text="Where did the caves come from?" />
+        <response_entry id="responseID_-2140584414" ref_text="Thank you" />
+      </statement>
+      <statement id="statement_898150012" text="statement_898150012">
+        <response_entry id="response_273543698" ref_text="What else could have made them?" />
+      </statement>
+      <statement id="statement_-971545523" text="statement_-971545523">
+        <response_entry id="response_1917773204" ref_text="Unfriendly?" />
+      </statement>
+      <statement id="statement_-135677507" text="statement_-135677507">
+        <response_entry id="response_1934387049" ref_text="I thought they all died?" />
+      </statement>
+      <statement id="statement_-1405778999" text="statement_-1405778999">
+        <response_entry id="response_1918895431" ref_text="Do they ever come out?" />
+      </statement>
+      <statement id="statement_1674471708" text="statement_1674471708">
+        <response_entry id="response_1125410533" ref_text="Thank you for the information." />
+      </statement>
+      <statement id="statement_-588105156" text="statement_-588105156" nextstatementid="statement_-1118445586" />
+      <statement id="statement_1375368289" text="statement_1375368289" nextstatementid="statement_-971545523" />
+      <response id="response_-639515589" text="response_-639515589" nextstatementid="statement_1131373512" />
+      <response id="response_-673764683" text="response_-673764683" nextstatementid="statement_-1588519786" />
+      <response id="responseID_-1057725101" text="responseID_-1057725101" nextstatementid="statement_-1118445586" />
+      <response id="response_-1841273528" text="response_-1841273528" nextstatementid="statement_1114477054" />
+      <response id="responseID_-1275100287" text="responseID_-1275100287" nextstatementid="statement_-1386313920" />
+      <response id="response_1266192453" text="response_1266192453" nextstatementid="statement_898150012" />
+      <response id="responseID_419480622" text="responseID_419480622" nextstatementid="statement_-971545523" />
+      <response id="responseID_-2140584414" text="responseID_-2140584414" nextstatementid="start" />
+      <response id="response_273543698" text="response_273543698" nextstatementid="statement_-135677507" />
+      <response id="response_1934387049" text="response_1934387049" nextstatementid="statement_-1405778999" />
+      <response id="response_1918895431" text="response_1918895431" nextstatementid="statement_1674471708" />
+      <response id="response_1125410533" text="response_1125410533" nextstatementid="start" />
+      <response id="response_2024116175" text="response_2024116175" nextstatementid="statement_-588105156" />
+      <response id="response_1917773204" text="response_1917773204" nextstatementid="statement_1375368289" />
     </dialog>
   </append>
 </configs>
