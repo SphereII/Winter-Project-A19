@@ -1,27 +1,6 @@
 ﻿<configs>
 
-  <!-- Ranged -->
-  <append xpath="/gamestages">
-    <group name="S_-Group_SphereII_Generic_Ranged_Stage1" emptyChance="0" decoyChance="0" decoy1hpChance="0">
-      <spawner name="SleeperGSList_SphereII_Ranged_Stage1" count="5,6"/>
-    </group>
-    <spawner name="SleeperGSList_SphereII_Ranged_Stage1">
-      <gamestage stage="1">
-        <spawn group="npcSoldierRanged" num="1" maxAlive="1" duration="1"/>
-      </gamestage>
-    </spawner>
 
-    
-    <!-- Soldier Melee -->
-    <group name="S_-Group_SphereII_Generic_Melee_Stage1" emptyChance="0" decoyChance="0" decoy1hpChance="0">
-      <spawner name="SleeperGSList_SphereII_Melee_Stage1" count="5,6"/>
-    </group>
-    <spawner name="SleeperGSList_SphereII_Melee_Stage1">
-      <gamestage stage="1">
-        <spawn group="npcSoldierMelee" num="1" maxAlive="1" duration="1"/>
-      </gamestage>
-    </spawner>
-  </append>
 
 
 </configs>

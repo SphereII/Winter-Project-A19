@@ -31,11 +31,15 @@
         <requirement type="HasItemSDX, Mods" value="100" requirementtype="Hide" id="casinoCoin" Hash="Requirement_-598121521" />
         <requirement type="HasCVarSDX, Mods" value="0" requirementtype="Hide" operator="EQ" id="foodBaconAndEggs" Hash="Requirement_37935839" />
         <action type="AddCVar, Mods" id="foodBaconAndEggs" value="1" operator="set" />
+        <action type="GiveToNPC, Mods" id="casinoCoin" value="100" />
+
       </response>
       <response id="response_859654760" text="response_859654760" nextstatementid="statement_-2005690894">
         <requirement type="HasItemSDX, Mods" value="50" requirementtype="Hide" id="casinoCoin" Hash="Requirement_534503754" />
         <requirement type="HasCVarSDX, Mods" value="0" requirementtype="Hide" operator="EQ" id="drinkJarCoffee" Hash="Requirement_1520571887" />
         <action type="AddCVar, Mods" id="drinkJarCoffee" value="1" operator="set" />
+        <action type="GiveToNPC, Mods" id="casinoCoin" value="50" />
+
       </response>
       <response id="response_-696778576" text="response_-696778576" nextstatementid="start" />
       <response id="responseID_-471247928" text="responseID_-471247928" nextstatementid="start" />
