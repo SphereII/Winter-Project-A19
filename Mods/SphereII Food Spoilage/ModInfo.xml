@@ -4,10 +4,10 @@
     <Name value="SphereII Food Spoilage" />
     <Description value="Food Spoilage example XML" />
     <Author value="sphereii" />
-    <Version value="19.2.1.1" />
+    <Version value="19.2.1.2" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="9ef15f96046e75ec8c9a7cd829e20ae1">
+  <DMT Hash="3e413c2fbd13602a2202157a9d984f66">
     <dependencies>
       <dependancy>0-SphereIICore</dependancy>
     </dependencies>
