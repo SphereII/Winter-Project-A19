@@ -17,5 +17,14 @@
       <entity name="fantasyNightmare05" />
       <entity name="fantasyNightmare06" />
     </entitygroup>
+
+    <entitygroup name="FlyingNightmares">
+      <entity name="fantasyNightmare03Flying" />
+      <entity name="animalBloodFlySwarm_X" />
+      <entity name="animalSnowTornado_X" />
+      <entity name="animalBats" />
+      <entity name="animalBloatfly" />
+      <entity name="animalGuppyInsect" />
+    </entitygroup>
   </append>
 </configs>

@@ -54,6 +54,7 @@
       <drop event="Harvest" name="resourceLeather" count="2" tag="WasteTreasuresCompleteHarvest"/>
       <drop event="Harvest" name="resourceBone" count="2" tag="WasteTreasuresCompleteHarvest"/>
 		<property name="LookAtAngle" value="0"/>
+      <property name="SpawnOnDeath" value="FlyingNightmares" />
     </entity_class>
     <entity_class name="Abominable" extends="zombieTemplateMale">
       <!-- Snowman by junaidamin is licensed under CC Attribution -->
