@@ -1,11 +1,11 @@
 ﻿<configs>
   <append xpath="/entitygroups/entitygroup[ (contains( @name, 'ombies')) or @name='HospitalGroup' or (contains(@name, 'HordeStage')) ]">
     <entity name="zombieBurnt_white"/>
-    <entity name="zombieDemolition_white"/>
+    <entity name="zombieDemolition_white"  prob="0.3"/>
     <entity name="zombieFarmer_white"/>
-    <entity name="zombieFatCop_white"/>
+    <entity name="zombieFatCop_white" prob="0.3"/>
     <entity name="zombieFatHawaiian_white"/>
-    <entity name="zombieFootballPlayer_white"/>
+    <entity name="zombieFootballPlayer_white"  prob="0.3"/>
     <entity name="zombieMaleHazmat_white"/>
     <entity name="zombieSkateboarder_white"/>
     <entity name="zombieLab_white"/>

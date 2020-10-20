@@ -361,5 +361,30 @@
       <property name="ShowModelOnFall" value="false"/>
       <drop event="Destroy" count="0"/>
     </block>
+
+    <block name="icicle">
+      <property name="Material" value="Msnow" />
+      <property name="Shape" value="ModelEntity" />
+      <property name="Model" value="#@modfolder:Resources/XmasDeco.unity3d?Icicle_X"/>
+      <property name="CanPickup" value="false" />
+      <property name="CustomIcon" value="icicles" />
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceSnowBall" count="3" tool_category="harvestingTools"/>
+      <drop event="Destroy" count="0"/>
+      <drop event="Fall" name="terrSnow" count="1" prob="0.1" stick_chance="1"/>
+      <drop event="Fall" name="resourceSnowBall" count="3" prob="0.187" stick_chance="0"/>
+    </block>
+    <block name="icicles">
+      <property name="Material" value="Msnow" />
+      <property name="Shape" value="ModelEntity" />
+      <property name="Model" value="#@modfolder:Resources/XmasDeco.unity3d?Icicles_X"/>
+      <property name="CanPickup" value="false" />
+      <property name="CustomIcon" value="icicles" />
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceSnowBall" count="10" tool_category="harvestingTools"/>
+      <drop event="Destroy" count="0"/>
+      <drop event="Fall" name="terrSnow" count="1" prob="0.1" stick_chance="1"/>
+      <drop event="Fall" name="resourceSnowBall" count="10" prob="0.187" stick_chance="0"/>
+    </block>
 	</append>
 </configs>

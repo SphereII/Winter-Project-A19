@@ -30,8 +30,7 @@ public class SphereII_WinterProject
         }
     }
 
-
-    // Navezgane only - Since it's pregenerated, it uses a different prefabs loading, with preset locations. This will adjust the prefabs for only navezgane.
+     // Navezgane only - Since it's pregenerated, it uses a different prefabs loading, with preset locations. This will adjust the prefabs for only navezgane.
     public class SphereII_WinterProject_PrefabInstance
     {
         public static bool PrefabInstance_Prefix(ref PrefabInstance __instance, ref Prefab _bad)
@@ -77,7 +76,7 @@ public class SphereII_WinterProject
                 {
                     __instance.yOffset -= 8;
                     __instance.bTraderArea = false;
-                    __instance.bExcludeDistantPOIMesh = true;
+                    __instance.bExcludeDistantPOIMesh = false;
                     __instance.bCopyAirBlocks = true;
                 }
             }
@@ -128,7 +127,7 @@ public class SphereII_WinterProject
             {
                 _prefabTargetPos.y -= 8;
                 __instance.bTraderArea = false;
-                __instance.bExcludeDistantPOIMesh = true;
+                __instance.bExcludeDistantPOIMesh = false;
                 __instance.bCopyAirBlocks = true;
             }
             return true;
@@ -152,6 +151,9 @@ public class SphereII_WinterProject
 
             if (!__instance.PrefabName.Contains("trader_hugh"))
                 _destinationPos.y -= 8;
+
+            __instance.bExcludeDistantPOIMesh = false;
+
             return true;
         }
 
@@ -159,6 +161,8 @@ public class SphereII_WinterProject
         {
             if (__instance.Tags.Test_AllSet(POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL")))
                 return;
+
+            __instance.bExcludeDistantPOIMesh = false;
 
             if (!__instance.PrefabName.Contains("trader_hugh") )
                 WinterModPrefab.SetSnowPrefab(__instance, _cluster, _destinationPos, _questTags);
@@ -178,7 +182,7 @@ public class SphereII_WinterProject
                 {
                     // Distant POI Y Offset: this is what makes the prefabs look like they are on top of the snow, but then drop down.
                     __instance.distantPOIYOffset -= 8;
-                    __instance.bExcludeDistantPOIMesh = true;
+                    __instance.bExcludeDistantPOIMesh = false;
                 }
             }
         }
@@ -191,6 +195,8 @@ public class SphereII_WinterProject
     {
         public static void Postfix(PrefabInstance __instance, Chunk _chunk)
         {
+            __instance.prefab.bExcludeDistantPOIMesh = true;
+
             if (!__instance.prefab.PrefabName.Contains("trader_hugh"))
                 WinterModPrefab.SetSnowChunk(_chunk, __instance.boundingBoxPosition, __instance.boundingBoxSize);
         }

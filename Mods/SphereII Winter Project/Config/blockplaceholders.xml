@@ -1,0 +1,7 @@
+﻿<configs>
+  <append xpath="/blockplaceholders/placeholder[@name='cntCaveCeilingRandomLootHelper']">
+      <block name="icicle" prob=".007"/>
+      <block name="icicles" prob=".007"/>
+  </append>
+
+</configs>

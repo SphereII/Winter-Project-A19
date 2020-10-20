@@ -97,7 +97,7 @@ public class SphereII_CaveProject
             }
 
             // Since the cave system can be eratic in its location, we want to try 20 times to find a random spot where they can spawn at.
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 40; i++)
             {
                 Vector2 rangeY = new Vector2(PlayerPosition.y - 10, PlayerPosition.y + 10);
 
@@ -199,6 +199,7 @@ public class SphereII_CaveProject
             if (vector.y > offSet)
                 return;
 
+
             BiomeDefinition biome = GameManager.Instance.World.Biomes.GetBiome(_chunkBiomeSpawnData.biomeId);
             if (biome == null)
             {
@@ -210,19 +211,20 @@ public class SphereII_CaveProject
             // Search for the biome_Cave spawn group. If not found, load the generic Cave one.
             BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list[biome.m_sBiomeName + "_Cave"];
             if (biomeSpawnEntityGroupList == null)
+            {
                 biomeSpawnEntityGroupList = BiomeSpawningClass.list["Cave"];
-
+            }
             // if we are below 30, look for the biome specific deep cave, then deep cave if its not set.
             if (vector.y < 30)
             {
                 biomeSpawnEntityGroupList = BiomeSpawningClass.list[biome.m_sBiomeName + "_DeepCave"];
                 if (biomeSpawnEntityGroupList == null)
+                {
                     biomeSpawnEntityGroupList = BiomeSpawningClass.list["DeepCave"];
+                }
             }
             if (biomeSpawnEntityGroupList == null)
                 return;
-
-         //   Debug.Log("BiomeSpawnEntityGroup List: " + biomeSpawnEntityGroupList.ToString());
 
             EDaytime edaytime = GameManager.Instance.World.IsDaytime() ? EDaytime.Day : EDaytime.Night;
             GameRandom gameRandom = GameManager.Instance.World.GetGameRandom();
@@ -243,8 +245,7 @@ public class SphereII_CaveProject
                         {
                             num3 = EntitySpawner.ModifySpawnCountByGameDifficulty(num3);
                         }
-                        entityGroupName = biomeSpawnEntityGroupData.entityGroupRefName + "_" + biomeSpawnEntityGroupData.daytime.ToStringCached<EDaytime>();
-
+                        entityGroupName = biomeSpawnEntityGroupData.entityGroupRefName + "_" + biomeSpawnEntityGroupData.daytime.ToStringCached<EDaytime>() + "_Cave";
                         ulong respawnLockedUntilWorldTime = _chunkBiomeSpawnData.GetRespawnLockedUntilWorldTime(entityGroupName);
                         if (respawnLockedUntilWorldTime <= 0UL || GameManager.Instance.World.worldTime >= respawnLockedUntilWorldTime)
                         {
@@ -264,15 +265,17 @@ public class SphereII_CaveProject
                 num2 = (num2 + 1) % biomeSpawnEntityGroupList.list.Count;
             }
             if (num < 0)
+            {
                 return;
-
+            }
             Bounds bb = new Bounds(vector, new Vector3(4f, 2.5f, 4f));
             GameManager.Instance.World.GetEntitiesInBounds(typeof(Entity), bb, spawnNearList);
             int count = spawnNearList.Count;
             spawnNearList.Clear();
             if (count > 0)
+            {
                 return;
-
+            }
             BiomeSpawnEntityGroupData biomeSpawnEntityGroupData2 = biomeSpawnEntityGroupList.list[num];
             int randomFromGroup = EntityGroups.GetRandomFromGroup(biomeSpawnEntityGroupData2.entityGroupRefName, ref lastClassId, null);
             float spawnDeadChance = biomeSpawnEntityGroupData2.spawnDeadChance;

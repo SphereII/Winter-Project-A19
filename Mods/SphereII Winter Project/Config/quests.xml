@@ -42,11 +42,7 @@
         <property name="delay" value="3" />
       </action>
       <objective type="Goto" id="trader" value="5" phase="1" />
-
-      <objective type="InteractWithNPC">
-        <property name="phase" value="2" />
-      </objective>
-
+    
       <reward type="Exp" value="1000" />
       <reward type="SkillPoints" value="4"  />
 
