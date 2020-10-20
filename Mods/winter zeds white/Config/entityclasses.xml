@@ -3,68 +3,100 @@
   <append xpath="/entity_classes">
 
     <entity_class name="zombieBurnt_white" extends="zombieBurnt">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?burnt_blue"/>
     </entity_class>
     <entity_class name="zombieDemolition_white" extends="zombieDemolition">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?demolition_blue"/>
     </entity_class>
     <entity_class name="zombieFarmer_white" extends="zombieFarmer">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?farmer_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
       <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieFatCop_white" extends="zombieFatCop">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white1.unity3d?fatcop_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieFatHawaiian_white" extends="zombieFatHawaiian">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?fattourist_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieWightFeral_white" extends="zombieWightFeral">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?feral_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieFootballPlayer_white" extends="zombieFootballPlayer">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?football_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieMaleHazmat_white" extends="zombieMaleHazmat">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?hazmat_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieSkateboarder_white" extends="zombieSkateboarder">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?hoodie_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
      <entity_class name="zombieLab_white" extends="zombieLab">
+	 	<property name="Tags" value="entity,female,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?lab_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
       <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
     </entity_class>
     <entity_class name="zombieNurse_white" extends="zombieNurse">
+		<property name="Tags" value="entity,female,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?nurse_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieOldTimer_white" extends="zombieOldTimer">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?oldtimer_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
       <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zhair_blue"/>
     </entity_class>
     <entity_class name="zombieScreamer_white" extends="zombieScreamer">
+		<property name="Tags" value="entity,female,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white2.unity3d?screamer_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
       <property name="ReplaceMaterial2" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zlonghair_blue"/>
     </entity_class>
     <entity_class name="zombieSnow_white" extends="zombieSnow">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?snowman_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>
     <entity_class name="zombieSoldier_white" extends="zombieSoldier">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?soldier_blue"/>
     </entity_class>
     <entity_class name="zombieSpider_white" extends="zombieSpider">
+		<property name="Tags" value="entity,male,zombie,walker,normal"/>
+		<property name="Faction" value="undead"/>
       <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_white3.unity3d?spider_blue"/>
       <property name="ReplaceMaterial1" value="#@modfolder:Resources/winter_zeds_white3.unity3d?zeye_blue"/>
     </entity_class>

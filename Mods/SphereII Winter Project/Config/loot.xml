@@ -6,9 +6,9 @@
   </append>
   
   <append xpath="//lootcontainer[@id='6']">
-    <item name="Carousel" prob="0.6"/>
-    <item name="VideoPlayer" prob="0.6"/>
-    <item name="VideoPlayerTV" prob="0.6" />
+    <item name="Carousel" prob="0.06"/>
+    <item name="VideoPlayer" prob="0.06"/>
+    <item name="VideoPlayerTV" prob="0.06" />
   </append>
 
   <append xpath="/lootcontainers/lootgroup[@name='groupWeaponsMeleeScaled']">

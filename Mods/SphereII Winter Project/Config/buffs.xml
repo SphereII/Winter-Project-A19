@@ -20,8 +20,18 @@
         <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="5" buff="buffInfection04" target_tags="trader"/>
       </effect_group>
     </buff>
-  </append>
-
+  
+ 				  
+    <buff name="buffFrostShield" name_key="buffsmallBed" description_key="buffsmallBedDesc" tags="drug" >
+      <stack_type value="replace"/>
+      <duration value="0"/>
+		<effect_group>
+  			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="#@modfolder:Resources/FrostShieldParticle.unity3d?p_FrostShield_X" local_offset="0,1.1,0.3" parent_transform="Origin" />
+			<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="#@modfolder:Resources/FrostShieldParticle.unity3d?p_FrostShield_X" local_offset="0,1.1,0.3" parent_transform="Origin" />
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_FrostShield_X"/>
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_FrostShield_X"/>
+		</effect_group>
+    </buff>
  
-
+	</append>
 </configs>

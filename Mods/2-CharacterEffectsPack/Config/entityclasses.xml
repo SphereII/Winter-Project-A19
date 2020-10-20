@@ -73,6 +73,9 @@
 		<effect_group name="Infection Attack Buff">
 			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="InfectedAttack"/>
 		</effect_group>
+		<effect_group name="IsZombie"> 
+			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="IsZombie"/>		
+		</effect_group>	
 	</append>
 	<append xpath="/entity_classes/entity_class[@name='zombieRegularTemplate']">
 		<effect_group name="Infection Attack Buff">
@@ -82,7 +85,7 @@
 	
 <!--  add random walktypes to all zombies  -->	
 	
-	<append xpath="/entity_classes/entity_class[@name='zombieTemplateMale']">
+<!--	<append xpath="/entity_classes/entity_class[@name='zombieTemplateMale']">
 		<effect_group name="RNDWalkStart">
 			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="ZombieWalkChange"/>		
 		</effect_group>
@@ -91,7 +94,7 @@
 		<effect_group name="RNDWalkStartCP">
 			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="ZombieWalkChange"/>		
 		</effect_group>
-	</append>	
+	</append>	-->   <!--  Turned off for WW as the core will handle it  -->
 	
 <!-- Removing the default vanilla sounds from humanoids and zombies to be replaced by new sound system  -->
 

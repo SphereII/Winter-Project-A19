@@ -542,7 +542,7 @@
 		</buff>
 	</append>
 	
-	<remove xpath="/buffs/buff[starts-with(@name, 'IsZombie')]" />
+<!--	<remove xpath="/buffs/buff[starts-with(@name, 'IsZombie')]" /> -->
 	
 	<append xpath="/buffs">
 		<buff name="IsZombie" icon="ui_game_symbol_radiation" icon_color="0,0,125" hidden="false"><stack_type value="ignore"/><duration value="0"/><update_rate value="2"/>
