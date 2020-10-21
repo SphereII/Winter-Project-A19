@@ -34,8 +34,8 @@
         <property name="AdvancedLocks" value="true" />
         <property name="LockPrefab" value="#@modfolder(Locks):Resources/Locks.unity3d?Lockset01" />
       </property>
-      
-      
+
+
 
       <property class="AdvancedItemFeatures" >
         <property name="Logging" value="false"/>
@@ -177,17 +177,18 @@
         <property name="CaveThresholdY" value="0.01"/>
 
         <!-- CavePOIs are placed where there is an isolated block (only one side of the block has air ), and a random roll between 0 to 10. Adjust this random roll here.-->
-        <property name="POIRandomRoll" value="1" /> <!-- 10% chance -->
-        
+        <property name="POIRandomRoll" value="1" />
+        <!-- 10% chance -->
+
         <!--https://leatherbee.org/index.php/2018/10/24/perlin-and-simplex-noise/#:~:text=Lacunarity%20and%20gain%20measure%20how,amplitude%20of%20the%20previous%20octave. -->
         <!-- Small adjustments are recommended. Large adjustments are.... inconsistent. -->
         <property name="Octaves" value="10"/>
         <property name="Lacunarity" value="1"/>
         <property name="Gain" value="0.5"/>
         <property name="Frequency" value="0.09"/>
-        <property name="CavePOIs" value="Chiko_SCcave_01,Chiko_SCcave_02,Chiko_SCcave_03,Chiko_SCcave_04,Chiko_SCcave_05,Chiko_SCcave_06,Chiko_SCcave_07,Chiko_SCcave_08,Chiko_SCcave_09,Chiko_SCcave_10" />
-        <property name="DeepCavePrefabs" value="Chiko_SCcave_11,Chiko_SCcave_12,Chiko_SCcave_13,Chiko_SCcave_14" />
-        <property name="MaxPrefabPerChunk" value="3" />
+        <property name="CavePOIs" value="Chiko_SCcave_01,Chiko_SCcave_02,Chiko_SCcave_03,Chiko_SCcave_04,Chiko_SCcave_05,Chiko_SCcave_06,Chiko_SCcave_07" />
+        <property name="DeepCavePrefabs" value="Chiko_SCcave_08,Chiko_SCcave_09,Chiko_SCcave_10,Chiko_SCcave_11,Chiko_SCcave_12,Chiko_SCcave_13,Chiko_SCcave_14" />
+        <property name="MaxPrefabPerChunk" value="5" />
       </property>
     </block>
 
@@ -234,19 +235,17 @@
     </block>
 
     <block name="SpawnCube">
-      <!--property name="Model" value="#@modfolder:Resources/PathingCube.unity3d?PathingCube"/-->
-
-      <property name="Class" value="SpawnCubeSDX, Mods"/>
       <property name="Extends" value="woodNoUpgradeMaster"/>
+      <property name="Model" value="#@modfolder:Resources/PathingCube.unity3d?PathingCube"/>
+      <!--property name="Model" value="Entities/Crafting/sign_wood_1x1_Prefab"/-->
+      <property name="Class" value="SpawnCubeSDX, Mods"/>
       <property name="CreativeMode" value="Player"/>
       <property name="Shape" value="ModelEntity"/>
       <property name="HandleFace" value="South"/>
-      <property name="Model" value="Entities/Crafting/sign_wood_1x1_Prefab"/>
       <property name="MultiBlockDim" value="1,1,1"/>
       <property name="ImposterExchange" value="imposterDontBlockSheet" param1="43"/>
       <property name="StabilitySupport" value="false"/>
       <!-- build restriction -->
-      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
       <property name="Place" value="TowardsPlacerInverted"/>
       <property name="Group" value="Decor/Miscellaneous"/>
       <property name="DescriptionKey" value="woodSignGroupDesc"/>
