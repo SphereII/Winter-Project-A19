@@ -9,10 +9,10 @@ class BlockSpawnCubeSDX : BlockPlayerSign
 
     private BlockActivationCommand[] cmds = new BlockActivationCommand[]
 {
-    new BlockActivationCommand("edit", "pen", true)
+    new BlockActivationCommand("edit", "pen", true),
+    new BlockActivationCommand("Trigger", "trigger", true)
 
 };
-
     public override bool OnBlockActivated(int _indexInBlockActivationCommands, WorldBase _world, int _cIdx, Vector3i _blockPos, BlockValue _blockValue, EntityAlive _player)
     {
         if (_blockValue.ischild)
@@ -30,10 +30,14 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         {
             case 0:
                 return this.OnBlockActivated(_world, _cIdx, _blockPos, _blockValue, _player);
-
+            case 1:
+                CheckForSpawn(_world, _cIdx, _blockPos, _blockValue);
+                break;
             default:
                 return false;
         }
+
+        return true;
     }
     public override string GetActivationText(WorldBase _world, BlockValue _blockValue, int _clrIdx, Vector3i _blockPos, EntityAlive _entityFocusing)
     {
@@ -54,15 +58,6 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         }
         if (_world.IsEditor() || _entityFocusing.IsGodMode.Value)
         {
-            //Debug.Log("IsEditor or GodMod is true");
-            //string @string = GamePrefs.GetString(EnumGamePrefs.PlayerId);
-            //PersistentPlayerData playerData = _world.GetGameManager().GetPersistentPlayerList().GetPlayerData(tileEntitySign.GetOwner());
-
-            //bool flag = !tileEntitySign.IsOwner(@string) && (playerData != null && playerData.ACL != null) && playerData.ACL.Contains(@string);
-            //cmds[0].enabled = true;
-            //cmds[1].enabled = (!tileEntitySign.IsLocked() && (tileEntitySign.IsOwner(@string) || flag));
-            //cmds[2].enabled = (tileEntitySign.IsLocked() && tileEntitySign.IsOwner(@string));
-            //cmds[3].enabled = ((!tileEntitySign.IsUserAllowed(@string) && tileEntitySign.HasPassword() && tileEntitySign.IsLocked()) || tileEntitySign.IsOwner(@string));
             return cmds;
         }
 
@@ -103,9 +98,11 @@ class BlockSpawnCubeSDX : BlockPlayerSign
                 if (parse[0].ToLower() == key.ToLower())
                     parse[1] = value;
 
-                newSign += parse[0] + "=" + parse[1];
+                newSign += parse[0] + "=" + parse[1] + ";";
             }
         }
+        // Remove the trail semo-colon
+        newSign.TrimEnd(';');
         return newSign;
     }
     public void CheckForSpawn(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue)
@@ -133,8 +130,6 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         }
 
         Entity myEntity = null;
-        string Task = "Wander";
-
         // entityclass:zombieWightFeral;task:wander
         Debug.Log("SignText: " + signText);
         if (string.IsNullOrEmpty(signText))
@@ -143,21 +138,56 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         try
         {
             // Read the entity class
-            String entityClass = GetValue(signText, "entityclass");
-            if (String.IsNullOrEmpty(entityClass))
-                entityClass = GetValue(signText, "ec");
+            // ec = entityclass:   ec=zombieBoe
+            // eg = entitygroup:   eg=ZombiesAll
+            // task = Tasks:        Wander, Stay
+            // pc : Pathing Code:  pc=3
+            // Sign String:     ec=zombieBoe;task=Stay;pc=4
+            String entityClass = GetValue(signText, "ec");
+            String entityGroup = GetValue(signText, "eg");
+            String Task = GetValue(signText, "task");
+            String PathingCode = GetValue(signText, "pc");
 
-            // no entity name, no spawn.
+            // If the class is empty, check to see if we have a group to spawn from.
             if (String.IsNullOrEmpty(entityClass))
+            {
+                // No entity class or group? Do nothing.
+                if (String.IsNullOrEmpty(entityGroup))
+                    return;
+
+                int ClassID = 0;
+                int EntityID = EntityGroups.GetRandomFromGroup(entityGroup, ref ClassID);
+                if (EntityID == 0) // Invalid group.
+                    return;
+                myEntity = EntityFactory.CreateEntity(EntityID, _blockPos.ToVector3());
+            }
+            else
+            {
+                myEntity = EntityFactory.CreateEntity(EntityClass.FromString(entityClass), _blockPos.ToVector3());
+            }
+
+            // Not a valid entity.
+            if (myEntity == null)
                 return;
 
-            Task = GetValue(signText, "task");
+            // Set a Wander task is not defined.
             if (String.IsNullOrEmpty(Task))
                 Task = "Wander";
 
-            myEntity = EntityFactory.CreateEntity(EntityClass.FromString(entityClass), _blockPos.ToVector3());
-            if (myEntity == null)
-                return;
+            EntityAliveSDX entityAliveSDX = myEntity as EntityAliveSDX;
+            if (entityAliveSDX != null)
+            {
+                // If there's a pathing code, set, otherwise, do a scan.
+                if (String.IsNullOrEmpty(PathingCode))
+                {
+                    entityAliveSDX.SetupAutoPathingBlocks();
+                }
+                else
+                {
+                    if (StringParsers.TryParseFloat(PathingCode, out float pathingCode))
+                        entityAliveSDX.Buffs.SetCustomVar("PathingCode", pathingCode);
+                }
+            }
 
             // Update the sign with the new entity ID.
             String newSign = SetValue(signText, "entityid", myEntity.entityId.ToString());
@@ -166,8 +196,6 @@ class BlockSpawnCubeSDX : BlockPlayerSign
             GameManager.Instance.World.SpawnEntityInWorld(myEntity);
             if (Task.ToLower() == "stay")
                 EntityUtilities.SetCurrentOrder(myEntity.entityId, EntityUtilities.Orders.Stay);
-            if (Task.ToLower() == "patrol")
-                EntityUtilities.SetCurrentOrder(myEntity.entityId, EntityUtilities.Orders.Patrol);
             if (Task.ToLower() == "wander")
                 EntityUtilities.SetCurrentOrder(myEntity.entityId, EntityUtilities.Orders.Wander);
 
@@ -175,7 +203,7 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         }
         catch (Exception ex)
         {
-            Debug.Log("Invalid String on Sign: " + signText + " Example:  ec=zombieBoe;task=Wander");
+            Debug.Log("Invalid String on Sign: " + signText + " Example:  ec=zombieBoe;task=Wander;pc=0 or  eg=zombiesAll");
             return;
         }
 
@@ -185,13 +213,11 @@ class BlockSpawnCubeSDX : BlockPlayerSign
 
     public override void OnBlockAdded(WorldBase _world, Chunk _chunk, Vector3i _blockPos, BlockValue _blockValue)
     {
-        Debug.Log("OnBlockAdded()");
         base.OnBlockAdded(_world, _chunk, _blockPos, _blockValue);
         CheckForSpawn(_world, _chunk.ClrIdx, _blockPos, _blockValue);
     }
     public override void OnBlockLoaded(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue)
     {
-        Debug.Log("OnBlockLoaded()");
         base.OnBlockLoaded(_world, _clrIdx, _blockPos, _blockValue);
         CheckForSpawn(_world, _clrIdx, _blockPos, _blockValue);
     }
@@ -202,11 +228,11 @@ class BlockSpawnCubeSDX : BlockPlayerSign
             return;
 
         // Hide the sign, so its not visible. Without this, it errors out.
-        //   _ebcd.bHasTransform = false;
+        _ebcd.bHasTransform = false;
         base.OnBlockEntityTransformAfterActivated(_world, _blockPos, _cIdx, _blockValue, _ebcd);
 
         // Re-show the transform. This won't have a visual effect, but fixes when you pick up the block, the outline of the block persists.
-        //  _ebcd.bHasTransform = true;
+        _ebcd.bHasTransform = true;
 
     }
 

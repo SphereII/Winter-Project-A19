@@ -248,7 +248,6 @@
       <!-- build restriction -->
       <property name="Place" value="TowardsPlacerInverted"/>
       <property name="Group" value="Decor/Miscellaneous"/>
-      <property name="DescriptionKey" value="woodSignGroupDesc"/>
       <property name="FilterTags" value="fdecor,fsigns,fother"/>
       <property name="SortOrder1" value="70s0"/>
       <drop event="Fall" count="0" prob="0"/>

@@ -250,6 +250,9 @@ public static class SphereII_CaveTunneler
                                 prefab.Tags = temp;
                                 prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
                                 currentPrefabCount++;
+
+                                // Drop the spacing down further.
+                                y -= (prefab.size.y + 10);
                                 continue;
 
                             }
