@@ -226,7 +226,7 @@ public static class SphereII_CaveTunneler
                     if (IsIsolatedBlock(chunk, new Vector3i(chunkX, y, chunkZ)) && ( currentPrefabCount <= MaxPrefab ))
                     {
 
-                        if (_random.RandomRange(0, 11) < RandomRoll)
+                       // if (_random.RandomRange(0, 11) < RandomRoll)
                         {
                             if (y < 30)
                                 strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
