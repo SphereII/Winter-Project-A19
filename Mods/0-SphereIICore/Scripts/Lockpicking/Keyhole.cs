@@ -82,13 +82,13 @@ namespace Lockpicking
         [Range(1f, 180f)] public float minGiveAmount = 1f;
 
         [Tooltip("Maximum distance (plus and minus) from the lock angle that the lock will open.")]
-        [Range(1f, 180f)] public float maxGiveAmount = 45f;
+        [Range(1f, 180f)] public float maxGiveAmount = 30f;
 
         [Tooltip("Minimum distance for the pick to be in for the lock will turn partially.")]
         [Range(5f, 180f)] public float minCloseDistance = 5f;
 
         [Tooltip("Maximum distance for the pick to be in for the lock will turn partially.")]
-        [Range(5f, 180f)] public float maxCloseDistance = 20f;
+        [Range(5f, 180f)] public float maxCloseDistance = 10f;
 
         [Tooltip("Amount of time to ignore player input after a lock pick breaks.")]
         [Range(0f, 5f)] public float breakPause = 2f;
@@ -216,8 +216,13 @@ namespace Lockpicking
             // give more time to avoid breaking pick locks.
             if (player != null)
             {
-               // float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
-               // breakTime += lockPickBreakChance;
+
+                // Default values.
+                maxGiveAmount = 30f;
+                maxCloseDistance = 10f;
+
+                // float lockPickBreakChance = EffectManager.GetValue(PassiveEffects.LockPickBreakChance, player.inventory.holdingItemItemValue, 0, player, null, default(FastTags), true, true, true, true, 1, true);
+                // breakTime += lockPickBreakChance;
                 ProgressionValue value = player.Progression.GetProgressionValue("perkLockPicking");
                 switch( value.Level )
                 {
@@ -226,12 +231,18 @@ namespace Lockpicking
                         break;
                     case 1:
                         breakTime = Random.Range(0.15f, 0.30f);
+                        maxGiveAmount += 5f;
+                        maxCloseDistance += 5f;
                         break;
                     case 2:
                         breakTime = Random.Range(0.35f, 0.65f);
+                        maxGiveAmount += 10f;
+                        maxCloseDistance += 10f;
                         break;
                     case 3:
                         breakTime = Random.Range(0.75f, 1.25f);
+                        maxGiveAmount += 15f;
+                        maxCloseDistance += 15f;
                         break;
                     default: // if its not any of the other levels
                         breakTime = 0.1f;
