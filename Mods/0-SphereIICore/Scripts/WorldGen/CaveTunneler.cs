@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public static class SphereII_CaveTunneler
 {
@@ -14,7 +15,7 @@ public static class SphereII_CaveTunneler
     static BlockValue bottomDeepCaveDecoration = new BlockValue((uint)Block.GetBlockByName("cntDeepCaveFloorRandomLootHelper", false).blockID);
     static BlockValue topCaveDecoration = new BlockValue((uint)Block.GetBlockByName("cntCaveCeilingRandomLootHelper", false).blockID);
 
-  
+
     public static void AddCaveToChunk(Chunk chunk)
     {
         if (chunk == null)
@@ -186,13 +187,8 @@ public static class SphereII_CaveTunneler
             caveEntrance.z = _random.RandomRange(1, 15);
         }
         int MaxPrefab = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxPrefabPerChunk"));
-        int currentPrefabCount = 0;
 
-        int RandomRoll = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "POIRandomRoll"));
-        if (RandomRoll < 0)
-            RandomRoll = 1;
-
-        String strPOI;
+   
 
         // Decorate decorate the cave spots with blocks. Shrink the chunk loop by 1 on its edges so we can safely check surrounding blocks.
         for (int chunkX = 1; chunkX < 15; chunkX++)
@@ -210,7 +206,8 @@ public static class SphereII_CaveTunneler
                     tHeight = 240;
 
                 // Move from the bottom up, leaving the last few blocks untouched.
-                for (int y = tHeight; y > 5; y--)
+                //for (int y = tHeight; y > 5; y--)
+                for (int y = 5; y < tHeight - 10; y++)
                 {
                     var b = chunk.GetBlock(chunkX, y, chunkZ);
 
@@ -220,45 +217,7 @@ public static class SphereII_CaveTunneler
                     var under = chunk.GetBlock(chunkX, y - 1, chunkZ);
                     var above = chunk.GetBlock(chunkX, y + 1, chunkZ);
 
-                    _random.SetSeed(chunkX * chunkZ * y);
-
-                    // Placing random Prefabs
-                    if (IsIsolatedBlock(chunk, new Vector3i(chunkX, y, chunkZ)) && ( currentPrefabCount <= MaxPrefab ))
-                    {
-
-                       // if (_random.RandomRange(0, 11) < RandomRoll)
-                        {
-                            if (y < 30)
-                                strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
-                            else
-                                strPOI = SphereCache.POIs[_random.RandomRange(0, SphereCache.POIs.Count)];
-
-                            Prefab prefab = FindOrCreatePrefab(strPOI);
-                            if (prefab != null)
-                            {
-                                Vector3i destination = chunk.ToWorldPos(new Vector3i(chunkX, y + prefab.yOffset, chunkZ));
-                              //  UnityEngine.Debug.Log("Placing Prefab: " + strPOI + " at " + destination);
-                                AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
-
-                                // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
-                                // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
-                                POITags temp = prefab.Tags;
-                                prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
-                                prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
-
-                                // Restore any of the tags that might have existed before.
-                                prefab.Tags = temp;
-                                prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
-                                currentPrefabCount++;
-
-                                // Drop the spacing down further.
-                                //if ( y > prefab.size.y + 5 )
-                                //    y -= (prefab.size.y + 5);
-                                continue;
-                            }
-                        }
-                    }
-
+           
                     // If there's a cave entrance on this chunk, find the top air block, and build the cave entrance from it.
                     if (caveEntrance != Vector3i.zero)
                     {
@@ -274,8 +233,8 @@ public static class SphereII_CaveTunneler
                                 for (int x = 0; x < 10; x++)
                                 {
                                     prefab = prefab.Clone();
-                                //    prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, false, false);
-                                //    prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+                                    prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, false, false);
+                                    prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
                                     destination.y--;
 
                                     // Use noise to give the tunnel a bit of a natural look
@@ -320,6 +279,60 @@ public static class SphereII_CaveTunneler
                 }
             }
         }
+
+        for (int a = 0; a < MaxPrefab; a++)
+        {
+            // Grab a random range slightly smaller than the chunk. This is to help pad them away from each other.
+            int x = GameManager.Instance.World.GetGameRandom().RandomRange(5, 6);
+            int z = GameManager.Instance.World.GetGameRandom().RandomRange(5, 6);
+            int height = (int)chunk.GetHeight(x, z);
+            int y = _random.RandomRange(4, height - 10);
+
+            Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
+
+            // if its too close to the bottom of the world, bump it
+            if (y < 2)
+                y += GameManager.Instance.World.GetGameRandom().RandomRange(2, 20);
+
+            String strPOI;
+            if (y < 30)
+                strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
+            else
+                strPOI = SphereCache.POIs[_random.RandomRange(0, SphereCache.POIs.Count)];
+
+            Prefab newPrefab = FindOrCreatePrefab(strPOI);
+            if (newPrefab != null)
+            {
+                Prefab prefab = newPrefab.Clone();
+                prefab.RotateY(true, _random.RandomRange(4));
+                
+                AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
+
+                // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
+                // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
+                POITags temp = prefab.Tags;
+                prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
+                try
+                {
+                    // Trying to track a crash in something.
+                    //prefab.CopyBlocksIntoChunk(GameManager.Instance.World, chunk, destination, _random, true);
+                   // prefab.CopyIntoRPC(GameManager.Instance, destination);
+                    prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+                }
+                catch (Exception ex)
+                {
+                    UnityEngine.Debug.Log("Warning: Could not copy over prefab: " + ex.ToString());
+                    continue;
+                }
+                // Restore any of the tags that might have existed before.
+                prefab.Tags = temp;
+                prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+                
+            }
+
+        }
+
+       // chunk.NeedsRegeneration = true;
     }
 
 
@@ -341,4 +354,3 @@ public static class SphereII_CaveTunneler
 
     }
 }
- 

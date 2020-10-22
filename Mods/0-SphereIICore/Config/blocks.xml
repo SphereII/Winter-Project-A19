@@ -176,8 +176,8 @@
         <!-- higher numbers will result in more vertical drops. A lower number, less so. -->
         <property name="CaveThresholdY" value="0.01"/>
 
-        <!-- CavePOIs are placed where there is an isolated block (only one side of the block has air ), and a random roll between 0 to 10. Adjust this random roll here.-->
-        <property name="POIRandomRoll" value="1" />
+        <!-- CavePOIs are placed where there is an isolated block (only one side of the block has air ), and a random roll between 0 to 100. Adjust this random roll here.-->
+        <property name="POIRandomRoll" value="8" />
         <!-- 10% chance -->
 
         <!--https://leatherbee.org/index.php/2018/10/24/perlin-and-simplex-noise/#:~:text=Lacunarity%20and%20gain%20measure%20how,amplitude%20of%20the%20previous%20octave. -->
@@ -188,7 +188,7 @@
         <property name="Frequency" value="0.09"/>
         <property name="CavePOIs" value="Chiko_SCcave_01,Chiko_SCcave_02,Chiko_SCcave_03,Chiko_SCcave_04,Chiko_SCcave_05,Chiko_SCcave_06,Chiko_SCcave_07" />
         <property name="DeepCavePrefabs" value="Chiko_SCcave_08,Chiko_SCcave_09,Chiko_SCcave_10,Chiko_SCcave_11,Chiko_SCcave_12,Chiko_SCcave_13,Chiko_SCcave_14" />
-        <property name="MaxPrefabPerChunk" value="10" />
+        <property name="MaxPrefabPerChunk" value="1" />
       </property>
     </block>
 
