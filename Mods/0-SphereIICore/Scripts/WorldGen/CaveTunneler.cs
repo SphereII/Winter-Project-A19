@@ -212,8 +212,6 @@ public static class SphereII_CaveTunneler
                 // Move from the bottom up, leaving the last few blocks untouched.
                 for (int y = tHeight; y > 5; y--)
                 {
-                    if (y > 1)
-                        break;
                     var b = chunk.GetBlock(chunkX, y, chunkZ);
 
                     if (b.type != caveAir.type)
@@ -254,7 +252,8 @@ public static class SphereII_CaveTunneler
                                 currentPrefabCount++;
 
                                 // Drop the spacing down further.
-                                y -= (prefab.size.y + 5);
+                                //if ( y > prefab.size.y + 5 )
+                                //    y -= (prefab.size.y + 5);
                                 continue;
                             }
                         }
