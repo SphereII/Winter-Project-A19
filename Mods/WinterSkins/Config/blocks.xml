@@ -1,0 +1,9 @@
+﻿<configs>
+
+  <append xpath="/blocks">
+    <block name="SpawnCubeMannequin">
+      <property name="Extends" value="SpawnCube"/>
+      <property name="Config" value="ec=zombieMannequinFemale" />
+    </block>
+  </append>
+</configs>
