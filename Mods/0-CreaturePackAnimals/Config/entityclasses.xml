@@ -110,7 +110,7 @@
 			<property name="MaxViewAngle" value="270"/>
 			<property name="AITask-1" value="BreakBlock"/>
 			<property name="AITask-2" value="ApproachAndAttackTarget" data="class=EntityZombie,0,EntityPlayer,0,EntitySurvivor,0,EntityBandit,0"/>
-			<property name="AITask-3" value="RunawayFromEntity" data="EntityZombie,EntityZombieDog,EntityZombieCop,EntityZombieCrawl"/>
+			<property name="AITask-3" value="RunawayFromEntity" data="EntityPlayer,EntityZombie,EntityZombieDog,EntityZombieCop,EntityZombieCrawl"/>
 			<property name="AITask-4" value="RunawayWhenHurt" data="runChance=.3;healthPer=.3;healthPerMax=0.6"/>
 			<property name="AITask-5" value="Look"/>
 			<property name="AITask-6" value="Wander"/>
