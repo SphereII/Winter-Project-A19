@@ -315,8 +315,11 @@ public static class SphereII_CaveTunneler
                     // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
                     POITags temp = prefab.Tags;
                     prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
+                    prefab.CopyBlocksIntoChunkNoEntities(GameManager.Instance.World, chunk, destination, _random, true);
+                    List<int> entityInstanceIds = new List<int>();
+                    prefab.CopyEntitiesIntoChunkStub(chunk, destination, entityInstanceIds, true);
                     // Trying to track a crash in something.
-                    prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+                    //prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
                    // CopyIntoLocal(prefab, GameManager.Instance.World.ChunkClusters[0], destination, true, true);
                     // Restore any of the tags that might have existed before.
                     prefab.Tags = temp;
