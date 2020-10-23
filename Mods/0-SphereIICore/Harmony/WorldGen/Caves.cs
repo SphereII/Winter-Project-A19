@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class SphereII_CaveProject
 {
+
+    static bool Spook = true;
+
     private static readonly string AdvFeatureClass = "CaveConfiguration";
     private static readonly string Feature = "CaveEnabled";
     public class SphereII_CaveProject_Init : IHarmony
@@ -25,25 +28,14 @@ public class SphereII_CaveProject
         }
     }
 
-
+    // Make the world darker underground
     [HarmonyPatch(typeof(SkyManager))]
-    [HarmonyPatch("BloodMoon")]
-    public class SphereII_CaveProject_SkyManager_BloodMoon
-    {
-        public static bool Prefix( ref bool __result )
-        {
-            SkyManager.SetSunIntensity(0.3f);
-            __result = true;
-            return false;
-        }
-    }
-
-        [HarmonyPatch(typeof(SkyManager))]
     [HarmonyPatch("Update")]
     public class SphereII_CaveProject_SkyManager
     {
         public static bool Prefix(float ___sunIntensity, float ___sMaxSunIntensity)
         {
+
             if (GameManager.Instance.World.GetPrimaryPlayer() == null)
                 return true;
 
@@ -52,23 +44,20 @@ public class SphereII_CaveProject
                 SkyManager.SetSunIntensity(0.1f);
             }
             return true;
-            //Debug.Log("Sun Intensity: " + ___sunIntensity + " Max: " + ___sMaxSunIntensity);
-
         }
+
         public static void Postfix(float ___sunIntensity, float ___sMaxSunIntensity)
         {
             if (GameManager.Instance.World.GetPrimaryPlayer() == null)
-                return ;
+                return;
 
             if (GameManager.Instance.World.GetPrimaryPlayer().position.y < 30)
             {
                 SkyManager.SetSunIntensity(0.1f);
             }
-                //Debug.Log("Sun Intensity: " + ___sunIntensity + " Max: " + ___sMaxSunIntensity);
 
         }
     }
-
 
     [HarmonyPatch(typeof(SpawnManagerBiomes))]
     [HarmonyPatch("Update")]
@@ -295,7 +284,7 @@ public class SphereII_CaveProject
             Entity entity = EntityFactory.CreateEntity(randomFromGroup, vector);
             entity.SetSpawnerSource(EnumSpawnerSource.Biome, _chunkBiomeSpawnData.chunk.Key, entityGroupName);
             EntityAlive myEntity = entity as EntityAlive;
-            if ( myEntity )
+            if (myEntity)
             {
                 myEntity.SetSleeper();
             }

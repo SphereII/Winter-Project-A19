@@ -109,6 +109,11 @@
 
       </property>
 
+      <!-- Allow themed settings to be applied: See Harmony/Atmosphere/-->
+      <property class="Theme" >
+        <property name="Spook" value="true"/>
+      </property>
+      
       <property class="AdvancedWorkstationFeatures" >
         <property name="Logging" value="false"/>
         <property name="EnablePoweredWorkstations" value="true" />

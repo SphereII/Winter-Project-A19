@@ -1,5 +1,5 @@
 ﻿<configs>
-  <append xpath="//entitygroups[@name='ZombiesNight']">
-    <entity name="zombieMannequinFemale" />
+  <append xpath="//entitygroup[@name='ZombiesNight']">
+    <entity name="zombieMannequinFemale" prob="0.2"/>
   </append>
 </configs>
