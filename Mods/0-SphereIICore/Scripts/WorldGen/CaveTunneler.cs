@@ -318,9 +318,9 @@ public static class SphereII_CaveTunneler
                     prefab.CopyBlocksIntoChunkNoEntities(GameManager.Instance.World, chunk, destination, _random, true);
                     List<int> entityInstanceIds = new List<int>();
                     prefab.CopyEntitiesIntoChunkStub(chunk, destination, entityInstanceIds, true);
+
                     // Trying to track a crash in something.
                     //prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
-                   // CopyIntoLocal(prefab, GameManager.Instance.World.ChunkClusters[0], destination, true, true);
                     // Restore any of the tags that might have existed before.
                     prefab.Tags = temp;
 

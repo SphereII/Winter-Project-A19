@@ -27,4 +27,8 @@
       <entity name="animalGuppyInsect" />
     </entitygroup>
   </append>
+  
+  <append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
+    <entity name="fantasyNightmare03Flying" prob="0.10"/>
+  </append>
 </configs>
