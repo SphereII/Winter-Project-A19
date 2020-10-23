@@ -500,4 +500,8 @@
 		</entity_class>			
 		
 	</append>
+
+  <set xpath="//entity_class[@name='zombieBurnt']/property[@name='SoundSense']/@value">SpiritWhispers</set>
+  <set xpath="//entity_class[@name='zombieDemolition']/property[@name='SoundSense']/@value">SpiritWhispers</set>
+  
 </configs>

@@ -199,7 +199,7 @@ public static class SphereII_CaveTunneler
                 var worldZ = chunkPos.z + chunkZ;
 
                 var tHeight = chunk.GetTerrainHeight(chunkX, chunkZ);
-                tHeight -= 10;
+          //      tHeight -= 10;
 
                 // One test world, we blew through a threshold.
                 if (tHeight > 250)
@@ -283,17 +283,18 @@ public static class SphereII_CaveTunneler
         for (int a = 0; a < MaxPrefab; a++)
         {
             // Grab a random range slightly smaller than the chunk. This is to help pad them away from each other.
-            int x = GameManager.Instance.World.GetGameRandom().RandomRange(5, 6);
-            int z = GameManager.Instance.World.GetGameRandom().RandomRange(5, 6);
+            int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 15);
+            int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 15);
             int height = (int)chunk.GetHeight(x, z);
-            int y = _random.RandomRange(4, height - 10);
-
-            Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
+            int y = _random.RandomRange(4 , height - 10);
 
             // if its too close to the bottom of the world, bump it
             if (y < 2)
                 y += GameManager.Instance.World.GetGameRandom().RandomRange(2, 20);
 
+            Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
+
+            // Decide what kind of prefab to spawn in.
             String strPOI;
             if (y < 30)
                 strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
@@ -308,25 +309,26 @@ public static class SphereII_CaveTunneler
                 
                 AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
 
-                // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
-                // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
-                POITags temp = prefab.Tags;
-                prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
                 try
                 {
+                    // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
+                    // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
+                    POITags temp = prefab.Tags;
+                    prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
                     // Trying to track a crash in something.
-                    //prefab.CopyBlocksIntoChunk(GameManager.Instance.World, chunk, destination, _random, true);
-                   // prefab.CopyIntoRPC(GameManager.Instance, destination);
                     prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+                   // CopyIntoLocal(prefab, GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+                    // Restore any of the tags that might have existed before.
+                    prefab.Tags = temp;
+
+                    prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+
                 }
                 catch (Exception ex)
                 {
                     UnityEngine.Debug.Log("Warning: Could not copy over prefab: " + ex.ToString());
                     continue;
                 }
-                // Restore any of the tags that might have existed before.
-                prefab.Tags = temp;
-                prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
                 
             }
 
@@ -334,8 +336,6 @@ public static class SphereII_CaveTunneler
 
        // chunk.NeedsRegeneration = true;
     }
-
-
 
     // We want to place prefabs in isolated blocks, meaning that its just a single air block that is mostly covered with terrain. 
     // Since its not a usable space to the player, its a decent choice for spawning.

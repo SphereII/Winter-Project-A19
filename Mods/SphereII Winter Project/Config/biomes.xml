@@ -10,37 +10,38 @@
     <resource blockname="terrIce" prob="0.6500" rwgGenerationType="all" cluster="0"/>
     <resource blockname="terrSnowTrap" prob="0.6500" rwgGenerationType="all" cluster="0"/>
   </append>
-  
+
   <!-- Change the particle effect for the biomes, so we don't get a sandstorm -->
   <remove xpath="/worldgeneration/biomes/biome/weather/ParticleEffect" />
   <remove xpath="/worldgeneration/biomes/biome/weather/Fog" />
   <remove xpath="/worldgeneration/biomes/biome/weather/CloudThickness" />
-  <remove xpath="/worldgeneration/biomes/biome/weather/Precipitation" />  
-  <remove xpath="/worldgeneration/biomes/biome/weather/Wind" />  
-  
-  
+  <remove xpath="/worldgeneration/biomes/biome/weather/Precipitation" />
+  <remove xpath="/worldgeneration/biomes/biome/weather/Wind" />
+
+
   <append xpath="/worldgeneration/biomes/biome/weather" >
     <ParticleEffect prefab="ParticleEffects/p_snowstorm1" ChunkMargin="7"/>
     <Fog min="0" max="0" prob="0.1"/>
     <Fog min="95" max="100" prob="0.9"/>
-	<CloudThickness min="0" max="100" prob=".01"/>
-	<CloudThickness min="95" max="100" prob=".99"/>
-	<Precipitation min="0" max="0" prob=".01"/> <!-- it has to be at least 70% cloudy before it can rain -->
-	<Precipitation min="50" max="100" prob=".99"/>
-	<Wind min="20" max="40" prob="0.5"/>
-	<Wind min="40" max="100" prob="0.5"/>
-   </append>
-  
-  <set xpath="/worldgeneration/weather/property[@class='Rainy']/property[@name='Spectrum']/@value">snowy</set>
+    <CloudThickness min="0" max="100" prob=".01"/>
+    <CloudThickness min="95" max="100" prob=".99"/>
+    <Precipitation min="0" max="0" prob=".01"/>
+    <!-- it has to be at least 70% cloudy before it can rain -->
+    <Precipitation min="50" max="100" prob=".99"/>
+    <Wind min="20" max="40" prob="0.5"/>
+    <Wind min="40" max="100" prob="0.5"/>
+  </append>
 
-   
+  <set xpath="/worldgeneration/weather/property[@class='Rainy']/property[@name='Spectrum']/@value">snow</set>
+
+
   <!-- Change the fill up to with ice, instead of water. I don't think this does anything though -->
   <set xpath="/worldgeneration/biomes/biome//layers/layer[@filluptorg]/@blockname">terrIce</set>
 
   <!-- Set all global temperatures to be the same range-->
   <set xpath="/worldgeneration/biomes/biome/weather/Temperature/@min">-80</set>
   <set xpath="/worldgeneration/biomes/biome/weather/Temperature/@max">-100</set>
-       
+
   <!-- Remove all surface biome decorations -->
   <remove xpath="/worldgeneration/biomes/biome//decorations/decoration" />
 

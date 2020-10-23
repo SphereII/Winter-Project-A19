@@ -13,6 +13,8 @@ class BlockSpawnCubeSDX : BlockPlayerSign
     new BlockActivationCommand("Trigger", "trigger", true)
 
 };
+
+   
     public override bool OnBlockActivated(int _indexInBlockActivationCommands, WorldBase _world, int _cIdx, Vector3i _blockPos, BlockValue _blockValue, EntityAlive _player)
     {
         if (_blockValue.ischild)
@@ -52,8 +54,6 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_clrIdx, _blockPos);
         if (tileEntitySign == null)
         {
-
-            Debug.Log("No Sign");
             return new BlockActivationCommand[0];
         }
         if (_world.IsEditor() || _entityFocusing.IsGodMode.Value)
@@ -131,7 +131,6 @@ class BlockSpawnCubeSDX : BlockPlayerSign
 
         Entity myEntity = null;
         // entityclass:zombieWightFeral;task:wander
-        Debug.Log("SignText: " + signText);
         if (string.IsNullOrEmpty(signText))
             return;
 
@@ -214,6 +213,12 @@ class BlockSpawnCubeSDX : BlockPlayerSign
     public override void OnBlockAdded(WorldBase _world, Chunk _chunk, Vector3i _blockPos, BlockValue _blockValue)
     {
         base.OnBlockAdded(_world, _chunk, _blockPos, _blockValue);
+        TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_chunk.ClrIdx, _blockPos);
+        if (tileEntitySign != null)
+        {
+            if (this.Properties.Values.ContainsKey("Config"))
+                tileEntitySign.SetText(this.Properties.Values["Config"]);
+        }
         CheckForSpawn(_world, _chunk.ClrIdx, _blockPos, _blockValue);
     }
     public override void OnBlockLoaded(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue)

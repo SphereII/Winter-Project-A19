@@ -1,546 +1,600 @@
 <configs>
 
-	<!-- IMPORTANT NOTE: In entityclasses.xml, effect_groups DO extend if you extend an entity to another.
+  <!-- IMPORTANT NOTE: In entityclasses.xml, effect_groups DO extend if you extend an entity to another.
 		Pay attention so that you do not stack several base_add or perc_add. -->
-		
-	
 
-<!--  Zombie templates   -->
 
-	<append xpath="/entity_classes">
 
-		<entity_class name="zombieRegularTFPTemplate">
-			<property name="EntityType" value="Zombie"/> <!-- This one decides for scoring -->
-			<property name="Tags" value="entity,cp,male,zombie,walker,melee,template"/>  <!-- entity/sex/type/role/attacktype: Entity is required for code filtering, sex for sound filtering, type/role and Atype for buff filtering.  These DO NOT Extend! -->
-			<property name="HideInSpawnMenu" value="true"/><!-- A19  -->
-			<property name="LookAtAngle" value="60"/> <!-- A19  -->
-			<!-- Mesh and class properties -->
-			<property name="Mesh" value="Zombies/zombieStandardBoeRagdoll"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="ModelType" value="Standard"/>
-			<property name="HasRagdoll" value="true"/>
-			<property name="Prefab" value="NPC"/>
-			<property name="Class" value="EntityZombie"/>
-			<property name="Parent" value="Enemies"/>
-			<property name="Mass" value="170"/>
-			<property name="Weight" value="70"/>
-			<property name="PhysicsBody" value="zombieStandard"/>
-			<property name="Faction" value="undead"/>
-			<property name="Tags" value="entity,cp,male,zombie,walker"/>
-			<property name="IsEnemyEntity" value="true"/>
-			<!-- <property name="MapIcon" value="ui_game_symbol_enemy_dot" /> -->
-			<property name="CompassIcon" value="ui_game_symbol_enemy_dot" />
-			<property name="CompassUpIcon" value="ui_game_symbol_enemy_dot_up" />
-			<property name="CompassDownIcon" value="ui_game_symbol_enemy_dot_down" />
-			<property name="TrackerIcon" value="ui_game_symbol_run"/>
-			<property name="AINoiseSeekDist" value="8"/>
-			<property name="AIPathCostScale" value=".15, .4"/>
-			<property name="AITask-1" value="BreakBlock"/>
-			<property name="AITask-2" value="DestroyArea"/>
-			<property name="AITask-3" value="Territorial"/>
-			<property name="AITask-4" value="ApproachDistraction"/>
-			<property name="AITask-5" value="ApproachAndAttackTarget" data="class=EntityAnimalStag,20,EntityEnemyAnimal,0,EntitySurvivor,0,EntityPlayer,0,EntityBandit,0"/>
-			<property name="AITask-6" value="ApproachSpot"/>
-			<property name="AITask-7" value="Look"/>
-			<property name="AITask-8" value="Wander"/>
-			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityEnemyAnimal,EntityPlayer"/>
-			<property name="AITarget-2" value="BlockingTargetTask"/>
-			<property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
-			<property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,0,0,EntityAlive,0,0"/> 
-			<property class="FallLandBehavior">
-				<property name="1None" data="anim=None;height=0,1;weight=0.4"/>
-				<property name="1Land" data="anim=Land;height=0,1;weight=0.4"/>
-				<property name="1LandLow" data="anim=LandLow;height=0,1;weight=0.15"/>
-				<property name="1Stumble" data="anim=Stumble;height=0,1;weight=0.05"/>
-				<property name="LowLand" data="anim=LandLow;height=1,3;weight=0.7"/>
-				<property name="LowStumble" data="anim=Stumble;height=1,3;weight=0.3"/>
-				<property name="MidStumble" data="anim=Stumble;height=3,5;weight=0.3"/>
-				<property name="MidStumbleAndRage" data="anim=Stumble;height=3,5;weight=0.3;ragePer=0.5,1.5;rageTime=1.0,2.0"/>
-				<property name="MidLandHard" data="anim=LandHard;height=3,5;weight=0.3"/>
-				<property name="MidLandHardAndRage" data="anim=LandHard;height=3,5;weight=0.3;ragePer=0.5,1.5;rageTime=1.0,2.0"/>
-				<property name="Ragdoll" data="anim=Ragdoll;height=3;weight=0.4"/>
-			</property>
-			<property class="DestroyBlockBehavior">
-				<property name="None" data="weight=0.0"/>
-				<property name="Stumble" data="weight=0.2"/>
-				<property name="Ragdoll" data="weight=0.2"/>
-			</property>
-			<property name="WalkType" value="7"/>
-			<property name="SoundRandomTime" value="60.0"/> <!-- It will play the roam every 60/30 seconds -->
-			<property name="SoundRandom" value="Enemies/Base_Zombie_Male/zombiemaleroam"/>
-			<property name="SoundAlertTime" value="25.0"/> <!-- It will play the roam every 25/12.5 seconds-->
-			<property name="SoundAlert" value="Enemies/Base_Zombie_Male/zombiemalealert"/>
-			<property name="SoundSense" value="Enemies/Base_Zombie_Male/zombiemalesense"/>
-			<property name="SoundHurt" value="Enemies/Base_Zombie_Male/zombiemalepain"/>
-			<property name="SoundDeath" value="Enemies/Base_Zombie_Male/zombiemaledeath"/>
-			<property name="SoundAttack" value="Enemies/Base_Zombie_Male/zombiemaleattack"/>
-			<property name="SoundSleeperSense" value="sleepersense"/>
-			<property name="SoundSleeperBackToSleep" value="sleeperbacktosleep"/>
-			<property name="RootMotion" value="true"/>
-			<property name="HasDeathAnim" value="true"/>
-			<property name="ParticleOnDeath" value="blood_death"/>
-			<property name="SurfaceCategory" value="organic"/> <!-- determines the particle effect played on hit -->
-			<property name="DismemberMultiplierHead" value="1"/>
-			<property name="DismemberMultiplierArms" value="1"/>
-			<property name="DismemberMultiplierLegs" value="1"/>
-			<property name="LegCrippleScale" value="2"/> <!-- Scales chance to cripple (percent of health that a hit does is the chance) -->
-			<property name="LegCrawlerThreshold" value="0"/> <!-- at like .175 nearly every zombie knocked down from a leg hit turns into a crawler -->
-			<property name="KnockdownProneDamageThreshold" value="0.5"/>
-			<property name="KnockdownProneStunDuration" value="0.5,1.8"/>
-			<property name="KnockdownProneRefillRate" value="0.045,0.045"/>
-			<property name="KnockdownKneelDamageThreshold" value="0.4"/>
-			<property name="KnockdownKneelStunDuration" value="0.5,1.8"/>
-			<property name="KnockdownKneelRefillRate" value="0.045,0.045"/>
-			<property name="LegsExplosionDamageMultiplier" value="1"/>
-			<property name="ArmsExplosionDamageMultiplier" value="1"/>
-			<property name="HeadExplosionDamageMultiplier" value="1"/>
-			<property name="ChestExplosionDamageMultiplier" value="1"/>
-			<property name="PainResistPerHit" value=".45"/>
-			<property name="MaxViewAngle" value="180"/>
-			<property name="SightRange" value="30"/> <!-- distance in m -->
-			<property name="SightLightThreshold" value="-2,150"/> <!-- how well lit you have to be for the zombie to see you at min,max range -->
-			<property name="SleeperWakeupSightDetectionMin" value="-40,5"/> <!-- Indiv.Random. sight capability - "I see you" light value at point blank -->
-			<property name="SleeperWakeupSightDetectionMax" value="340,480"/> <!-- Indiv.Random. "I see you" light value at "SightRange" -->
-			<property name="SleeperSenseSightDetectionMin" value="-10,0"/> <!-- same for groaning, not waking -->
-			<property name="SleeperSenseSightDetectionMax" value="200,300"/>
-			<property name="SleeperNoiseSenseThreshold" value="3,8"/> <!-- Indiv.Random. hearing capability - "I hear something" noise value -->
-			<property name="SleeperNoiseWakeThreshold" value="9,12"/>
-			<property name="SleeperSmellSenseThreshold" value="20,50"/> <!-- Indiv.Random. smell capability - "I smell something" player smell value -->
-			<property name="SoundSleeperSenseChance" value=".5"/> <!-- the chance to play "SoundSleeperSense" when "SleeperSmellSenseThreshold" is triggered -->
-			<property name="SleeperSmellWakeThreshold" value="40,100"/>
-			<property name="NoiseAlertThreshold" value="30"/> <!-- DEPRECATED; an awake zombie triggers instantly if touched by the sound range/volume -->
-			<property name="SmellAlertThreshold" value="40"/> <!-- for awake zombies -->
-			<property name="MaxTurnSpeed" value="250"/>
-			<property name="MoveSpeed" value="0.08"/> <!-- Just shambling around -->
-			<property name="MoveSpeedAggro" value="0.2, 1.25"/> <!-- Chasing a target min/max (like day or night)-->
-			<property name="MoveSpeedRand" value="-.2, .25"/> <!-- Rand added to min aggro speed -->
-			<property name="MoveSpeedPanic" value="0.55"/>
-			<property name="SwimSpeed" value="1"/><!-- A19  -->
-			<property name="SwimStrokeRate" value="1,1.5"/><!-- A19  -->
-			<property name="CanClimbLadders" value="true"/>
-			<property name="JumpMaxDistance" value="2.8, 3.9"/>
-			<property name="HandItem" value="meleeHandZombie001M"/>
-			<property name="HandItemCrawler" value="meleeHandZombie002M"/> <!-- meleeHandZombie02 is referenced in code but can be overridden -->
-			<property name="AttackTimeoutDay" value="1.5"/> <!-- 1.5 in s -->
-			<property name="AttackTimeoutNight" value="1.1"/>
-			<!-- <property name="Buffs" value="zombieRadiatedBuff80"/> -->
-			<property name="Immunity" value="sickness;disease;wellness"/> <!-- bleeding; -->
-			<property name="ExperienceGain" value="413"/> <!-- XP grunt -->
-			<property name="LootDropProb" value="0.02"/> <!-- Whether it drops a loot bag on death or not. -->
-			<!-- <property name="LootListOnDeath" value="45"/> -->
-			<property name="LootDropEntityClass" value="EntityLootContainerRegular"/>
-			<!-- <property name="CorpseBlock" value="air"/><property name="CorpseBlockChance" value="0"/> -->
-			<property name="TimeStayAfterDeath" value="30"/>
-			<property name="DeadBodyHitPoints" value="1000"/> <!-- For harvesting or resisting corpse destruction --> <!-- to adjust corpse destruction speed for the non-harvest zombie corpses. This property does not extend. -->
-			<property name="NavObject" value="clear_sleeper" /><!-- A19  -->
-			<effect_group name="Base Effects"> <!-- zombieTemplateMale -->
-				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
-				<passive_effect name="HealthMax" operation="base_set" value="150"/>
-				<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
-				<passive_effect name="StaminaMax" operation="base_set" value="100"/>
-				<passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
+  <!--  Zombie templates   -->
 
-				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="noTeethNoInfection" operation="set" value="0">
-					<requirement name="NotHasBuff" buff="buffBrawlerNoTeeth"/></triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="noTeethNoInfection" operation="set" value="1">
-					<requirement name="HasBuff" buff="buffBrawlerNoTeeth"/></triggered_effect>
-			</effect_group>
-			<effect_group name="IsZombie">
-				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" target="self" buff="IsTFPZombie"/>		
-			</effect_group>			
-		</entity_class>
-		
-		<entity_class name="zombieRegularFemaleTFPTemplate" extends="zombieRegularTFPTemplate">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="PhysicsBody" value="zombieStandardFemale"/>
-			<property name="Tags" value="entity,cp,female,zombie,walker,template"/> 
-			<property name="SoundRandom" value="Enemies/Base_Zombie_Female2/zombiefemale2roam"/>
-			<property name="SoundAlert" value="Enemies/Base_Zombie_Female2/zombiefemale2alert"/>
-			<property name="SoundAttack" value="Enemies/Base_Zombie_Female2/zombiefemale2attack"/>
-			<property name="SoundHurt" value="Enemies/Base_Zombie_Female2/zombiefemale2pain"/>
-			<property name="SoundDeath" value="Enemies/Base_Zombie_Female2/zombiefemale2death"/>
-			<property name="SoundSense" value="Enemies/Base_Zombie_Female2/zombiefemale2sense"/>
-		</entity_class> 
-		
-		
-		<entity_class name="zombieRegularAltTFPTemplate" extends="zombieRegularTFPTemplate">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="Tags" value="entity,cp,male,zombie,walker,template,alt"/> <!-- Zombies will attack other zombies if hit by them  -->
-			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityAlive"/>
-		</entity_class> 
-			
-		<entity_class name="zombieBruteTFPTemplate" extends="zombieRegularTFPTemplate">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="Tags" value="entity,cp,male,zombie,walker,template"/>
-			<property name="Mesh" value="Zombies/zombieStandardHawaiianRagdoll"/>
-			<property name="SoundRandom" value="Enemies/Acid_Puking_Hulk/hulkroam"/>
-			<property name="SoundAlert" value="Enemies/Acid_Puking_Hulk/hulkalert"/>
-			<property name="SoundAttack" value="Enemies/Acid_Puking_Hulk/hulkattack"/>
-			<property name="SoundHurt" value="Enemies/Acid_Puking_Hulk/hulkpain"/>
-			<property name="SoundDeath" value="Enemies/Acid_Puking_Hulk/hulkdeath"/>
-			<property name="SoundSense" value="Enemies/Acid_Puking_Hulk/hulksense"/>
-			<property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="ModelType" value="Standard"/>
-			<property name="WalkType" value="1"/>
-			<property name="Mass" value="250"/>
-			<property name="PhysicsBody" value="zombieFat"/>
-			<property name="RootMotion" value="true"/>
-			<property name="HasDeathAnim" value="true"/>
-			<property name="HandItem" value="meleeHandZombieFeral2M"/>
-			<property name="JumpMaxDistance" value=".9, 1"/>
-			<property name="ExperienceGain" value="750"/>
-			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="300"/>
-				<passive_effect name="HealthMax" operation="perc_set" value="1"/>
-			</effect_group>
-		</entity_class>  
+  <append xpath="/entity_classes">
 
-		<entity_class name="zombieBossTFPTemplate" extends="zombieRegularTFPTemplate">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="Tags" value="entity,cp,male,zombie,walker,feral,template"/>
-			<property name="Mesh" value="Zombies/zombieStandardFeralRagdoll"/>
-			<property name="SoundRandom" value="Enemies/Feral_Zombie/zombieferalroam"/>
-			<property name="SoundAlert" value="Enemies/Feral_Zombie/zombieferalalert"/>
-			<property name="SoundAttack" value="Enemies/Feral_Zombie/zombieferalattack"/>
-			<property name="SoundHurt" value="Enemies/Feral_Zombie/zombieferalpain"/>
-			<property name="SoundDeath" value="Enemies/Feral_Zombie/zombieferaldeath"/>
-			<property name="SoundSense" value="Enemies/Feral_Zombie/zombieferalsense"/>
-			<property name="SoundFootstepModifier" value="Enemies/Feral_Zombie/zombieferalfootstep"/>
-			<property name="WalkType" value="2"/>
-			<property name="Mass" value="210"/>
-			<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
-			<property name="PainResistPerHit" value=".25"/>
-			<property name="MoveSpeedAggro" value=".5, 1.35"/>
-			<property name="HandItem" value="meleeHandZombieFeral2M"/>
-			<property name="JumpMaxDistance" value="4.6, 5"/>
-			<property name="ExperienceGain" value="1200"/>
-			<property name="LootDropProb" value=".03"/>
-			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-			<effect_group name="Base Effects">
-				<passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
-				<passive_effect name="HealthMax" operation="base_set" value="532"/>
-				<passive_effect name="HealthMax" operation="perc_set" value="1"/> 
-			</effect_group>
-		</entity_class> 
+    <entity_class name="zombieRegularTFPTemplate">
+      <property name="EntityType" value="Zombie"/>
+      <!-- This one decides for scoring -->
+      <property name="Tags" value="entity,cp,male,zombie,walker,melee,template"/>
+      <!-- entity/sex/type/role/attacktype: Entity is required for code filtering, sex for sound filtering, type/role and Atype for buff filtering.  These DO NOT Extend! -->
+      <property name="HideInSpawnMenu" value="true"/>
+      <!-- A19  -->
+      <property name="LookAtAngle" value="60"/>
+      <!-- A19  -->
+      <!-- Mesh and class properties -->
+      <property name="Mesh" value="Zombies/zombieStandardBoeRagdoll"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="ModelType" value="Standard"/>
+      <property name="HasRagdoll" value="true"/>
+      <property name="Prefab" value="NPC"/>
+      <property name="Class" value="EntityZombie"/>
+      <property name="Parent" value="Enemies"/>
+      <property name="Mass" value="170"/>
+      <property name="Weight" value="70"/>
+      <property name="PhysicsBody" value="zombieStandard"/>
+      <property name="Faction" value="undead"/>
+      <property name="Tags" value="entity,cp,male,zombie,walker"/>
+      <property name="IsEnemyEntity" value="true"/>
+      <!-- <property name="MapIcon" value="ui_game_symbol_enemy_dot" /> -->
+      <property name="CompassIcon" value="ui_game_symbol_enemy_dot" />
+      <property name="CompassUpIcon" value="ui_game_symbol_enemy_dot_up" />
+      <property name="CompassDownIcon" value="ui_game_symbol_enemy_dot_down" />
+      <property name="TrackerIcon" value="ui_game_symbol_run"/>
+      <property name="AINoiseSeekDist" value="8"/>
+      <property name="AIPathCostScale" value=".15, .4"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="DestroyArea"/>
+      <property name="AITask-3" value="Territorial"/>
+      <property name="AITask-4" value="ApproachDistraction"/>
+      <property name="AITask-5" value="ApproachAndAttackTarget" data="class=EntityAnimalStag,20,EntityEnemyAnimal,0,EntitySurvivor,0,EntityPlayer,0,EntityBandit,0"/>
+      <property name="AITask-6" value="ApproachSpot"/>
+      <property name="AITask-7" value="Look"/>
+      <property name="AITask-8" value="Wander"/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityEnemyAnimal,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,0,0,EntityAlive,0,0"/>
+      <property class="FallLandBehavior">
+        <property name="1None" data="anim=None;height=0,1;weight=0.4"/>
+        <property name="1Land" data="anim=Land;height=0,1;weight=0.4"/>
+        <property name="1LandLow" data="anim=LandLow;height=0,1;weight=0.15"/>
+        <property name="1Stumble" data="anim=Stumble;height=0,1;weight=0.05"/>
+        <property name="LowLand" data="anim=LandLow;height=1,3;weight=0.7"/>
+        <property name="LowStumble" data="anim=Stumble;height=1,3;weight=0.3"/>
+        <property name="MidStumble" data="anim=Stumble;height=3,5;weight=0.3"/>
+        <property name="MidStumbleAndRage" data="anim=Stumble;height=3,5;weight=0.3;ragePer=0.5,1.5;rageTime=1.0,2.0"/>
+        <property name="MidLandHard" data="anim=LandHard;height=3,5;weight=0.3"/>
+        <property name="MidLandHardAndRage" data="anim=LandHard;height=3,5;weight=0.3;ragePer=0.5,1.5;rageTime=1.0,2.0"/>
+        <property name="Ragdoll" data="anim=Ragdoll;height=3;weight=0.4"/>
+      </property>
+      <property class="DestroyBlockBehavior">
+        <property name="None" data="weight=0.0"/>
+        <property name="Stumble" data="weight=0.2"/>
+        <property name="Ragdoll" data="weight=0.2"/>
+      </property>
+      <property name="WalkType" value="7"/>
+      <property name="SoundRandomTime" value="60.0"/>
+      <!-- It will play the roam every 60/30 seconds -->
+      <property name="SoundRandom" value="Enemies/Base_Zombie_Male/zombiemaleroam"/>
+      <property name="SoundAlertTime" value="25.0"/>
+      <!-- It will play the roam every 25/12.5 seconds-->
+      <property name="SoundAlert" value="Enemies/Base_Zombie_Male/zombiemalealert"/>
+      <property name="SoundSense" value="Enemies/Base_Zombie_Male/zombiemalesense"/>
+      <property name="SoundHurt" value="Enemies/Base_Zombie_Male/zombiemalepain"/>
+      <property name="SoundDeath" value="Enemies/Base_Zombie_Male/zombiemaledeath"/>
+      <property name="SoundAttack" value="Enemies/Base_Zombie_Male/zombiemaleattack"/>
+      <property name="SoundSleeperSense" value="sleepersense"/>
+      <property name="SoundSleeperBackToSleep" value="sleeperbacktosleep"/>
+      <property name="RootMotion" value="true"/>
+      <property name="HasDeathAnim" value="true"/>
+      <property name="ParticleOnDeath" value="blood_death"/>
+      <property name="SurfaceCategory" value="organic"/>
+      <!-- determines the particle effect played on hit -->
+      <property name="DismemberMultiplierHead" value="1"/>
+      <property name="DismemberMultiplierArms" value="1"/>
+      <property name="DismemberMultiplierLegs" value="1"/>
+      <property name="LegCrippleScale" value="2"/>
+      <!-- Scales chance to cripple (percent of health that a hit does is the chance) -->
+      <property name="LegCrawlerThreshold" value="0"/>
+      <!-- at like .175 nearly every zombie knocked down from a leg hit turns into a crawler -->
+      <property name="KnockdownProneDamageThreshold" value="0.5"/>
+      <property name="KnockdownProneStunDuration" value="0.5,1.8"/>
+      <property name="KnockdownProneRefillRate" value="0.045,0.045"/>
+      <property name="KnockdownKneelDamageThreshold" value="0.4"/>
+      <property name="KnockdownKneelStunDuration" value="0.5,1.8"/>
+      <property name="KnockdownKneelRefillRate" value="0.045,0.045"/>
+      <property name="LegsExplosionDamageMultiplier" value="1"/>
+      <property name="ArmsExplosionDamageMultiplier" value="1"/>
+      <property name="HeadExplosionDamageMultiplier" value="1"/>
+      <property name="ChestExplosionDamageMultiplier" value="1"/>
+      <property name="PainResistPerHit" value=".45"/>
+      <property name="MaxViewAngle" value="180"/>
+      <property name="SightRange" value="30"/>
+      <!-- distance in m -->
+      <property name="SightLightThreshold" value="-2,150"/>
+      <!-- how well lit you have to be for the zombie to see you at min,max range -->
+      <property name="SleeperWakeupSightDetectionMin" value="-40,5"/>
+      <!-- Indiv.Random. sight capability - "I see you" light value at point blank -->
+      <property name="SleeperWakeupSightDetectionMax" value="340,480"/>
+      <!-- Indiv.Random. "I see you" light value at "SightRange" -->
+      <property name="SleeperSenseSightDetectionMin" value="-10,0"/>
+      <!-- same for groaning, not waking -->
+      <property name="SleeperSenseSightDetectionMax" value="200,300"/>
+      <property name="SleeperNoiseSenseThreshold" value="3,8"/>
+      <!-- Indiv.Random. hearing capability - "I hear something" noise value -->
+      <property name="SleeperNoiseWakeThreshold" value="9,12"/>
+      <property name="SleeperSmellSenseThreshold" value="20,50"/>
+      <!-- Indiv.Random. smell capability - "I smell something" player smell value -->
+      <property name="SoundSleeperSenseChance" value=".5"/>
+      <!-- the chance to play "SoundSleeperSense" when "SleeperSmellSenseThreshold" is triggered -->
+      <property name="SleeperSmellWakeThreshold" value="40,100"/>
+      <property name="NoiseAlertThreshold" value="30"/>
+      <!-- DEPRECATED; an awake zombie triggers instantly if touched by the sound range/volume -->
+      <property name="SmellAlertThreshold" value="40"/>
+      <!-- for awake zombies -->
+      <property name="MaxTurnSpeed" value="250"/>
+      <property name="MoveSpeed" value="0.08"/>
+      <!-- Just shambling around -->
+      <property name="MoveSpeedAggro" value="0.2, 1.25"/>
+      <!-- Chasing a target min/max (like day or night)-->
+      <property name="MoveSpeedRand" value="-.2, .25"/>
+      <!-- Rand added to min aggro speed -->
+      <property name="MoveSpeedPanic" value="0.55"/>
+      <property name="SwimSpeed" value="1"/>
+      <!-- A19  -->
+      <property name="SwimStrokeRate" value="1,1.5"/>
+      <!-- A19  -->
+      <property name="CanClimbLadders" value="true"/>
+      <property name="JumpMaxDistance" value="2.8, 3.9"/>
+      <property name="HandItem" value="meleeHandZombie001M"/>
+      <property name="HandItemCrawler" value="meleeHandZombie002M"/>
+      <!-- meleeHandZombie02 is referenced in code but can be overridden -->
+      <property name="AttackTimeoutDay" value="1.5"/>
+      <!-- 1.5 in s -->
+      <property name="AttackTimeoutNight" value="1.1"/>
+      <!-- <property name="Buffs" value="zombieRadiatedBuff80"/> -->
+      <property name="Immunity" value="sickness;disease;wellness"/>
+      <!-- bleeding; -->
+      <property name="ExperienceGain" value="413"/>
+      <!-- XP grunt -->
+      <property name="LootDropProb" value="0.02"/>
+      <!-- Whether it drops a loot bag on death or not. -->
+      <!-- <property name="LootListOnDeath" value="45"/> -->
+      <property name="LootDropEntityClass" value="EntityLootContainerRegular"/>
+      <!-- <property name="CorpseBlock" value="air"/><property name="CorpseBlockChance" value="0"/> -->
+      <property name="TimeStayAfterDeath" value="30"/>
+      <property name="DeadBodyHitPoints" value="1000"/>
+      <!-- For harvesting or resisting corpse destruction -->
+      <!-- to adjust corpse destruction speed for the non-harvest zombie corpses. This property does not extend. -->
+      <property name="NavObject" value="clear_sleeper" />
+      <!-- A19  -->
+      <effect_group name="Base Effects">
+        <!-- zombieTemplateMale -->
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="150"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+        <passive_effect name="StaminaMax" operation="base_set" value="100"/>
+        <passive_effect name="BuffResistance" operation="base_set" value="5" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"/>
 
-		<entity_class name="zombieCopTFPTemplate" extends="zombieRegularTFPTemplate">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="Tags" value="entity,cp,male,zombie,walker,template"/>
-			<property name="Mesh" value="Zombies/zombieStandardCopRagdoll"/>
-			<property name="Class" value="EntityZombieCop"/>
-			<property name="WalkType" value="1"/>
-			<property name="RightHandJointName" value="Jaw"/>
-			<property name="HandItem" value="meleeHandZombieCop2"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="ModelType" value="Standard"/>
-			<property name="Mass" value="320"/>
-			<property name="Weight" value="70"/>
-			<property name="PhysicsBody" value="zombieFat"/>
-			<property name="RootMotion" value="true"/>
-			<property name="HasDeathAnim" value="true"/>
-			<property name="PushFactor" value="20"/>
-			<property name="AITask-1" value="BreakBlock"/>
-			<property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
-			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
-			<property name="AITask-4" value="ApproachSpot"/>
-			<property name="AITask-5" value="Look"/>
-			<property name="AITask-6" value="Wander"/>
-			<property name="AITask-7" value=""/>
-			<property name="SoundRandom" value="Enemies/Acid_Puking_Hulk/hulkroam"/>
-			<property name="SoundAlert" value="Enemies/Acid_Puking_Hulk/hulkalert"/>
-			<property name="SoundAttack" value="Enemies/Acid_Puking_Hulk/hulkattack"/>
-			<property name="SoundHurt" value="Enemies/Acid_Puking_Hulk/hulkpain"/>
-			<property name="SoundDeath" value="Enemies/Acid_Puking_Hulk/hulkdeath"/>
-			<property name="SoundSense" value="Enemies/Acid_Puking_Hulk/hulksense"/>
-			<property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep"/>
-			<property name="SoundExplodeWarn" value="hulkexplodewarning"/>
-			<property name="DismemberMultiplierLegs" value="0"/>
-			<property name="LegCrawlerThreshold" value="0"/>
-			<property name="LegCrippleThreshold" value="0"/>
-			<property name="KnockdownProneDamageThreshold" value="0"/>
-			<property name="KnockdownKneelDamageThreshold" value="0"/>
-			<property name="LegsExplosionDamageMultiplier" value="2"/>
-			<property name="ArmsExplosionDamageMultiplier" value="2"/>
-			<property name="HeadExplosionDamageMultiplier" value="2"/>
-			<property name="ChestExplosionDamageMultiplier" value="2"/>
-			<property name="ReplaceMaterial1" value="entities/zombies/materials/Z_eye1"/>
-			<property name="HandItem" value="meleeHandZombieCopM"/>
-			<property name="Explosion.ParticleIndex" value="8"/>
-			<property name="Explosion.RadiusBlocks" value="5"/>
-			<property name="Explosion.RadiusEntities" value="6"/>
-			<property name="Explosion.BlockDamage" value="500"/>
-			<property name="Explosion.EntityDamage" value="150"/>
-			<property name="Explosion.DamageBonus.earth" value="0"/>
-			<property name="JumpMaxDistance" value="0, 0"/>
-			<property name="ExperienceGain" value="750"/>
-			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="250"/>
-				<passive_effect name="HealthMax" operation="perc_set" value="1"/>
-				<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
-			</effect_group>
-		</entity_class>
-		
-		
-		<!--  WINTER SKINS  -->	
-		
-		<!--HD ARLENE-->
-	
-		<entity_class name="zombieArlene_Winter_White" extends="zombieArlene">
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_arlene_WinterWhite"/>
-		</entity_class>
-	
-		<entity_class name="zombieArleneFeral_Winter_Blue" extends="zombieArlene">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_arlene_WinterBlue"/>
-		</entity_class>
-		
-		<!--  FAT MAMA  -->
+        <triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="noTeethNoInfection" operation="set" value="0">
+          <requirement name="NotHasBuff" buff="buffBrawlerNoTeeth"/>
+        </triggered_effect>
+        <triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="noTeethNoInfection" operation="set" value="1">
+          <requirement name="HasBuff" buff="buffBrawlerNoTeeth"/>
+        </triggered_effect>
+      </effect_group>
+      <effect_group name="IsZombie">
+        <triggered_effect trigger="onSelfEnteredGame" action="AddBuff" target="self" buff="IsTFPZombie"/>
+      </effect_group>
+    </entity_class>
 
-		<entity_class name="zombieFatMama_Winter_White" extends="zombieBruteTFPTemplate"> 
-			<property name="Tags" value="entity,female,zombie,brute"/> <!-- Use a tag to pick the hand effect you want, see items.xml -->
-			<property name="Faction" value="undead"/>			
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardBigMamaHDRagdoll_X"/> <!-- Model ripped from base game, Rig from base game  -->
-			<property name="WalkType" value="1"/> 
-			<property name="PhysicsBody" value="zombieFemaleFat"/>
-			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-			<property name="Mass" value="260"/>
-			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="300"/>
-				<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
-			</effect_group>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_momma_WinterWhite"/>
-		</entity_class>
-		
-		<entity_class name="zombieFatMamaFeral_Winter_Blue" extends="zombieFatMama_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_momma_WinterBlue"/>
-		</entity_class>
-		
-		<!--HD BOE-->
-	
-	<entity_class name="zombieBoe_Winter_White" extends="zombieBoe">
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_boe_WinterWhite"/>
-	</entity_class>
+    <entity_class name="zombieRegularFemaleTFPTemplate" extends="zombieRegularTFPTemplate">
+      <property name="HideInSpawnMenu" value="true"/>
+      <property name="PhysicsBody" value="zombieStandardFemale"/>
+      <property name="Tags" value="entity,cp,female,zombie,walker,template"/>
+      <property name="SoundRandom" value="Enemies/Base_Zombie_Female2/zombiefemale2roam"/>
+      <property name="SoundAlert" value="Enemies/Base_Zombie_Female2/zombiefemale2alert"/>
+      <property name="SoundAttack" value="Enemies/Base_Zombie_Female2/zombiefemale2attack"/>
+      <property name="SoundHurt" value="Enemies/Base_Zombie_Female2/zombiefemale2pain"/>
+      <property name="SoundDeath" value="Enemies/Base_Zombie_Female2/zombiefemale2death"/>
+      <property name="SoundSense" value="Enemies/Base_Zombie_Female2/zombiefemale2sense"/>
+    </entity_class>
 
-	<entity_class name="zombieBoeFeral_Winter_Blue" extends="zombieBoe">
-		<property name="Tags" value="entity,zombie,walker,feral"/>
-		<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_boe_WinterBlue"/>
-	</entity_class>
-	
-	<!--HD CRAWLER-->
-	
-	<entity_class name="zombieSteveCrawler_Winter_White" extends="zombieSteveCrawler">
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_crawler_WinterWhite"/>
-	</entity_class>
-	
-	<entity_class name="zombieSteveCrawlerFeral_Winter_Blue" extends="zombieSteveCrawlerFeral">
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_crawler_WinterBlue"/>
-	</entity_class>
 
-		<!--  DARLENE  -->
-		
-		<entity_class name="zombieDarlene_Winter_White" extends="zombieRegularFemaleTFPTemplate">
-			<property name="Tags" value="entity,female,zombie,walker,normal"/>
-			<property name="Faction" value="undead"/>
-			<property name="WalkType" value="3"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardDarleneHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_darlene_WinterWhite"/>
-		</entity_class>
-		
-		<entity_class name="zombieDarleneFeral_Winter_Blue" extends="zombieDarlene_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_darlene_WinterBlue"/>
-		</entity_class>
-		
-		<!--  JOE  -->
+    <entity_class name="zombieRegularAltTFPTemplate" extends="zombieRegularTFPTemplate">
+      <property name="HideInSpawnMenu" value="true"/>
+      <property name="Tags" value="entity,cp,male,zombie,walker,template,alt"/>
+      <!-- Zombies will attack other zombies if hit by them  -->
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityAlive"/>
+    </entity_class>
 
-		<entity_class name="zombieJoe_Winter_White" extends="zombieRegularTFPTemplate">
-			<property name="Tags" value="entity,male,zombie,walker,normal"/>
-			<property name="Faction" value="undead"/>
-			<property name="WalkType" value="5"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardJoeHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="PhysicsBody" value="zombieStandard"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_joe_WinterWhite"/>
-		</entity_class>			
-		
-		<entity_class name="zombieJoeFeral_Winter_Blue" extends="zombieJoe_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_joe_WinterBlue"/>
-		</entity_class>
-		
-		<!--  MARLENE  -->
-		
-		<entity_class name="zombieMarlene_Winter_White" extends="zombieRegularFemaleTFPTemplate">
-			<property name="Tags" value="entity,female,zombie,walker,normal"/>
-			<property name="Faction" value="undead"/>
-			<property name="WalkType" value="5"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardMarleneHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_marlene_WinterWhite"/>
-		</entity_class>		
-		
-		<entity_class name="zombieMarleneFeral_Winter_Blue" extends="zombieMarlene_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_marlene_WinterBlue"/>
-		</entity_class>
-		
-		<!--  BIKER  -->
+    <entity_class name="zombieBruteTFPTemplate" extends="zombieRegularTFPTemplate">
+      <property name="HideInSpawnMenu" value="true"/>
+      <property name="Tags" value="entity,cp,male,zombie,walker,template"/>
+      <property name="Mesh" value="Zombies/zombieStandardHawaiianRagdoll"/>
+      <property name="SoundRandom" value="Enemies/Acid_Puking_Hulk/hulkroam"/>
+      <property name="SoundAlert" value="Enemies/Acid_Puking_Hulk/hulkalert"/>
+      <property name="SoundAttack" value="Enemies/Acid_Puking_Hulk/hulkattack"/>
+      <property name="SoundHurt" value="Enemies/Acid_Puking_Hulk/hulkpain"/>
+      <property name="SoundDeath" value="Enemies/Acid_Puking_Hulk/hulkdeath"/>
+      <property name="SoundSense" value="Enemies/Acid_Puking_Hulk/hulksense"/>
+      <property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="ModelType" value="Standard"/>
+      <property name="WalkType" value="1"/>
+      <property name="Mass" value="250"/>
+      <property name="PhysicsBody" value="zombieFat"/>
+      <property name="RootMotion" value="true"/>
+      <property name="HasDeathAnim" value="true"/>
+      <property name="HandItem" value="meleeHandZombieFeral2M"/>
+      <property name="JumpMaxDistance" value=".9, 1"/>
+      <property name="ExperienceGain" value="750"/>
+      <property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="300"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+      </effect_group>
+    </entity_class>
 
-		<entity_class name="zombieBiker_Winter_White" extends="zombieRegularTFPTemplate">
-			<property name="Tags" value="entity,male,zombie,walker,normal"/>
-			<property name="Faction" value="undead"/>
-			<property name="WalkType" value="7"/>
-			<property name="SizeScale" value="1.1"/>
-			<property name="Mass" value="230"/>
-			<property name="PainResistPerHit" value=".75"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardBikerHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="PhysicsBody" value="zombieStandard"/>
-			<property name="HandItem" value="meleeHandZombieStrong2M"/>
-			<property name="ExperienceGain" value="750"/> <!-- XP strong -->
-			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="280"/>
-				<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
-				<passive_effect name="PhysicalDamageResist" operation="base_set" value="20"/>
-			</effect_group>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_biker_WinterWhite"/>
-		</entity_class>		
-		
-		<entity_class name="zombieBikerFeral_Winter_Blue" extends="zombieBiker_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_biker_WinterBlue"/>
-		</entity_class>
-		
-		<!--HD MOE-->
-	
-	<entity_class name="zombieMoe_Winter_White" extends="zombieMoe">
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_moe_WinterWhite"/>
-	</entity_class>
+    <entity_class name="zombieBossTFPTemplate" extends="zombieRegularTFPTemplate">
+      <property name="HideInSpawnMenu" value="true"/>
+      <property name="Tags" value="entity,cp,male,zombie,walker,feral,template"/>
+      <property name="Mesh" value="Zombies/zombieStandardFeralRagdoll"/>
+      <property name="SoundRandom" value="Enemies/Feral_Zombie/zombieferalroam"/>
+      <property name="SoundAlert" value="Enemies/Feral_Zombie/zombieferalalert"/>
+      <property name="SoundAttack" value="Enemies/Feral_Zombie/zombieferalattack"/>
+      <property name="SoundHurt" value="Enemies/Feral_Zombie/zombieferalpain"/>
+      <property name="SoundDeath" value="Enemies/Feral_Zombie/zombieferaldeath"/>
+      <property name="SoundSense" value="Enemies/Feral_Zombie/zombieferalsense"/>
+      <property name="SoundFootstepModifier" value="Enemies/Feral_Zombie/zombieferalfootstep"/>
+      <property name="WalkType" value="2"/>
+      <property name="Mass" value="210"/>
+      <property name="DismemberMultiplierHead" value=".7"/>
+      <property name="DismemberMultiplierArms" value=".7"/>
+      <property name="DismemberMultiplierLegs" value=".7"/>
+      <!-- Feral -->
+      <property name="PainResistPerHit" value=".25"/>
+      <property name="MoveSpeedAggro" value=".5, 1.35"/>
+      <property name="HandItem" value="meleeHandZombieFeral2M"/>
+      <property name="JumpMaxDistance" value="4.6, 5"/>
+      <property name="ExperienceGain" value="1200"/>
+      <property name="LootDropProb" value=".03"/>
+      <property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+      <effect_group name="Base Effects">
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="532"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+      </effect_group>
+    </entity_class>
 
-	<entity_class name="zombieMoeFeral_Winter_Blue" extends="zombieMoe">
-		<property name="Tags" value="entity,zombie,walker,feral"/>
-		<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_moe_WinterBlue"/>
-	</entity_class>
-	
-	<!--  STEVE  -->
-		
-		<entity_class name="zombieSteve_Winter_White" extends="zombieRegularTFPTemplate">
-			<property name="Tags" value="entity,male,zombie,walker,normal"/>
-			<property name="Faction" value="undead"/>
-			<property name="WalkType" value="6"/>
-			<property name="Mass" value="160"/>
-			<property name="SizeScale" value="0.95"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardSteveHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="PhysicsBody" value="zombieStandard"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_steve_WinterWhite"/>
-		</entity_class>			
-		
-		<entity_class name="zombieSteveFeral_Winter_Blue" extends="zombieSteve_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_steve_WinterBlue"/>
-		</entity_class>
-		
-		<!--HD YO-->
-	
-	<entity_class name="zombieYo_Winter_White" extends="zombieYo">
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_yo_WinterWinter"/>
-	</entity_class>
+    <entity_class name="zombieCopTFPTemplate" extends="zombieRegularTFPTemplate">
+      <property name="HideInSpawnMenu" value="true"/>
+      <property name="Tags" value="entity,cp,male,zombie,walker,template"/>
+      <property name="Mesh" value="Zombies/zombieStandardCopRagdoll"/>
+      <property name="Class" value="EntityZombieCop"/>
+      <property name="WalkType" value="1"/>
+      <property name="RightHandJointName" value="Jaw"/>
+      <property name="HandItem" value="meleeHandZombieCop2"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="ModelType" value="Standard"/>
+      <property name="Mass" value="320"/>
+      <property name="Weight" value="70"/>
+      <property name="PhysicsBody" value="zombieFat"/>
+      <property name="RootMotion" value="true"/>
+      <property name="HasDeathAnim" value="true"/>
+      <property name="PushFactor" value="20"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value="Wander"/>
+      <property name="AITask-7" value=""/>
+      <property name="SoundRandom" value="Enemies/Acid_Puking_Hulk/hulkroam"/>
+      <property name="SoundAlert" value="Enemies/Acid_Puking_Hulk/hulkalert"/>
+      <property name="SoundAttack" value="Enemies/Acid_Puking_Hulk/hulkattack"/>
+      <property name="SoundHurt" value="Enemies/Acid_Puking_Hulk/hulkpain"/>
+      <property name="SoundDeath" value="Enemies/Acid_Puking_Hulk/hulkdeath"/>
+      <property name="SoundSense" value="Enemies/Acid_Puking_Hulk/hulksense"/>
+      <property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep"/>
+      <property name="SoundExplodeWarn" value="hulkexplodewarning"/>
+      <property name="DismemberMultiplierLegs" value="0"/>
+      <property name="LegCrawlerThreshold" value="0"/>
+      <property name="LegCrippleThreshold" value="0"/>
+      <property name="KnockdownProneDamageThreshold" value="0"/>
+      <property name="KnockdownKneelDamageThreshold" value="0"/>
+      <property name="LegsExplosionDamageMultiplier" value="2"/>
+      <property name="ArmsExplosionDamageMultiplier" value="2"/>
+      <property name="HeadExplosionDamageMultiplier" value="2"/>
+      <property name="ChestExplosionDamageMultiplier" value="2"/>
+      <property name="ReplaceMaterial1" value="entities/zombies/materials/Z_eye1"/>
+      <property name="HandItem" value="meleeHandZombieCopM"/>
+      <property name="Explosion.ParticleIndex" value="8"/>
+      <property name="Explosion.RadiusBlocks" value="5"/>
+      <property name="Explosion.RadiusEntities" value="6"/>
+      <property name="Explosion.BlockDamage" value="500"/>
+      <property name="Explosion.EntityDamage" value="150"/>
+      <property name="Explosion.DamageBonus.earth" value="0"/>
+      <property name="JumpMaxDistance" value="0, 0"/>
+      <property name="ExperienceGain" value="750"/>
+      <property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="250"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+      </effect_group>
+    </entity_class>
 
-	<entity_class name="zombieYoFeral_Winter_Blue" extends="zombieYo">
-		<property name="Tags" value="entity,zombie,walker,feral"/>
-		<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_yo_WinterBlue"/>
-	</entity_class>
-	
-		
-		<!--  JANITOR  -->
-		
-		<entity_class name="zombieJanitor_Winter_White" extends="zombieRegularTFPTemplate">
-			<property name="Tags" value="entity,male,zombie,walker,normal"/>
-			<property name="Faction" value="undead"/>
-			<property name="WalkType" value="5"/>
-			<property name="AvatarController" value="AvatarZombie01Controller"/>
-			<property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardMechanicHDRagdoll_X"/> <!-- Model/texture ripped from base game, Rig from base game  -->
-			<property name="PhysicsBody" value="zombieStandard"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_mechanic_WinterWhite"/>
-		</entity_class>		
-		
-		<entity_class name="zombieJanitorFeral_Winter_Blue" extends="zombieJanitor_Winter_White">
-			<property name="Tags" value="entity,zombie,walker,feral"/>
-			<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_mechanic_WinterBlue"/>
-		</entity_class>
-		
-		<!--HD UTILITY WORKER-->
-	
-	<entity_class name="zombieUtilityWorker_Winter_White" extends="zombieUtilityWorker">
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_worker_WinterWhite"/>
-	</entity_class>
 
-	<entity_class name="zombieUtilityWorkerFeral_Winter_Blue" extends="zombieUtilityWorker">
-		<property name="Tags" value="entity,zombie,walker,feral"/>
-		<!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_worker_WinterBlue"/>
-	</entity_class>
-	
-<!--IN CASE YOU ADD THEM HERE ARE THE MATERIAL NAMES FOR THE STRIPPER AND BUSINESS GUY-->
+    <!--  WINTER SKINS  -->
 
-	<entity_class name="zombieStripper_Winter_White" extends="zombieRegularFemaleTFPTemplate">
-		<property name="Tags" value="entity,zombie,walker,female"/>
-		<property name="Faction" value="undead"/>
-		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterWhite"/>
-	</entity_class>
+    <!--HD ARLENE-->
 
-	<entity_class name="zombieStripperFeral_Winter_Blue" extends="zombieRegularFemaleTFPTemplate">
-		<property name="Tags" value="entity,zombie,walker,feral,female"/>
-		<property name="Faction" value="undead"/>
-		<property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterBlue"/>
-	</entity_class>
+    <entity_class name="zombieArlene_Winter_White" extends="zombieArlene">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_arlene_WinterWhite"/>
+    </entity_class>
 
-	<entity_class name="zombieSuit_Winter_White" extends="zombieRegularTFPTemplate">
-		<property name="Tags" value="entity,zombie,walker,male"/>
-		<property name="Faction" value="undead"/>
-		<property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterWhite"/>
-	</entity_class>
+    <entity_class name="zombieArleneFeral_Winter_Blue" extends="zombieArlene">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_arlene_WinterBlue"/>
+    </entity_class>
 
-	<entity_class name="zombieSuitFeral_Winter_Blue" extends="zombieRegularTFPTemplate">
-		<property name="Tags" value="entity,zombie,walker,feral,male"/>
-		<property name="Faction" value="undead"/>
-		<property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
-		<property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterBlue"/>
-	</entity_class>
-	
-	<entity_class name="zombieMannequinFemale" extends="zombieRegularTFPTemplate">
-		<property name="Tags" value="entity,cp,female,zombie,mannequin"/>
-		<property name="Mesh" value="#@modfolder:Resources/mannequin.unity3d?mannequinFemale_X"/>
-		<property name="Faction" value="undead"/>
-		<property name="PhysicsBody" value="mixamoConvertedWinterZombie"/>                
-		<property name="WalkType" value="7"/>
-		<property name="Mass" value="120"/>
-			<property name="AITask-1" value="BreakBlock"/>
-			<property name="AITask-2" value="DestroyArea"/>
-			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityAnimalStag,20,EntityEnemyAnimal,0,EntitySurvivor,0,EntityPlayer,0,EntityBandit,0"/>
-			<property name="AITask-4" value="ApproachSpot"/>
-			<property name="AITask-5" value="Look"/>
-			<property name="AITask-6" value=""/>
-			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityEnemyAnimal,EntityPlayer"/>
-			<property name="AITarget-2" value="BlockingTargetTask"/>
-			<property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
-			<property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,3,3,EntityAlive,3,3"/> 		
-	</entity_class> 		
+    <!--  FAT MAMA  -->
 
-	</append>
+    <entity_class name="zombieFatMama_Winter_White" extends="zombieBruteTFPTemplate">
+      <property name="Tags" value="entity,female,zombie,brute"/>
+      <!-- Use a tag to pick the hand effect you want, see items.xml -->
+      <property name="Faction" value="undead"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardBigMamaHDRagdoll_X"/>
+      <!-- Model ripped from base game, Rig from base game  -->
+      <property name="WalkType" value="1"/>
+      <property name="PhysicsBody" value="zombieFemaleFat"/>
+      <property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+      <property name="Mass" value="260"/>
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="300"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+      </effect_group>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_momma_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieFatMamaFeral_Winter_Blue" extends="zombieFatMama_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_momma_WinterBlue"/>
+    </entity_class>
+
+    <!--HD BOE-->
+
+    <entity_class name="zombieBoe_Winter_White" extends="zombieBoe">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_boe_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieBoeFeral_Winter_Blue" extends="zombieBoe">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_boe_WinterBlue"/>
+    </entity_class>
+
+    <!--HD CRAWLER-->
+
+    <entity_class name="zombieSteveCrawler_Winter_White" extends="zombieSteveCrawler">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_crawler_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieSteveCrawlerFeral_Winter_Blue" extends="zombieSteveCrawlerFeral">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_crawler_WinterBlue"/>
+    </entity_class>
+
+    <!--  DARLENE  -->
+
+    <entity_class name="zombieDarlene_Winter_White" extends="zombieRegularFemaleTFPTemplate">
+      <property name="Tags" value="entity,female,zombie,walker,normal"/>
+      <property name="Faction" value="undead"/>
+      <property name="WalkType" value="3"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardDarleneHDRagdoll_X"/>
+      <!-- Model/texture ripped from base game, Rig from base game  -->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_darlene_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieDarleneFeral_Winter_Blue" extends="zombieDarlene_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_darlene_WinterBlue"/>
+    </entity_class>
+
+    <!--  JOE  -->
+
+    <entity_class name="zombieJoe_Winter_White" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,male,zombie,walker,normal"/>
+      <property name="Faction" value="undead"/>
+      <property name="WalkType" value="5"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardJoeHDRagdoll_X"/>
+      <!-- Model/texture ripped from base game, Rig from base game  -->
+      <property name="PhysicsBody" value="zombieStandard"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_joe_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieJoeFeral_Winter_Blue" extends="zombieJoe_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_joe_WinterBlue"/>
+    </entity_class>
+
+    <!--  MARLENE  -->
+
+    <entity_class name="zombieMarlene_Winter_White" extends="zombieRegularFemaleTFPTemplate">
+      <property name="Tags" value="entity,female,zombie,walker,normal"/>
+      <property name="Faction" value="undead"/>
+      <property name="WalkType" value="5"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardMarleneHDRagdoll_X"/>
+      <!-- Model/texture ripped from base game, Rig from base game  -->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_marlene_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieMarleneFeral_Winter_Blue" extends="zombieMarlene_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_marlene_WinterBlue"/>
+    </entity_class>
+
+    <!--  BIKER  -->
+
+    <entity_class name="zombieBiker_Winter_White" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,male,zombie,walker,normal"/>
+      <property name="Faction" value="undead"/>
+      <property name="WalkType" value="7"/>
+      <property name="SizeScale" value="1.1"/>
+      <property name="Mass" value="230"/>
+      <property name="PainResistPerHit" value=".75"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardBikerHDRagdoll_X"/>
+      <!-- Model/texture ripped from base game, Rig from base game  -->
+      <property name="PhysicsBody" value="zombieStandard"/>
+      <property name="HandItem" value="meleeHandZombieStrong2M"/>
+      <property name="ExperienceGain" value="750"/>
+      <!-- XP strong -->
+      <property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+      <effect_group name="Base Effects">
+        <passive_effect name="HealthMax" operation="base_set" value="280"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <!-- Zombie HP scale -->
+        <passive_effect name="PhysicalDamageResist" operation="base_set" value="20"/>
+      </effect_group>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_biker_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieBikerFeral_Winter_Blue" extends="zombieBiker_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_biker_WinterBlue"/>
+    </entity_class>
+
+    <!--HD MOE-->
+
+    <entity_class name="zombieMoe_Winter_White" extends="zombieMoe">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_moe_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieMoeFeral_Winter_Blue" extends="zombieMoe">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_moe_WinterBlue"/>
+    </entity_class>
+
+    <!--  STEVE  -->
+
+    <entity_class name="zombieSteve_Winter_White" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,male,zombie,walker,normal"/>
+      <property name="Faction" value="undead"/>
+      <property name="WalkType" value="6"/>
+      <property name="Mass" value="160"/>
+      <property name="SizeScale" value="0.95"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardSteveHDRagdoll_X"/>
+      <!-- Model/texture ripped from base game, Rig from base game  -->
+      <property name="PhysicsBody" value="zombieStandard"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_steve_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieSteveFeral_Winter_Blue" extends="zombieSteve_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_steve_WinterBlue"/>
+    </entity_class>
+
+    <!--HD YO-->
+
+    <entity_class name="zombieYo_Winter_White" extends="zombieYo">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_yo_WinterWinter"/>
+    </entity_class>
+
+    <entity_class name="zombieYoFeral_Winter_Blue" extends="zombieYo">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_yo_WinterBlue"/>
+    </entity_class>
+
+
+    <!--  JANITOR  -->
+
+    <entity_class name="zombieJanitor_Winter_White" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,male,zombie,walker,normal"/>
+      <property name="Faction" value="undead"/>
+      <property name="WalkType" value="5"/>
+      <property name="AvatarController" value="AvatarZombie01Controller"/>
+      <property name="Mesh" value="#@modfolder:Resources/XythTFPZombies.unity3d?zombieStandardMechanicHDRagdoll_X"/>
+      <!-- Model/texture ripped from base game, Rig from base game  -->
+      <property name="PhysicsBody" value="zombieStandard"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_mechanic_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieJanitorFeral_Winter_Blue" extends="zombieJanitor_Winter_White">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_mechanic_WinterBlue"/>
+    </entity_class>
+
+    <!--HD UTILITY WORKER-->
+
+    <entity_class name="zombieUtilityWorker_Winter_White" extends="zombieUtilityWorker">
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_worker_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieUtilityWorkerFeral_Winter_Blue" extends="zombieUtilityWorker">
+      <property name="Tags" value="entity,zombie,walker,feral"/>
+      <!--<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardBoeHDFeralRagdoll.prefab"/>-->
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_worker_WinterBlue"/>
+    </entity_class>
+
+    <!--IN CASE YOU ADD THEM HERE ARE THE MATERIAL NAMES FOR THE STRIPPER AND BUSINESS GUY-->
+
+    <entity_class name="zombieStripper_Winter_White" extends="zombieRegularFemaleTFPTemplate">
+      <property name="Tags" value="entity,zombie,walker,female"/>
+      <property name="Faction" value="undead"/>
+      <property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieStripperFeral_Winter_Blue" extends="zombieRegularFemaleTFPTemplate">
+      <property name="Tags" value="entity,zombie,walker,feral,female"/>
+      <property name="Faction" value="undead"/>
+      <property name="Mesh" value="#@modfolder:Resources/Waitress.unity3d?zombieStandardCocktailWaitressHDRagdoll_X"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_stripper_WinterBlue"/>
+    </entity_class>
+
+    <entity_class name="zombieSuit_Winter_White" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,zombie,walker,male"/>
+      <property name="Faction" value="undead"/>
+      <property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterWhite"/>
+    </entity_class>
+
+    <entity_class name="zombieSuitFeral_Winter_Blue" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,zombie,walker,feral,male"/>
+      <property name="Faction" value="undead"/>
+      <property name="Mesh" value="#@modfolder:Resources/zombieSuit.unity3d?zombieStandardSuitHDRagdoll_X"/>
+      <property name="ReplaceMaterial0" value="#@modfolder:Resources/HD_Winter_Skins.unity3d?HD_suit_WinterBlue"/>
+    </entity_class>
+
+    <entity_class name="zombieMannequinFemale" extends="zombieRegularTFPTemplate">
+      <property name="Tags" value="entity,cp,female,zombie,mannequin"/>
+      <property name="Mesh" value="#@modfolder:Resources/mannequin.unity3d?mannequinFemale_X"/>
+      <property name="Faction" value="undead"/>
+      <property name="PhysicsBody" value="mixamoConvertedWinterZombie"/>
+      <property name="WalkType" value="7"/>
+      <property name="Mass" value="120"/>
+      <property name="AITask-1" value="BreakBlock"/>
+      <property name="AITask-2" value="DestroyArea"/>
+      <property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityAnimalStag,20,EntityEnemyAnimal,0,EntitySurvivor,0,EntityPlayer,0,EntityBandit,0"/>
+      <property name="AITask-4" value="ApproachSpot"/>
+      <property name="AITask-5" value="Look"/>
+      <property name="AITask-6" value=""/>
+      <property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityEnemyAnimal,EntityPlayer"/>
+      <property name="AITarget-2" value="BlockingTargetTask"/>
+      <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
+      <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,3,3,EntityAlive,3,3"/>
+
+      <property name="SoundAlert" value="SpiritAngry"/>
+      <property name="SoundSense" value="SpiritWhispers"/>
+    </entity_class>
+
+  </append>
 </configs>

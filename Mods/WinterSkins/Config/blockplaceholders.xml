@@ -1,0 +1,11 @@
+﻿<configs>
+  <append xpath="/blockplaceholders/placeholder[@name='cntCaveFloorRandomLootHelper']">
+    <block name="decoMannequinFemale" prob=".0003" />
+    <block name="SpawnCubeMannequin" prob=".0001"/>
+  </append>
+
+  <append xpath="/blockplaceholders/placeholder[@name='cntDeepCaveFloorRandomLootHelper']">
+    <block name="decoMannequinFemale" prob=".0003" />
+    <block name="SpawnCubeMannequin" prob=".0002"/>
+  </append>
+</configs>

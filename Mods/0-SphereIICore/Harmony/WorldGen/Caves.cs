@@ -27,6 +27,18 @@ public class SphereII_CaveProject
 
 
     [HarmonyPatch(typeof(SkyManager))]
+    [HarmonyPatch("BloodMoon")]
+    public class SphereII_CaveProject_SkyManager_BloodMoon
+    {
+        public static bool Prefix( ref bool __result )
+        {
+            SkyManager.SetSunIntensity(0.3f);
+            __result = true;
+            return false;
+        }
+    }
+
+        [HarmonyPatch(typeof(SkyManager))]
     [HarmonyPatch("Update")]
     public class SphereII_CaveProject_SkyManager
     {

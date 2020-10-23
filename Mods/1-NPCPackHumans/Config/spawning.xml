@@ -2,6 +2,8 @@
   <append xpath="/spawning/biome[@name='Cave']">
     <spawn maxcount="1" respawndelay="4" time="Any" entitygroup="WhisperersAll" />
   </append>
+  
+  
   <append xpath="/spawning">
 
     <biome name="pine_forest_Cave">
@@ -19,22 +21,37 @@
     <biome name="snow_DeepCave">
       <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="npcGeneric" />
       <spawn maxcount="1" respawndelay="2.6" time="Night" entitygroup="Nightmares" />
-
     </biome>
     
     <biome name="desert_Cave">
       <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="WhisperersAll" />
       <spawn maxcount="3" respawndelay="0.3" time="Night" entitygroup="WhisperersAll" />
-      <spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="ZombiesAll" spawnDeadChance="0" />
-
     </biome>
 
     <biome name="desert_DeepCave">
       <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="WhisperersAll" />
       <spawn maxcount="3" respawndelay="0.3" time="Night" entitygroup="WhisperersAll" />
-      <spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="ZombiesAll" spawnDeadChance="0" />
       <spawn maxcount="1" respawndelay="2.6" time="Night" entitygroup="Nightmares" />
-
     </biome>
+
+    <biome name="wasteland_DeepCave">
+      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="ZombiesNight" />
+      <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="Nightmares" />
+      <spawn maxcount="3" respawndelay="0.3" time="Night" entitygroup="Nightmares" />
+      <spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="EnemyAnimalsWasteland" spawnDeadChance="0" />
+    </biome>
+    <biome name="burnt_forest_DeepCave">
+      <spawn maxcount="1" respawndelay="1.2" time="Day"	entitygroup="Nightmares" />
+      <spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="ZombiesNight" />
+      <spawn maxcount="3" respawndelay="0.3" time="Night" entitygroup="Nightmares" />
+      <spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="EnemyAnimalsBurntForest" spawnDeadChance="0" />
+    </biome>
+  </append>
+
+  <append xpath="//biome[contains(@name, 'DeepCave')]">
+    <spawn maxcount="5" respawndelay="1" time="Any" entitygroup="ZombiesAll"  />
+  </append>
+  <append xpath="//biome[contains(@name, '_Cave')]">
+    <spawn maxcount="5" respawndelay="1" time="Any" entitygroup="ZombiesAll"  />
   </append>
 </configs>
