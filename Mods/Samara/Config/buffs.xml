@@ -123,7 +123,7 @@
 
     <!-- Intro cut scene video -->
     <buff name="buffCutscene00"  name_key="Buff" icon="ui_game_symbol_destruction2" hidden="true">
-      <duration value="40"/>
+      <duration value="67"/>
       <stack_type value="ignore"/>
       <effect_group>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
