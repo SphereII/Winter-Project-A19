@@ -53,18 +53,23 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\Animalspidersounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\animal_snowmats.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\BatSounds.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\BirdSounds.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\CrowSounds.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\Flynoise.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\GoatSounds.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\RobinSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackAnimals\Resources\SharkSounds.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\Swarms.unity3d" />
     <None Include="Mods\0-CreaturePackAnimals\Resources\XythAnimals.unity3d" />
     <None Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.blocks.nim" />
     <None Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.ins" />
     <None Include="Mods\0-CreaturePackFantasy\Resources\ACFrOgCEGySE9Pk8D3s_1nWmNzNYJ6Qxpr4stcZr1sM58WOpPpjpgOGTSCeMs3Opsrtb-T6LCnShty1Q6lcA0qR3A7-u-R69-qye_EUICZCJP4aCVc_xcCtPk4McyrBQEsPXv6_ZKBEdqJJh77M-.pdf" />
     <None Include="Mods\0-CreaturePackFantasy\Resources\fantasyNightmares.unity3d" />
+    <None Include="Mods\0-CreaturePackFantasy\Resources\SpiritAngry.unity3d" />
+    <None Include="Mods\0-CreaturePackFantasy\Resources\SpiritSounds.unity3d" />
+    <None Include="Mods\0-CreaturePackFantasy\Resources\SpiritWhispers.unity3d" />
     <None Include="Mods\0-CreaturePackHumans\Resources\Dwellerz.unity3d" />
     <None Include="Mods\0-CreaturePackHumans\Resources\GuppycurParticles.unity3d" />
     <None Include="Mods\0-CreaturePackHumans\Resources\guppyParticlesforGuppy.unity3d" />
@@ -90,10 +95,26 @@
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_05.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_06.blocks.nim" />
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_06.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_07.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_07.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_07.zip" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_08.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_08.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_08.zip" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_09.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_09.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_09.zip" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_10.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_10.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_10.zip" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_11.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_11.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_12.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_12.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_13.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_13.ins" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_14.blocks.nim" />
+    <None Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_14.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.blocks.nim" />
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.ins" />
     <None Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.mesh" />
@@ -126,6 +147,7 @@
     <None Include="Mods\0-SphereIICore\Resources\PathSmoke.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle.unity3d" />
     <None Include="Mods\0-SphereIICore\Resources\PathSmokeParticle_X.prefab" />
+    <None Include="Mods\0-SphereIICore\Scripts\Mods.dll.config" />
     <None Include="Mods\2-CharacterEffectsPack\Resources\Bugs.unity3d" />
     <None Include="Mods\2-CharacterEffectsPack\Resources\Fly.unity3d" />
     <None Include="Mods\2-CharacterEffectsPack\Resources\p_onFire2.unity3d" />
@@ -172,6 +194,11 @@
     <None Include="Mods\winter zeds white\Resources\winter_zeds_white1.unity3d" />
     <None Include="Mods\winter zeds white\Resources\winter_zeds_white2.unity3d" />
     <None Include="Mods\winter zeds white\Resources\winter_zeds_white3.unity3d" />
+    <None Include="Mods\WinterSkins\Resources\HD_Winter_Skins.unity3d" />
+    <None Include="Mods\WinterSkins\Resources\mannequin.unity3d" />
+    <None Include="Mods\WinterSkins\Resources\Waitress.unity3d" />
+    <None Include="Mods\WinterSkins\Resources\XythTFPZombies.unity3d" />
+    <None Include="Mods\WinterSkins\Resources\zombieSuit.unity3d" />
     <None Include="Mods\Xyth EntitiesWinter\Config\Resources\FrostShieldParticle.unity3d" />
     <None Include="Mods\Xyth EntitiesWinter\Resources\Abominable.unity3d" />
     <None Include="Mods\Xyth EntitiesWinter\Resources\AbominableSounds.unity3d" />
@@ -183,6 +210,7 @@
     <None Include="Mods\Xyth EntitiesWinter\Resources\SealCub.unity3d" />
     <None Include="Mods\Xyth EntitiesWinter\Resources\SnowballParticle.unity3d" />
     <None Include="Mods\Xyth EntitiesWinter\Resources\Snowmen.unity3d" />
+    <None Include="Mods\ZombiePinups\Resources\PinupPosters.unity3d" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -270,6 +298,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Mods\0-SphereIICore\Scripts\Spawner\" />
+    <Folder Include="Mods\Samara\temp\" />
+    <Folder Include="Mods\SphereII Winter Project Menu\Config\XUi\" />
+    <Folder Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\ACLib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Mods\0-CreaturePackAnimals\Config\blocks.xml" />
     <Content Include="Mods\0-CreaturePackAnimals\Config\buffs.xml" />
     <Content Include="Mods\0-CreaturePackAnimals\Config\entityclasses.xml" />
@@ -287,6 +333,7 @@
     <Content Include="Mods\0-CreaturePackFantasy\Config\gamestages.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Config\items.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Config\Localization.txt" />
+    <Content Include="Mods\0-CreaturePackFantasy\Config\sounds.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Config\spawning.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\ModInfo.xml" />
     <Content Include="Mods\0-CreaturePackFantasy\Prefabs\sphereii_deepcaves_01.tts" />
@@ -347,6 +394,30 @@
     <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_06.jpg" />
     <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_06.tts" />
     <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_06.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_07.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_07.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_07.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_08.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_08.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_08.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_09.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_09.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_09.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_10.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_10.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_10.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_11.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_11.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_11.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_12.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_12.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_12.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_13.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_13.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_13.xml" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_14.jpg" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_14.tts" />
+    <Content Include="Mods\0-SphereIICore\Prefabs\Chiko_SCcave_14.xml" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.jpg" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.tts" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_01.xml" />
@@ -378,6 +449,11 @@
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.tts" />
     <Content Include="Mods\0-SphereIICore\Prefabs\sphereii_cave_11.xml" />
     <Content Include="Mods\0-SphereIICore\Scripts\Lockpicking\README.txt.txt" />
+    <Content Include="Mods\0-SphereIICore\Scripts\Lockpicking\UnityEngine.InputLegacyModule.dll" />
+    <Content Include="Mods\0-SphereIICore\Scripts\LogLibrary.dll" />
+    <Content Include="Mods\0-SphereIICore\Scripts\Mods.dll" />
+    <Content Include="Mods\0-SphereIICore\Scripts\Mods.pdb" />
+    <Content Include="Mods\0-SphereIICore\Scripts\UnityEngine.InputLegacyModule.dll" />
     <Content Include="Mods\1-NoPottyMouth\Config\sounds.xml" />
     <Content Include="Mods\1-NoPottyMouth\ModInfo.xml" />
     <Content Include="Mods\1-NPCPackAnimals\Config\dialogs.xml" />
@@ -387,10 +463,15 @@
     <Content Include="Mods\1-NPCPackAnimals\ModInfo.xml" />
     <Content Include="Mods\1-NPCPackHumans\Config\blocks.xml" />
     <Content Include="Mods\1-NPCPackHumans\Config\buffs.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\dialogs.xml" />
     <Content Include="Mods\1-NPCPackHumans\Config\entityclasses.xml" />
     <Content Include="Mods\1-NPCPackHumans\Config\entitygroups.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\gamestages.xml" />
     <Content Include="Mods\1-NPCPackHumans\Config\items.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\Localization.txt" />
     <Content Include="Mods\1-NPCPackHumans\Config\npc.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\spawning.xml" />
+    <Content Include="Mods\1-NPCPackHumans\Config\traders.xml" />
     <Content Include="Mods\1-NPCPackHumans\ModInfo.xml" />
     <Content Include="Mods\2-CharacterEffectsPack\Config\blocks.xml" />
     <Content Include="Mods\2-CharacterEffectsPack\Config\buffs.xml" />
@@ -409,6 +490,7 @@
     <Content Include="Mods\Broomstick\Config\recipes.xml" />
     <Content Include="Mods\Broomstick\Config\vehicles.xml" />
     <Content Include="Mods\Broomstick\ModInfo.xml" />
+    <Content Include="Mods\Broomstick\UIAtlases\ItemIconAtlas\VehicleBroom.png" />
     <Content Include="Mods\CCTV\Config\blocks.xml" />
     <Content Include="Mods\CCTV\Config\items.xml" />
     <Content Include="Mods\CCTV\Config\Localization.txt" />
@@ -549,11 +631,14 @@
     <Content Include="Mods\SphereII Winter Project\Config\biomes.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Mods\SphereII Winter Project\Config\blockplaceholders.xml" />
     <Content Include="Mods\SphereII Winter Project\Config\blocks.xml" />
     <Content Include="Mods\SphereII Winter Project\Config\buffs.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Mods\SphereII Winter Project\Config\entityclasses.xml" />
+    <Content Include="Mods\SphereII Winter Project\Config\entitygroups.xml" />
+    <Content Include="Mods\SphereII Winter Project\Config\gamestages.xml" />
     <Content Include="Mods\SphereII Winter Project\Config\items.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -574,6 +659,12 @@
     <Content Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.jpg" />
     <Content Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.tts" />
     <Content Include="Mods\SphereII Winter Project\Prefabs\trader_hugh.xml" />
+    <Content Include="Mods\SphereII Winter Project\Textures\loadingscreen01.png" />
+    <Content Include="Mods\SphereII Winter Project\Textures\loadingscreen02.png" />
+    <Content Include="Mods\SphereII Winter Project\Textures\loadingscreen03.png" />
+    <Content Include="Mods\SphereII Winter Project\Textures\loadingscreen04.png" />
+    <Content Include="Mods\SphereII Winter Project\Textures\loadingscreen05.png" />
+    <Content Include="Mods\SphereII Winter Project\Textures\loadingscreen06.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\candyCane.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\Cookies.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\foodHoneyFrozen.png" />
@@ -581,6 +672,7 @@
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\iceBlock.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\jack.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\krampus.png" />
+    <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\poinsettia.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\slay.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\snowBlock.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\snowShovel.png" />
@@ -596,6 +688,13 @@
     <Content Include="Mods\winter zeds white\Config\entityclasses.xml" />
     <Content Include="Mods\winter zeds white\Config\entitygroups.xml" />
     <Content Include="Mods\winter zeds white\ModInfo.xml" />
+    <Content Include="Mods\WinterSkins\Config\blockplaceholders.xml" />
+    <Content Include="Mods\WinterSkins\Config\blocks.xml" />
+    <Content Include="Mods\WinterSkins\Config\entityclasses.xml" />
+    <Content Include="Mods\WinterSkins\Config\entitygroups.xml" />
+    <Content Include="Mods\WinterSkins\Config\items.xml" />
+    <Content Include="Mods\WinterSkins\Config\physicsbodies.xml" />
+    <Content Include="Mods\WinterSkins\ModInfo.xml" />
     <Content Include="Mods\Xyth EntitiesWinter\Config\blocks.xml" />
     <Content Include="Mods\Xyth EntitiesWinter\Config\buffs.xml" />
     <Content Include="Mods\Xyth EntitiesWinter\Config\entityclasses.xml">
@@ -609,6 +708,14 @@
     <Content Include="Mods\Xyth EntitiesWinter\ModInfo.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Mods\ZombiePinups\Config\blocks.xml" />
+    <Content Include="Mods\ZombiePinups\Config\recipes.xml" />
+    <Content Include="Mods\ZombiePinups\ModInfo.xml" />
+    <Content Include="Mods\ZombiePinups\Screenshots\ZombiePinips.png" />
+    <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup01.png" />
+    <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup02.png" />
+    <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup03.png" />
+    <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup04.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mods\0-SphereIICore\Harmony\AIDirectorBloodMoon\AIDirectorBloodMoonParty.cs" />
@@ -646,12 +753,13 @@
     <Compile Include="Mods\0-SphereIICore\Harmony\Standard\EntityFactory.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Standard\ModsLoading.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Standard\XMLDebugger.cs" />
-    <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\TileEntitySign.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\AlwaysActive.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\SphereII_PoweredWorkstations.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\TileEntities\TileEntitySign.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\UI\DisableXPIconNotification.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\UI\FilterGameWorld.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\UI\UnlockEnemyHealthBar.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\UI\XUiV_Texture.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\WorldGen\Caves.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\EntityFlyingEAITasks.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\ZombieFeatures\HeadshotOnly.cs" />
@@ -667,6 +775,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockMortSpawner.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockPathFinding.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockPoweredWorkstation.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockSpawnCubeSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockSpawnerSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockTriggeredSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockUtilitiesSDX.cs" />
@@ -698,6 +807,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHasTaskSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementHiredSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementPatrolSDX.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Dialogs\DialogRequirementRandomRoll.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\EAI\DMTEAIUtilities.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIApproachAndAttackSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\EAI\EAIApproachAndFollowTargetSDX.cs" />
@@ -795,24 +905,6 @@
     <Compile Include="Mods\SphereII Legacy Distant Terrain\Harmony\LegacyDistantTerrain.cs" />
     <Compile Include="Mods\SphereII Winter Project Menu\Harmony\Harmony.cs" />
     <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mods\0-SphereIICore\Scripts\Spawner\" />
-    <Folder Include="Mods\Samara\temp\" />
-    <Folder Include="Mods\SphereII Winter Project Menu\Config\XUi\" />
-    <Folder Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\ACLib\" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
