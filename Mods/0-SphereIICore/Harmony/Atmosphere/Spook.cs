@@ -48,9 +48,13 @@ public class SphereII_Spook
             if (block.hasdecal)
                 return;
 
+            // blood decals
+            int[] decals = new int[] { 1, 4, 8 };
             block.hasdecal = true;
             block.decalface = BlockFace.Top;
-            block.decaltex = (byte)1;
+            int index = UnityEngine.Random.Range(0, decals.Length);
+            block.decaltex = (byte)decals[index];
+
             Chunk chunk = (Chunk)GameManager.Instance.World.GetChunkFromWorldPos(blockPos);
             if (chunk != null)
                 __instance.world.SetBlockRPC(blockPos, block);
