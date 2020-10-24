@@ -4,4 +4,22 @@
       <block name="icicles" prob=".007"/>
   </append>
 
+  <append xpath="/blockplaceholders/placeholder[@name='cntDeepCaveFloorRandomLootHelper']">
+    <block name="cntShippingCrateWorkingStiffs" prob=".001"/>
+    <block name="cntGarageStorage" prob=".001"/>
+    <block name="cntCollapsedGeneratorbank" prob=".001"/>
+    <block name="cntShippingCrateShamway" prob=".001"/>
+    <block name="cntShippingCrateShotgunMessiah" prob=".001"/>
+    <block name="cntShippingCrateWorkingStiffs" prob=".001"/>
+    <block name="cntCollapsedForge" prob=".001"/>
+    <block name="cntCollapsedWorkbench" prob=".001"/>
+    <block name="cntCollapsedCementMixer" prob=".001"/>
+    <block name="cntCollapsedChemistryStation" prob=".001"/>
+    <block name="cntMedicalPileSmall" prob=".001"/>
+    <block name="cntMedicalPileMedium" prob=".001"/>
+    <block name="cntAmmoPileSmall" prob=".001"/>
+    <block name="cntAmmoPileMedium" prob=".001"/>
+    <block name="cntFoodPileSmall" prob=".001"/>
+    <block name="cntFoodPileMedium" prob=".001"/>
+  </append>
 </configs>
