@@ -28,4 +28,32 @@ public class SphereII_Spook
     }
 
 
+    [HarmonyPatch(typeof(EntityAlive))]
+    [HarmonyPatch("OnEntityDeath")]
+    public class SphereII_Spook_OnEntityDeath
+    {
+        public static void Postfix(EntityAlive __instance)
+        {
+            if (!Configuration.CheckFeatureStatus(AdvFeatureClass, Feature))
+                return;
+
+            // Spawn location
+            Vector3i blockPos;
+            blockPos.x = (int)__instance.position.x;
+            blockPos.y = (int)__instance.position.y - 1 ;
+            blockPos.z = (int)__instance.position.z;
+
+            // skip if the decal isn't there.
+            BlockValue block = GameManager.Instance.World.GetBlock(blockPos);
+            if (block.hasdecal)
+                return;
+
+            block.hasdecal = true;
+            block.decalface = BlockFace.Top;
+            block.decaltex = (byte)1;
+            Chunk chunk = (Chunk)GameManager.Instance.World.GetChunkFromWorldPos(blockPos);
+            if (chunk != null)
+                __instance.world.SetBlockRPC(blockPos, block);
+        }
+    }
 }
