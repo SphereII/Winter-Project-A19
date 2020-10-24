@@ -180,6 +180,7 @@
     <None Include="Mods\SphereII Winter Project\Resources\FrostShieldParticle.unity3d" />
     <None Include="Mods\SphereII Winter Project\Resources\RallyFlags.unity3d" />
     <None Include="Mods\SphereII Winter Project\Resources\SnowFog.unity3d" />
+    <None Include="Mods\SphereII Winter Project\Resources\SpookySounds.unity3d" />
     <None Include="Mods\SphereII Winter Project\Resources\Thermos.unity3d" />
     <None Include="Mods\SphereII Winter Project\Resources\WinterPlayerTV.unity3d" />
     <None Include="Mods\SphereII Winter Project\Resources\WinterTrees.unity3d" />
@@ -652,6 +653,7 @@
     <Content Include="Mods\SphereII Winter Project\Config\rwgmixer.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Mods\SphereII Winter Project\Config\sounds.xml" />
     <Content Include="Mods\SphereII Winter Project\Harmony\Harmony-SphereII Winter Project.dll" />
     <Content Include="Mods\SphereII Winter Project\Harmony\Harmony-SphereII Winter Project.pdb" />
     <Content Include="Mods\SphereII Winter Project\ModInfo.xml" />
