@@ -187,7 +187,6 @@
     <None Include="Mods\SphereII Winter Project\Resources\XmasMoviePosters.unity3d" />
     <None Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\mercedesactrosslt8x4_fs19.zip" />
     <None Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\MercedesXclass_Fs19V2.zip" />
-    <None Include="Mods\SphereII_PG13\README.md" />
     <None Include="Mods\winter zeds blue\Resources\winter_zeds_blue1.unity3d" />
     <None Include="Mods\winter zeds blue\Resources\winter_zeds_blue2.unity3d" />
     <None Include="Mods\winter zeds blue\Resources\winter_zeds_blue3.unity3d" />
@@ -678,9 +677,6 @@
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\snowShovel.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\tinfoil.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\xmasPoster.png" />
-    <Content Include="Mods\SphereII_PG13\Config\entityclasses.xml" />
-    <Content Include="Mods\SphereII_PG13\Config\npc.xml" />
-    <Content Include="Mods\SphereII_PG13\ModInfo.xml" />
     <Content Include="Mods\winter zeds blue\Config\blocks.xml" />
     <Content Include="Mods\winter zeds blue\Config\entityclasses.xml" />
     <Content Include="Mods\winter zeds blue\ModInfo.xml" />
@@ -722,6 +718,7 @@
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\AnimalAvatarController.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\AvatarController.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\EModelBase.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Atmosphere\Spook.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockOnEntityCollidedWithBlock.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockSecureLoot.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\Particles.cs" />
