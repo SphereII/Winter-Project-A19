@@ -19,7 +19,7 @@ Recommended: 12G of RAM or higher.
 Special thanks goes to Mumpfy for his texturing work.
 
 			</Description>
-				<Version>latest_experimental</Version>
+				<Version>Latest</Version>
 			<RSS/>
 				<Excludes>
 				<Exclude>7DaysToDieServer_Data\</Exclude>
