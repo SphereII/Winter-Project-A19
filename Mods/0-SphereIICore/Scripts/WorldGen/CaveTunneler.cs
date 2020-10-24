@@ -286,7 +286,7 @@ public static class SphereII_CaveTunneler
             int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 15);
             int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 15);
             int height = (int)chunk.GetHeight(x, z);
-            int y = _random.RandomRange(4 , height - 10);
+            int y = _random.RandomRange(4 , Math.Abs( height - 10));
 
             // if its too close to the bottom of the world, bump it
             if (y < 2)
