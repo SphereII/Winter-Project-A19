@@ -447,6 +447,10 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+
+      <property name="SoundDeath" value="sphereiiAtmosphericDeath"/>
+      <property name="SoundSense" value="sphereiiAtmospheric"/>
+      
 		</entity_class>		
 		
 		
