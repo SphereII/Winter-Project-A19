@@ -26,6 +26,6 @@ Click on Open URL and copy and paste this path: https://raw.githubusercontent.co
 For manual installation and Dedicated Servers:
 
 Download https://github.com/SphereII/Winter-Project-A19/archive/master.zip and extract in-place, over writing what is there.
-	
-	
+
+Clients can ignore the 7DaysToDieServer_Data folder. Likewise, Servers can ignore the 7DaysToDie_Data folder.
 
