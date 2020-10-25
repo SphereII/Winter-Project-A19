@@ -197,9 +197,22 @@
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?goat_snow"/>
-
-      <!-- Disable attack nearest enemy. -->
+      <property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
+      <property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
+      <property name="AITask-3" value="Look"/>
+      <property name="AITask-4" value="ApproachDistraction"/>
+      <property name="AITask-5" value="ApproachSpot"/>
+      <property name="AITask-6" value="WanderSDX, Mods"/>
+      <property name="AITask-7" value="BreakBlock"/>
+      <property name="AITask-8" value="Territorial"/>
+      <property name="AITask-9" value="" />
+      <property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
       <property name="AITarget-3" value=""/>
+      <property name="AITarget-4" value=""/>
+      <property name="HireCurrency" value="resourceYuccaFibers" />
+      <property name="HireCost" value="10" />
+
     </entity_class>	
 		
 		<entity_class name="NPCAnimalWolfhound" extends="NPCAnimalMeleeTemplate">
@@ -228,14 +241,16 @@
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?wolfhound_snow"/>
-		</entity_class>	
+      <property name="HireCost" value="20" />
+
+    </entity_class>	
 
 		<entity_class name="NPCAnimalBeagle" extends="NPCAnimalMeleeTemplate">
 			<property name="Mesh" value="#@modfolder(0-CreaturePackAnimals):Resources/XythAnimals.unity3d?BeagleDark"/>
 			<property name="Tags" value="entity,cp,animal,npc,NPCAnimalBeagle"/>
 			<property name="Faction" value="whiteriver"/>					
 			<property name="HandItem" value="meleeHandAnimalFox"/>					
-			<property name="SoundRandom" value="coyoteroam"/>
+			<property name="SoundRandom" value=""/>
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="10"/>
 			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="4"/>
@@ -247,7 +262,21 @@
 				<passive_effect name="HealthMax" operation="base_set" value="100"/>
 			</effect_group>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?beagle_snow"/>
-		</entity_class>	
+      <property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
+      <property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
+      <property name="AITask-3" value="Look"/>
+      <property name="AITask-4" value="ApproachDistraction"/>
+      <property name="AITask-5" value="ApproachSpot"/>
+      <property name="AITask-6" value="WanderSDX, Mods"/>
+      <property name="AITask-7" value="BreakBlock"/>
+      <property name="AITask-8" value="Territorial"/>
+      <property name="AITask-9" value="" />
+      <property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-3" value=""/>
+      <property name="AITarget-4" value=""/>
+
+    </entity_class>	
 
 		<entity_class name="NPCAnimalPug" extends="NPCAnimalMeleeTemplate">
 			<property name="Mesh" value="#@modfolder(0-CreaturePackAnimals):Resources/XythAnimals.unity3d?PugDark"/>
@@ -255,7 +284,7 @@
 			<property name="Faction" value="whiteriver"/>	
 			<property name="Mass" value="150"/>
 			<property name="HandItem" value="meleeHandAnimalFox"/>					
-			<property name="SoundRandom" value="coyoteroam"/>
+			<property name="SoundRandom" value=""/>
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="5"/>
 			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="3"/>
@@ -267,7 +296,21 @@
 				<passive_effect name="HealthMax" operation="base_set" value="100"/>
 			</effect_group>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?pug_snow"/>
-		</entity_class>	
+      <property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
+      <property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
+      <property name="AITask-3" value="Look"/>
+      <property name="AITask-4" value="ApproachDistraction"/>
+      <property name="AITask-5" value="ApproachSpot"/>
+      <property name="AITask-6" value="WanderSDX, Mods"/>
+      <property name="AITask-7" value="BreakBlock"/>
+      <property name="AITask-8" value="Territorial"/>
+      <property name="AITask-9" value="" />
+      <property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-3" value=""/>
+      <property name="AITarget-4" value=""/>
+
+    </entity_class>	
 
 <!--  Testing  -->
 
@@ -278,7 +321,7 @@
 			<property name="Weight" value="60"/>
 			<property name="HandItem" value="meleeHandAnimalFox"/>	
 			<property name="PhysicsBody" value="wolf"/>
-			<property name="SoundRandom" value="coyoteroam"/>
+			<property name="SoundRandom" value=""/>
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="5"/>
 			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="3"/>
@@ -296,17 +339,19 @@
 			<property name="RagdollOnDeathChance" value="50"/>
 			<property name="Mass" value="80"/>
 			<property name="RotateToGround" value="false"/>
-			<property name="Names" value="Killer, Butch, Zelda" />	
-			<property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
-			<property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
-			<property name="AITask-3" value="ApproachSpot"/> 
-			<property name="AITask-4" value="BreakBlock"/>
-			<property name="AITask-5" value="Territorial"/>
-			<property name="AITask-6" value="WanderSDX, Mods" />
-			<property name="AITask-7" value="" />
-			<property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>  
-            <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/> 
-            <property name="AITarget-3" value="SetAsTargetNearestEnemySDX, Mods" data="class=EntityAlive,80"/> 
+			<property name="Names" value="Killer, Butch, Zelda" />
+      <property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
+      <property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
+      <property name="AITask-3" value="Look"/>
+      <property name="AITask-4" value="ApproachDistraction"/>
+      <property name="AITask-5" value="ApproachSpot"/>
+      <property name="AITask-6" value="WanderSDX, Mods"/>
+      <property name="AITask-7" value="BreakBlock"/>
+      <property name="AITask-8" value="Territorial"/>
+      <property name="AITask-9" value="" />
+      <property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-3" value=""/>
 			<property name="AITarget-4" value=""/>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?bandit_snow"/>
 		</entity_class>			
@@ -319,7 +364,7 @@
 			<property name="Weight" value="60"/>
 			<property name="HandItem" value="meleeHandAnimalFox"/>	
 			<property name="PhysicsBody" value="wolf"/>
-			<property name="SoundRandom" value="coyoteroam"/>
+			<property name="SoundRandom" value=""/>
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="5"/>
 			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="3"/>
@@ -337,19 +382,22 @@
 			<property name="RagdollOnDeathChance" value="0"/>
 			<property name="Mass" value="80"/>
 			<property name="RotateToGround" value="false"/>
-			<property name="Names" value="Killer, Butch, Zelda" />	
-			<property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
-			<property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
-			<property name="AITask-3" value="ApproachSpot"/> 
-			<property name="AITask-4" value="BreakBlock"/>
-			<property name="AITask-5" value="Territorial"/>
-			<property name="AITask-6" value="WanderSDX, Mods" />
-			<property name="AITask-7" value="" />
-			<property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>  
-            <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/> 
-            <property name="AITarget-3" value=""/> 
-			<property name="AITarget-4" value=""/>
-			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?german_snow"/>
+			<property name="Names" value="Killer, Butch, Zelda" />
+      <property name="AITask-1" value="ApproachAndAttackSDX, Mods" data="class=EntityAlive,0"/>
+      <property name="AITask-2" value="ApproachAndFollowTargetSDX, Mods" data="incentives=Leader"/>
+      <property name="AITask-3" value="Look"/>
+      <property name="AITask-4" value="ApproachDistraction"/>
+      <property name="AITask-5" value="ApproachSpot"/>
+      <property name="AITask-6" value="WanderSDX, Mods"/>
+      <property name="AITask-7" value="BreakBlock"/>
+      <property name="AITask-8" value="Territorial"/>
+      <property name="AITask-9" value="" />
+      <property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
+      <property name="AITarget-3" value=""/>
+      <property name="AITarget-4" value=""/>
+
+      <property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?german_snow"/>
 		</entity_class>					
 	</append>
 </configs>
