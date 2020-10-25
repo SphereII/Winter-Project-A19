@@ -6,7 +6,7 @@ Not wanting to miss an alpha, we've combined two of the most dramatic mods into 
 Steel your nerves. Steady your hands. Keep your wits about you, and you just may survive Winterween...
 
 Thank you to the following Modlet creators who helped shape out the world with their modlets:
-	JaxTeller718 for his Zombie hand adjustments, increased biome zombies, and wandering hordes.
+	JaxTeller718 for his increased biome zombies, and wandering hordes.
 	Riles for Riles' HUD Plus UI
 	Ragsy for the custom vehicle.
 
