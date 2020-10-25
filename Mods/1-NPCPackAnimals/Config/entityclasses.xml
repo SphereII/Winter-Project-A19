@@ -197,7 +197,10 @@
 				<passive_effect name="HealthMax" operation="base_set" value="150"/>
 			</effect_group>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?goat_snow"/>
-		</entity_class>	
+
+      <!-- Disable attack nearest enemy. -->
+      <property name="AITarget-3" value=""/>
+    </entity_class>	
 		
 		<entity_class name="NPCAnimalWolfhound" extends="NPCAnimalMeleeTemplate">
 			<property name="Tags" value="entity,cp,animal,npc,NPCAnimalWolfhound"/>
@@ -344,7 +347,7 @@
 			<property name="AITask-7" value="" />
 			<property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>  
             <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/> 
-            <property name="AITarget-3" value="SetAsTargetNearestEnemySDX, Mods" data="class=EntityAlive,80"/> 
+            <property name="AITarget-3" value=""/> 
 			<property name="AITarget-4" value=""/>
 			<property name="ReplaceMaterial0" value="#@modfolder(0-CreaturePackAnimals):Resources/animal_snowmats.unity3d?german_snow"/>
 		</entity_class>					

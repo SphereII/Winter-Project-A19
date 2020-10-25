@@ -107,6 +107,9 @@ class BlockSpawnCubeSDX : BlockPlayerSign
     }
     public void CheckForSpawn(WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue)
     {
+        if (!SingletonMonoBehaviour<ConnectionManager>.Instance.IsServer)
+            return;
+
         Chunk chunk = (Chunk)((World)_world).GetChunkFromWorldPos(_blockPos);
         TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_clrIdx, _blockPos);
         if (tileEntitySign == null)
