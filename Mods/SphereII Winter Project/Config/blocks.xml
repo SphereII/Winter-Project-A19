@@ -34,6 +34,8 @@
       <property name="SortOrder1" value="d0k0"/>
       <property name="SortOrder2" value="0050"/>
       <property name="DisplayType" value="blockTerrainFertile"/>
+      <property name="PassThroughDamage" value="true"/>
+
     </block>
   </insertAfter>
   <!--
@@ -67,6 +69,10 @@
 
   <!-- The polution stopped, so let's make the snow super white all around -->
   <set xpath="/blocks/block[@name='terrSnow']/property[@name='Texture']/@value">6</set>
+  <append xpath="/blocks/block[@name='terrSnow']">
+    <property name="PassThroughDamage" value="true"/>
+
+  </append>
   
   <!-- This replaces all the blocks that start with tree, then we'll further adjust them later 
   <set xpath="/blocks/block[starts-with( @name, 'tree')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?Birch2_X</set>

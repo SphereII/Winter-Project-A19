@@ -4,10 +4,10 @@
     <Name value="winter zeds white" />
     <Description value="Texture Variants" />
     <Author value="Mumpfy/xyth/sphereii" />
-    <Version value="19.2.1.4" />
+    <Version value="19.2.1.5" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="21f9173b9ab4a51a0f9faea54f7544ec">
+  <DMT Hash="e7edcf47a4caeeb52092cd5cca267294">
     <dependencies />
     <conflicts />
   </DMT>

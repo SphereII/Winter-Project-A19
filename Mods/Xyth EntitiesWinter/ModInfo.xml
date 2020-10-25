@@ -4,10 +4,10 @@
     <Name value="Xyth EntitiesWinter" />
     <Description value="WinterEntities" />
     <Author value="Xyth" />
-    <Version value="19.2.1.2" />
+    <Version value="19.2.1.4" />
     <Website value="http://sdxmods.com" />
   </ModInfo>
-  <DMT Hash="3a401966974b5065a14f835dd10d4f1e">
+  <DMT Hash="0d624dc8b81d16b8398c92dce0dd23ab">
     <dependencies />
     <conflicts />
   </DMT>

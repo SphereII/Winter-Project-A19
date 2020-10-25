@@ -4,7 +4,8 @@
     <Name value="0-CreaturePackHumans" />
     <Description value="Human Creature Pack Base Modlet" />
     <Author value="XythCommunityProject" />
-    <Version value="19.0.3.32" />
+    <Version value="19.2.1.1" />
     <Website value="" />
   </ModInfo>
+  <DMT Hash="69f684c21eaf7deaefc72583a4ff686d" />
 </xml>

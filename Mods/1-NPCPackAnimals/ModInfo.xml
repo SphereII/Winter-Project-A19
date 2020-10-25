@@ -4,10 +4,10 @@
     <Name value="1-NPCPackAnimals" />
     <Description value="Extends 0-CreaturePacksAnimals with DMT added functionality" />
     <Author value="XythCommunityProject" />
-    <Version value="19.0.3.00" />
+    <Version value="19.2.1.14" />
     <Website value="" />
   </ModInfo>
-  <DMT>
+  <DMT Hash="581a98c8469e9a220e368e4e58151d7c">
     <dependencies>
       <dependancy>0-SphereIICore</dependancy>
       <dependancy>SphereII NPC Dialog Windows</dependancy>

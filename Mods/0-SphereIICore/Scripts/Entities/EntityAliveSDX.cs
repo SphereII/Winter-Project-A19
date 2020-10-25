@@ -616,8 +616,7 @@ public class EntityAliveSDX : EntityNPC
                 emodel.SetLookAt(target.getHeadPosition());
 
             SetLookPosition(target.getHeadPosition());
-            RotateTo(target, 45, 45);
-
+            RotateTo(target, 30f, 30f);
             if (EntityUtilities.HasTask(entityId, "Ranged"))
             {
                 if (EntityUtilities.CheckAIRange(entityId, target.entityId))
@@ -663,7 +662,6 @@ public class EntityAliveSDX : EntityNPC
         {
             if (!EntityUtilities.IsHuman(entityId))
                 return;
-
 
             List<global::Entity> entitiesInBounds = GameManager.Instance.World.GetEntitiesInBounds(this, new Bounds(position, Vector3.one * 5f));
             if (entitiesInBounds.Count > 0)

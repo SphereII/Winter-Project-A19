@@ -23,6 +23,8 @@ Special thanks goes to Mumpfy for his texturing work.
 			<RSS/>
 				<Excludes>
 				<Exclude>7DaysToDieServer_Data\</Exclude>
+				<Exclude>7DaysToDie_Data\</Exclude>
+
 				<Exclude>\obj\</Exclude>
 				<Exclude>\bin\</Exclude>
 				<Exclude>\.vs\</Exclude>

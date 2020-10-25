@@ -4,6 +4,7 @@
     <Name value="CCTV" />
     <Description value="Adds an 8 camera CCTV system to the game." />
     <Author value="Xyth" />
-    <Version value="19.0.0.1" />
+    <Version value="19.2.1.1" />
   </ModInfo>
+  <DMT Hash="686f73f53e358aa8dec1fde7d9cbf723" />
 </xml>
