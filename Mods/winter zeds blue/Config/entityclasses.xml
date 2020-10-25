@@ -108,7 +108,7 @@
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?stag_blue"/>
   </append>
   <append xpath="//entity_class[@name='animalZombieVulture']">
-    <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?vulture_blue"/>
+    <property name="ReplaceMaterial0" value="#@modfolder:Resources/vulturefixed.unity3d?VultureFixed"/>
   </append>
   <append xpath="//entity_class[@name='animalWolf']">
     <property name="ReplaceMaterial0" value="#@modfolder:Resources/winter_zeds_blue3.unity3d?wolf_blue"/>
