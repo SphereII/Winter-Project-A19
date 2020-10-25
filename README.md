@@ -18,13 +18,14 @@ Special thanks goes to Mumpfy for his texturing work.
 
 Installation Instructions:
 
-Recommended to use the 7D2D Mod Launcher. 
-	Click on Open URL and copy and paste this path: https://raw.githubusercontent.com/SphereII/Winter-Project-A19/master/WinterProject.xml
+For the 7D2D Mod Launcher (Recommended):
+
+Click on Open URL and copy and paste this path: https://raw.githubusercontent.com/SphereII/Winter-Project-A19/master/WinterProject.xml
 	
 
 For manual installation and Dedicated Servers:
 
-	Download https://github.com/SphereII/Winter-Project-A19/archive/master.zip and extract in-place, over writing what is there.
+Download https://github.com/SphereII/Winter-Project-A19/archive/master.zip and extract in-place, over writing what is there.
 	
 	
 
