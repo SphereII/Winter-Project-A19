@@ -186,7 +186,6 @@ public static class SphereII_CaveTunneler
             caveEntrance.x = _random.RandomRange(1, 15);
             caveEntrance.z = _random.RandomRange(1, 15);
         }
-        int MaxPrefab = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxPrefabPerChunk"));
 
    
 
@@ -260,7 +259,7 @@ public static class SphereII_CaveTunneler
                         BlockValue blockValue2 = BlockPlaceholderMap.Instance.Replace(bottomCaveDecoration, _random, chunk, worldX, worldZ, false, QuestTags.none);
 
                         // Place alternative blocks down deeper
-                        if (y < 45)
+                        if (y < 30)
                             blockValue2 = BlockPlaceholderMap.Instance.Replace(bottomDeepCaveDecoration, _random, chunk, worldX, worldZ, false, QuestTags.none);
 
                         chunk.SetBlock(GameManager.Instance.World, chunkX, y, chunkZ, blockValue2);
@@ -280,17 +279,18 @@ public static class SphereII_CaveTunneler
             }
         }
 
+        int MaxPrefab = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxPrefabPerChunk"));
         for (int a = 0; a < MaxPrefab; a++)
         {
-            // Grab a random range slightly smaller than the chunk. This is to help pad them away from each other.
-            int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 15);
-            int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 15);
-            int height = (int)chunk.GetHeight(x, z);
-            int y = _random.RandomRange(4 , Math.Abs( height - 10));
 
-            // if its too close to the bottom of the world, bump it
-            if (y < 2)
-                y += GameManager.Instance.World.GetGameRandom().RandomRange(2, 20);
+            if (GameManager.Instance.World.GetGameRandom().RandomRange(0, 10) > 1)
+                continue;
+
+            // Grab a random range slightly smaller than the chunk. This is to help pad them away from each other.
+            int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
+            int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
+            int height = (int)chunk.GetHeight(x, z);
+            int y = _random.RandomRange(10 , Math.Abs( height - 15));
 
             Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
 
@@ -315,6 +315,7 @@ public static class SphereII_CaveTunneler
                     // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
                     POITags temp = prefab.Tags;
                     prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
+                    prefab.yOffset = 0;
                     prefab.CopyBlocksIntoChunkNoEntities(GameManager.Instance.World, chunk, destination, _random, true);
                     List<int> entityInstanceIds = new List<int>();
                     prefab.CopyEntitiesIntoChunkStub(chunk, destination, entityInstanceIds, true);
@@ -323,8 +324,7 @@ public static class SphereII_CaveTunneler
                     //prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
                     // Restore any of the tags that might have existed before.
                     prefab.Tags = temp;
-
-                    prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+                  //  prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
 
                 }
                 catch (Exception ex)

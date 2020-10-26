@@ -101,8 +101,12 @@ public class SphereII_CaveProject
             for (int i = 0; i < 40; i++)
             {
                 Vector2 rangeY = new Vector2(PlayerPosition.y - 10, PlayerPosition.y + 10);
+                if (rangeY.x < 1)
+                    rangeY.x = 2;
 
                 _position = new Vector3(_area.x + GameManager.Instance.World.RandomRange(0f, _area.width - 1f), GameManager.Instance.World.RandomRange(rangeY.x, rangeY.y), _area.y + GameManager.Instance.World.RandomRange(0f, _area.height - 1f));
+                if (_position.y < 1)
+                    _position.y = 2;
                 Vector3i vector3i = World.worldToBlockPos(_position);
                 Chunk chunk = (Chunk)GameManager.Instance.World.GetChunkFromWorldPos(vector3i);
                 if (chunk != null)
@@ -113,6 +117,8 @@ public class SphereII_CaveProject
                     // Grab the terrian height. If it's above the terrain level, ignore it.
                     float terrainLevel = (float)(chunk.GetHeight(x, z) + 1);
                     vector3i.y = (int)GameManager.Instance.World.RandomRange((float)PlayerPosition.y - 10, terrainLevel - 10);
+                    if (vector3i.y < 1)
+                        vector3i.y = 2;
                     if (chunk.CanMobsSpawnAtPos(x, vector3i.y, z, false))
                     {
                         bool flag = isPositionMinDistanceAwayFromAllPlayers(_position, _minDistance);
@@ -127,6 +133,8 @@ public class SphereII_CaveProject
                         }
                         if (flag)
                         {
+                            // Set the y position correctly.
+                            _position.y = vector3i.y;
                             return true;
                         }
                     }

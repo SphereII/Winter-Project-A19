@@ -7,11 +7,11 @@
   <append xpath="/blockplaceholders/placeholder[@name='cntDeepCaveFloorRandomLootHelper']">
     <block name="cntShippingCrateWorkingStiffs" prob=".001"/>
     <block name="cntShippingCrateShotgunMessiah" prob=".001"/>
-    <block name="cntMedicalPileSmall" prob=".001"/>
-    <block name="cntMedicalPileMedium" prob=".001"/>
+    <block name="cntMedicalPileSmall" prob=".0001"/>
+    <block name="cntMedicalPileMedium" prob=".0001"/>
     <block name="cntAmmoPileSmall" prob=".001"/>
-    <block name="cntAmmoPileMedium" prob=".001"/>
+    <block name="cntAmmoPileMedium" prob=".0001"/>
     <block name="cntFoodPileSmall" prob=".001"/>
-    <block name="cntFoodPileMedium" prob=".001"/>
+    <block name="cntFoodPileMedium" prob=".0001"/>
   </append>
 </configs>

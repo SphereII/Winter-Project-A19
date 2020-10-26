@@ -235,6 +235,23 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         if (_ebcd == null)
             return;
 
+        Chunk chunk = (Chunk)((World)_world).GetChunkFromWorldPos(_blockPos);
+        if (chunk == null)
+            return;
+
+        TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_cIdx, _blockPos);
+        if (tileEntitySign == null)
+        {
+            tileEntitySign = new TileEntitySign(chunk);
+            if (tileEntitySign != null)
+            {
+                if (this.Properties.Values.ContainsKey("Config"))
+                    tileEntitySign.SetText(this.Properties.Values["Config"]);
+
+                tileEntitySign.localChunkPos = World.toBlock(_blockPos);
+                chunk.AddTileEntity(tileEntitySign);
+            }
+        }
         // Hide the sign, so its not visible. Without this, it errors out.
         _ebcd.bHasTransform = false;
         base.OnBlockEntityTransformAfterActivated(_world, _blockPos, _cIdx, _blockValue, _ebcd);

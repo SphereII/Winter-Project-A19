@@ -52,7 +52,8 @@ public class EntityAliveSDX : EntityNPC
 
     public override string ToString()
     {
-        return EntityUtilities.DisplayEntityStats(entityId);
+        return entityName;
+        //return EntityUtilities.DisplayEntityStats(entityId);
     }
 
 
