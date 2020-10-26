@@ -297,11 +297,14 @@ public class SphereII_CaveProject
                 myEntity.SetSleeper();
             }
             GameManager.Instance.World.SpawnEntityInWorld(entity);
+
+            
             if (spawnDeadChance > 0f && gameRandom.RandomFloat < spawnDeadChance)
             {
                 entity.Kill(DamageResponse.New(true));
             }
             GameManager.Instance.World.DebugAddSpawnedEntity(entity);
+          
         }
     }
 
@@ -415,6 +418,8 @@ public class SphereII_CaveProject
             // Allow us to throttle which chunks get caves or not by creating a list of world positions.
             SphereCache.GenerateCaveChunks();
             SphereII_CaveTunneler.AddCaveToChunk(_chunk);
+            SphereII_CaveTunneler.AddDecorationsToCave(_chunk);
+
         }
     }
 
@@ -432,7 +437,7 @@ public class SphereII_CaveProject
             //// Allow us to throttle which chunks get caves or not by creating a list of world positions.
             SphereCache.GenerateCaveChunks();
             //SphereII_CaveTunneler.AddCaveToChunk(_chunk);
-            SphereII_CaveTunneler.AddDecorationsToCave(_chunk);
+
         }
     }
 

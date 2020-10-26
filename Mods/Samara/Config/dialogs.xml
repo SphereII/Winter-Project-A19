@@ -10,6 +10,7 @@
         <response_entry id="shop" ref_text="dialog_trader_response_shop" />
         <response_entry id="jobsnone" ref_text="dialog_trader_response_jobsnone" />
         <response_entry id="jobshave" ref_text="dialog_trader_response_jobshave" />
+        <response_entry id="specialjobshave" />
         <response_entry id="admin" ref_text="dialog_trader_response_admin" />
         <response_entry id="done" ref_text="dialog_trader_response_nevermind" />
       </statement>
@@ -25,13 +26,23 @@
       <statement id="cassadores" text="dialog_trader_statement_cassadores" nextstatementid="background" />
       <statement id="noah" text="dialog_trader_statement_noah" nextstatementid="background" />
       <statement id="currentjobs" text="dialog_trader_statement_currentjobs" nextstatementid="start">
+        <quest_entry listindex="0" />
+        <quest_entry listindex="1" />
+        <quest_entry listindex="2" />
+        <quest_entry listindex="3" />
+        <quest_entry listindex="4" />
         <response_entry id="nevermind" ref_text="dialog_trader_response_nevermind" />
-        <quest_entry type="add" listindex="0" />
-        <quest_entry type="add" listindex="1" />
-        <quest_entry type="add" listindex="2" />
-        <quest_entry type="add" listindex="3" />
-        <quest_entry type="add" listindex="4" />
       </statement>
+
+      <statement id="currentjobsspecial" text="dialog_trader_statement_currentjobs" nextstatementid="start">
+        <quest_entry type="special" listindex="0" />
+        <quest_entry type="special" listindex="1" />
+        <quest_entry type="special" listindex="2" />
+        <quest_entry type="special" listindex="3" />
+        <quest_entry type="special" listindex="4" />
+        <response_entry id="nevermind" />
+      </statement>
+      
       <statement id="nojobs" text="dialog_trader_statement_nojobs" nextstatementid="start" />
       <statement id="admin" text="dialog_trader_statement_admin">
         <response_entry id="restock" ref_text="dialog_trader_response_restock" />
@@ -326,6 +337,13 @@
         <requirement type="QuestStatus" value="NotStarted" requirementtype="Hide" Hash="Requirement_1079517332" />
         <action type="AddJournalEntry" id="questTip" />
       </response>
+
+      <response id="specialjobshave" text="dialog_trader_response_specialjobshave" nextstatementid="currentjobsspecial">
+        <requirement type="QuestStatus" value="NotStarted" requirementtype="Hide" tag="special" />
+        <requirement type="QuestsAvailable" value="special" requirementtype="Hide" />
+        <action type="AddJournalEntry" id="questTip" />
+      </response>
+      
       <response id="background" text="dialog_trader_response_background" nextstatementid="background" />
       <response id="navezgane" text="dialog_trader_response_navezgane" nextstatementid="navezgane" />
       <response id="theduke" text="dialog_trader_response_theduke" nextstatementid="theduke" />

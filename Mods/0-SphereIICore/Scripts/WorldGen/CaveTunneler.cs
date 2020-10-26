@@ -187,7 +187,67 @@ public static class SphereII_CaveTunneler
             caveEntrance.z = _random.RandomRange(1, 15);
         }
 
-   
+        // Place Prefabs
+        int MaxPrefab = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxPrefabPerChunk"));
+        for (int a = 0; a < MaxPrefab; a++)
+        {
+            // Random chance to place a prefab to try to sparse them out.
+            _random.SetSeed( chunk.GetHashCode() );
+            if (_random.RandomRange(0, 10) > 1)
+            {
+                continue;
+            }
+            // Grab a random range slightly smaller than the chunk. This is to help pad them away from each other.
+            int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
+            int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
+            int height = (int)chunk.GetHeight(x, z);
+            int y = _random.RandomRange(10, Math.Abs(height - 15));
+
+            Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
+            //Debug.Log("Placing POI: " + chunk.GetHashCode() + " at " + destination + " MaxPrefab: " + MaxPrefab + " Current: " + a);
+
+            // Decide what kind of prefab to spawn in.
+            String strPOI;
+            if (y < 30)
+                strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
+            else
+                strPOI = SphereCache.POIs[_random.RandomRange(0, SphereCache.POIs.Count)];
+
+            Prefab newPrefab = FindOrCreatePrefab(strPOI);
+            if (newPrefab != null)
+            {
+                Prefab prefab = newPrefab.Clone();
+                prefab.RotateY(true, _random.RandomRange(4));
+
+                AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
+
+                try
+                {
+                    // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
+                    // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
+                    POITags temp = prefab.Tags;
+                    prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
+                    prefab.yOffset = 0;
+                    prefab.CopyBlocksIntoChunkNoEntities(GameManager.Instance.World, chunk, destination, _random, true);
+                    List<int> entityInstanceIds = new List<int>();
+                    prefab.CopyEntitiesIntoChunkStub(chunk, destination, entityInstanceIds, true);
+
+                    // Trying to track a crash in something.
+                    //prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
+                    // Restore any of the tags that might have existed before.
+                    prefab.Tags = temp;
+                    //  prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
+
+                }
+                catch (Exception ex)
+                {
+                    UnityEngine.Debug.Log("Warning: Could not copy over prefab: " + ex.ToString());
+                    continue;
+                }
+
+            }
+
+        }
 
         // Decorate decorate the cave spots with blocks. Shrink the chunk loop by 1 on its edges so we can safely check surrounding blocks.
         for (int chunkX = 1; chunkX < 15; chunkX++)
@@ -279,63 +339,7 @@ public static class SphereII_CaveTunneler
             }
         }
 
-        int MaxPrefab = int.Parse(Configuration.GetPropertyValue(AdvFeatureClass, "MaxPrefabPerChunk"));
-        for (int a = 0; a < MaxPrefab; a++)
-        {
-
-            if (GameManager.Instance.World.GetGameRandom().RandomRange(0, 10) > 1)
-                continue;
-
-            // Grab a random range slightly smaller than the chunk. This is to help pad them away from each other.
-            int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
-            int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
-            int height = (int)chunk.GetHeight(x, z);
-            int y = _random.RandomRange(10 , Math.Abs( height - 15));
-
-            Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
-
-            // Decide what kind of prefab to spawn in.
-            String strPOI;
-            if (y < 30)
-                strPOI = SphereCache.DeepCavePrefabs[_random.RandomRange(0, SphereCache.DeepCavePrefabs.Count)];
-            else
-                strPOI = SphereCache.POIs[_random.RandomRange(0, SphereCache.POIs.Count)];
-
-            Prefab newPrefab = FindOrCreatePrefab(strPOI);
-            if (newPrefab != null)
-            {
-                Prefab prefab = newPrefab.Clone();
-                prefab.RotateY(true, _random.RandomRange(4));
-                
-                AdvLogging.DisplayLog(AdvFeatureClass, "Placing Prefab " + strPOI + " at " + destination);
-
-                try
-                {
-                    // Winter Project counter-sinks all prefabs -8 into the ground. However, for underground spawning, we want to avoid this, as they are already deep enough
-                    // Instead, temporarily replace the tag with a custom one, so that the Harmony patch for the CopyIntoLocal of the winter project won't execute.
-                    POITags temp = prefab.Tags;
-                    prefab.Tags = POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL");
-                    prefab.yOffset = 0;
-                    prefab.CopyBlocksIntoChunkNoEntities(GameManager.Instance.World, chunk, destination, _random, true);
-                    List<int> entityInstanceIds = new List<int>();
-                    prefab.CopyEntitiesIntoChunkStub(chunk, destination, entityInstanceIds, true);
-
-                    // Trying to track a crash in something.
-                    //prefab.CopyIntoLocal(GameManager.Instance.World.ChunkClusters[0], destination, true, true);
-                    // Restore any of the tags that might have existed before.
-                    prefab.Tags = temp;
-                  //  prefab.SnapTerrainToArea(GameManager.Instance.World.ChunkClusters[0], destination);
-
-                }
-                catch (Exception ex)
-                {
-                    UnityEngine.Debug.Log("Warning: Could not copy over prefab: " + ex.ToString());
-                    continue;
-                }
-                
-            }
-
-        }
+      
 
        // chunk.NeedsRegeneration = true;
     }

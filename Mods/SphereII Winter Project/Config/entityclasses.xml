@@ -3,7 +3,9 @@
 
   <append xpath="/entity_classes/entity_class[starts-with(@name, 'zombieTemplateMale')]" >
 	<effect_group name="frostshield">
-		<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="buffFrostShield"/>
+    <triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="buffFrostShield">
+      <requirement name="RequirementIsOutdoor, Mods"/>
+    </triggered_effect>
 	</effect_group> 
   </append> 
 
