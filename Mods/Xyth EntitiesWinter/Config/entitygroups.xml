@@ -8,9 +8,13 @@
 	<entity name="Polarbear" prob="10" />
   </append>
   
+  <append xpath="/entitygroups/entitygroup[@name='WildGameForest']">
+	<entity name="SealCub" prob="1" />
+  </append>
+  
   <append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
 	<entity name="Abominable" prob="1" />
-  </append>
+  </append>  
 
   <append xpath="/entitygroups/entitygroup[@name='ZombiesAll']"> 
 	<entity name="Snowman" prob="2" />
