@@ -4,10 +4,10 @@
     <Name value="0-SphereIICore" />
     <Description value="SphereII's Core Class Mod ( Required )" />
     <Author value="sphereii" />
-    <Version value="19.2.1.535" />
+    <Version value="19.2.1.537" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="a10439b4d3512e79cb6c420dcabba47f">
+  <DMT Hash="26c2a80cb95d4739e184d238738ca231">
     <dependencies />
     <conflicts />
   </DMT>
