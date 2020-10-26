@@ -1,5 +1,5 @@
 <configs>
-  <append xpath="/entitygroups/entitygroup[ starts-with(@name, 'AnimalsSmall')]">
+  <append xpath="/entitygroups/entitygroup[ starts-with(@name, 'WildGameForest')]">
 	<entity name="SealCub" prob="0.5" />
   </append>
 

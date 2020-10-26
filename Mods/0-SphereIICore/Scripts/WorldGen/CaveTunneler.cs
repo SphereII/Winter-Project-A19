@@ -241,7 +241,7 @@ public static class SphereII_CaveTunneler
                 }
                 catch (Exception ex)
                 {
-                    UnityEngine.Debug.Log("Warning: Could not copy over prefab: " + ex.ToString());
+                    UnityEngine.Debug.Log("Warning: Could not copy over prefab: " + strPOI + " "  + ex.ToString());
                     continue;
                 }
 

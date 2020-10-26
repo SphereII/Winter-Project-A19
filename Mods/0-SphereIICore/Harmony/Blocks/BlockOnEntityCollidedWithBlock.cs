@@ -58,6 +58,9 @@ public class SphereII_Blocks_OnEntityCollidedWithBlock
     {
         public static bool Prefix(Entity _targetEntity)
         {
+            if (_targetEntity == null)
+                return false;
+
             if (_targetEntity is EntityNPC)
                 return false;
             return true;

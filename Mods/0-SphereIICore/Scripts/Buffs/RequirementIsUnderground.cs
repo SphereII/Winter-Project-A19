@@ -27,8 +27,9 @@ public class RequirementIsOutdoor : TargetedCompareRequirementBase
 
         bool result =false;
 
+
         Vector3i position = new Vector3i(_params.Self.position);
-        if (GameManager.Instance.World.IsOpenSkyAbove(0, position.x, position.y, position.z))
+        if (GameManager.Instance.World.IsOpenSkyAbove(0, position.x, position.y + 2, position.z) && _params.Self.Stats.AmountEnclosed < 0.1f)
             result = true;
 
         if (this.invert)
