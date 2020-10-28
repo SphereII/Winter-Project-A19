@@ -309,7 +309,7 @@
       <duration value="0"/>
       <stack_type value="replace"/>
 	  <effect_group>
-			<triggered_effect trigger="onSelfBuffStart" action="ShakeCamera" shake_speed="1.0" shake_amplitude=".5" shake_time="-1"/>
+			<triggered_effect trigger="onSelfBuffStart" action="ShakeCamera" shake_speed="50.0" shake_amplitude="1" shake_time="-1"/>
 			<triggered_effect trigger="onSelfBuffRemove" action="ShakeCamera" shake_speed="0" shake_amplitude="0" shake_time="0"/>
 			<triggered_effect trigger="onSelfBuffFinish" action="ShakeCamera" shake_speed="0" shake_amplitude="0" shake_time="0"/>
 		</effect_group>	
