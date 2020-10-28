@@ -305,10 +305,26 @@
       </effect_group>
     </buff>
 
+   <buff name="buffShakes" name_key="Shakes" icon="ui_game_symbol_destruction2" remove_on_death="false" hidden="false">
+      <duration value="0"/>
+      <stack_type value="replace"/>
+	  <effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="ShakeCamera" shake_speed="1.0" shake_amplitude=".5" shake_time="-1"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ShakeCamera" shake_speed="0" shake_amplitude="0" shake_time="0"/>
+			<triggered_effect trigger="onSelfBuffFinish" action="ShakeCamera" shake_speed="0" shake_amplitude="0" shake_time="0"/>
+		</effect_group>	
+    </buff>
+
+
     <!-- buff for activating the Activeblocks if you want to configure that to trigger when the player has a buff and is near the Pic.  -->
     <buff name="buffCursed" name_key="Cursed" icon="ui_game_symbol_destruction2" remove_on_death="false" hidden="false">
       <duration value="0"/>
       <stack_type value="replace"/>
+	   <effect_group name="twitchy">
+	  <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffShakes"/>
+	  <triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffShakes"/>
+	  <triggered_effect trigger="onSelfBuffFinish" action="RemoveBuff" buff="buffShakes"/>
+	  </effect_group>
     </buff>
 
     <buff name="buffBadAttitude" hidden="false">
