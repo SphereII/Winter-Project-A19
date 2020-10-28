@@ -57,13 +57,26 @@
 
   </insertAfter>
 -->
-  <append xpath="/blocks/block[@name='bed01']">
+	<append xpath="/blocks/block[@name='bed01']">
 		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-	  </append>
-	  <append xpath="/blocks/block[@name='bed02']">
+		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
+	</append>
+	<append xpath="/blocks/block[@name='bed02']">
 		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-	  </append>
-
+		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
+	</append>
+	<append xpath="/blocks/block[@name='bunkBedMade']">
+		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
+		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
+	</append>
+	<append xpath="/blocks/block[@name='bunkBedMessy']">
+		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
+		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
+	</append>
+	<append xpath="/blocks/block[@name='bunkBedMattress']">
+		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
+		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
+	</append>	
   <!-- remove drops to reduce index errors -->
   <remove xpath="/blocks/block[@name='terrSnow']/drop[@event='Fall']" />
 

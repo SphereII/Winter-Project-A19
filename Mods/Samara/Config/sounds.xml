@@ -40,7 +40,6 @@
     <!-- Samara Morgan's Diary opening -->
     <SoundDataNode name="buffSamaraHum">
       <Noise ID="3" noise="30" time="3" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60"/>
-
       <AudioSource name="Sounds/AudioSource_Notifications"/>
       <AudioClip ClipName="#@modfolder:Resources/SamaraCurse.unity3d?humm" Loop="false" />
       <LocalCrouchVolumeScale value="1.0"/>
@@ -49,7 +48,16 @@
       <MaxVoices value="10"/>
       <MaxRepeatRate value="60"/>
     </SoundDataNode>
-
+    <SoundDataNode name="buffBedHum">
+      <Noise ID="3" noise="30" time="3" muffled_when_crouched="0.65" heat_map_strength="0.05" heat_map_time="60"/>
+      <AudioSource name="Sounds/AudioSource_Notifications"/>
+      <AudioClip ClipName="#@modfolder:Resources/SamaraCurse.unity3d?humm" Loop="false" />
+      <LocalCrouchVolumeScale value="1.0"/>
+      <CrouchNoiseScale value="0.5"/>
+      <NoiseScale value="1"/>
+      <MaxVoices value="10"/>
+      <MaxRepeatRate value="3"/>
+    </SoundDataNode>
     <SoundDataNode name="buffScaryScream">
       <AudioSource name="Sounds/AudioSource_Notifications"/>
       <AudioClip ClipName="#@modfolder:Resources/SamaraCurse.unity3d?scaryscream" Loop="false" />
@@ -59,7 +67,6 @@
       <MaxVoices value="10"/>
       <MaxRepeatRate value="60"/>
     </SoundDataNode>
-
     <SoundDataNode name="buffCutscene00">
       <AudioSource name="Sounds/AudioSource_Notifications"/>
       <AudioClip ClipName="#@modfolder:Resources/SamaraCurse.unity3d?cutscene00sound" Loop="false" />

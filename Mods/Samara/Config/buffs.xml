@@ -8,7 +8,7 @@
       <duration value="10"/>
       <effect_group>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?SamaraCase" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?SamaraCase"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="SamaraCase"/>
       </effect_group>
     </buff>
 
@@ -24,6 +24,18 @@
         <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraHum" />
       </effect_group>
     </buff>
+    <buff name="buffBedHum" name_key="buffSamaraHumSound" icon="ui_game_symbol_add" remove_on_death="true" hidden="true">
+      <duration value="3"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffBedHum" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffBedHum" />
+        <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="buffBedHum" />
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffBedHum" />
+      </effect_group>
+    </buff>	
+	
     <buff name="buffSamaraScream" name_key="buffSamaraScreamSound" icon="ui_game_symbol_add" remove_on_death="true" hidden="true">
       <duration value="4"/>
       <stack_type value="ignore"/>
@@ -127,8 +139,8 @@
       <stack_type value="ignore"/>
       <effect_group>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00"/>
-        <triggered_effect trigger="onSelfBuffRemove" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene00"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene00"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="RemovePrefabFromEntity" prefab="Cutscene00"/>
         <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffCutscene00" play_in_head="true"/>
         <triggered_effect trigger="onSelfBuffFinish" action="StopSound" sound="buffCutscene00" />
         <triggered_effect trigger="onSelfBuffRemove" action="StopSound" sound="buffCutscene00" />
@@ -172,7 +184,7 @@
       <effect_group>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene01" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene01"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene01"/>
       </effect_group>
     </buff>
 
@@ -183,7 +195,7 @@
       <effect_group>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene02" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene02"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene02"/>
         <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
         <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffSamaraScream" play_in_head="true"/>
         <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraScream" />
@@ -197,7 +209,7 @@
       <effect_group>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene03" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene03"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene03"/>
       </effect_group>
     </buff>
 
@@ -208,7 +220,7 @@
       <effect_group>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene04" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene04"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene04"/>
         <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
         <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffSamaraScream" play_in_head="true"/>
         <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffSamaraScream" />
@@ -222,10 +234,36 @@
       <effect_group>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene05" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Cutscene05"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene05"/>
       </effect_group>
     </buff>
-
+	
+    <buff name="buffCutscene07" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="2"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/Cutscenes.unity3d?Cutscene07" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene07"/>
+		<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffBedHum" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffBedHum" play_in_head="true"/>
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffBedHum" />
+      </effect_group>
+    </buff>	
+	
+    <buff name="buffCutscene08" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
+      <duration value="3"/>
+      <stack_type value="ignore"/>
+      <effect_group>
+        <requirement name="HasBuff" buff="buffCursed"/>
+        <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/Cutscenes.unity3d?Cutscene08" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Cutscene08"/>
+		<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffBedHum" play_in_head="true"/>
+        <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffBedHum" play_in_head="true"/>
+        <triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="buffBedHum" />
+      </effect_group>
+    </buff>	
+	
     <!-- buffs that show video in the distance/sky with UI and player showing in FPV only.  There is a 10 FPS hit so keep duration short.-->
     <buff name="buffOverlay01" name_key="Buff" icon="ui_game_symbol_destruction2" remove_on_death="true" hidden="true">
       <duration value="16"/>
@@ -234,7 +272,7 @@
         <requirement name="IsFPV"/>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay01" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay01"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Overlay01"/>
 
         <triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buffSamaraScream" play_in_head="true"/>
         <triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="buffSamaraScream" play_in_head="true"/>
@@ -251,7 +289,7 @@
         <requirement name="IsFPV"/>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay02" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay02"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Overlay02"/>
       </effect_group>
     </buff>
 
@@ -263,7 +301,7 @@
         <requirement name="IsFPV"/>
         <requirement name="HasBuff" buff="buffCursed"/>
         <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay03" parent_transform="CameraNode" local_offset="0,0,0" local_rotation="0,0,0"/>
-        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="#@modfolder:Resources/SamaraCurse.unity3d?Overlay03"/>
+        <triggered_effect trigger="onSelfBuffFinish" action="RemovePrefabFromEntity" prefab="Overlay03"/>
       </effect_group>
     </buff>
 
@@ -576,6 +614,20 @@
     <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene06">
       <requirement name="HasBuff" buff="buffCutscene06"/>
     </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene07">
+      <requirement name="NotHasBuff" buff="buffCutscene07"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene07">
+      <requirement name="HasBuff" buff="buffCutscene07"/>
+    </triggered_effect>	
+    <triggered_effect trigger="onSelfBuffUpdate" action="RemovePrefabFromEntity" prefab="Cutscene08">
+      <requirement name="NotHasBuff" buff="buffCutscene08"/>
+    </triggered_effect>
+    <triggered_effect trigger="onSelfBuffUpdate" action="AttachPrefabToEntity" prefab="Cutscene08">
+      <requirement name="HasBuff" buff="buffCutscene08"/>
+    </triggered_effect>	
+	
+	
 
     <!-- Overlay buffs  -->
 
