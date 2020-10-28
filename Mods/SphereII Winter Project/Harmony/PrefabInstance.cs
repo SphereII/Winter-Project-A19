@@ -22,8 +22,8 @@ public class SphereII_WinterProject
 
             // Navezgane only - Since it's pregenerated, it uses a different prefabs loading, with preset locations. This will adjust the prefabs for only navezgane.
             var original = typeof(PrefabInstance).GetConstructor(new Type[] { typeof(int), typeof(PathAbstractions.AbstractedLocation), typeof(Vector3i), typeof(byte), typeof(Prefab), typeof(int) });
-            var prefix = typeof(SphereII_WinterProject_PrefabInstance).GetMethod("PrefabInstance_Prefix");
-            harmony.Patch(original, new HarmonyMethod(prefix));
+            var postfix = typeof(SphereII_WinterProject_PrefabInstance).GetMethod("PrefabInstance_Prefix");
+            harmony.Patch(original, postfix:new HarmonyMethod(postfix));
 
             // Random Gen
             harmony.PatchAll();
@@ -33,15 +33,16 @@ public class SphereII_WinterProject
      // Navezgane only - Since it's pregenerated, it uses a different prefabs loading, with preset locations. This will adjust the prefabs for only navezgane.
     public class SphereII_WinterProject_PrefabInstance
     {
-        public static bool PrefabInstance_Prefix(ref PrefabInstance __instance, ref Prefab _bad)
+        public static void PrefabInstance_Prefix(ref PrefabInstance __instance, ref Prefab _bad, Vector3i _position)
         {
-
-            // No longer needed, but left as an example
-            return true;
+            //Debug.Log(" Before Bounding Box: " + __instance.boundingBoxPosition);
+            //if (!_bad.PrefabName.Contains("trader_hugh"))
+            //    __instance.boundingBoxPosition.y -= 8;
+            //Debug.Log(" After Bounding Box: " + __instance.boundingBoxPosition);
+            //// No longer needed, but left as an example
+            return;
         }
     }
-
-
 
     [HarmonyPatch(typeof(DynamicPrefabDecorator))]
     [HarmonyPatch("AddPrefab")]
@@ -51,6 +52,9 @@ public class SphereII_WinterProject
         {
             if (_pi.prefab.size.y < 10)
                 return false;
+
+            // Sink the prefab into the ground
+            _pi.boundingBoxPosition.y -= 8;
             return true;
         }
 
@@ -74,9 +78,8 @@ public class SphereII_WinterProject
                 //}
                 if (!__instance.PrefabName.Contains("trader_hugh"))
                 {
-                    __instance.yOffset -= 8;
                     __instance.bTraderArea = false;
-                    __instance.bExcludeDistantPOIMesh = false;
+                    __instance.bExcludeDistantPOIMesh = true;
                     __instance.bCopyAirBlocks = true;
                 }
             }
@@ -85,109 +88,77 @@ public class SphereII_WinterProject
 
     }
 
+
+
     //[HarmonyPatch(typeof(Prefab))]
-    //[HarmonyPatch("loadBlockData")]
-    //public class SphereII_WinterProject_LoadBlockData
+    //[HarmonyPatch("CopyBlocksIntoChunkNoEntities")]
+    //public class SphereII_WinterProject_Prefab_Prefix_CopyBlocksIntoChunkNoEntities
     //{
-    //    public static bool Postfix(bool __result, ref Prefab __instance)
+    //    public static bool Prefix(ref Prefab __instance, ref Vector3i _prefabTargetPos)
     //    {
-    //        if (__result)
+    //        // If they are pre-generated Winter Project worlds, don't apply this. They'd have already been applied.
+    //        if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
+    //            return true;
+
+    //        if (!__instance.PrefabName.Contains("trader_hugh"))
     //        {
-    //            if (__instance.size.y < 10)
-    //            {
-    //                //Debug.Log("\n**************");
-    //                //Debug.Log("Winter Project Prefab Filter : " + __instance.PrefabName + " yOffset: " + __instance.yOffset + " Size: " + __instance.size.ToString());
-    //                //Debug.Log("Disabling POI that is too short. Expect the next line to be a WRN about it. Ignore it. ");
-    //                return false;
-    //            }
-    //            if (!__instance.PrefabName.Contains("trader_hugh"))
-    //            {
-    //                __instance.yOffset -= 8;
-    //                __instance.bTraderArea = false;
-    //                __instance.bExcludeDistantPOIMesh = true;
-    //                __instance.bCopyAirBlocks = true;
-    //            }
+    //            __instance.bTraderArea = false;
+    //            __instance.bExcludeDistantPOIMesh = true;
+    //            __instance.bCopyAirBlocks = true;
     //        }
-    //        return __result;
+    //        return true;
+
     //    }
 
     //}
 
     [HarmonyPatch(typeof(Prefab))]
-    [HarmonyPatch("CopyBlocksIntoChunkNoEntities")]
-    public class SphereII_WinterProject_Prefab_Prefix_CopyBlocksIntoChunkNoEntities
-    {
-        public static bool Prefix(ref Prefab __instance, ref Vector3i _prefabTargetPos)
-        {
-            // If they are pre-generated Winter Project worlds, don't apply this. They'd have already been applied.
-            if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
-                return true;
-
-            if (!__instance.PrefabName.Contains("trader_hugh"))
-            {
-                _prefabTargetPos.y -= 8;
-                __instance.bTraderArea = false;
-                __instance.bExcludeDistantPOIMesh = false;
-                __instance.bCopyAirBlocks = true;
-            }
-            return true;
-
-        }
-
-    }
-
-    [HarmonyPatch(typeof(Prefab))]
     [HarmonyPatch("CopyIntoLocal")]
     public class SphereII_WinterProject_Prefab_Prefix
     {
-        public static bool Prefix(Prefab __instance, ref Vector3i _destinationPos, ChunkCluster _cluster, QuestTags _questTags)
-        {
-            // If they are pre-generated Winter Project worlds, don't apply this. They'd have already been applied.
-            if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
-                return true;
+        //public static bool Prefix(Prefab __instance, ref Vector3i _destinationPos, ChunkCluster _cluster, QuestTags _questTags)
+        //{
+        //    // If they are pre-generated Winter Project worlds, don't apply this. They'd have already been applied.
+        //    if (GamePrefs.GetString(EnumGamePrefs.GameWorld).ToLower().Contains("winter project"))
+        //        return true;
 
-            if (__instance.Tags.Test_AllSet(POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL")))
-                return true;
+        //    if (__instance.Tags.Test_AllSet(POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL")))
+        //        return true;
 
-            if (!__instance.PrefabName.Contains("trader_hugh"))
-                _destinationPos.y -= 8;
+        //  //  __instance.bExcludeDistantPOIMesh = true;
 
-            __instance.bExcludeDistantPOIMesh = false;
-
-            return true;
-        }
+        //    return true;
+        //}
 
         public static void Postfix(Prefab __instance, Vector3i _destinationPos, ChunkCluster _cluster, QuestTags _questTags)
         {
             if (__instance.Tags.Test_AllSet(POITags.Parse("SKIP_HARMONY_COPY_INTO_LOCAL")))
                 return;
 
-            __instance.bExcludeDistantPOIMesh = false;
+          //  __instance.bExcludeDistantPOIMesh = true;
 
-            if (!__instance.PrefabName.Contains("trader_hugh") )
+            if (!__instance.PrefabName.Contains("trader_hugh"))
                 WinterModPrefab.SetSnowPrefab(__instance, _cluster, _destinationPos, _questTags);
         }
 
     }
 
-    [HarmonyPatch(typeof(Prefab))]
-    [HarmonyPatch("LoadXMLData")]
-    public class SphereII_WinterProject_Prefab_LoadXMLData
-    {
-        public static void Postfix(bool __result, ref Prefab __instance)
-        {
-            if (__result)
-            {
-                if (!__instance.PrefabName.Contains("trader_hugh"))
-                {
-                    // Distant POI Y Offset: this is what makes the prefabs look like they are on top of the snow, but then drop down.
-                    __instance.distantPOIYOffset -= 8;
-                    __instance.bExcludeDistantPOIMesh = false;
-                }
-            }
-        }
+    //[HarmonyPatch(typeof(Prefab))]
+    //[HarmonyPatch("LoadXMLData")]
+    //public class SphereII_WinterProject_Prefab_LoadXMLData
+    //{
+    //    public static void Postfix(bool __result, ref Prefab __instance)
+    //    {
+    //        if (__result)
+    //        {
+    //            if (!__instance.PrefabName.Contains("trader_hugh"))
+    //            {
+    //                __instance.bExcludeDistantPOIMesh = true;
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
 
     [HarmonyPatch(typeof(PrefabInstance))]
     [HarmonyPatch("CopyIntoChunk")]
@@ -195,7 +166,7 @@ public class SphereII_WinterProject
     {
         public static void Postfix(PrefabInstance __instance, Chunk _chunk)
         {
-            __instance.prefab.bExcludeDistantPOIMesh = true;
+         //   __instance.prefab.bExcludeDistantPOIMesh = true;
 
             if (!__instance.prefab.PrefabName.Contains("trader_hugh"))
                 WinterModPrefab.SetSnowChunk(_chunk, __instance.boundingBoxPosition, __instance.boundingBoxSize);

@@ -4,10 +4,10 @@
     <Name value="2-CharacterEffectsPack" />
     <Description value="A collection of interesting extensions and effects for custom characters" />
     <Author value="Tin/Xyth" />
-    <Version value="19.2.1.1" />
+    <Version value="19.2.1.2" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="0171f191f46cec3ebb6ec770526a931e">
+  <DMT Hash="1c39c65f2181d31512b0a37103e845ce">
     <dependencies />
     <conflicts />
   </DMT>

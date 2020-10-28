@@ -4,10 +4,10 @@
     <Name value="Samara" />
     <Description value="Samara" />
     <Author value="Xyth/Mumpfy" />
-    <Version value="19.2.0.3" />
+    <Version value="19.2.0.4" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="a16457ffb5296f813fb13329b30fd954">
+  <DMT Hash="a0ed4a8fb316b7ae1b181b3925943378">
     <dependencies>
       <dependancy>0-SphereIICore</dependancy>
     </dependencies>

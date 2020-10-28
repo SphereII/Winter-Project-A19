@@ -4,10 +4,10 @@
     <Name value="1-NPCPackHumans" />
     <Description value="Extends 0-CreaturePacksHuman with DMT added functionality" />
     <Author value="XythCommunityProject" />
-    <Version value="19.2.3.15" />
+    <Version value="19.2.3.16" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="f9f86854bfb24a9eb71c47243eaa0e51">
+  <DMT Hash="7d38433eedc5cae5686a195337ace913">
     <dependencies>
       <dependancy>0-SphereIICore</dependancy>
       <dependancy>SphereII NPC Dialog Windows</dependancy>
