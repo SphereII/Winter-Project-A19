@@ -1992,22 +1992,22 @@
 
     <!--  Semi human Quest characters  -->
 
-    <entity_class name="zombieFatMamaHDQuest" extends="npcMeleeFemaleSavableTemplate">
+<!--    <entity_class name="zombieFatMamaHDQuest" extends="npcMeleeFemaleSavableTemplate">
       <property name="Tags" value="entity,female,zombie,saveable"/>
       <property name="Faction" value="undead"/>
       <property name="AvatarController" value="AvatarZombie01Controller"/>
       <property name="Mesh" value="#@modfolder(0-CreaturePackTFPZombies):Resources/XythTFPZombies.unity3d?zombieStandardBigMamaHDRagdoll_X"/>
-      <!-- Model ripped from base game, Rig from base game  -->
+      
       <property name="WalkType" value="1"/>
       <property name="PhysicsBody" value="zombieFemaleFat"/>
       <property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
       <property name="Mass" value="260"/>
       <property name="MoveSpeed" value="0.08"/>
-      <!-- Just shambling around -->
+     
       <property name="MoveSpeedAggro" value="0.2, 1.25"/>
-      <!-- Chasing a target min/max (like day or night)-->
+     
       <property name="MoveSpeedRand" value="-.2, .25"/>
-      <!-- Rand added to min aggro speed -->
+     
       <property name="MoveSpeedPanic" value="0.55"/>
       <effect_group name="Base Effects">
         <passive_effect name="HealthMax" operation="base_set" value="300"/>
@@ -2032,9 +2032,9 @@
       <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
       <property name="AITarget-3" value="SetAsTargetNearestEnemySDX, Mods" data="class=EntityAlive,80"/>
       <property name="AITarget-4" value=""/>
-    </entity_class>
+    </entity_class> -->
 
-    <!--  Testing  -->
+    
 
   </append>
 
