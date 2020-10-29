@@ -63,9 +63,9 @@
         <Exclude>\obj\</Exclude>
         <Exclude>\bin\</Exclude>
         <Exclude>\.vs\</Exclude>
-        <Exclude>\winter zeds white\</Exclude>
-        <Exclude>\WinterSkins\</Exclude>
-        <Exclude>\winter zeds blue\</Exclude>
+        <Exclude>winter zeds white</Exclude>
+        <Exclude>WinterSkins</Exclude>
+        <Exclude>winter zeds blue</Exclude>
       </Excludes>
       <ReleaseNotes/>
       <DownloadMode>Clone</DownloadMode>
