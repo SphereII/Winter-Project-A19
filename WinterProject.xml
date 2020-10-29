@@ -3,22 +3,21 @@
 	<ServerGroup Name="Sphereii-mental" Logo="" Description="Highly Experimental DMT Builds">
 		<Server Name="Winterween" Logo="">
 			<Description>
-Welcome to the Winterween Project by sphereii and xyth, the unholy combination of Winter Project and the ancient Valoween!
+        Welcome to the Winterween Project by sphereii and xyth, the unholy combination of Winter Project and the ancient Valoween!
 
-Not wanting to miss an alpha, we've combined two of the most dramatic mods into a single mod for Alpha 19.
+        Not wanting to miss an alpha, we've combined two of the most dramatic mods into a single mod for Alpha 19.
 
-Steel your nerves. Steady your hands. Keep your wits about you, and you just may survive Winterween...
+        Steel your nerves. Steady your hands. Keep your wits about you, and you just may survive Winterween...
 
-Thank you to the following Modlet creators who helped shape out the world with their modlets:
-	JaxTeller718 for his Zombie hand adjustments, increased biome zombies, and wandering hordes.
-	Riles for Riles' HUD Plus UI
-	Ragsy for the custom vehicle.
+        Thank you to the following Modlet creators who helped shape out the world with their modlets:
+        JaxTeller718 for his increased biome zombies, and wandering hordes.	Riles for Riles' HUD Plus UI
+        Ragsy for the custom vehicle.
 
-Recommended: 12G of RAM or higher.
+        Recommended: 12G of RAM or higher.
 
-Special thanks goes to Mumpfy for his texturing work.
+        Special thanks goes to Mumpfy for his texturing work.
 
-			</Description>
+      </Description>
 				<Version>Latest</Version>
 			<RSS/>
 				<Excludes>
@@ -33,8 +32,47 @@ Special thanks goes to Mumpfy for his texturing work.
 				<Download>https://github.com/SphereII/Winter-Project-A19</Download>
 			</Downloads>
 		</Server>
-		
-		
+
+    <Server Name="Winterween Low Memory" Logo="">
+      <Description>
+        ***********
+        ** This is a more memory friendly version; it removes some of the re-textures of the zombies.
+        ** You cannot mix this version with the regular version.
+        **
+        ***********
+        Welcome to the Winterween Project by sphereii and xyth, the unholy combination of Winter Project and the ancient Valoween!
+
+        Not wanting to miss an alpha, we've combined two of the most dramatic mods into a single mod for Alpha 19.
+
+        Steel your nerves. Steady your hands. Keep your wits about you, and you just may survive Winterween...
+
+        Thank you to the following Modlet creators who helped shape out the world with their modlets:
+        JaxTeller718 for his increased biome zombies, and wandering hordes.
+        Riles for Riles' HUD Plus UI
+        Ragsy for the custom vehicle.
+
+        Recommended: 8G of RAM or higher.
+
+        Special thanks goes to Mumpfy for his texturing work.
+
+      </Description>
+      <Version>Latest</Version>
+      <RSS/>
+      <Excludes>
+        <Exclude>7DaysToDieServer_Data\</Exclude>
+        <Exclude>\obj\</Exclude>
+        <Exclude>\bin\</Exclude>
+        <Exclude>\.vs\</Exclude>
+        <Exclude>\winter zeds white\</Exclude>
+        <Exclude>\WinterSkins\</Exclude>
+        <Exclude>\winter zeds blue\</Exclude>
+      </Excludes>
+      <ReleaseNotes/>
+      <DownloadMode>Clone</DownloadMode>
+      <Downloads>
+        <Download>https://github.com/SphereII/Winter-Project-A19</Download>
+      </Downloads>
+    </Server>
 
 	</ServerGroup>
 
