@@ -54,6 +54,7 @@ public class SphereII_WinterProject
                 return false;
 
             // Sink the prefab into the ground
+            // This also sinks the SleeperVolumes, so they work as expected in clear quests.
             _pi.boundingBoxPosition.y -= 8;
             return true;
         }
