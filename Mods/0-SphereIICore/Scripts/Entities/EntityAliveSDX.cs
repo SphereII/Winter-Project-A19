@@ -259,6 +259,10 @@ public class EntityAliveSDX : EntityNPC
         if (IsDead() || NPCInfo == null)
             return new EntityActivationCommand[0];
 
+        FactionManager.Relationship myRelationship = FactionManager.Instance.GetRelationshipTier(this, _entityFocusing);
+        if (myRelationship == FactionManager.Relationship.Hate)
+            return new EntityActivationCommand[0];
+
         // If not a human, don't talk to them
         if (!EntityUtilities.IsHuman(entityId))
             return new EntityActivationCommand[0];
