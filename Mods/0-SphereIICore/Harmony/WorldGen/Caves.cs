@@ -418,7 +418,6 @@ public class SphereII_CaveProject
             // Allow us to throttle which chunks get caves or not by creating a list of world positions.
             SphereCache.GenerateCaveChunks();
             SphereII_CaveTunneler.AddCaveToChunk(_chunk);
-            SphereII_CaveTunneler.AddDecorationsToCave(_chunk);
 
         }
     }
@@ -436,6 +435,8 @@ public class SphereII_CaveProject
 
             //// Allow us to throttle which chunks get caves or not by creating a list of world positions.
             SphereCache.GenerateCaveChunks();
+            SphereII_CaveTunneler.AddDecorationsToCave(_chunk);
+
             //SphereII_CaveTunneler.AddCaveToChunk(_chunk);
 
         }
