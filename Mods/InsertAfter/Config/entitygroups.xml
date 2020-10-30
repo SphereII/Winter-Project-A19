@@ -1,5 +1,0 @@
-<configs>
-	<insertAfter xpath="/entitygroups/entitygroup[ starts-with(@name, 'sleeperHordeStageGS')]/entity[@name='zombieMoeRadiated']">
-		<entity name="zombieMoe" prob="0.05" />
-	</insertAfter> 
-</configs>
