@@ -35,23 +35,21 @@ public class SphereII_Blocks_BlockSecureLoot
 
             if (tileEntitySecureLootContainer.IsLocked())
             {
-                if (_indexInBlockActivationCommands == 4)
+                // Check if the player has lock picks.
+                LocalPlayerUI playerUI = (_player as EntityPlayerLocal).PlayerUI;
+                XUiM_PlayerInventory playerInventory = playerUI.xui.PlayerInventory;
+                ItemValue item = ItemClass.GetItem("resourceLockPick", false);
+                if (playerInventory.GetItemCount(item) == 0)
                 {
-                    // Check if the player has lock picks.
-                    LocalPlayerUI playerUI = (_player as EntityPlayerLocal).PlayerUI;
-                    ItemValue item = ItemClass.GetItem(___lockPickItem, false);
-                    if (playerUI.xui.PlayerInventory.GetItemCount(item) == 0)
-                    {
-                        playerUI.xui.CollectedItemList.AddItemStack(new ItemStack(item, 0), true);
-                        GameManager.ShowTooltip(_player as EntityPlayerLocal, Localization.Get("ttLockpickMissing"));
-                        return false;
-                    }
-
-                    tileEntitySecureLootContainer.SetLocked(true);
-                    LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(_player as EntityPlayerLocal);
-                    XUiC_PickLocking.Open(uiforPlayer, tileEntitySecureLootContainer, _blockValue, _blockPos);
+                    playerUI.xui.CollectedItemList.AddItemStack(new ItemStack(item, 0), true);
+                    GameManager.ShowTooltip(_player as EntityPlayerLocal, Localization.Get("ttLockpickMissing"));
                     return false;
                 }
+
+                tileEntitySecureLootContainer.SetLocked(true);
+                XUiC_PickLocking.Open(playerUI, tileEntitySecureLootContainer, _blockValue, _blockPos);
+                return false;
+
             }
             return true;
         }
@@ -86,8 +84,9 @@ public class SphereII_Blocks_BlockSecureLoot
                 {
                     // Check if the player has lock picks.
                     LocalPlayerUI playerUI = (_player as EntityPlayerLocal).PlayerUI;
+                    XUiM_PlayerInventory playerInventory = playerUI.xui.PlayerInventory;
                     ItemValue item = ItemClass.GetItem("resourceLockPick", false);
-                    if (playerUI.xui.PlayerInventory.GetItemCount(item) == 0)
+                    if ( playerInventory.GetItemCount(item) == 0)
                     {
                         playerUI.xui.CollectedItemList.AddItemStack(new ItemStack(item, 0), true);
                         GameManager.ShowTooltip(_player as EntityPlayerLocal, Localization.Get("ttLockpickMissing"));
@@ -95,8 +94,7 @@ public class SphereII_Blocks_BlockSecureLoot
                     }
 
                     tileEntitySecureDoor.SetLocked(true);
-                    LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(_player as EntityPlayerLocal);
-                    XUiC_PickLocking.Open(uiforPlayer, tileEntitySecureDoor, _blockValue, _blockPos);
+                    XUiC_PickLocking.Open(playerUI, tileEntitySecureDoor, _blockValue, _blockPos);
                     return false;
                 }
             }

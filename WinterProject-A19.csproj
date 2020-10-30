@@ -512,12 +512,10 @@
     <Content Include="Mods\JaxTeller718_IncreasedBiomeZombiesx4\ModInfo.xml" />
     <Content Include="Mods\JaxTeller718_WanderingHordes\Config\gamestages.xml" />
     <Content Include="Mods\JaxTeller718_WanderingHordes\ModInfo.xml" />
-    <Content Include="Mods\JaxTeller718_ZombieReach\Config\items.xml" />
-    <Content Include="Mods\JaxTeller718_ZombieReach\ModInfo.xml" />
     <Content Include="Mods\Locks\Config\items.xml" />
     <Content Include="Mods\Locks\ModInfo.xml" />
-    <Content Include="Mods\Riles-HUDPlus1.06\Config\XUi\windows.xml" />
-    <Content Include="Mods\Riles-HUDPlus1.06\ModInfo.xml" />
+    <Content Include="Mods\Riles-HUDPlus\Config\XUi\windows.xml" />
+    <Content Include="Mods\Riles-HUDPlus\ModInfo.xml" />
     <Content Include="Mods\Samara\Config\blockplaceholders.xml" />
     <Content Include="Mods\Samara\Config\blocks.xml" />
     <Content Include="Mods\Samara\Config\buffs.xml" />
@@ -637,7 +635,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Mods\SphereII Winter Project\Config\entityclasses.xml" />
-    <Content Include="Mods\SphereII Winter Project\Config\entitygroups.xml" />
     <Content Include="Mods\SphereII Winter Project\Config\gamestages.xml" />
     <Content Include="Mods\SphereII Winter Project\Config\items.xml">
       <SubType>Designer</SubType>
@@ -714,6 +711,7 @@
     <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup02.png" />
     <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup03.png" />
     <Content Include="Mods\ZombiePinups\UIAtlases\ItemIconAtlas\ui_game_symbol_pinup04.png" />
+    <Content Include="WinterProject.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mods\0-SphereIICore\Harmony\AIDirectorBloodMoon\AIDirectorBloodMoonParty.cs" />
@@ -721,10 +719,12 @@
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\AvatarController.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Animation\EModelBase.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Atmosphere\Spook.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockAddChids.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockOnEntityCollidedWithBlock.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\BlockSecureLoot.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Blocks\Particles.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\Dialog\DialogFromXML.cs" />
+    <Compile Include="Mods\0-SphereIICore\Harmony\DMS\Playertracker.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\EAI\EAITarget.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\EntityAlive\Faction.cs" />
     <Compile Include="Mods\0-SphereIICore\Harmony\EntityMoveHelper\EntityMoveHelper.cs" />
@@ -779,6 +779,7 @@
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockTriggeredSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\BlockUtilitiesSDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Blocks\PickUpAndReplace.cs" />
+    <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementIsUnderground.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementEveryDawn.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementEveryXDaySDX.cs" />
     <Compile Include="Mods\0-SphereIICore\Scripts\Buffs\RequirementEveryXHourSDX.cs" />

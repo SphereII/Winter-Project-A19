@@ -320,9 +320,11 @@ namespace Lockpicking
             if (player == null)
                 return;
 
-            LocalPlayerUI playerUI = (player as EntityPlayerLocal).PlayerUI;
-            ItemValue item = ItemClass.GetItem("resourceLockPick", false);
-            NumLockPicks = playerUI.xui.PlayerInventory.GetItemCount(item);
+            LocalPlayerUI uiforPlayer = LocalPlayerUI.GetUIForPlayer(player as EntityPlayerLocal);
+            XUiM_PlayerInventory playerInventory = uiforPlayer.xui.PlayerInventory;
+            ItemValue item = ItemClass.GetItem("resourceLockPick");
+            if (item != null)
+                NumLockPicks = playerInventory.GetItemCount(item);
 
             if (NumLockPicks > 0)
                 UpdateLockPicks(true);
@@ -517,11 +519,11 @@ namespace Lockpicking
             if (player != null)
             {
                 LocalPlayerUI playerUI = (player as EntityPlayerLocal).PlayerUI;
+                XUiM_PlayerInventory playerInventory = playerUI.xui.PlayerInventory;
+               
                 ItemValue item = ItemClass.GetItem("resourceLockPick", false);
                 ItemStack itemStack = new ItemStack(item, 1);
-                playerUI.xui.PlayerInventory.RemoveItem(itemStack);
-                //player.inventory.RemoveItem(itemStack);
-                //player.inventory.DecItem(item, 1);
+                playerInventory.RemoveItem(itemStack);
                 RefreshLockPicks();
             }
 
@@ -685,12 +687,9 @@ namespace Lockpicking
                 minGiveAmount, maxGiveAmount,
                 minCloseDistance, maxCloseDistance);
 
-            // Update the number of pick locks left.
-            if (player != null)
-            {
-                ItemValue item = ItemClass.GetItem("resourceLockPick", false);
-                NumLockPicks = player.inventory.GetItemCount(item);
-            }
+
+            RefreshLockPicks();
+
         }
 
         public void ResetLockpickPosition()
