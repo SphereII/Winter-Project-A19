@@ -53,9 +53,12 @@ public class SphereII_WinterProject
             if (_pi.prefab.size.y < 10)
                 return false;
 
-            // Sink the prefab into the ground
-            // This also sinks the SleeperVolumes, so they work as expected in clear quests.
-            _pi.boundingBoxPosition.y -= 8;
+            if (_pi.prefab.PrefabName.Contains("trader_hugh"))
+                return true;
+
+                // Sink the prefab into the ground
+                // This also sinks the SleeperVolumes, so they work as expected in clear quests.
+                _pi.boundingBoxPosition.y -= 8;
             return true;
         }
 
