@@ -35,7 +35,8 @@
       <property name="SortOrder2" value="0050"/>
       <property name="DisplayType" value="blockTerrainFertile"/>
       <property name="PassThroughDamage" value="true"/>
-
+      <property name="CustomIcon" value="terrSnow"/>
+      <property name="SellableToTrader" value="false"/>
     </block>
   </insertAfter>
   <!--
