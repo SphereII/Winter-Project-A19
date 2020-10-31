@@ -67,7 +67,7 @@
       <property name="ModelType" value="Standard"/>
       <property name="CanClimbLadders" value="false"/>
       <property name="PhysicsBody" value="zombieFat"/>
-      <property name="HasDeathAnim" value="false"/>
+      <property name="HasDeathAnim" value="true"/>
       <property name="SightRange" value="50"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
@@ -120,7 +120,7 @@
       <property name="ModelType" value="Standard"/>
       <property name="CanClimbLadders" value="false"/>
       <property name="PhysicsBody" value="zombieFat"/>
-      <property name="HasDeathAnim" value="false"/>
+      <property name="HasDeathAnim" value="true"/>
       <property name="SightRange" value="50"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
@@ -169,7 +169,7 @@
       <property name="ModelType" value="Standard"/>
       <property name="CanClimbLadders" value="false"/>
       <property name="PhysicsBody" value="zombieFat"/>
-      <property name="HasDeathAnim" value="false"/>
+      <property name="HasDeathAnim" value="true"/>
       <property name="SightRange" value="50"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
