@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 
 public class RequirementIsUnderGround : TargetedCompareRequirementBase
@@ -12,7 +13,6 @@ public class RequirementIsUnderGround : TargetedCompareRequirementBase
         if (position.y < GameManager.Instance.World.GetTerrainHeight(position.x, position.z))
             result = true;
 
-        Debug.Log("Result: " + true);
         if (this.invert)
             return !result;
         else
@@ -29,9 +29,15 @@ public class RequirementIsOutdoor : TargetedCompareRequirementBase
 
 
         Vector3i position = new Vector3i(_params.Self.position);
-        if (GameManager.Instance.World.IsOpenSkyAbove(0, position.x, position.y + 2, position.z) && _params.Self.Stats.AmountEnclosed < 0.1f)
-            result = true;
+        try
+        {
+            if (GameManager.Instance.World.IsOpenSkyAbove(0, position.x, position.y + 2, position.z) && _params.Self.Stats.AmountEnclosed < 0.1f)
+                result = true;
+        }
+        catch( Exception ex)
+        {
 
+        }
         if (this.invert)
             return !result;
         else
