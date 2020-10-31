@@ -10,31 +10,6 @@
 		<remove xpath="//entitygroup/entity[starts-with(@name, 'humanNurse')]" />  -->
 
   <append xpath="/entitygroups">
-
-    <!--	<entitygroup name="npcMeleeAll">
-			<entity name="npcRanger" prob="0.01" />
-		</entitygroup>
-		
-		<entitygroup name="npcRangedAll">
-			<entity name="npcRangerSMG" prob="0.01" />
-		</entitygroup>	
-		
-		<entitygroup name="npcSoldiersAll">
-			<entity name="npcGupSoldier8Bow" prob="0.01" />
-		</entitygroup>	
-		
-		<entitygroup name="npcCiviliansAll">
-			<entity name="npcFarmer" prob="0.01" />
-		</entitygroup>	
-		
-		<entitygroup name="npcGupSoldiersAll">
-			<entity name="npcGupSoldier1EmptyHand" prob="0.01" />
-		</entitygroup>		-->
-
-  </append>
-  
-  
-  <append xpath="/entitygroups">
     <entitygroup name="Bakers">
       <entity name="npcBakerEmptyHand" />
       <entity name="npcBakerClub" prob=".03" />
@@ -55,7 +30,6 @@
       <entity name="npcWhispererAlphaSMG" prob="0.03" />
       <entity name="npcWhispererAlphaAK47" prob="0.03" />
       <entity name="npcWhispererAlphaHunter" prob="0.03" />
-
       <entity name="npcWhispererAlphaXBow" prob="0.03" />
       <entity name="npcWhispererAlphaBow" prob="0.03" />
       <entity name="npcWhispererBetaEmptyHand" prob="0.03" />
@@ -104,10 +78,30 @@
       <entity name="npcWhispererMale02XBow" prob="0.03" />
       <entity name="npcWhispererMale02Bow" prob="0.03" />
     </entitygroup>
-  </append>
 
-  <append xpath="/entitygroups">
-    <entitygroup name="Bandits">
+    <entitygroup name="BanditsAll">
+      <entity name="npcEveEmptyHand" prob=".03" />
+      <entity name="npcEveClub" prob=".03" />
+      <entity name="npcEveKnife" prob=".03" />
+      <entity name="npcEveSMG" prob=".01" />
+      <entity name="npcEveAK47" prob=".01" />
+      <entity name="npcEveHunter" prob=".01" />
+      <entity name="npcEvePistol" prob=".02" />
+      <entity name="npcEveXBow" prob=".02" />
+      <entity name="npcEveBow" prob=".02" />
+      <entity name="npcHeavyGuyEmptyHand" prob=".03" />
+      <entity name="npcHeavyGuyClub" prob=".03" />
+      <entity name="npcHeavyGuyKnife" prob=".03" />
+      <entity name="npcHeavyGuyPistol" prob=".02" />
+      <entity name="npcHeavyGuyBow" prob=".02" />
+      <entity name="npcHarleyEmptyHand" prob=".03" />
+      <entity name="npcHarleyClub" prob=".03" />
+      <entity name="npcHarleyKnife" prob=".03" />
+      <entity name="npcHarleyPistol" prob=".02" />
+      <entity name="npcHarleyBow" prob=".02" />
+    </entitygroup>
+   
+     <entitygroup name="Bandits">
       <entity name="npcEveEmptyHand" prob=".03" />
       <entity name="npcEveClub" prob=".03" />
       <entity name="npcEveKnife" prob=".03" />
@@ -131,7 +125,6 @@
 
 
     <entitygroup name="npcGeneric" >
-
       <entity name="npcFarmerEmptyHand" prob=".03" />
       <entity name="npcFarmerClub" prob=".03" />
       <entity name="npcFarmerKnife" prob=".03" />
@@ -196,7 +189,6 @@
       <entity name="npcSoldierNationalGuardHunter" prob=".03" />
       <entity name="npcSoldierNationalGuardPistol" prob=".03" />
       <entity name="npcSoldierNationalGuardXBow" prob=".03" />
-
     </entitygroup>
     <entitygroup name="npcSoldierMelee" >
       <entity name="npcSoldierRangerEmptyHand" prob=".03" />
