@@ -580,6 +580,7 @@
       <property name="Faction" value="undead"/>
       <property name="PhysicsBody" value="mixamoConvertedWinterZombie"/>
       <property name="WalkType" value="7"/>
+	  <property name="RandomWalkTypes" value="7" />
       <property name="Mass" value="120"/>
       <property name="AITask-1" value="BreakBlock"/>
       <property name="AITask-2" value="DestroyArea"/>
@@ -591,7 +592,6 @@
       <property name="AITarget-2" value="BlockingTargetTask"/>
       <property name="AITarget-3" value="SetNearestCorpseAsTarget" data="class=EntityPlayer"/>
       <property name="AITarget-4" value="SetNearestEntityAsTarget" data="class=EntityPlayer,3,3,EntityAlive,3,3"/>
-
       <property name="SoundAlert" value="SpiritAngry"/>
       <property name="SoundSense" value="SpiritWhispers"/>
     </entity_class>
