@@ -904,6 +904,7 @@
     <Compile Include="Mods\Samara\Scripts\SamaraWell.cs" />
     <Compile Include="Mods\SphereII Legacy Distant Terrain\Harmony\LegacyDistantTerrain.cs" />
     <Compile Include="Mods\SphereII Winter Project Menu\Harmony\Harmony.cs" />
+    <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance - Copy.cs" />
     <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

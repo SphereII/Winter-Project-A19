@@ -4,10 +4,10 @@
     <Name value="WinterSkins" />
     <Description value="TFP Zombie Redux Base / Skin replacement Modlet" />
     <Author value="Mumpfy/Xyth/Sphereii" />
-    <Version value="19.2.0.4" />
+    <Version value="19.2.0.5" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="726aabd738b2f1f0334cb5626e5f0203">
+  <DMT Hash="2a1105ba1890e6d68344812a564392fb">
     <dependencies />
     <conflicts />
   </DMT>
