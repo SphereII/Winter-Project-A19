@@ -3,3 +3,4 @@ Mods/Winterween Worlds/*
 .vs/*
 obj/*
 bin/*
+*.cache
