@@ -33,6 +33,11 @@ public class SphereII_Blocks_BlockSecureLoot
                 return false;
             }
 
+            if (!tileEntitySecureLootContainer.IsLocked() || tileEntitySecureLootContainer.IsUserAllowed(GamePrefs.GetString(EnumGamePrefs.PlayerId)))
+            {
+                return true;
+            }
+
             if (tileEntitySecureLootContainer.IsLocked())
             {
                 // Check if the player has lock picks.
@@ -75,6 +80,12 @@ public class SphereII_Blocks_BlockSecureLoot
             TileEntitySecureDoor tileEntitySecureDoor = (TileEntitySecureDoor)_world.GetTileEntity(_cIdx, _blockPos);
             if (tileEntitySecureDoor == null )
                 return true;
+
+
+            if (!tileEntitySecureDoor.IsLocked() || tileEntitySecureDoor.IsUserAllowed(GamePrefs.GetString(EnumGamePrefs.PlayerId)))
+            {
+                return true;
+            }
 
 
             if (tileEntitySecureDoor.IsLocked())
