@@ -4,10 +4,10 @@
     <Name value="SphereII Winter Project" />
     <Description value="A Winter Project " />
     <Author value="sphereii and xyth" />
-    <Version value="19.2.1.636" />
+    <Version value="19.2.1.637" />
     <Website value="http://sdxmods.com" />
   </ModInfo>
-  <DMT Hash="2cbb070c36a24c36e7cb89b1d1173355">
+  <DMT Hash="77c54bcb6b16faad2243445b9e2b9e67">
     <dependencies>
       <dependancy>0-SphereIICore</dependancy>
     </dependencies>

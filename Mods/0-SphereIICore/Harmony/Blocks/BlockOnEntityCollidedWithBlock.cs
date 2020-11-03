@@ -38,6 +38,9 @@ public class SphereII_Blocks_OnEntityCollidedWithBlock
     {
         public static bool Prefix(Block __instance, WorldBase _world, int _clrIdx, Vector3i _blockPos, BlockValue _blockValue, Entity _entity)
         {
+            if (_entity == null)
+                return true;
+
             // Don't process if its a player.
             if (_entity is EntityPlayerLocal)
                 return true;

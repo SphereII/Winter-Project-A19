@@ -312,7 +312,7 @@ public class EntityAliveSDX : EntityNPC
                 return entityName;
 
             if (String.IsNullOrEmpty(strTitle))
-                return strMyName + " the " + base.EntityName;
+                return strMyName;// + " the " + base.EntityName;
             else
                 return strMyName + " the " + strTitle;
         }
