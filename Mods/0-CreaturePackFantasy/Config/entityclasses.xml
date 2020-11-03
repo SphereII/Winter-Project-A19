@@ -393,6 +393,14 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
+
+      <effect_group name="Base Effects">
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="666"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="8.1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+      </effect_group>
 		</entity_class>
 		<entity_class name="fantasyNightmare02" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,male,nightmare"/> 
@@ -409,7 +417,15 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
-		</entity_class>		
+      <effect_group name="Base Effects">
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="1000"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="8.1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+      </effect_group>
+
+    </entity_class>		
 		<entity_class name="fantasyNightmare03" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
@@ -428,7 +444,7 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
-		</entity_class>
+    </entity_class>
 		<entity_class name="fantasyNightmare03Flying" extends="fantasyAnimalHostileFlyingTemplate"> 
 			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
@@ -469,7 +485,15 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
-		</entity_class>				
+      <effect_group name="Base Effects">
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="669"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="8.1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+      </effect_group>
+
+    </entity_class>				
 		<entity_class name="fantasyNightmare05" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,male,nightmare"/> 
 			<property name="Faction" value="undead"/>			
@@ -485,7 +509,15 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
-		</entity_class>
+      <effect_group name="Base Effects">
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="888"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="8.1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+      </effect_group>
+
+    </entity_class>
 		<entity_class name="fantasyNightmare06" extends="fantasyAnimalTemplate"> 
 			<property name="Tags" value="entity,female,nightmare"/> 
 			<property name="Faction" value="undead"/>			
@@ -501,7 +533,15 @@
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="nightmareBlood" tag="allToolsHarvest" count="1"/>
-		</entity_class>			
+      <effect_group name="Base Effects">
+        <passive_effect name="DistractionResistance" operation="base_set" value="0,0"/>
+        <passive_effect name="HealthMax" operation="base_set" value="1420"/>
+        <passive_effect name="HealthMax" operation="perc_set" value="1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="8.1"/>
+        <triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+      </effect_group>
+
+    </entity_class>			
 		
 	</append>
 

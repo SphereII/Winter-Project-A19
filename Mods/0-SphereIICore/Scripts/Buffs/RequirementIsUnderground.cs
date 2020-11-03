@@ -29,15 +29,13 @@ public class RequirementIsOutdoor : TargetedCompareRequirementBase
 
 
         Vector3i position = new Vector3i(_params.Self.position);
-        try
-        {
-            if (GameManager.Instance.World.IsOpenSkyAbove(0, position.x, position.y + 2, position.z) && _params.Self.Stats.AmountEnclosed < 0.1f)
-                result = true;
-        }
-        catch( Exception ex)
-        {
+        position.y += 5;
+        if (position.y > 250)
+            position.y = 250;
 
-        }
+        if (_params.Self.world.GetBlock(position).type == 0 && _params.Self.world.GetTerrainHeight(position.x, position.z) > position.y )
+            result = true;
+
         if (this.invert)
             return !result;
         else
