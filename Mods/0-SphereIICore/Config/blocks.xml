@@ -205,6 +205,8 @@
       <property name="Material" value="Mair"/>
       <property name="CreativeMode" value="Player" />
       <property name="CanPickup" value="true"/>
+      <property name="Collide" value="sight"/>
+
     </block>
 
     <block name="PathingCube2">
@@ -217,6 +219,7 @@
       <property name="CanPlayersSpawnOn" value="true"/>
       <property name="CanPickup" value="true"/>
       <property name="TakeDelay" value="3" />
+      <property name="Collide" value="sight"/>
     </block>
 
     <!-- Cave air block -->

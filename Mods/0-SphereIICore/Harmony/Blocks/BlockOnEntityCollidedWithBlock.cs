@@ -1,4 +1,5 @@
 using HarmonyLib;
+using System;
 
 /**
  * SphereII_Blocks_OnEntityCollidedWithBlock
@@ -45,9 +46,15 @@ public class SphereII_Blocks_OnEntityCollidedWithBlock
             if (_entity is EntityPlayerLocal)
                 return true;
 
-            if (__instance.FilterTags != null && __instance.FilterTags.ContainsCaseInsensitive(DestructableTag))
-                __instance.DamageBlock(_world, 0, _blockPos, _blockValue, Block.list[_blockValue.type].MaxDamage, (_entity != null) ? _entity.entityId : -1, false, false);
-
+            try
+            {
+                if (__instance.FilterTags != null && __instance.FilterTags.ContainsCaseInsensitive(DestructableTag))
+                    __instance.DamageBlock(_world, 0, _blockPos, _blockValue, Block.list[_blockValue.type].MaxDamage, (_entity != null) ? _entity.entityId : -1, false, false);
+            }
+            catch(Exception ex)
+            {
+                return true;
+            }
             return true;
 
 
