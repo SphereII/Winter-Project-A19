@@ -49,9 +49,11 @@
   </append>
 
   <append xpath="//biome[contains(@name, 'DeepCave')]">
-    <spawn maxcount="5" respawndelay="1" time="Any" entitygroup="ZombiesAll"  />
+    <spawn maxcount="10" respawndelay="0.3" time="Day" entitygroup="ZombiesAll"  />
+    <spawn maxcount="10" respawndelay="0.3" time="Night" entitygroup="ZombiesNight"  />
   </append>
   <append xpath="//biome[contains(@name, '_Cave')]">
-    <spawn maxcount="5" respawndelay="1" time="Any" entitygroup="ZombiesAll"  />
+    <spawn maxcount="10" respawndelay="0.3" time="Day" entitygroup="ZombiesAll"  />
+    <spawn maxcount="10" respawndelay="0.3" time="Night" entitygroup="ZombiesNight"  />
   </append>
 </configs>

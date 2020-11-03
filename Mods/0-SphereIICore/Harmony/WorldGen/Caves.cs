@@ -116,9 +116,13 @@ public class SphereII_CaveProject
 
                     // Grab the terrian height. If it's above the terrain level, ignore it.
                     float terrainLevel = (float)(chunk.GetHeight(x, z) + 1);
-                    vector3i.y = (int)GameManager.Instance.World.RandomRange((float)PlayerPosition.y - 10, terrainLevel - 10);
+                    float maxLevel = PlayerPosition.y + 10;
+                    vector3i.y = (int)GameManager.Instance.World.RandomRange((float)PlayerPosition.y - 10, maxLevel);
                     if (vector3i.y < 1)
-                        vector3i.y = 2;
+                        vector3i.y = PlayerPosition.y;
+
+                    if (maxLevel >= terrainLevel)
+                        vector3i.y = PlayerPosition.y;
                     if (chunk.CanMobsSpawnAtPos(x, vector3i.y, z, false))
                     {
                         bool flag = isPositionMinDistanceAwayFromAllPlayers(_position, _minDistance);
@@ -179,7 +183,7 @@ public class SphereII_CaveProject
                 if (players[i].Spawned)
                 {
                     position = players[i].GetPosition();
-                    rect = new Rect(position.x - 40f, position.z - 40f, 80f, 40f);
+                    rect = new Rect(position.x - 40f, position.z - 40f, 80f, 20f);
                     if (rect.Overlaps(_chunkBiomeSpawnData.area))
                     {
                         flag = true;
@@ -216,7 +220,7 @@ public class SphereII_CaveProject
             }
 
             // Customize which spawning.xml entry to we want to use for spawns.
-
+            String CaveType = "Cave";
             // Search for the biome_Cave spawn group. If not found, load the generic Cave one.
             BiomeSpawnEntityGroupList biomeSpawnEntityGroupList = BiomeSpawningClass.list[biome.m_sBiomeName + "_Cave"];
             if (biomeSpawnEntityGroupList == null)
@@ -226,6 +230,7 @@ public class SphereII_CaveProject
             // if we are below 30, look for the biome specific deep cave, then deep cave if its not set.
             if (vector.y < 30)
             {
+                CaveType = "DeepCave";
                 biomeSpawnEntityGroupList = BiomeSpawningClass.list[biome.m_sBiomeName + "_DeepCave"];
                 if (biomeSpawnEntityGroupList == null)
                 {
@@ -254,7 +259,7 @@ public class SphereII_CaveProject
                         {
                             num3 = EntitySpawner.ModifySpawnCountByGameDifficulty(num3);
                         }
-                        entityGroupName = biomeSpawnEntityGroupData.entityGroupRefName + "_" + biomeSpawnEntityGroupData.daytime.ToStringCached<EDaytime>() + "_Cave";
+                        entityGroupName = biomeSpawnEntityGroupData.entityGroupRefName + "_" + biomeSpawnEntityGroupData.daytime.ToStringCached<EDaytime>() + "_" + CaveType;
                         ulong respawnLockedUntilWorldTime = _chunkBiomeSpawnData.GetRespawnLockedUntilWorldTime(entityGroupName);
                         if (respawnLockedUntilWorldTime <= 0UL || GameManager.Instance.World.worldTime >= respawnLockedUntilWorldTime)
                         {
@@ -275,6 +280,7 @@ public class SphereII_CaveProject
             }
             if (num < 0)
             {
+                //Debug.Log("max spawn reached: " + entityGroupName);
                 return;
             }
             Bounds bb = new Bounds(vector, new Vector3(4f, 2.5f, 4f));
@@ -283,6 +289,7 @@ public class SphereII_CaveProject
             spawnNearList.Clear();
             if (count > 0)
             {
+                //Debug.Log("Spawn Count is maxed for ");
                 return;
             }
             BiomeSpawnEntityGroupData biomeSpawnEntityGroupData2 = biomeSpawnEntityGroupList.list[num];
@@ -290,12 +297,14 @@ public class SphereII_CaveProject
             float spawnDeadChance = biomeSpawnEntityGroupData2.spawnDeadChance;
             _chunkBiomeSpawnData.IncEntitiesSpawned(entityGroupName);
             Entity entity = EntityFactory.CreateEntity(randomFromGroup, vector);
-            entity.SetSpawnerSource(EnumSpawnerSource.Biome, _chunkBiomeSpawnData.chunk.Key, entityGroupName);
+            entity.SetSpawnerSource(EnumSpawnerSource.Dynamic, _chunkBiomeSpawnData.chunk.Key, entityGroupName);
             EntityAlive myEntity = entity as EntityAlive;
             if (myEntity)
             {
                 myEntity.SetSleeper();
             }
+
+           // Debug.Log("Spawning: " + myEntity.entityId + " " + vector );
             GameManager.Instance.World.SpawnEntityInWorld(entity);
 
             
@@ -309,8 +318,7 @@ public class SphereII_CaveProject
     }
 
 
-
-
+  
     [HarmonyPatch(typeof(TerrainGeneratorWithBiomeResource))]
     [HarmonyPatch("GenerateTerrain")]
     [HarmonyPatch(new Type[] { typeof(World), typeof(Chunk), typeof(GameRandom), typeof(Vector3i), typeof(Vector3i), typeof(bool) })]
