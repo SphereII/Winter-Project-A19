@@ -57,6 +57,8 @@
       <reward type="LootItem" id="questMusic" ischosen="true" value="1" />
       <reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="1"/>
       <reward type="LootItem" id="groupQuestMods" ischosen="true" value="1"/>
+      <reward type="Item" id="casinoCoin" value="350"/>
+
     </quest>
 
     <quest id="challenge_timelesstraditions">
@@ -109,7 +111,7 @@
       <reward type="LootItem" id="questVideoPlayer" ischosen="true" value="1" />
       <reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="1"/>
       <reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="1"/>
-
+      <reward type="Item" id="casinoCoin" value="350"/>
     </quest>
   </insertBefore>
 </configs>
