@@ -4,10 +4,10 @@
     <Name value="0-CreaturePackFantasy" />
     <Description value="Fantasy Creature Pack Base Modlet" />
     <Author value="XythCommunityProject" />
-    <Version value="19.2.1.8" />
+    <Version value="19.2.1.9" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="f496e656926ced2e24277bd5959d02fa">
+  <DMT Hash="b53e312d4ea0271a517226a87b55fad0">
     <dependencies />
     <conflicts />
   </DMT>

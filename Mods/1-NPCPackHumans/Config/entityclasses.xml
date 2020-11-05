@@ -96,7 +96,7 @@
       <property name="AITask-9" value="" />
       <property name="AITarget-1" value="SetAsTargetIfHurtSDX, Mods" data="class=EntityAlive"/>
       <property name="AITarget-2" value="SetAsTargetIfLeaderAttackedSDX, Mods" data="class=EntityAlive"/>
-      <property name="AITarget-3" value="SetAsTargetNearestEnemySDX, Mods" data="class=EntityAlive,80"/>
+      <property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityAlive,0,0"/>
       <property name="AITarget-4" value=""/>
       <property name="WalkType" value="7"/>
       <property name="SoundHurtSmall" value="Player_Male/player1painsm"/>

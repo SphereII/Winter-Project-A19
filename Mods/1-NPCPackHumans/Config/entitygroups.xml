@@ -172,13 +172,7 @@
       <entity name="npcSoldierHunterPistol" prob=".03" />
       <entity name="npcSoldierHunterXBow" prob=".03" />
       <entity name="npcSoldierHunterBow" prob=".03" />
-      <entity name="npcSoldierGirl01SMG" prob=".03" />
-      <entity name="npcSoldierGirl01AK47" prob=".03" />
-      <entity name="npcSoldierGirl01Hunter" prob=".03" />
-      <entity name="npcSoldierGirl01Pistol" prob=".03" />
-      <entity name="npcSoldierGirl01XBow" prob=".03" />
-      <entity name="npcSoldierGirl01Bow" prob=".03" />
-      <entity name="npcSoldierDeltaSMG" prob=".03" />
+       <entity name="npcSoldierDeltaSMG" prob=".03" />
       <entity name="npcSoldierDeltaAK47" prob=".03" />
       <entity name="npcSoldierDeltaHunter" prob=".03" />
       <entity name="npcSoldierDeltaPistol" prob=".03" />
@@ -197,9 +191,6 @@
       <entity name="npcSoldierHunterEmptyHand" prob=".03" />
       <entity name="npcSoldierHunterClub" prob=".03" />
       <entity name="npcSoldierHunterKnife" prob=".03" />
-      <entity name="npcSoldierGirl01EmptyHand" prob=".03" />
-      <entity name="npcSoldierGirl01Club" prob=".03" />
-      <entity name="npcSoldierGirl01Knife" prob=".03" />
       <entity name="npcSoldierDeltaEmptyHand" prob=".03" />
       <entity name="npcSoldierDeltaClub" prob=".03" />
       <entity name="npcSoldierDeltaKnife" prob=".03" />
