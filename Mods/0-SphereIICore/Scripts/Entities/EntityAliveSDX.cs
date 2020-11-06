@@ -647,7 +647,7 @@ public class EntityAliveSDX : EntityNPC
         base.OnUpdateLive();
 
         // Allow EntityAliveSDX to get buffs from blocks
-        if (!isEntityRemote)
+        if (!isEntityRemote &&  !SingletonMonoBehaviour<ConnectionManager>.Instance.IsServer)
             updateBlockRadiusEffects();
 
         // No NPC info, don't continue
