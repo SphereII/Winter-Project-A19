@@ -110,8 +110,7 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         if (!SingletonMonoBehaviour<ConnectionManager>.Instance.IsServer)
             return;
 
-        Chunk chunk = (Chunk)((World)_world).GetChunkFromWorldPos(_blockPos);
-        TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_clrIdx, _blockPos);
+        TileEntitySign tileEntitySign = _world.GetTileEntity(_clrIdx, _blockPos) as TileEntitySign;
         if (tileEntitySign == null)
             return;
 
@@ -216,7 +215,7 @@ class BlockSpawnCubeSDX : BlockPlayerSign
     public override void OnBlockAdded(WorldBase _world, Chunk _chunk, Vector3i _blockPos, BlockValue _blockValue)
     {
         base.OnBlockAdded(_world, _chunk, _blockPos, _blockValue);
-        TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_chunk.ClrIdx, _blockPos);
+        TileEntitySign tileEntitySign = _world.GetTileEntity(_chunk.ClrIdx, _blockPos) as TileEntitySign;
         if (tileEntitySign != null)
         {
             if (this.Properties.Values.ContainsKey("Config"))
@@ -239,7 +238,7 @@ class BlockSpawnCubeSDX : BlockPlayerSign
         if (chunk == null)
             return;
 
-        TileEntitySign tileEntitySign = (TileEntitySign)_world.GetTileEntity(_cIdx, _blockPos);
+        TileEntitySign tileEntitySign = _world.GetTileEntity(_cIdx, _blockPos) as TileEntitySign;
         if (tileEntitySign == null)
         {
             tileEntitySign = new TileEntitySign(chunk);
