@@ -145,5 +145,108 @@
 		  <property name="VideoSource" value="#@modfolder:Resources/Videos.unity3d?xmasyoga" />
 		</item>		
 
+
+	   <item name="sphereiiVideosLoading">
+		  <property name="CreativeMode" value="None"/>
+		  <property name="CustomIcon" value="missingIcon"/>
+		  <property name="CustomIconTint" value="90ff90"/>
+		  <property name="HoldType" value="45"/>
+		  <property name="HoldingItemHidden" value="true"/>
+		  <property name="Meshfile" value="#@modfolder:Resources/Videos.unity3d?xmasyoga"/>
+		  <property name="DropMeshfile" value="#@modfolder:Resources/Videos.unity3d?xmasyoga"/>
+		  <property name="Material" value="MresourceScrapIron"/>
+		  <property name="Weight" value="1"/>
+		  <property name="Stacknumber" value="1"/>
+		  <!-- STK resource -->
+		  <property name="EconomicValue" value="1"/>
+		  <property name="EconomicBundleSize" value="1000"/>
+		  <property name="Group" value="Resources"/>
+		</item>	
+
+	   <item name="sphereiiVideoPlayersLoading">
+		  <property name="CreativeMode" value="None"/>
+		  <property name="CustomIcon" value="missingIcon"/>
+		  <property name="CustomIconTint" value="90ff90"/>
+		  <property name="HoldType" value="45"/>
+		  <property name="HoldingItemHidden" value="true"/>
+		  <property name="Meshfile" value="#@modfolder:Resources/VideoPlayers.unity3d?VideoPlayer_X"/>
+		  <property name="DropMeshfile" value="#@modfolder:Resources/VideoPlayers.unity3d?VideoPlayer_X"/>
+		  <property name="Material" value="MresourceScrapIron"/>
+		  <property name="Weight" value="1"/>
+		  <property name="Stacknumber" value="1"/>
+		  <!-- STK resource -->
+		  <property name="EconomicValue" value="1"/>
+		  <property name="EconomicBundleSize" value="1000"/>
+		  <property name="Group" value="Resources"/>
+		</item>	
+
+	   <item name="sphereiiCarouselLoading">
+		  <property name="CreativeMode" value="None"/>
+		  <property name="CustomIcon" value="missingIcon"/>
+		  <property name="CustomIconTint" value="90ff90"/>
+		  <property name="HoldType" value="45"/>
+		  <property name="HoldingItemHidden" value="true"/>
+		  <property name="Meshfile" value="#@modfolder:Resources/XmasCarousel.unity3d?Carousel_X"/>
+		  <property name="DropMeshfile" value="#@modfolder:Resources/XmasCarousel.unity3d?Carousel_X"/>
+		  <property name="Material" value="MresourceScrapIron"/>
+		  <property name="Weight" value="1"/>
+		  <property name="Stacknumber" value="1"/>
+		  <!-- STK resource -->
+		  <property name="EconomicValue" value="1"/>
+		  <property name="EconomicBundleSize" value="1000"/>
+		  <property name="Group" value="Resources"/>
+		</item>	
+
+	   <item name="sphereiiMusic01Loading">
+		  <property name="CreativeMode" value="None"/>
+		  <property name="CustomIcon" value="missingIcon"/>
+		  <property name="CustomIconTint" value="90ff90"/>
+		  <property name="HoldType" value="45"/>
+		  <property name="HoldingItemHidden" value="true"/>
+		  <property name="Meshfile" value="#@modfolder:Resources/ChristmasMusic.unity3d?Bethlehem"/>
+		  <property name="DropMeshfile" value="#@modfolder:Resources/ChristmasMusic.unity3d?Bethlehem"/>
+		  <property name="Material" value="MresourceScrapIron"/>
+		  <property name="Weight" value="1"/>
+		  <property name="Stacknumber" value="1"/>
+		  <!-- STK resource -->
+		  <property name="EconomicValue" value="1"/>
+		  <property name="EconomicBundleSize" value="1000"/>
+		  <property name="Group" value="Resources"/>
+		</item>	
+
+	   <item name="sphereiiMusic02Loading">
+		  <property name="CreativeMode" value="None"/>
+		  <property name="CustomIcon" value="missingIcon"/>
+		  <property name="CustomIconTint" value="90ff90"/>
+		  <property name="HoldType" value="45"/>
+		  <property name="HoldingItemHidden" value="true"/>
+		  <property name="Meshfile" value="#@modfolder:Resources/singing-bell-com.unity3d?09_Jingle-Bells-Singing-Bell"/>
+		  <property name="DropMeshfile" value="#@modfolder:Resources/singing-bell-com.unity3d?09_Jingle-Bells-Singing-Bell"/>
+		  <property name="Material" value="MresourceScrapIron"/>
+		  <property name="Weight" value="1"/>
+		  <property name="Stacknumber" value="1"/>
+		  <!-- STK resource -->
+		  <property name="EconomicValue" value="1"/>
+		  <property name="EconomicBundleSize" value="1000"/>
+		  <property name="Group" value="Resources"/>
+		</item>	
+
+	   <item name="sphereiiMusic03Loading">
+		  <property name="CreativeMode" value="None"/>
+		  <property name="CustomIcon" value="missingIcon"/>
+		  <property name="CustomIconTint" value="90ff90"/>
+		  <property name="HoldType" value="45"/>
+		  <property name="HoldingItemHidden" value="true"/>
+		  <property name="Meshfile" value="#@modfolder:Resources/ChristmasMusic2.unity3d?Dee_Yan-Key_-_02_-_Midwinter"/>
+		  <property name="DropMeshfile" value="#@modfolder:Resources/ChristmasMusic2.unity3d?Dee_Yan-Key_-_02_-_Midwinter"/>
+		  <property name="Material" value="MresourceScrapIron"/>
+		  <property name="Weight" value="1"/>
+		  <property name="Stacknumber" value="1"/>
+		  <!-- STK resource -->
+		  <property name="EconomicValue" value="1"/>
+		  <property name="EconomicBundleSize" value="1000"/>
+		  <property name="Group" value="Resources"/>
+		</item>	
+
 	</append>
 </configs>
