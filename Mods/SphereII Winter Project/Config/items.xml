@@ -826,5 +826,91 @@
       <property name="EconomicBundleSize" value="1000"/>
       <property name="Group" value="Resources"/>
     </item>
+	
+	
+    <item name="sphereiiTreeLoading">
+      <property name="CreativeMode" value="None"/>
+      <property name="CustomIcon" value="missingIcon"/>
+      <property name="CustomIconTint" value="90ff90"/>
+      <property name="HoldType" value="45"/>
+      <property name="HoldingItemHidden" value="true"/>
+      <property name="Meshfile" value="#@modfolder:Resources/WinterTrees.unity3d?Birch1_X"/>
+      <property name="DropMeshfile" value="#@modfolder:Resources/WinterTrees.unity3d?Birch1_X"/>
+      <property name="Material" value="MresourceScrapIron"/>
+      <property name="Weight" value="1"/>
+      <property name="Stacknumber" value="1"/>
+      <!-- STK resource -->
+      <property name="EconomicValue" value="1"/>
+      <property name="EconomicBundleSize" value="1000"/>
+      <property name="Group" value="Resources"/>
+    </item>	
+	
+    <item name="sphereiiDecoLoading">
+      <property name="CreativeMode" value="None"/>
+      <property name="CustomIcon" value="missingIcon"/>
+      <property name="CustomIconTint" value="90ff90"/>
+      <property name="HoldType" value="45"/>
+      <property name="HoldingItemHidden" value="true"/>
+      <property name="Meshfile" value="#@modfolder:Resources/XmasDeco.unity3d?SnowBlock_X"/>
+      <property name="DropMeshfile" value="#@modfolder:Resources/XmasDeco.unity3d?SnowBlock_X"/>
+      <property name="Material" value="MresourceScrapIron"/>
+      <property name="Weight" value="1"/>
+      <property name="Stacknumber" value="1"/>
+      <!-- STK resource -->
+      <property name="EconomicValue" value="1"/>
+      <property name="EconomicBundleSize" value="1000"/>
+      <property name="Group" value="Resources"/>
+    </item>		
+	
+    <item name="sphereiiFogLoading">
+      <property name="CreativeMode" value="None"/>
+      <property name="CustomIcon" value="missingIcon"/>
+      <property name="CustomIconTint" value="90ff90"/>
+      <property name="HoldType" value="45"/>
+      <property name="HoldingItemHidden" value="true"/>
+      <property name="Meshfile" value="#@modfolder:Resources/SnowFog.unity3d?SnowLow"/>
+      <property name="DropMeshfile" value="#@modfolder:Resources/SnowFog.unity3d?SnowLow"/>
+      <property name="Material" value="MresourceScrapIron"/>
+      <property name="Weight" value="1"/>
+      <property name="Stacknumber" value="1"/>
+      <!-- STK resource -->
+      <property name="EconomicValue" value="1"/>
+      <property name="EconomicBundleSize" value="1000"/>
+      <property name="Group" value="Resources"/>
+    </item>			
+	
+    <item name="sphereiiPostersLoading">
+      <property name="CreativeMode" value="None"/>
+      <property name="CustomIcon" value="missingIcon"/>
+      <property name="CustomIconTint" value="90ff90"/>
+      <property name="HoldType" value="45"/>
+      <property name="HoldingItemHidden" value="true"/>
+      <property name="Meshfile" value="#@modfolder:Resources/XmasMoviePosters.unity3d?PosterInfo01"/>
+      <property name="DropMeshfile" value="#@modfolder:Resources/XmasMoviePosters.unity3d?PosterInfo01"/>
+      <property name="Material" value="MresourceScrapIron"/>
+      <property name="Weight" value="1"/>
+      <property name="Stacknumber" value="1"/>
+      <!-- STK resource -->
+      <property name="EconomicValue" value="1"/>
+      <property name="EconomicBundleSize" value="1000"/>
+      <property name="Group" value="Resources"/>
+    </item>	
+   <item name="sphereiiRallyflagsLoading">
+      <property name="CreativeMode" value="None"/>
+      <property name="CustomIcon" value="missingIcon"/>
+      <property name="CustomIconTint" value="90ff90"/>
+      <property name="HoldType" value="45"/>
+      <property name="HoldingItemHidden" value="true"/>
+      <property name="Meshfile" value="#@modfolder:Resources/RallyFlags.unity3d?rally_pointprefab_X"/>
+      <property name="DropMeshfile" value="#@modfolder:Resources/RallyFlags.unity3d?rally_pointprefab_X"/>
+      <property name="Material" value="MresourceScrapIron"/>
+      <property name="Weight" value="1"/>
+      <property name="Stacknumber" value="1"/>
+      <!-- STK resource -->
+      <property name="EconomicValue" value="1"/>
+      <property name="EconomicBundleSize" value="1000"/>
+      <property name="Group" value="Resources"/>
+    </item>	
+
   </append>
 </configs>
