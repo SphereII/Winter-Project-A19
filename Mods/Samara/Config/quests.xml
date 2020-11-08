@@ -52,6 +52,8 @@
       <objective type="TreasureChest">
         <property name="block" value="SamaraChest"/>
         <property name="distance" value="500-750"/>
+        <property name="nav_object" value="treasure" />
+        <property name="direct_nav_object" value="treasure_direct" />
       </objective>
       <action type="GiveCVarBuffSDX, Mods" id="quest_Samara_Diary" value="1" />
       <action type="GiveCVarBuffSDX, Mods" id="buffCursedPictures" value="0" />
@@ -74,6 +76,8 @@
       <objective type="TreasureChest" phase="1">
         <property name="block" value="SamaraWell"/>
         <property name="distance" value="1000-2000"/>
+        <property name="nav_object" value="treasure" />
+        <property name="direct_nav_object" value="treasure_direct" />
       </objective>
 
       <action type="GiveCVarBuffSDX, Mods" id="SamaraBodyFound" value="1" />

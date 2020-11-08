@@ -95,8 +95,9 @@
     <property name="MultiBlockDim" value="1,14,1"/>
   </append>
   -->
-  
-  
+
+
+
   <set xpath="/blocks/block[@name='treeMaster']/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?Tree3_X</set>
   <append xpath="/blocks/block[starts-with( @name, 'treeMaster')]" >
     <property name="MultiBlockDim" value="1,12,1"/>
@@ -113,7 +114,7 @@
     <property name="MultiBlockDim" value="1,18,1"/>
   </append>
 
-  <set xpath="/blocks/block[starts-with( @name, 'treeWinter')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X</set>
+  <set xpath="/blocks/block[starts-with( @name, 'treeWinter')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?Birch1_X</set>
   <remove xpath="/blocks/block[starts-with( @name, 'treeWinter')]/property[@name='MultiBlockDim']" />
   <append xpath="/blocks/block[starts-with( @name, 'treeWinter')]" >
     <property name="MultiBlockDim" value="1,18,1"/>
@@ -143,10 +144,10 @@
     <property name="MultiBlockDim" value="1,14,1"/>
   </append>
 
-  <set xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X</set>
+  <set xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?Birch2_X</set>
   <remove xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]/property[@name='MultiBlockDim']" />
   <append xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]" >
-    <property name="MultiBlockDim" value="1,18,1"/>
+    <property name="MultiBlockDim" value="1,14,1"/>
   </append>
   <!-- Block values are just left here-->
   <append xpath="/blocks">
