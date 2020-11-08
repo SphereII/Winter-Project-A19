@@ -223,9 +223,6 @@
     <entity_class name="NPCAnimalWolfhound" extends="NPCAnimalMeleeTemplate">
       <property name="Tags" value="entity,cp,animal,npc,NPCAnimalWolfhound"/>
       <property name="Faction" value="whiteriver"/>
-      <property name="Prefab" value="NPC"/>
-      <property name="Class" value="EntityAnimalStag"/>
-      <property name="PhysicsBody" value="Goat"/>
       <property name="ExperienceGain" value="130"/>
       <property name="HasRagdoll" value="true"/>
       <property name="HasDeathAnim" value="true"/>
