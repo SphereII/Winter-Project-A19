@@ -250,6 +250,9 @@
     </block>
     <block name="treePlant02">
       <property name="Extends" value="poinsettia" />
+		<drop event="Destroy" count="0" />
+      <drop event="Destroy" name="resourceClay" count="1,2" prob="1" />
+      <drop event="Harvest" name="resourceClay" count="3" tool_category="harvestingTools" />
     </block>
     <!-- Snow Fog Particles-->
     <block name="snowFog">
