@@ -362,7 +362,7 @@
 
 
     <buff name="buffCursedSamaraMorgan" name_key="Samara Morgan" icon="ui_game_symbol_destruction2" remove_on_death="false" hidden="false">
-      <duration value="60"/>
+      <duration value="25200"/>
       <stack_type value="replace"/>
       <effect_group name="Cursed from Screamers">
         <triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffCursed"/>
