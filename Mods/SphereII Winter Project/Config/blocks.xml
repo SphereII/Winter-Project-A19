@@ -244,16 +244,16 @@
       <property name="Collide" value="movement,melee,bullet,arrow,rocket" />
       <property name="DescriptionKey" value="poinsettia" />
       <drop event="Destroy" count="0" />
-      <drop event="Destroy" name="resourceClay" count="1,2" prob="1" />
-      <drop event="Harvest" name="resourceClay" count="3" tool_category="harvestingTools" />
+      <drop event="Destroy" name="resourceClayLump" count="1,2" prob="1" />
+      <drop event="Harvest" name="resourceClayLump" count="3" tool_category="harvestingTools" />
       <property name="CanPlayersSpawnOn" value="false" />
       <property name="ParticleOnDeath" value="treeGib_small_dust" />
     </block>
     <block name="treePlant02">
       <property name="Extends" value="poinsettia" />
 		<drop event="Destroy" count="0" />
-      <drop event="Destroy" name="resourceClay" count="1,2" prob="1" />
-      <drop event="Harvest" name="resourceClay" count="3" tool_category="harvestingTools" />
+      <drop event="Destroy" name="resourceClayLump" count="1,2" prob="1" />
+      <drop event="Harvest" name="resourceClayLump" count="3" tool_category="harvestingTools" />
     </block>
     <!-- Snow Fog Particles-->
     <block name="snowFog">
