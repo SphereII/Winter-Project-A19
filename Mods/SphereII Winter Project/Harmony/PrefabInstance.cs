@@ -49,7 +49,12 @@ public class SphereII_WinterProject
         {
 
 
-            if (_pi.prefab.size.y < 10)
+            if (_pi.prefab.size.y < 11)
+                return false;
+
+            // Prefabs with too great of an offset should be removed.
+            // Example: Size y size 30 with an offset of -25 would only be 5 above terrain; not visible.
+            if (_pi.prefab.size.y - Math.Abs(_pi.prefab.yOffset) < 11)
                 return false;
 
             if (_pi.prefab.PrefabName.Contains("trader_hugh"))

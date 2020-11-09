@@ -4,10 +4,10 @@
     <Name value="SphereII Legacy Distant Terrain" />
     <Description value="Re-enables Legacy Distant Terrain" />
     <Author value="sphereii" />
-    <Version value="19.2.1.472" compat="A19e" />
+    <Version value="19.2.1.479" compat="A19e" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="739e5c0a53f14f4fc2ceb3d3954e1324">
+  <DMT Hash="9806db68021e1ff9c8d90e034da600bd">
     <dependencies />
     <conflicts />
   </DMT>
