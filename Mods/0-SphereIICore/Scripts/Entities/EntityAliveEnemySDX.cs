@@ -26,7 +26,7 @@ public class EntityAliveEnemySDX : EntityEnemy
 
     public System.Random random = new System.Random();
 
-    private readonly bool blDisplayLog = true;
+    private readonly bool blDisplayLog = false;
     public void DisplayLog(String strMessage)
     {
         if (blDisplayLog && !IsDead())
