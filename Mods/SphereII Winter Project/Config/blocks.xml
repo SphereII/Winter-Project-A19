@@ -8,8 +8,8 @@
   <set xpath="/blocks/block[@name='ConfigFeatureBlock']/property[@class='FoodSpoilage']/property[@name='Logging']/@value">false</set>
 
   <append xpath="/blocks/block[@name='ConfigFeatureBlock']/property[@class='FoodSpoilage']" >
-      <property name="FullStackSpoil" value="true" />
- </append>>
+    <property name="FullStackSpoil" value="true" />
+  </append>>
 
   <set xpath="/blocks/block[@name='questRallyMarker']/property[@name='Model']/@value">#@modfolder:Resources/RallyFlags.unity3d?rally_pointprefab_X</set>
   <append xpath="/blocks/block[@name='questRallyMarker']">
@@ -58,26 +58,21 @@
 
   </insertAfter>
 -->
-	<append xpath="/blocks/block[@name='bed01']">
-		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
-	</append>
-	<append xpath="/blocks/block[@name='bed02']">
-		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
-	</append>
-	<append xpath="/blocks/block[@name='bunkBedMade']">
-		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
-	</append>
-	<append xpath="/blocks/block[@name='bunkBedMessy']">
-		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
-	</append>
-	<append xpath="/blocks/block[@name='bunkBedMattress']">
-		<property name="BuffsWhenWalkedOn" value="buffsmallBed"/>
-		<property name="BuffsWhenWalkedOn" value="BedTerrors"/> 
-	</append>	
+  <append xpath="/blocks/block[@name='bed01']">
+    <property name="BuffsWhenWalkedOn" value="buffsmallBed;BedTerrors"/>
+  </append>
+  <append xpath="/blocks/block[@name='bed02']">
+    <property name="BuffsWhenWalkedOn" value="buffsmallBed;BedTerrors"/>
+  </append>
+  <append xpath="/blocks/block[@name='bunkBedMade']">
+    <property name="BuffsWhenWalkedOn" value="buffsmallBed;BedTerrors"/>
+  </append>
+  <append xpath="/blocks/block[@name='bunkBedMessy']">
+    <property name="BuffsWhenWalkedOn" value="buffsmallBed;BedTerrors"/>
+  </append>
+  <append xpath="/blocks/block[@name='bunkBedMattress']">
+    <property name="BuffsWhenWalkedOn" value="buffsmallBed;BedTerrors"/>
+  </append>
   <!-- remove drops to reduce index errors -->
   <remove xpath="/blocks/block[@name='terrSnow']/drop[@event='Fall']" />
 
@@ -87,7 +82,7 @@
     <property name="PassThroughDamage" value="true"/>
 
   </append>
-  
+
   <!-- This replaces all the blocks that start with tree, then we'll further adjust them later 
   <set xpath="/blocks/block[starts-with( @name, 'tree')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?Birch2_X</set>
   <remove xpath="/blocks/block[starts-with( @name, 'tree')]/property[@name='MultiBlockDim']" />
@@ -147,94 +142,94 @@
   <set xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X</set>
   <remove xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]/property[@name='MultiBlockDim']" />
   <append xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]" >
-    <property name="MultiBlockDim" value="1,14,1"/>
+    <property name="MultiBlockDim" value="1,18,1"/>
   </append>
   <!-- Block values are just left here-->
   <append xpath="/blocks">
     <block name="WinterBirch1">
-			<property name="Extends" value="treeMaster"/>
-			<property name="Material" value="MtreeWoodFull"/>
-			<property name="Shape" value="DistantDecoTree"/>
-			<property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Birch1_X"/>
-			<property name="ModelOffset" value="0,-0.5,0"/>
-			<property name="MultiBlockDim" value="1,18,1"/>
-			<property name="BigDecorationRadius" value="4"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
-			<drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
-			<property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
-			<property name="SortOrder2" value="0300"/> 
-		</block> 
-		<block name="WinterBirch2">
-			<property name="Extends" value="treeMaster"/>
-			<property name="Material" value="MtreeWoodFull"/>
-			<property name="Shape" value="DistantDecoTree"/>
-			<property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Birch2_X"/>
-			<property name="ModelOffset" value="0,-0.5,0"/>
-			<property name="MultiBlockDim" value="1,14,1"/>
-			<property name="BigDecorationRadius" value="4"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
-			<drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
-			<property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
-			<property name="SortOrder2" value="0300"/> 
-		</block> 
-		<block name="WinterPine1">
-			<property name="Extends" value="treeMaster"/>
-			<property name="Material" value="MtreeWoodFull"/>
-			<property name="Shape" value="DistantDecoTree"/>
-			<property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X"/>
-			<property name="ModelOffset" value="0,-0.5,0"/>
-			<property name="MultiBlockDim" value="1,18,1"/>
-			<property name="BigDecorationRadius" value="4"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
-			<drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
-			<property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
-			<property name="SortOrder2" value="0300"/> 
-		</block> 
-		<block name="WinterPine2">
-			<property name="Extends" value="treeMaster"/>
-			<property name="Material" value="MtreeWoodFull"/>
-			<property name="Shape" value="DistantDecoTree"/>
-			<property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?PineTree2_X"/>
-			<property name="ModelOffset" value="0,-0.5,0"/>
-			<property name="MultiBlockDim" value="1,12,1"/>
-			<property name="BigDecorationRadius" value="4"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
-			<drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
-			<property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
-			<property name="SortOrder2" value="0300"/> 
-		</block> 
-		<block name="WinterTree3">
-			<property name="Extends" value="treeMaster"/>
-			<property name="Material" value="MtreeWoodFull"/>
-			<property name="Shape" value="DistantDecoTree"/>
-			<property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Tree3_X"/>
-			<property name="ModelOffset" value="0,-0.5,0"/>
-			<property name="MultiBlockDim" value="1,12,1"/>
-			<property name="BigDecorationRadius" value="4"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
-			<drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
-			<property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
-			<property name="SortOrder2" value="0300"/> 
-		</block> 
-		<block name="WinterTree5">
-			<property name="Extends" value="treeMaster"/>
-			<property name="Material" value="MtreeWoodFull"/>
-			<property name="Shape" value="DistantDecoTree"/>
-			<property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Tree5_X"/>
-			<property name="ModelOffset" value="0,-0.5,0"/>
-			<property name="MultiBlockDim" value="1,16,1"/>
-			<property name="BigDecorationRadius" value="4"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
-			<drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
-			<property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
-			<property name="SortOrder2" value="0300"/> 
-		</block>
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Birch1_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,18,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
+    <block name="WinterBirch2">
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Birch2_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,14,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
+    <block name="WinterPine1">
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,18,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
+    <block name="WinterPine2">
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?PineTree2_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,12,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
+    <block name="WinterTree3">
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Tree3_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,12,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
+    <block name="WinterTree5">
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Tree5_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,16,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
     <block name="poinsettia">
       <property name="CustomIcon" value="poinsettia" />
       <property name="Material" value="Mwood_weak" />
@@ -251,7 +246,7 @@
     </block>
     <block name="treePlant02">
       <property name="Extends" value="poinsettia" />
-		<drop event="Destroy" count="0" />
+      <drop event="Destroy" count="0" />
       <drop event="Destroy" name="resourceClayLump" count="1,2" prob="1" />
       <drop event="Harvest" name="resourceClayLump" count="3" tool_category="harvestingTools" />
     </block>
@@ -381,8 +376,8 @@
       <property name="SortOrder1" value="d0k0"/>
       <property name="SortOrder2" value="0050"/>
       <property name="DisplayType" value="blockTerrainFertile"/>
-      
-     
+
+
       <property name="Class" value="TrapDoor"/>
       <property name="TriggerDelay" value="0.1"/>
       <property name="TriggerSound" value="bullethitsnow"/>
@@ -416,5 +411,5 @@
       <drop event="Fall" name="terrSnow" count="1" prob="0.1" stick_chance="1"/>
       <drop event="Fall" name="resourceSnowBall" count="10" prob="0.187" stick_chance="0"/>
     </block>
-	</append>
+  </append>
 </configs>
