@@ -2,10 +2,10 @@
 
 <configs>
 
-	<remove xpath="/root/content/property[143]" />
+<!--	<remove xpath="/root/content/property[143]" />
 
 	<append xpath="/root/content">
 	    <property type="SingleClip" name="HomeDay" source ="Sounds/AudioSource_Home" sections="HomeDay" path="#@modfolder:Resources/testsong.unity3d?Arabesque"/>
-	</append>
+	</append> -->
 	
 </configs>
