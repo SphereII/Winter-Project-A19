@@ -201,6 +201,11 @@ public static class SphereII_CaveTunneler
             int x = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
             int z = GameManager.Instance.World.GetGameRandom().RandomRange(0, 16);
             int height = (int)chunk.GetHeight(x, z);
+            if ( height < 20 )
+            {
+                // Chunk is too shallow here.
+                continue;
+            }
             int y = _random.RandomRange(10, Math.Abs(height - 15));
 
             Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
