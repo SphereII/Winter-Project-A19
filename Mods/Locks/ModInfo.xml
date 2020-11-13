@@ -4,7 +4,7 @@
     <Name value="Locks" />
     <Description value="Locks - Locks for the LockPicking minigame enabled in Sphereii's Core" />
     <Author value="Xyth/SphereII/Mumpfy" />
-    <Version value="19.2.0.13" />
+    <Version value="19.2.0.1" />
   </ModInfo>
   <DMT Hash="7bcf9ed5ef16774933d7314bcd4d65a0">
     <dependencies>

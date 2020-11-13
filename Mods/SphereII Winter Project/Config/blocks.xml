@@ -144,6 +144,14 @@
   <append xpath="/blocks/block[starts-with( @name, 'treeFirLrg01')]" >
     <property name="MultiBlockDim" value="1,18,1"/>
   </append>
+
+
+<!-- cactus filter-->
+  <set xpath="/blocks/block[starts-with( @name, 'treeCactus')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X</set>
+  <remove xpath="/blocks/block[starts-with( @name, 'treeCactus')]/property[@name='MultiBlockDim']" />
+  <append xpath="/blocks/block[starts-with( @name, 'treeCactus')]" >
+    <property name="MultiBlockDim" value="1,18,1"/>
+  </append>
   <!-- Block values are just left here-->
   <append xpath="/blocks">
     <block name="WinterBirch1">
