@@ -206,10 +206,19 @@ public static class SphereII_CaveTunneler
                 // Chunk is too shallow here.
                 continue;
             }
-            int y = _random.RandomRange(10, Math.Abs(height - 15));
+
+            int Max = height - 15;
+            if (Max < 1)
+                Max = 20;
+
+            int y = _random.RandomRange(0, Max);
+
+            if (y < 10)
+                y = 10;
 
             Vector3i destination = chunk.ToWorldPos(new Vector3i(x, y, z));
             //Debug.Log("Placing POI: " + chunk.GetHashCode() + " at " + destination + " MaxPrefab: " + MaxPrefab + " Current: " + a);
+
 
             // Decide what kind of prefab to spawn in.
             String strPOI;

@@ -512,6 +512,9 @@
     <Content Include="Mods\JaxTeller718_IncreasedBiomeZombiesx4\ModInfo.xml" />
     <Content Include="Mods\JaxTeller718_WanderingHordes\Config\gamestages.xml" />
     <Content Include="Mods\JaxTeller718_WanderingHordes\ModInfo.xml" />
+    <Content Include="Mods\KHA19-HPBars\Config\XUi\windows.xml" />
+    <Content Include="Mods\KHA19-HPBars\Config\XUi\xui.xml" />
+    <Content Include="Mods\KHA19-HPBars\ModInfo.xml" />
     <Content Include="Mods\Locks\Config\items.xml" />
     <Content Include="Mods\Locks\ModInfo.xml" />
     <Content Include="Mods\Riles-HUDPlus\Config\XUi\windows.xml" />
@@ -676,6 +679,8 @@
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\snowShovel.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\tinfoil.png" />
     <Content Include="Mods\SphereII Winter Project\UIAtlases\ItemIconAtlas\xmasPoster.png" />
+    <Content Include="Mods\Teleport\Config\blocks.xml" />
+    <Content Include="Mods\Teleport\ModInfo.xml" />
     <Content Include="Mods\winter zeds blue\Config\blocks.xml" />
     <Content Include="Mods\winter zeds blue\Config\entityclasses.xml" />
     <Content Include="Mods\winter zeds blue\ModInfo.xml" />
@@ -904,8 +909,8 @@
     <Compile Include="Mods\Samara\Scripts\SamaraWell.cs" />
     <Compile Include="Mods\SphereII Legacy Distant Terrain\Harmony\LegacyDistantTerrain.cs" />
     <Compile Include="Mods\SphereII Winter Project Menu\Harmony\Harmony.cs" />
-    <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance - Copy.cs" />
     <Compile Include="Mods\SphereII Winter Project\Harmony\PrefabInstance.cs" />
+    <Compile Include="Mods\Teleport\Scripts\BlockTeleportDMT.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
