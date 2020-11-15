@@ -37,7 +37,41 @@ Special thanks goes to Mumpfy for his texturing work.
 			</Downloads>
 		</Server>
 
-  
+   <Server Name="Winterween 19.3" Logo="">
+      <Description>
+        Recommended: 12G of RAM or higher.
+        Required: Alpha 19.3 (experimental)
+
+        Welcome to the Winterween Project by sphereii and xyth, the unholy combination of Winter Project and the ancient Valoween!
+
+        Not wanting to miss an alpha, we've combined two of the most dramatic mods into a single mod for Alpha 19.
+
+        Steel your nerves. Steady your hands. Keep your wits about you, and you just may survive Winterween...
+
+        We invite you to once more explore a special sphereii-mental release, and challenge yourself to unlock its secrets.
+
+        Thank you to the following Modlet creators who helped shape out the world with their modlets:
+        JaxTeller718 for his increased biome zombies, and wandering hordes.	Riles for Riles' HUD Plus UI
+        Ragsy for the custom vehicle.
+
+        Special thanks goes to Mumpfy for his texturing work.
+
+      </Description>
+      <Version>Latest</Version>
+      <RSS/>
+      <Excludes>
+        <Exclude>7DaysToDieServer_Data\</Exclude>
+        <Exclude>\obj\</Exclude>
+        <Exclude>\bin\</Exclude>
+        <Exclude>\.vs\</Exclude>
+      </Excludes>
+      <ReleaseNotes/>
+      <DownloadMode>Clone</DownloadMode>
+      <Downloads>
+        <Download>https://github.com/SphereII/Winter-Project-A19/tree/19.3e</Download>
+        <Download>https://gitlab.com/sphereii/winterween</Download>
+      </Downloads>
+    </Server>
 	</ServerGroup>
 
 </Servers>
