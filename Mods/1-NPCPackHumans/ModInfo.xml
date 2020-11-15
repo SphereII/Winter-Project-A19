@@ -4,7 +4,7 @@
     <Name value="1-NPCPackHumans" />
     <Description value="Extends 0-CreaturePacksHuman with DMT added functionality" />
     <Author value="XythCommunityProject" />
-    <Version value="19.2.0.1" />
+    <Version value="19.3.1.1" />
     <Website value="" />
   </ModInfo>
   <DMT Hash="ad20831fa6e0cffef6268550b65b3c2d">

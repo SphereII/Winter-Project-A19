@@ -211,6 +211,14 @@ public static class SphereII_CaveTunneler
             if (Max < 1)
                 Max = 20;
 
+            int SanityCheck = (Max - 10) + 10;
+            if ( SanityCheck <= 0 )
+            {
+                Debug.Log("\t*************************");
+                Debug.Log("\t Sanity Check Failed for Random Range");
+                Debug.Log("\t Chunk: " + chunk.GetHashCode());
+                Debug.Log("\t Chunk Height: " + Max);
+            }
             int y = _random.RandomRange(0, Max);
 
             if (y < 10)

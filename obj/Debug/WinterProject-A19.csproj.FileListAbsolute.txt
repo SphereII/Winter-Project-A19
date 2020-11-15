@@ -7,3 +7,7 @@ D:\Github\Winter-Project-A19\Mods\0-SphereIICore\Scripts\UnityEngine.InputLegacy
 D:\Github\Winter-Project-A19\obj\Debug\WinterProject-A19.csproj.CopyComplete
 D:\Github\Winter-Project-A19\obj\Debug\Mods.dll
 D:\Github\Winter-Project-A19\obj\Debug\Mods.pdb
+C:\Users\Jeff\Documents\GitHub\Winter-Project-A19\obj\Debug\WinterProject-A19.csprojAssemblyReference.cache
+C:\Users\Jeff\Documents\GitHub\Winter-Project-A19\obj\Debug\WinterProject-A19.csproj.CoreCompileInputs.cache
+C:\Users\Jeff\Documents\GitHub\Winter-Project-A19\obj\Debug\Mods.dll
+C:\Users\Jeff\Documents\GitHub\Winter-Project-A19\obj\Debug\Mods.pdb
