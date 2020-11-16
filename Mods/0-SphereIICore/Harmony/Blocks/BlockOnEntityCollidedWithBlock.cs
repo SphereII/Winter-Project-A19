@@ -25,6 +25,8 @@ public class SphereII_Blocks_OnEntityCollidedWithBlock
     {
         public static void Postfix(ref Block __instance)
         {
+            if (__instance == null)
+                return;
             // Check if the destructable tag is on the block, which triggers the ONEntityCollidedWithBlock
             if (__instance.FilterTags != null && __instance.FilterTags.ContainsCaseInsensitive(DestructableTag))
                 __instance.IsCheckCollideWithEntity = true;
