@@ -146,12 +146,48 @@
   </append>
 
 
-<!-- cactus filter-->
-  <set xpath="/blocks/block[starts-with( @name, 'treeCactus')]/property[@name='Model']/@value">#@modfolder:Resources/WinterTrees.unity3d?PineTree1_X</set>
-  <remove xpath="/blocks/block[starts-with( @name, 'treeCactus')]/property[@name='MultiBlockDim']" />
-  <append xpath="/blocks/block[starts-with( @name, 'treeCactus')]" >
-    <property name="MultiBlockDim" value="1,18,1"/>
-  </append>
+  <remove xpath="/blocks/block[starts-with(@name, 'treeCactus')]" />
+  <insertBefore xpath="/blocks/block[@name='treeSnowyGrassDiagonal']">
+    <block name="treeCactus01">
+      <property name="Extends" value="treeMaster"/>
+      <property name="Material" value="MtreeWoodFull"/>
+      <property name="Shape" value="DistantDecoTree"/>
+      <property name="Model" value="#@modfolder:Resources/WinterTrees.unity3d?Birch2_X"/>
+      <property name="ModelOffset" value="0,-0.5,0"/>
+      <property name="MultiBlockDim" value="1,14,1"/>
+      <property name="BigDecorationRadius" value="4"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <drop event="Harvest" name="resourceWood" count="150" tag="oreWoodHarvest"/>
+      <drop event="Destroy" name="treePlantedMountainPine1m" count="2"/>
+      <property name="ParticleOnDeath" value="treeGib_burnt_75m"/>
+      <property name="SortOrder2" value="0300"/>
+    </block>
+
+    <block name="treeCactus02">
+      <property name="Extends" value="treeCactus01"/>
+   
+    </block>
+
+    <block name="treeCactus03">
+      <property name="Extends" value="treeCactus01"/>
+  
+    </block>
+
+    <block name="treeCactus04">
+      <property name="Extends" value="treeCactus01"/>
+   
+    </block>
+
+    <block name="treeCactus05">
+      <property name="Extends" value="treeCactus01"/>
+   
+    </block>
+
+    <block name="treeCactus06">
+      <property name="Extends" value="treeCactus01"/>
+    </block>
+  </insertBefore>
+
   <!-- Block values are just left here-->
   <append xpath="/blocks">
     <block name="WinterBirch1">
