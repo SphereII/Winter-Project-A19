@@ -79,7 +79,7 @@ public class SphereII_WinterProject
         {
             if (__result)
             {
-                if (!__instance.PrefabName.Contains("trader_hugh"))
+                if (!__instance.PrefabName.Contains("trader_hugh2"))
                 {
                     __instance.bTraderArea = false;
                     __instance.bExcludeDistantPOIMesh = true;

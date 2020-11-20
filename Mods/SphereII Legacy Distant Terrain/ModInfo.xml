@@ -7,7 +7,7 @@
     <Version value="19.2.1.1" compat="A19e" />
     <Website value="" />
   </ModInfo>
-  <DMT Hash="546fc43b2e403b081e553d8bf34f4b37">
+  <DMT Hash="fc9c64da633c2892610d6fa1f698a641">
     <dependencies />
     <conflicts />
   </DMT>

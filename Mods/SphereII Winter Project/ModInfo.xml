@@ -7,7 +7,7 @@
     <Version value="19.2.1.1" />
     <Website value="http://sdxmods.com" />
   </ModInfo>
-  <DMT Hash="b3e4dee9bcf37f0ae249148302dcf5e7">
+  <DMT Hash="28d1bd49ce48ddac138773f57978de3b">
     <dependencies>
       <dependancy>0-SphereIICore</dependancy>
     </dependencies>

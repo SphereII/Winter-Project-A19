@@ -14,7 +14,7 @@ class BlockSpawnCubeSDX : BlockPlayerSign
 
 };
 
-   
+
     public override bool OnBlockActivated(int _indexInBlockActivationCommands, WorldBase _world, int _cIdx, Vector3i _blockPos, BlockValue _blockValue, EntityAlive _player)
     {
         if (_blockValue.ischild)
@@ -149,6 +149,21 @@ class BlockSpawnCubeSDX : BlockPlayerSign
             String Task = GetValue(signText, "task");
             String PathingCode = GetValue(signText, "pc");
 
+            // Set up a throttle time
+            String ThrottleTime = GetValue(signText, "time");
+
+            // Default the float throttle time to be in the past; this will get updated if its parsed correctly.
+            float throttleTime = GameManager.Instance.World.GetWorldTime() + 100;
+            if (!String.IsNullOrEmpty(ThrottleTime))
+                throttleTime = StringParsers.ParseFloat(ThrottleTime);
+
+            if ( throttleTime <= 0 )
+                throttleTime = GameManager.Instance.World.GetWorldTime() + 100;
+
+            if (throttleTime > GameManager.Instance.World.GetWorldTime())
+            {
+                return;
+            }
             // If the class is empty, check to see if we have a group to spawn from.
             if (String.IsNullOrEmpty(entityClass))
             {
@@ -192,6 +207,7 @@ class BlockSpawnCubeSDX : BlockPlayerSign
 
             // Update the sign with the new entity ID.
             String newSign = SetValue(signText, "entityid", myEntity.entityId.ToString());
+            newSign = SetValue(signText, "time", (GameManager.Instance.World.GetWorldTime() + 5000).ToString());
             tileEntitySign.SetText(newSign);
 
             GameManager.Instance.World.SpawnEntityInWorld(myEntity);
