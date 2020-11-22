@@ -26,9 +26,13 @@
 	<append xpath="/entity_classes/entity_class[@name='npcTraderTemplate']">
 		<effect_group name="Backaway or Die bandit">
 			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" buff="buffTraderTrigger"/>
+			<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="other" buff="buffShocked"/>
+			<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="50"/>
+			<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
 		</effect_group>
 	</append>
-
+	<remove xpath="/entity_classes/entity_class[@name='npcTraderTemplate']/property[@name='AITask-1']" />
+	<remove xpath="/entity_classes/entity_class[@name='npcTraderTemplate']/property[@name='AITarget-1']" />
 
 	<append xpath="/entity_classes">
 	
