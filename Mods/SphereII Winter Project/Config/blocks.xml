@@ -11,10 +11,12 @@
     <property name="FullStackSpoil" value="true" />
   </append>>
 
+<!--
   <set xpath="/blocks/block[@name='questRallyMarker']/property[@name='Model']/@value">#@modfolder:Resources/RallyFlags.unity3d?rally_pointprefab_X</set>
+  -->
   <append xpath="/blocks/block[@name='questRallyMarker']">
     <!-- Flag model by s.probka is licensed under CC Attribution  -->
-    <property name="MultiBlockDim" value="1,9,1"/>
+    <!--<property name="MultiBlockDim" value="1,2,1"/>-->
     <property name="ModelOffset" value="0,8,0" />
     <property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>
   </append>
