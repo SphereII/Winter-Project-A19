@@ -37,7 +37,7 @@ Special thanks goes to Mumpfy for his texturing work.
 			</Downloads>
 		</Server>
 
-   <Server Name="Winterween 19.3" Logo="">
+    <Server Name="Winterween 19.3" Logo="">
       <Description>
         Recommended: 12G of RAM or higher.
         Required: Alpha 19.3 (experimental)
@@ -66,12 +66,17 @@ Special thanks goes to Mumpfy for his texturing work.
         <Exclude>\.vs\</Exclude>
       </Excludes>
       <ReleaseNotes/>
+	  <Discord>https://discord.gg/H6k6gDrgNW</Discord>
+	  <Website>https://7d2dmodlauncher.org</Website>
+	  <Twitter>https://twitter.com/SphereII</Twitter>
+	  <Donate></Donate>
       <DownloadMode>Clone</DownloadMode>
       <Downloads>
         <Download>https://github.com/SphereII/Winter-Project-A19?Branch=19.3e</Download>
         <Download>https://gitlab.com/sphereii/winterween</Download>
       </Downloads>
     </Server>
+  
 	</ServerGroup>
 
 </Servers>
