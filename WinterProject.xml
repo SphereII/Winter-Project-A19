@@ -117,6 +117,31 @@ Special thanks goes to Mumpfy for his texturing work.
       </Downloads>
     </Server>
   
+  
+   <Server Name="Testing" Logo="">
+      <Description>
+Do not use. Seriously. Nothing is here. 
+      </Description>
+      <Version>Latest</Version>
+      <RSS/>
+      <Excludes>
+        <Exclude>7DaysToDieServer_Data\</Exclude>
+        <Exclude>\obj\</Exclude>
+        <Exclude>\bin\</Exclude>
+        <Exclude>\.vs\</Exclude>
+      </Excludes>
+      <ReleaseNotes/>
+	  <Discord>https://discord.gg/H6k6gDrgNW</Discord>
+	  <Website>https://7d2dmodlauncher.org</Website>
+	  <Twitter>https://twitter.com/SphereII</Twitter>
+	  <Donate></Donate>
+      <DownloadMode>Clone</DownloadMode>
+      <Downloads>
+        <Download Version="alpha19.4">https://github.com/SphereII/Winter-Project-A19?Branch=alpha19.4</Download>
+        <Download Version="alpha19.3">https://github.com/SphereII/Winter-Project-A19?Branch=19.3e</Download>
+        <Download>https://gitlab.com/sphereii/winterween</Download>
+      </Downloads>
+    </Server>
 	</ServerGroup>
 
 </Servers>
