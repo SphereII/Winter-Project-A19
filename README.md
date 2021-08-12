@@ -14,7 +14,7 @@ Recommended: 12G of RAM or higher.
 
 Special thanks goes to Mumpfy for his texturing work.
 
-
+Version: alpha19.3
 
 Installation Instructions:
 
